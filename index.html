@@ -283,15 +283,24 @@ function renderFearGreed(fg){
   setText('cnn_tot', score, col); setText('cnn_tot_r', cnnLabel(score), col); setSig('cnn_tot_s', cnnSig(score));
   setText('m_fg', score, col); setText('m_fgt', cnnLabel(score), col);
   setTicker(['tk_fg','tk_fg2'], score + ' ' + cnnLabel(score), col);
-  if(fg.previousWeek!==undefined || fg.previousMonth!==undefined){
-    const pw = fg.previousWeek!=null ? Math.round(Number(fg.previousWeek)) : null;
-    const pm = fg.previousMonth!=null ? Math.round(Number(fg.previousMonth)) : null;
-    const trend = pw===null ? '—' : (score > pw ? '▲ 개선' : score < pw ? '▼ 약화' : '→ 보합');
-    const trendSig = pw===null ? 'n' : (score > pw ? 'g' : score < pw ? 'r' : 'y');
-    setText('cnn_his', '전주:' + (pw??'—') + ' 전월:' + (pm??'—'), '#808A9D');
-    setText('cnn_his_r', trend, COLORS[trendSig]);
-    setSig('cnn_his_s', trendSig);
+
+  const hisRow = el('cnn_his')?.closest('.tr');
+  const pw = fg.previousWeek!=null ? Math.round(Number(fg.previousWeek)) : null;
+  const pm = fg.previousMonth!=null ? Math.round(Number(fg.previousMonth)) : null;
+
+  if(hisRow){
+    if(pw===null && pm===null){
+      hisRow.style.display = 'none';
+    }else{
+      hisRow.style.display = '';
+      const trend = pw===null ? '—' : (score > pw ? '▲ 개선' : score < pw ? '▼ 약화' : '→ 보합');
+      const trendSig = pw===null ? 'n' : (score > pw ? 'g' : score < pw ? 'r' : 'y');
+      setText('cnn_his', '전주:' + (pw??'—') + ' 전월:' + (pm??'—'), '#808A9D');
+      setText('cnn_his_r', trend, COLORS[trendSig]);
+      setSig('cnn_his_s', trendSig);
+    }
   }
+
   const subs = {
     cnn_mom: fg.marketMomentum,
     cnn_str: fg.stockPriceStrength,
@@ -301,8 +310,15 @@ function renderFearGreed(fg){
     cnn_jnk: fg.junkBondDemand,
     cnn_saf: fg.safeHavenDemand,
   };
+
   Object.entries(subs).forEach(([id, val])=>{
-    if(!val || val.score===undefined || val.score===null) return;
+    const row = el(id)?.closest('.tr');
+    if(!row) return;
+    if(!val || val.score===undefined || val.score===null){
+      row.style.display = 'none';
+      return;
+    }
+    row.style.display = '';
     const s = Math.round(Number(val.score));
     setText(id, s, cnnColor(s));
     setText(id + '_r', cnnLabel(s), cnnColor(s));
