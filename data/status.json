@@ -1,11 +1,10 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-17T19:27:03+00:00",
+  "updatedAt": "2026-03-17T19:32:38+00:00",
   "fredMode": "mixed_sources",
-  "trustedPrev": false,
-  "errorCount": 2,
+  "trustedPrev": true,
+  "errorCount": 1,
   "errors": [
-    "market.go: HTTP 429 응답 파싱 실패: Too Many Requests ",
     "core.pmi: ISM PMI 파싱 실패"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-17T19:27:03+00:00",
+  "updatedAt": "2026-03-17T19:32:38+00:00",
   "market": {
     "sp": {
       "value": 6699.38,
@@ -11,8 +11,8 @@
       "date": "2026-03-16"
     },
     "go": {
-      "value": null,
-      "date": null
+      "value": 4998.46,
+      "date": "2026-03-17"
     },
     "dx": {
       "value": 120.55,
@@ -25,8 +25,8 @@
   },
   "core": {
     "lei": {
-      "value": 9.55,
-      "date": "2020-02-01"
+      "value": -0.2,
+      "date": "2025-12-01"
     },
     "pmi": {
       "value": null,
@@ -50,10 +50,10 @@
     }
   },
   "fearGreed": {
-    "score": 21.6571428571429,
+    "score": 21.6,
     "rating": "extreme fear",
-    "timestamp": "2026-03-17T19:18:52+00:00",
-    "date": "2026-03-17T19:18:52+00:00",
+    "timestamp": "2026-03-17T19:30:19+00:00",
+    "date": "2026-03-17T19:30:19+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -67,9 +67,8 @@
   "meta": {
     "source": "scripts/update_data_mix.py",
     "fredMode": "mixed_sources",
-    "trustedPrev": false,
+    "trustedPrev": true,
     "errors": [
-      "market.go: HTTP 429 응답 파싱 실패: Too Many Requests ",
       "core.pmi: ISM PMI 파싱 실패"
     ]
   }
