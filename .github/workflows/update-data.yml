@@ -32,6 +32,8 @@ jobs:
       - name: Run updater
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          PMI_MANUAL_VALUE: ${{ secrets.PMI_MANUAL_VALUE }}
+          PMI_MANUAL_DATE: ${{ secrets.PMI_MANUAL_DATE }}
         run: |
           python scripts/update_data_mix.py
 
