@@ -1,13 +1,11 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-17T19:03:43+00:00",
-  "fredMode": "official_api",
-  "trustedPrev": true,
-  "errorCount": 4,
+  "updatedAt": "2026-03-17T19:27:03+00:00",
+  "fredMode": "mixed_sources",
+  "trustedPrev": false,
+  "errorCount": 2,
   "errors": [
-    "GOLDAMGBD228NLBM: 실패 (HTTP 400: Bad Request.  The series does not exist.)",
-    "GOLDPMGBD228NLBM: 실패 (HTTP 400: Bad Request.  The series does not exist.)",
-    "market.go: HTTP 400: Bad Request.  The series does not exist.",
-    "core.pmi: HTTP 400: Bad Request.  The series does not exist."
+    "market.go: HTTP 429 응답 파싱 실패: Too Many Requests ",
+    "core.pmi: ISM PMI 파싱 실패"
   ]
 }

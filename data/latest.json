@@ -1,26 +1,26 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-17T19:03:43+00:00",
+  "updatedAt": "2026-03-17T19:27:03+00:00",
   "market": {
     "sp": {
-      "value": 4502.88,
-      "date": "2023-11-15"
+      "value": 6699.38,
+      "date": "2026-03-16"
     },
     "nd": {
-      "value": 374.16,
-      "date": "1993-09-01"
+      "value": 24655.34,
+      "date": "2026-03-16"
     },
     "go": {
       "value": null,
       "date": null
     },
     "dx": {
-      "value": 94.75,
-      "date": "2013-08-30"
+      "value": 120.55,
+      "date": "2026-03-13"
     },
     "vx": {
-      "value": 24.76,
-      "date": "1997-08-29"
+      "value": 23.51,
+      "date": "2026-03-16"
     }
   },
   "core": {
@@ -33,8 +33,8 @@
       "date": null
     },
     "buffett": {
-      "value": 194.89,
-      "date": "2020-01-01"
+      "value": 230.34,
+      "date": "2025-07-01"
     },
     "jolts": {
       "value": 6.95,
@@ -50,10 +50,10 @@
     }
   },
   "fearGreed": {
-    "score": 21.7714285714286,
+    "score": 21.6571428571429,
     "rating": "extreme fear",
-    "timestamp": "2026-03-17T19:01:22+00:00",
-    "date": "2026-03-17T19:01:22+00:00",
+    "timestamp": "2026-03-17T19:18:52+00:00",
+    "date": "2026-03-17T19:18:52+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -65,14 +65,12 @@
     "safeHavenDemand": null
   },
   "meta": {
-    "source": "scripts/update_data_api.py",
-    "fredMode": "official_api",
-    "trustedPrev": true,
+    "source": "scripts/update_data_mix.py",
+    "fredMode": "mixed_sources",
+    "trustedPrev": false,
     "errors": [
-      "GOLDAMGBD228NLBM: 실패 (HTTP 400: Bad Request.  The series does not exist.)",
-      "GOLDPMGBD228NLBM: 실패 (HTTP 400: Bad Request.  The series does not exist.)",
-      "market.go: HTTP 400: Bad Request.  The series does not exist.",
-      "core.pmi: HTTP 400: Bad Request.  The series does not exist."
+      "market.go: HTTP 429 응답 파싱 실패: Too Many Requests ",
+      "core.pmi: ISM PMI 파싱 실패"
     ]
   }
 }
