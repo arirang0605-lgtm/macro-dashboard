@@ -67,6 +67,7 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:9px;color:#3D4F68
     <span class="clk" id="clk">—</span>
     <span class="nxt" id="nxt">—</span>
     <button class="btn" id="cfgBtn">데이터 연결</button>
+    <button class="btn" id="pmiBtn">PMI 입력</button>
     <button class="btn" id="rb">⟳ 새로고침</button>
   </div>
 </div>
@@ -183,6 +184,28 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:9px;color:#3D4F68
 </footer>
 </div>
 
+<div class="modal" id="pmiModal">
+  <div class="mbox">
+    <h3>PMI 수동 입력</h3>
+    <div class="msub">자동값 대신 직접 입력한 PMI를 우선 표시합니다.</div>
+    <div class="minfo">
+      1) 값 예시: 52.4<br>
+      2) 날짜 예시: 2026-02-01<br>
+      3) 비우고 저장하면 자동값으로 복귀합니다.
+    </div>
+    <div class="flabel">PMI 값</div>
+    <div class="frow"><input class="finp" id="pmiManualValue" placeholder="예: 52.4" /></div>
+    <div class="flabel">PMI 날짜</div>
+    <div class="frow"><input class="finp" id="pmiManualDate" placeholder="예: 2026-02-01" /></div>
+    <div class="mst" id="pmiStatus"></div>
+    <div class="mbtns">
+      <button class="bcancel" id="pmiClear">자동값 복귀</button>
+      <button class="bcancel" id="pmiClose">닫기</button>
+      <button class="bsave" id="pmiSave">저장</button>
+    </div>
+  </div>
+</div>
+
 <div class="modal" id="cfgModal">
   <div class="mbox">
     <h3>데이터 연결 설정</h3>
@@ -239,6 +262,18 @@ function fmtValue(v, format){ if(v===null || v===undefined || Number.isNaN(Numbe
 function ymdShort(d){ if(!d) return '—'; return String(d).slice(2,10).replace(/-/g,'.'); }
 function monthShort(d){ if(!d) return '—'; return String(d).slice(0,7); }
 function connectMsg(msg, color){ setText('connectMsg', msg, color || ''); }
+
+function applyManualOverrides(payload){
+  if(!payload.core) payload.core = {};
+  if(state.pmiManual && state.pmiManual.value!==undefined && state.pmiManual.value!==null && state.pmiManual.value!==''){
+    payload.core.pmi = {
+      value: Number(state.pmiManual.value),
+      date: state.pmiManual.date || payload.updatedAt?.slice(0,10) || null,
+      manual: true
+    };
+  }
+  return payload;
+}
 
 function buildCoreRows(){
   const tbl = el('tbl_core');
@@ -343,7 +378,15 @@ function renderCore(payload){
     setText('core_v_' + def.id, fmtValue(v, def.format), COLORS[rule.s]);
     setText('core_l_' + def.id, rule.l + ' · ' + monthShort(item.date), COLORS[rule.s]);
     setSig('core_s_' + def.id, rule.s);
-    if(def.id==='pmi'){ setText('m_pmi', fmtValue(v,'num1'), COLORS[rule.s]); setTicker(['tk_pm','tk_pm2'], fmtValue(v,'num1'), COLORS[rule.s]); }
+    if(def.id==='pmi'){
+      setText('m_pmi', fmtValue(v,'num1'), COLORS[rule.s]);
+      setTicker(['tk_pm','tk_pm2'], fmtValue(v,'num1'), COLORS[rule.s]);
+      const row = el('core_v_pmi')?.closest('.tr');
+      const title = row?.querySelector('.tn');
+      if(title){
+        title.innerHTML = 'PMI (ISM 제조업) <span class="at">' + (item.manual ? 'MANUAL' : 'AUTO') + '</span>';
+      }
+    }
     if(def.id==='lei'){ setText('m_lei', fmtValue(v,'pct1'), COLORS[rule.s]); setTicker(['tk_lei','tk_lei2'], fmtValue(v,'pct1'), COLORS[rule.s]); }
   });
   state.coreWarnings = warnings;
@@ -415,6 +458,7 @@ function getSeason(heat, level){
 function heatColor(h){ return h<35 ? '#3861FB' : h<55 ? '#16C784' : h<70 ? '#F3BA2F' : h<85 ? '#FF8C00' : '#EA3943'; }
 
 function renderPayload(payload, modeLabel){
+  payload = applyManualOverrides(payload);
   state.payload = payload;
   renderMarket(payload.market || {});
   renderFearGreed(payload.fearGreed || null);
@@ -463,6 +507,41 @@ async function doFetch(){
 
 function updNxt(){ const now=new Date(), next=new Date(now); next.setDate(next.getDate()+1); next.setHours(0,0,0,0); const mins=Math.ceil((next-now)/60000); const h=Math.floor(mins/60), m=mins%60; setText('nxt','다음점검: '+h+'h '+m+'m 후',''); }
 function scheduleMidnight(){ const now=new Date(), next=new Date(now); next.setDate(next.getDate()+1); next.setHours(0,0,0,0); setTimeout(()=>{ doFetch(); setInterval(doFetch, 86400000); }, next-now); }
+
+function openPmi(){
+  el('pmiManualValue').value = state.pmiManual?.value ?? '';
+  el('pmiManualDate').value = state.pmiManual?.date ?? '';
+  el('pmiStatus').textContent = '';
+  el('pmiModal').classList.add('on');
+}
+function closePmi(){ el('pmiModal').classList.remove('on'); }
+function savePmi(){
+  const value = (el('pmiManualValue').value || '').trim();
+  const date = (el('pmiManualDate').value || '').trim();
+  if(!value){
+    setText('pmiStatus','값을 비우면 자동값 복귀를 눌러주세요.', COLORS.r);
+    return;
+  }
+  const num = Number(value);
+  if(Number.isNaN(num)){
+    setText('pmiStatus','PMI 값은 숫자로 입력하세요.', COLORS.r);
+    return;
+  }
+  if(date && !/^\d{4}-\d{2}-\d{2}$/.test(date)){
+    setText('pmiStatus','날짜는 YYYY-MM-DD 형식으로 입력하세요.', COLORS.r);
+    return;
+  }
+  savePmiManual({value:num, date:date || null});
+  setText('pmiStatus','저장했습니다. 수동 PMI를 표시합니다.', COLORS.g);
+  closePmi();
+  if(state.payload) renderPayload(state.payload, 'JSON');
+}
+function clearPmi(){
+  savePmiManual(null);
+  setText('pmiStatus','자동값으로 복귀했습니다.', COLORS.g);
+  closePmi();
+  if(state.payload) renderPayload(state.payload, 'JSON');
+}
 
 function openCfg(){ connectMsg('설정 기능 비활성화: ./data/latest.json 고정 사용', COLORS.y); }
 function closeCfg(){ const m = el('cfgModal'); if(m) m.classList.remove('on'); }
