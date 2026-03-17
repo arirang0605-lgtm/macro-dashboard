@@ -1,24 +1,13 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-17T18:56:14+00:00",
+  "updatedAt": "2026-03-17T19:03:43+00:00",
   "fredMode": "official_api",
   "trustedPrev": true,
-  "errorCount": 15,
+  "errorCount": 4,
   "errors": [
-    "market.sp: HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.",
-    "NASDAQ100: 실패 (HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.)",
-    "NASDAQCOM: 실패 (HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.)",
-    "market.nd: HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.",
-    "GOLDAMGBD228NLBM: 실패 (HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.)",
-    "GOLDPMGBD228NLBM: 실패 (HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.)",
-    "market.go: HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.",
-    "market.dx: HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.",
-    "market.vx: HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.",
-    "core.lei: HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.",
-    "core.pmi: HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.",
-    "core.buffett: HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.",
-    "core.jolts: HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.",
-    "core.marginDebt: HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information.",
-    "core.michigan: HTTP 400: Bad Request.  The value for variable api_key is not registered.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information."
+    "GOLDAMGBD228NLBM: 실패 (HTTP 400: Bad Request.  The series does not exist.)",
+    "GOLDPMGBD228NLBM: 실패 (HTTP 400: Bad Request.  The series does not exist.)",
+    "market.go: HTTP 400: Bad Request.  The series does not exist.",
+    "core.pmi: HTTP 400: Bad Request.  The series does not exist."
   ]
 }
