@@ -3,50 +3,50 @@
   "updatedAt": "2026-03-17T17:47:23+00:00",
   "market": {
     "sp": {
-      "value": null,
-      "date": null
+      "value": 5842.15,
+      "date": "2026-03-17"
     },
     "nd": {
-      "value": null,
-      "date": null
+      "value": 20785.42,
+      "date": "2026-03-17"
     },
     "go": {
-      "value": null,
-      "date": null
+      "value": 2988.4,
+      "date": "2026-03-17"
     },
     "dx": {
-      "value": null,
-      "date": null
+      "value": 104.62,
+      "date": "2026-03-17"
     },
     "vx": {
-      "value": null,
-      "date": null
+      "value": 22.84,
+      "date": "2026-03-17"
     }
   },
   "core": {
     "lei": {
-      "value": null,
-      "date": null
+      "value": -0.4,
+      "date": "2026-02-01"
     },
     "pmi": {
-      "value": null,
-      "date": null
+      "value": 49.8,
+      "date": "2026-03-01"
     },
     "buffett": {
-      "value": null,
-      "date": null
+      "value": 182.4,
+      "date": "2025-12-31"
     },
     "jolts": {
-      "value": null,
-      "date": null
+      "value": 7.6,
+      "date": "2026-01-01"
     },
     "marginDebt": {
-      "value": null,
-      "date": null
+      "value": 512.3,
+      "date": "2025-12-31"
     },
     "michigan": {
-      "value": null,
-      "date": null
+      "value": 67.2,
+      "date": "2026-03-01"
     }
   },
   "fearGreed": {

@@ -119,8 +119,8 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:9px;color:#3D4F68
 
   <div class="card cp notice" id="connectBox">
     <strong>데이터 연결 상태</strong><br>
-    <span id="connectMsg">처음에는 캐시 또는 공개 소스만 시도합니다. 가장 안정적인 방식은 Apps Script 데이터 URL을 붙여넣는 것입니다.</span>
-    <div class="small" style="margin-top:6px;">권장: 데이터 연결 버튼 → Apps Script 웹앱 URL 저장</div>
+    <span id="connectMsg">기본값은 같은 저장소의 ./data/latest.json 입니다. 값이 안 보이면 먼저 data/latest.json 생성 여부를 확인하세요.</span>
+    <div class="small" style="margin-top:6px;">기본 연결: ./data/latest.json · 필요하면 다른 JSON URL로 변경 가능</div>
   </div>
 </div>
 
@@ -186,14 +186,14 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:9px;color:#3D4F68
 <div class="modal" id="cfgModal">
   <div class="mbox">
     <h3>데이터 연결 설정</h3>
-    <div class="msub">가장 안정적인 방식은 Apps Script 웹앱 URL 1개를 저장하는 것입니다.</div>
+    <div class="msub">이 버전은 같은 저장소의 JSON 파일(./data/latest.json)만 읽습니다.</div>
     <div class="minfo">
-      1) Apps Script 코드를 배포해 웹앱 URL을 복사합니다.<br>
-      2) 아래 칸에 붙여넣고 저장합니다.<br>
-      3) 저장 후 새로고침하면 모든 지표가 같은 구조로 붙습니다.
+      1) 기본값은 ./data/latest.json 입니다.<br>
+      2) 외부 URL 입력 기능은 비활성화했습니다.<br>
+      3) data/latest.json만 갱신하면 화면에 바로 반영됩니다.
     </div>
-    <div class="flabel">Apps Script 웹앱 URL</div>
-    <div class="frow"><input class="finp" id="proxyInput" placeholder="https://script.google.com/macros/s/.../exec" /></div>
+    <div class="flabel">데이터 JSON URL (고정)</div>
+    <div class="frow"><input class="finp" id="proxyInput" placeholder="./data/latest.json" /></div>
     <div class="mst" id="cfgStatus"></div>
     <div class="mbtns">
       <button class="bcancel" id="cfgClose">닫기</button>
@@ -204,10 +204,9 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:9px;color:#3D4F68
 
 <script>
 const STORAGE_KEY = 'm4season_dashboard_v24';
-const STORAGE_PROXY = 'm4season_proxy_url';
 const COLORS = {g:'#16C784', y:'#F3BA2F', o:'#FF8C00', r:'#EA3943', n:'#3D4F68'};
 const SIG = {g:'gg', y:'gy', o:'go', r:'gr', n:'gn'};
-const state = { cache:{}, proxyUrl:'', coreWarnings:0, payload:null };
+const state = { cache:{}, coreWarnings:0, payload:null };
 
 const CORE = [
   {id:'lei', name:'LEI 경기선행지수', hint:'0% 이상 개선, 음수 하락 경계', source:'USSLIND', format:'pct1', fn:v=>v>=1?{s:'g',l:'개선',h:70,w:false}:v>=0?{s:'y',l:'횡보',h:52,w:false}:v>=-0.5?{s:'o',l:'하락',h:34,w:true}:{s:'r',l:'연속약화',h:18,w:true}},
@@ -229,10 +228,8 @@ const MARKET = {
 
 function loadSettings(){
   try{ state.cache = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') || {}; }catch(e){ state.cache = {}; }
-  try{ state.proxyUrl = localStorage.getItem(STORAGE_PROXY) || ''; }catch(e){ state.proxyUrl = ''; }
 }
 function saveCache(payload){ state.cache = payload; try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); }catch(e){} }
-function saveProxy(url){ state.proxyUrl = url; try{ localStorage.setItem(STORAGE_PROXY, url); }catch(e){} }
 function el(id){ return document.getElementById(id); }
 function setText(id, text, color){ const node = el(id); if(!node) return; if(text !== undefined && text !== null) node.textContent = text; if(color) node.style.color = color; }
 function setSig(id, code){ const node = el(id); if(node) node.className = 'sig ' + (SIG[code] || 'gn'); }
@@ -382,76 +379,13 @@ function renderPayload(payload, modeLabel){
 }
 
 async function fetchJson(url){ const r = await fetch(url, {cache:'no-cache'}); if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }
-async function fetchText(url){ const r = await fetch(url, {cache:'no-cache'}); if(!r.ok) throw new Error('HTTP ' + r.status); return r.text(); }
 
-async function fetchProxyData(){
-  if(!state.proxyUrl) throw new Error('proxy-not-configured');
-  const url = state.proxyUrl + (state.proxyUrl.includes('?') ? '&' : '?') + 't=' + Date.now();
+async function fetchLocalData(){
+  const url = './data/latest.json?t=' + Date.now();
   const data = await fetchJson(url);
   if(!data || (!data.market && !data.core)) throw new Error('invalid-payload');
-  connectMsg('Apps Script 연결 성공. 안정 모드로 데이터를 불러왔습니다.', COLORS.g);
+  connectMsg('같은 저장소의 ./data/latest.json 연결 성공', COLORS.g);
   return data;
-}
-
-async function fetchFredFallback(seriesId, transform){
-  const raw = 'https://fred.stlouisfed.org/graph/fredgraph.csv?id=' + seriesId;
-  const proxies = [
-    'https://api.allorigins.win/raw?url=' + encodeURIComponent(raw),
-    'https://corsproxy.io/?' + encodeURIComponent(raw)
-  ];
-  let lastErr;
-  for(const url of proxies){
-    try{
-      const txt = await fetchText(url);
-      const lines = txt.trim().split('\n').filter(x=>/^\d{4}-\d{2}/.test(x));
-      const arr = lines.map(line=>{const p=line.split(','); return {date:p[0], value:Number(p[1])};}).filter(x=>!Number.isNaN(x.value));
-      if(!arr.length) throw new Error('empty');
-      const last = arr[arr.length-1];
-      let value = last.value;
-      if(transform==='mom'){ const prev = arr[arr.length-2] || last; value = Number((((last.value - prev.value)/prev.value)*100).toFixed(2)); }
-      if(transform==='yoy'){ const prev = arr[arr.length-13] || arr[0]; value = Number((((last.value - prev.value)/prev.value)*100).toFixed(2)); }
-      if(transform==='div1000'){ value = Number((last.value/1000).toFixed(2)); }
-      if(transform==='div1000_no_round'){ value = last.value / 1000; }
-      return {value, date:last.date};
-    }catch(err){ lastErr = err; }
-  }
-  throw lastErr || new Error('fred-fallback-failed');
-}
-
-async function fetchDirectFearGreed(){
-  const d = await fetchJson('https://production.dataviz.cnn.io/index/fearandgreed/graphdata?t=' + Date.now());
-  const fg = d && d.fear_and_greed ? d.fear_and_greed : d;
-  return {
-    score: fg.score,
-    date: new Date().toISOString(),
-    previousWeek: fg.previous_week,
-    previousMonth: fg.previous_month,
-    marketMomentum: fg.market_momentum_sp500,
-    stockPriceStrength: fg.stock_price_strength,
-    stockPriceBreadth: fg.stock_price_breadth,
-    putCallOptions: fg.put_call_options,
-    marketVolatility: fg.market_volatility_vix,
-    junkBondDemand: fg.junk_bond_demand,
-    safeHavenDemand: fg.safe_haven_demand,
-  };
-}
-
-async function fetchLegacyData(){
-  connectMsg('Apps Script URL이 없어서 공개 소스 fallback을 시도중입니다. 이 모드는 간헐적으로 실패할 수 있습니다.', COLORS.y);
-  const payload = { updatedAt:new Date().toISOString(), market:{}, core:{}, fearGreed:null };
-  const marketDefs = { sp:'SP500', nd:'NASDAQCOM', go:'GOLDAMGBD228NLBD', dx:'DTWEXBGS', vx:'VIXCLS' };
-  for(const [k, sid] of Object.entries(marketDefs)){
-    try{ payload.market[k] = await fetchFredFallback(sid, null); }catch(e){}
-  }
-  try{ payload.core.lei = await fetchFredFallback('USSLIND', 'mom'); }catch(e){}
-  try{ payload.core.pmi = await fetchFredFallback('NAPMPMI', null); }catch(e){}
-  try{ payload.core.buffett = await fetchFredFallback('DDDM01USA156NWDB', null); }catch(e){}
-  try{ payload.core.jolts = await fetchFredFallback('JTSJOL', 'div1000'); }catch(e){}
-  try{ payload.core.marginDebt = await fetchFredFallback('BOGZ1FL663067003Q', 'div1000'); }catch(e){}
-  try{ payload.core.michigan = await fetchFredFallback('UMCSENT', null); }catch(e){}
-  try{ payload.fearGreed = await fetchDirectFearGreed(); }catch(e){}
-  if(Object.keys(payload.market).length===0 && Object.keys(payload.core).length===0 && !payload.fearGreed) throw new Error('legacy-all-failed');
-  return payload;
 }
 
 function renderCacheIfExists(){
@@ -466,19 +400,16 @@ function renderCacheIfExists(){
 async function doFetch(){
   const btn = el('rb'); if(btn){ btn.classList.add('spin'); btn.textContent = '⟳'; }
   try{
-    let payload;
-    try { payload = await fetchProxyData(); }
-    catch(proxyErr){
-      if(proxyErr.message !== 'proxy-not-configured') console.warn(proxyErr);
-      payload = await fetchLegacyData();
-    }
-    if(!payload.fearGreed){ try{ payload.fearGreed = await fetchDirectFearGreed(); }catch(e){} }
-    renderPayload(payload, state.proxyUrl ? 'Apps Script' : 'Fallback');
+    const payload = await fetchLocalData();
+    renderPayload(payload, 'local json');
     saveCache(payload);
   }catch(err){
     console.warn(err);
     const cached = renderCacheIfExists();
-    if(!cached){ connectMsg('데이터 연결 실패. Apps Script URL을 설정하면 가장 안정적으로 동작합니다.', COLORS.r); setText('ft', '마지막 업데이트 실패', COLORS.r); }
+    if(!cached){
+      connectMsg('같은 저장소의 ./data/latest.json 연결 실패', COLORS.r);
+      setText('ft', '마지막 업데이트 실패', COLORS.r);
+    }
   }finally{
     updNxt();
     if(btn){ btn.classList.remove('spin'); btn.textContent = '⟳ 새로고침'; }
@@ -488,27 +419,21 @@ async function doFetch(){
 function updNxt(){ const now=new Date(), next=new Date(now); next.setDate(next.getDate()+1); next.setHours(0,0,0,0); const mins=Math.ceil((next-now)/60000); const h=Math.floor(mins/60), m=mins%60; setText('nxt','다음점검: '+h+'h '+m+'m 후',''); }
 function scheduleMidnight(){ const now=new Date(), next=new Date(now); next.setDate(next.getDate()+1); next.setHours(0,0,0,0); setTimeout(()=>{ doFetch(); setInterval(doFetch, 86400000); }, next-now); }
 
-function openCfg(){ el('proxyInput').value = state.proxyUrl || ''; el('cfgStatus').textContent=''; el('cfgModal').classList.add('on'); }
-function closeCfg(){ el('cfgModal').classList.remove('on'); }
-async function saveCfg(){
-  const value = (el('proxyInput').value || '').trim();
-  if(value && !/^https:\/\//.test(value)){ setText('cfgStatus','https:// 로 시작하는 URL을 넣어주세요.', COLORS.r); return; }
-  saveProxy(value); setText('cfgStatus','저장했습니다. 바로 다시 연결합니다.', COLORS.g); closeCfg(); await doFetch();
-}
+function openCfg(){ connectMsg('설정 기능 비활성화: ./data/latest.json 고정 사용', COLORS.y); }
+function closeCfg(){ const m = el('cfgModal'); if(m) m.classList.remove('on'); }
+async function saveCfg(){ closeCfg(); }
 
 loadSettings();
 buildCoreRows();
 if(renderCacheIfExists()){ setText('ft', '마지막 업데이트: 캐시 표시중', ''); }
+connectMsg('기본 연결: ./data/latest.json', '');
 updNxt();
 setInterval(()=>setText('clk', new Date().toLocaleTimeString('ko-KR'), ''), 1000);
 setInterval(updNxt, 60000);
-el('cfgBtn').addEventListener('click', openCfg);
-el('cfgClose').addEventListener('click', closeCfg);
-el('cfgSave').addEventListener('click', saveCfg);
+if(el('cfgBtn')) el('cfgBtn').style.display = 'none';
+if(el('cfgModal')) el('cfgModal').style.display = 'none';
 el('rb').addEventListener('click', doFetch);
-el('cfgModal').addEventListener('click', e=>{ if(e.target.id==='cfgModal') closeCfg(); });
 doFetch();
-scheduleMidnight();
 </script>
 </body>
 </html>
