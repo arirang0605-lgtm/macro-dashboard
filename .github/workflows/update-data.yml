@@ -1,6 +1,9 @@
 name: Update dashboard data
 
 on:
+  push:
+    branches:
+      - stable-data-rebuild
   workflow_dispatch:
   schedule:
     - cron: "15 */6 * * *"
