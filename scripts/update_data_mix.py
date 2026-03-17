@@ -13,6 +13,9 @@ LATEST_PATH = DATA_DIR / "latest.json"
 STATUS_PATH = DATA_DIR / "status.json"
 
 FRED_API_KEY = os.getenv("FRED_API_KEY", "").strip()
+PMI_MANUAL_VALUE = os.getenv("PMI_MANUAL_VALUE", "").strip()
+PMI_MANUAL_DATE = os.getenv("PMI_MANUAL_DATE", "").strip()
+
 FRED_API_BASE = "https://api.stlouisfed.org/fred/series/observations"
 CNN_FG_URL = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata"
 STOOQ_GOLD_URL = "https://stooq.com/q/d/l/?s=xauusd&i=d"
@@ -188,7 +191,6 @@ def fetch_gold_stooq():
     if len(lines) < 2:
         raise RuntimeError("Stooq gold CSV 빈 응답")
 
-    # CSV header: Date,Open,High,Low,Close,Volume
     data_rows = []
     for line in lines[1:]:
         parts = [p.strip() for p in line.split(",")]
@@ -211,26 +213,42 @@ def shift_month(year, month, delta):
     new_month = (total % 12) + 1
     return new_year, new_month
 
+def fetch_pmi_manual():
+    if not PMI_MANUAL_VALUE:
+        raise RuntimeError("PMI_MANUAL_VALUE 없음")
+    value = float(PMI_MANUAL_VALUE)
+    date = PMI_MANUAL_DATE or now_iso()[:10]
+    if len(date) == 7:
+        date = date + "-01"
+    return {"value": round(value, 1), "date": date}
+
 def fetch_ism_pmi():
     now = datetime.now(timezone.utc)
+    label_months = [
+        "january", "february", "march", "april", "may", "june",
+        "july", "august", "september", "october", "november", "december"
+    ]
     candidates = []
 
-    # round-up 페이지 slug 후보
-    for delta in (0, -1, -2, -3):
+    for delta in (0, -1, -2, -3, -4):
         y, m = shift_month(now.year, now.month, delta)
-        label_months = [
-            "january", "february", "march", "april", "may", "june",
-            "july", "august", "september", "october", "november", "december"
-        ]
+        month_slug = label_months[m - 1]
         candidates.append((
             f"{y:04d}-{m:02d}-01",
-            f"https://www.ismworld.org/supply-management-news-and-reports/news-publications/inside-supply-management-magazine/blog/{y}/{y:04d}-{m:02d}/ism-pmi-reports-roundup-{label_months[m-1]}-{y}-manufacturing/"
+            f"https://www.ismworld.org/supply-management-news-and-reports/news-publications/inside-supply-management-magazine/blog/{y}/{y:04d}-{m:02d}/ism-pmi-reports-roundup-{month_slug}-{y}-manufacturing/"
+        ))
+        candidates.append((
+            f"{y:04d}-{m:02d}-01",
+            f"https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/pmi/{month_slug}/"
         ))
 
     patterns = [
         r"Manufacturing PMI(?:®)?(?:\s+at|\s+registered at)?\s*([0-9]+(?:\.[0-9]+)?)\s*%",
-        r"Manufacturing PMI(?:®)?.{0,120}?([0-9]+(?:\.[0-9]+)?)\s*%",
+        r"Manufacturing PMI(?:®)?(?:\s+at|\s+registered at)?\s*([0-9]+(?:\.[0-9]+)?)\s*percent",
         r"PMI(?:®)?.{0,80}?([0-9]+(?:\.[0-9]+)?)\s*%",
+        r"PMI(?:®)?.{0,80}?([0-9]+(?:\.[0-9]+)?)\s*percent",
+        r"registering\s+([0-9]+(?:\.[0-9]+)?)\s*%",
+        r"registering\s+([0-9]+(?:\.[0-9]+)?)\s*percent",
     ]
 
     for report_date, url in candidates:
@@ -239,16 +257,18 @@ def fetch_ism_pmi():
         except Exception:
             continue
 
-        # script/style 제거 후 텍스트 압축
         html = re.sub(r"<script.*?</script>", " ", html, flags=re.I | re.S)
         html = re.sub(r"<style.*?</style>", " ", html, flags=re.I | re.S)
         text = re.sub(r"<[^>]+>", " ", html)
+        text = re.sub(r"&nbsp;|&#160;", " ", text)
         text = re.sub(r"\s+", " ", text)
 
         for pat in patterns:
             mobj = re.search(pat, text, flags=re.I | re.S)
             if mobj:
-                return {"value": round(float(mobj.group(1)), 1), "date": report_date}
+                val = float(mobj.group(1))
+                if 30 <= val <= 80:
+                    return {"value": round(val, 1), "date": report_date}
 
     raise RuntimeError("ISM PMI 파싱 실패")
 
@@ -260,7 +280,6 @@ def fetch_conference_board_lei():
     text = re.sub(r"<[^>]+>", " ", text)
     text = re.sub(r"\s+", " ", text)
 
-    # 예: "The Conference Board Leading Economic Index® (LEI) for the US declined by 0.2% in December 2025 to 97.6"
     mobj = re.search(
         r"Leading Economic Index.*?(declined|increased|fell|rose)\s+by\s+([0-9]+(?:\.[0-9]+)?)%\s+in\s+([A-Za-z]+)\s+([0-9]{4})\s+to\s+([0-9]+(?:\.[0-9]+)?)",
         text,
@@ -370,7 +389,7 @@ def build_payload():
         ),
         "pmi": fetch_or_prev(
             "core.pmi",
-            fetch_ism_pmi,
+            lambda: fetch_pmi_manual() if PMI_MANUAL_VALUE else fetch_ism_pmi(),
             ("core", "pmi"),
             {"value": None, "date": None},
         ),
