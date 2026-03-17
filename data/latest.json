@@ -1,0 +1,88 @@
+{
+  "ok": true,
+  "updatedAt": "2026-03-17T17:47:23+00:00",
+  "market": {
+    "sp": {
+      "value": null,
+      "date": null
+    },
+    "nd": {
+      "value": null,
+      "date": null
+    },
+    "go": {
+      "value": null,
+      "date": null
+    },
+    "dx": {
+      "value": null,
+      "date": null
+    },
+    "vx": {
+      "value": null,
+      "date": null
+    }
+  },
+  "core": {
+    "lei": {
+      "value": null,
+      "date": null
+    },
+    "pmi": {
+      "value": null,
+      "date": null
+    },
+    "buffett": {
+      "value": null,
+      "date": null
+    },
+    "jolts": {
+      "value": null,
+      "date": null
+    },
+    "marginDebt": {
+      "value": null,
+      "date": null
+    },
+    "michigan": {
+      "value": null,
+      "date": null
+    }
+  },
+  "fearGreed": {
+    "score": 21.8857142857143,
+    "rating": "extreme fear",
+    "timestamp": "2026-03-17T17:45:54+00:00",
+    "date": "2026-03-17T17:45:54+00:00",
+    "previousWeek": null,
+    "previousMonth": null,
+    "marketMomentum": null,
+    "stockPriceStrength": null,
+    "stockPriceBreadth": null,
+    "putCallOptions": null,
+    "marketVolatility": null,
+    "junkBondDemand": null,
+    "safeHavenDemand": null
+  },
+  "meta": {
+    "source": "scripts/update_data_clean.py",
+    "fredMode": "csv_http1",
+    "errors": [
+      "market.sp: curl: (28) Operation timed out after 12006 milliseconds with 0 bytes received",
+      "NASDAQ100: 실패 (curl: (28) Operation timed out after 12006 milliseconds with 0 bytes received)",
+      "NASDAQCOM: 실패 (curl: (28) Operation timed out after 12003 milliseconds with 0 bytes received)",
+      "market.nd: curl: (28) Operation timed out after 12003 milliseconds with 0 bytes received",
+      "GOLDAMGBD228NLBM: 실패 (curl: (28) Operation timed out after 12004 milliseconds with 0 bytes received)",
+      "GOLDPMGBD228NLBM: 실패 (curl: (28) Operation timed out after 12004 milliseconds with 0 bytes received)",
+      "market.go: curl: (28) Operation timed out after 12004 milliseconds with 0 bytes received",
+      "market.dx: curl: (28) Operation timed out after 12006 milliseconds with 0 bytes received",
+      "market.vx: curl: (28) Operation timed out after 12001 milliseconds with 0 bytes received",
+      "core.lei: curl: (28) Operation timed out after 12006 milliseconds with 0 bytes received",
+      "core.pmi: curl: (28) Operation timed out after 12002 milliseconds with 0 bytes received",
+      "core.buffett: curl: (28) Operation timed out after 12005 milliseconds with 0 bytes received",
+      "core.jolts: curl: (28) Operation timed out after 12002 milliseconds with 0 bytes received",
+      "core.marginDebt: curl: (28) Operation timed out after 12004 milliseconds with 0 bytes received",
+      "core.michigan: curl: (28) Operation timed out after 12004 milliseconds with 0 bytes received"
+    ]
+  }
+}

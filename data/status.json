@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "updatedAt": "2026-03-17T17:47:23+00:00",
+  "fredMode": "csv_http1",
+  "errorCount": 15,
+  "errors": [
+    "market.sp: curl: (28) Operation timed out after 12006 milliseconds with 0 bytes received",
+    "NASDAQ100: 실패 (curl: (28) Operation timed out after 12006 milliseconds with 0 bytes received)",
+    "NASDAQCOM: 실패 (curl: (28) Operation timed out after 12003 milliseconds with 0 bytes received)",
+    "market.nd: curl: (28) Operation timed out after 12003 milliseconds with 0 bytes received",
+    "GOLDAMGBD228NLBM: 실패 (curl: (28) Operation timed out after 12004 milliseconds with 0 bytes received)",
+    "GOLDPMGBD228NLBM: 실패 (curl: (28) Operation timed out after 12004 milliseconds with 0 bytes received)",
+    "market.go: curl: (28) Operation timed out after 12004 milliseconds with 0 bytes received",
+    "market.dx: curl: (28) Operation timed out after 12006 milliseconds with 0 bytes received",
+    "market.vx: curl: (28) Operation timed out after 12001 milliseconds with 0 bytes received",
+    "core.lei: curl: (28) Operation timed out after 12006 milliseconds with 0 bytes received",
+    "core.pmi: curl: (28) Operation timed out after 12002 milliseconds with 0 bytes received",
+    "core.buffett: curl: (28) Operation timed out after 12005 milliseconds with 0 bytes received",
+    "core.jolts: curl: (28) Operation timed out after 12002 milliseconds with 0 bytes received",
+    "core.marginDebt: curl: (28) Operation timed out after 12004 milliseconds with 0 bytes received",
+    "core.michigan: curl: (28) Operation timed out after 12004 milliseconds with 0 bytes received"
+  ]
+}
