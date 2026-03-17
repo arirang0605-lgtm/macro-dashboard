@@ -26,8 +26,10 @@ jobs:
           python-version: "3.11"
 
       - name: Run updater
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: |
-          python scripts/update_data_fast.py
+          python scripts/update_data_api.py
 
       - name: Show status
         run: |
