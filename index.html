@@ -377,11 +377,40 @@ function calcAndRenderRisk(payload){
 
 function getSeason(heat, level){
   if(heat===null) return {id:'winter',emoji:'⏳',name:'분석중',color:'#808A9D',desc:'데이터 수신 대기중',deg:270};
-  if(level===4 || heat>=75) return {id:'winter',emoji:'❄️',name:'겨울',color:'#3861FB',desc:'방어 우선 · 현금/금/단기채 비중 확대',deg:270};
-  if(heat<35) return {id:'winter',emoji:'❄️',name:'겨울',color:'#3861FB',desc:'수축기 · 방어자산 중심',deg:270};
-  if(heat<55) return {id:'spring',emoji:'🌸',name:'봄',color:'#16C784',desc:'회복기 · 대형주 재진입',deg:0};
-  if(heat<70) return {id:'summer',emoji:'☀️',name:'여름',color:'#F3BA2F',desc:'확장기 · 보유 중심, 과열 전환 점검',deg:90};
-  return {id:'fall',emoji:'🍂',name:'가을',color:'#FF8C00',desc:'과열기 · 분할 축소와 현금 점증',deg:180};
+
+  const fg = state.payload && state.payload.fearGreed && state.payload.fearGreed.score!=null
+    ? Number(state.payload.fearGreed.score) : null;
+  const vix = state.payload && state.payload.market && state.payload.market.vx && state.payload.market.vx.value!=null
+    ? Number(state.payload.market.vx.value) : null;
+  const lei = state.payload && state.payload.core && state.payload.core.lei && state.payload.core.lei.value!=null
+    ? Number(state.payload.core.lei.value) : null;
+  const pmi = state.payload && state.payload.core && state.payload.core.pmi && state.payload.core.pmi.value!=null
+    ? Number(state.payload.core.pmi.value) : null;
+
+  const defensiveOverride =
+    level >= 4 ||
+    (level >= 3 && (
+      (fg !== null && fg <= 25) ||
+      (vix !== null && vix >= 22) ||
+      (lei !== null && lei < 0) ||
+      (pmi !== null && pmi < 50)
+    ));
+
+  if(defensiveOverride){
+    return {id:'winter',emoji:'❄️',name:'겨울',color:'#3861FB',desc:'방어 우선 · 현금/금/단기채 비중 확대',deg:270};
+  }
+
+  if(level >= 3 || heat >= 70){
+    return {id:'fall',emoji:'🍂',name:'가을',color:'#FF8C00',desc:'과열/위험 구간 · 분할 축소와 현금 점증',deg:180};
+  }
+
+  if(heat < 35){
+    return {id:'winter',emoji:'❄️',name:'겨울',color:'#3861FB',desc:'수축기 · 방어자산 중심',deg:270};
+  }
+  if(heat < 55){
+    return {id:'spring',emoji:'🌸',name:'봄',color:'#16C784',desc:'회복기 · 대형주 재진입',deg:0};
+  }
+  return {id:'summer',emoji:'☀️',name:'여름',color:'#F3BA2F',desc:'확장기 · 보유 중심, 과열 전환 점검',deg:90};
 }
 function heatColor(h){ return h<35 ? '#3861FB' : h<55 ? '#16C784' : h<70 ? '#F3BA2F' : h<85 ? '#FF8C00' : '#EA3943'; }
 
