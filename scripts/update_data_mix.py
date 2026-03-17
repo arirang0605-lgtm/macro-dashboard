@@ -15,7 +15,7 @@ STATUS_PATH = DATA_DIR / "status.json"
 FRED_API_KEY = os.getenv("FRED_API_KEY", "").strip()
 FRED_API_BASE = "https://api.stlouisfed.org/fred/series/observations"
 CNN_FG_URL = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata"
-YAHOO_GOLD_URL = "https://query1.finance.yahoo.com/v8/finance/chart/GC=F?interval=1d&range=1mo"
+STOOQ_GOLD_URL = "https://stooq.com/q/d/l/?s=xauusd&i=d"
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
 errors = []
@@ -182,33 +182,27 @@ def fetch_buffett_proxy():
     ratio = round((eq_val / (gdp_val * 1000.0)) * 100.0, 2)
     return {"value": ratio, "date": d}
 
-def fetch_gold_yahoo():
-    data = curl_json(YAHOO_GOLD_URL, timeout=20)
-    result = data.get("chart", {}).get("result", [])
-    if not result:
-        raise RuntimeError("Yahoo gold result 없음")
+def fetch_gold_stooq():
+    text = curl_text(STOOQ_GOLD_URL, timeout=20)
+    lines = [x.strip() for x in text.splitlines() if x.strip()]
+    if len(lines) < 2:
+        raise RuntimeError("Stooq gold CSV 빈 응답")
 
-    r0 = result[0]
-    timestamps = r0.get("timestamp") or []
-    closes = (((r0.get("indicators") or {}).get("quote") or [{}])[0].get("close") or [])
-
-    pairs = []
-    for ts, close in zip(timestamps, closes):
-        if close is None:
+    # CSV header: Date,Open,High,Low,Close,Volume
+    data_rows = []
+    for line in lines[1:]:
+        parts = [p.strip() for p in line.split(",")]
+        if len(parts) < 5:
             continue
-        dt = datetime.fromtimestamp(int(ts), tz=timezone.utc).strftime("%Y-%m-%d")
-        pairs.append((dt, float(close)))
+        dt = parts[0]
+        close = safe_float(parts[4])
+        if dt and close is not None:
+            data_rows.append((dt, close))
 
-    if not pairs:
-        meta = r0.get("meta") or {}
-        price = meta.get("regularMarketPrice")
-        market_time = meta.get("regularMarketTime")
-        if price is None or market_time is None:
-            raise RuntimeError("Yahoo gold price 없음")
-        dt = datetime.fromtimestamp(int(market_time), tz=timezone.utc).strftime("%Y-%m-%d")
-        return {"value": round(float(price), 2), "date": dt}
+    if not data_rows:
+        raise RuntimeError("Stooq gold 파싱 실패")
 
-    dt, price = pairs[-1]
+    dt, price = data_rows[-1]
     return {"value": round(price, 2), "date": dt}
 
 def shift_month(year, month, delta):
@@ -218,45 +212,79 @@ def shift_month(year, month, delta):
     return new_year, new_month
 
 def fetch_ism_pmi():
-    month_names = [
-        "january", "february", "march", "april", "may", "june",
-        "july", "august", "september", "october", "november", "december"
-    ]
     now = datetime.now(timezone.utc)
-    seen = set()
+    candidates = []
 
-    for delta in (-1, 0, -2, -3, -4):
+    # round-up 페이지 slug 후보
+    for delta in (0, -1, -2, -3):
         y, m = shift_month(now.year, now.month, delta)
-        key = (y, m)
-        if key in seen:
-            continue
-        seen.add(key)
+        label_months = [
+            "january", "february", "march", "april", "may", "june",
+            "july", "august", "september", "october", "november", "december"
+        ]
+        candidates.append((
+            f"{y:04d}-{m:02d}-01",
+            f"https://www.ismworld.org/supply-management-news-and-reports/news-publications/inside-supply-management-magazine/blog/{y}/{y:04d}-{m:02d}/ism-pmi-reports-roundup-{label_months[m-1]}-{y}-manufacturing/"
+        ))
 
-        month_slug = month_names[m - 1]
-        url = f"https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/pmi/{month_slug}/"
+    patterns = [
+        r"Manufacturing PMI(?:®)?(?:\s+at|\s+registered at)?\s*([0-9]+(?:\.[0-9]+)?)\s*%",
+        r"Manufacturing PMI(?:®)?.{0,120}?([0-9]+(?:\.[0-9]+)?)\s*%",
+        r"PMI(?:®)?.{0,80}?([0-9]+(?:\.[0-9]+)?)\s*%",
+    ]
 
+    for report_date, url in candidates:
         try:
             html = curl_text(url, timeout=20)
         except Exception:
             continue
 
-        patterns = [
-            r"Manufacturing PMI(?:®)?(?:\s+registered|\s+at)?\s*([0-9]+(?:\.[0-9]+)?)\s*percent",
-            r"manufacturing sector.*?registering\s+([0-9]+(?:\.[0-9]+)?)\s+percent",
-            r"Manufacturing PMI(?:®)?.{0,120}?([0-9]+(?:\.[0-9]+)?)\s*percent",
-        ]
+        # script/style 제거 후 텍스트 압축
+        html = re.sub(r"<script.*?</script>", " ", html, flags=re.I | re.S)
+        html = re.sub(r"<style.*?</style>", " ", html, flags=re.I | re.S)
+        text = re.sub(r"<[^>]+>", " ", html)
+        text = re.sub(r"\s+", " ", text)
 
-        value = None
         for pat in patterns:
-            mobj = re.search(pat, html, flags=re.I | re.S)
+            mobj = re.search(pat, text, flags=re.I | re.S)
             if mobj:
-                value = float(mobj.group(1))
-                break
-
-        if value is not None:
-            return {"value": round(value, 1), "date": f"{y:04d}-{m:02d}-01"}
+                return {"value": round(float(mobj.group(1)), 1), "date": report_date}
 
     raise RuntimeError("ISM PMI 파싱 실패")
+
+def fetch_conference_board_lei():
+    url = "https://www.conference-board.org/topics/us-leading-indicators"
+    html = curl_text(url, timeout=20)
+    text = re.sub(r"<script.*?</script>", " ", html, flags=re.I | re.S)
+    text = re.sub(r"<style.*?</style>", " ", text, flags=re.I | re.S)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text)
+
+    # 예: "The Conference Board Leading Economic Index® (LEI) for the US declined by 0.2% in December 2025 to 97.6"
+    mobj = re.search(
+        r"Leading Economic Index.*?(declined|increased|fell|rose)\s+by\s+([0-9]+(?:\.[0-9]+)?)%\s+in\s+([A-Za-z]+)\s+([0-9]{4})\s+to\s+([0-9]+(?:\.[0-9]+)?)",
+        text,
+        flags=re.I | re.S
+    )
+    if not mobj:
+        raise RuntimeError("Conference Board LEI 파싱 실패")
+
+    direction = mobj.group(1).lower()
+    mom = float(mobj.group(2))
+    if direction in ("declined", "fell"):
+        mom = -mom
+
+    month_name = mobj.group(3).lower()
+    year = int(mobj.group(4))
+    month_map = {
+        "january":1,"february":2,"march":3,"april":4,"may":5,"june":6,
+        "july":7,"august":8,"september":9,"october":10,"november":11,"december":12
+    }
+    month = month_map.get(month_name)
+    if not month:
+        raise RuntimeError("Conference Board LEI 월 파싱 실패")
+
+    return {"value": round(mom, 2), "date": f"{year:04d}-{month:02d}-01"}
 
 def fetch_cnn_fear_greed():
     data = curl_json(
@@ -315,7 +343,7 @@ def build_payload():
         ),
         "go": fetch_or_prev(
             "market.go",
-            fetch_gold_yahoo,
+            fetch_gold_stooq,
             ("market", "go"),
             {"value": None, "date": None},
         ),
@@ -336,7 +364,7 @@ def build_payload():
     core = {
         "lei": fetch_or_prev(
             "core.lei",
-            lambda: transform_value(fred_observations("USSLIND", limit=6), "mom"),
+            fetch_conference_board_lei,
             ("core", "lei"),
             {"value": None, "date": None},
         ),
