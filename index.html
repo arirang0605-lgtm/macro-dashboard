@@ -354,7 +354,6 @@ const CORE = [
   {id:'jolts', name:'JOLTs 구인건수', hint:'고용 냉각 여부', source:'JTSJOL', format:'num1', fn:v=>v>=8?{s:'g',l:'고용견조',h:66,w:false}:v>=6?{s:'y',l:'둔화관찰',h:50,w:false}:v>=5?{s:'o',l:'냉각',h:32,w:true}:{s:'r',l:'침체수준',h:18,w:true}},
   {id:'marginDebt', name:'마진 데빗(프록시)', hint:'증권사 고객 마진론', source:'BOGZ1FL663067003Q', format:'usdB1', fn:v=>v>=550?{s:'r',l:'레버리지확대',h:86,w:true}:v>=450?{s:'o',l:'높은수준',h:70,w:true}:v>=350?{s:'y',l:'보통',h:52,w:false}:{s:'g',l:'낮은수준',h:36,w:false}},
   {id:'michigan', name:'미시간대 소비자심리', hint:'70 미만이면 소비 둔화', source:'UMCSENT', format:'num1', fn:v=>v>=85?{s:'g',l:'소비강세',h:68,w:false}:v>=75?{s:'y',l:'보통',h:54,w:false}:v>=65?{s:'o',l:'소비둔화',h:34,w:true}:{s:'r',l:'침체심리',h:18,w:true}},
-  {id:'fearGreed', name:'Fear & Greed', hint:'극단공포=역발상, 극단탐욕=경계', source:'CNN', format:'int', fn:v=>v<=20?{s:'y',l:'극단공포(역발상)',h:22,w:false}:v<=45?{s:'g',l:'공포',h:38,w:false}:v<=55?{s:'y',l:'중립',h:52,w:false}:v<=80?{s:'o',l:'탐욕',h:74,w:true}:{s:'r',l:'극단탐욕',h:90,w:true}},
 ];
 
 const MARKET = {
