@@ -360,6 +360,12 @@ def build_payload():
             ("market", "nd"),
             {"value": None, "date": None},
         ),
+        "ks": fetch_or_prev(
+            "market.ks",
+            lambda: transform_value(fred_observations("SPASTT01KRM657N", limit=6)),
+            ("market", "ks"),
+            {"value": None, "date": None},
+        ),
         "go": fetch_or_prev(
             "market.go",
             fetch_gold_stooq,
@@ -376,6 +382,12 @@ def build_payload():
             "market.vx",
             lambda: transform_value(fred_observations("VIXCLS", limit=10)),
             ("market", "vx"),
+            {"value": None, "date": None},
+        ),
+        "bdi": fetch_or_prev(
+            "market.bdi",
+            lambda: transform_value(fred_observations("FRGSHPUSM649NCIS", limit=6)),
+            ("market", "bdi"),
             {"value": None, "date": None},
         ),
     }
