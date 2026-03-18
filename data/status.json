@@ -1,10 +1,8 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-18T10:30:18+00:00",
+  "updatedAt": "2026-03-18T10:30:33+00:00",
   "fredMode": "mixed_sources",
   "trustedPrev": true,
-  "errorCount": 1,
-  "errors": [
-    "core.pmi: ISM PMI 파싱 실패"
-  ]
+  "errorCount": 0,
+  "errors": []
 }
