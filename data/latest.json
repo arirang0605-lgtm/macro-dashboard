@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-18T10:25:50+00:00",
+  "updatedAt": "2026-03-18T10:30:18+00:00",
   "market": {
     "sp": {
       "value": 6716.09,
@@ -10,8 +10,12 @@
       "value": 24780.42,
       "date": "2026-03-17"
     },
+    "ks": {
+      "value": 16.42,
+      "date": "2026-02-01"
+    },
     "go": {
-      "value": 4987.47,
+      "value": 4982.22,
       "date": "2026-03-18"
     },
     "dx": {
@@ -21,6 +25,10 @@
     "vx": {
       "value": 23.51,
       "date": "2026-03-16"
+    },
+    "bdi": {
+      "value": 0.89,
+      "date": "2026-01-01"
     }
   },
   "core": {
@@ -52,8 +60,8 @@
   "fearGreed": {
     "score": 21.3714285714286,
     "rating": "extreme fear",
-    "timestamp": "2026-03-18T10:08:01+00:00",
-    "date": "2026-03-18T10:08:01+00:00",
+    "timestamp": "2026-03-18T10:12:46+00:00",
+    "date": "2026-03-18T10:12:46+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -68,6 +76,8 @@
     "source": "scripts/update_data_mix.py",
     "fredMode": "mixed_sources",
     "trustedPrev": true,
-    "errors": []
+    "errors": [
+      "core.pmi: ISM PMI 파싱 실패"
+    ]
   }
 }
