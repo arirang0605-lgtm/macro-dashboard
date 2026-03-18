@@ -100,6 +100,59 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
   .rh-list{ font-size:14px; }
 }
 
+
+/* market divergence enhancer */
+.divg-row{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:6px;
+  padding:12px 14px;
+  border-bottom:1px solid #1E2D45;
+  background:#111B2E;
+}
+.divg-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.divg-title{
+  font-size:13px;
+  font-weight:800;
+  color:#E6EDF3;
+  letter-spacing:.2px;
+}
+.divg-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  border:1px solid rgba(255,255,255,.08);
+}
+.divg-pill.g{ background:rgba(22,199,132,.12); color:#16C784; }
+.divg-pill.y{ background:rgba(243,186,47,.12); color:#F3BA2F; }
+.divg-pill.o{ background:rgba(255,140,0,.12); color:#FF8C00; }
+.divg-pill.r{ background:rgba(234,57,67,.12); color:#EA3943; }
+.divg-desc{
+  font-size:14px;
+  color:#D9E1EE;
+  line-height:1.45;
+}
+.divg-sub{
+  font-size:12px;
+  color:#AAB6CA;
+  line-height:1.45;
+}
+@media (max-width:768px){
+  .divg-title{ font-size:13px; }
+  .divg-desc{ font-size:14px; }
+  .divg-sub{ font-size:12px; }
+}
+
 </style>
 </head>
 <body>
@@ -205,7 +258,7 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
     <div class="sh"><div class="st">② Fear &amp; Greed</div><div class="sl"></div></div>
     <div class="card tbl">
       <div class="th c4"><span class="tht">지표</span><span class="tht" style="text-align:right">점수</span><span class="tht" style="text-align:right">등급</span><span class="tht" style="text-align:right">신호</span></div>
-      <div class="tr c4" style="background:#1A2438"><div><div class="tn">😱 CNN 종합 <span class="at">AUTO</span></div><div class="tsb">0=극단공포 · 100=극단탐욕</div></div><div class="tv" id="cnn_tot" style="color:#3D4F68">—</div><div class="tl" id="cnn_tot_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_tot_s"></div></div></div>
+      <div class="tr c4" style="background:#1A2438"><div><div class="tn">😱 공포탐욕지수 <span class="at">AUTO</span></div><div class="tsb">0=극단공포 · 50=중립 · 100=극단탐욕</div></div><div class="tv" id="cnn_tot" style="color:#3D4F68">—</div><div class="tl" id="cnn_tot_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_tot_s"></div></div></div>
       <div class="tr c4"><div><div class="tn">📅 전주/전월 비교</div><div class="tsb">심리 추세</div></div><div class="tv" id="cnn_his" style="color:#3D4F68">—</div><div class="tl" id="cnn_his_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_his_s"></div></div></div>
       <div class="tr c4"><div><div class="tn">📈 주가 모멘텀</div><div class="tsb">S&amp;P500 vs 125일선</div></div><div class="tv" id="cnn_mom" style="color:#3D4F68">—</div><div class="tl" id="cnn_mom_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_mom_s"></div></div></div>
       <div class="tr c4"><div><div class="tn">💪 주가 강도</div><div class="tsb">신고가 vs 신저가</div></div><div class="tv" id="cnn_str" style="color:#3D4F68">—</div><div class="tl" id="cnn_str_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_str_s"></div></div></div>
@@ -758,6 +811,265 @@ doFetch();
   });
 
   render('summer2');
+})();
+</script>
+
+
+<script>
+/* market divergence enhancer */
+(function(){
+  function num(v){
+    const n = Number(v);
+    return Number.isFinite(n) ? n : null;
+  }
+  function norm(node){
+    if(node == null) return { value:null, date:null };
+    if(typeof node === 'object'){
+      return {
+        value: num(node.value ?? node.close ?? node.last ?? node.price ?? node.index ?? node.level),
+        date: node.date ?? node.updatedAt ?? node.asOf ?? node.timestamp ?? null
+      };
+    }
+    return { value:num(node), date:null };
+  }
+  function pick(obj, keys){
+    if(!obj) return { value:null, date:null };
+    for(const k of keys){
+      if(Object.prototype.hasOwnProperty.call(obj, k)) return norm(obj[k]);
+    }
+    return { value:null, date:null };
+  }
+  function fmt(v, digits=1){
+    if(v == null) return '—';
+    try{ return Number(v).toLocaleString('en-US', {maximumFractionDigits:digits, minimumFractionDigits:digits}); }
+    catch(e){ return String(v); }
+  }
+  function shortDate(d){
+    if(!d) return '—';
+    return String(d).slice(2,10).replace(/-/g,'.');
+  }
+  function setText(id, text, color){
+    const n = document.getElementById(id);
+    if(!n) return;
+    n.textContent = text;
+    if(color) n.style.color = color;
+  }
+  function setSig(id, code){
+    const node = document.getElementById(id);
+    if(!node) return;
+    const map = {g:'gg', y:'gy', o:'go', r:'gr', n:'gn'};
+    node.className = 'sig ' + (map[code] || 'gn');
+  }
+
+  function ensureMarketExtras(){
+    const secTitle = Array.from(document.querySelectorAll('.sh .st'))
+      .find(n => n.textContent.includes('시장 온도'));
+    if(!secTitle) return;
+    const sec = secTitle.parentElement.parentElement;
+    const table = sec.querySelector('.card.tbl');
+    if(!table) return;
+
+    // 이전 KOSDAQ 행 제거
+    const oldKq = document.getElementById('v_kq');
+    if(oldKq && oldKq.closest('.tr')) oldKq.closest('.tr').remove();
+
+    if(!document.getElementById('divg_summary')){
+      const row = document.createElement('div');
+      row.className = 'divg-row';
+      row.innerHTML = `
+        <div class="divg-top">
+          <div class="divg-title">다이버전스 요약</div>
+          <div class="divg-pill y" id="divg_state">확인중</div>
+        </div>
+        <div class="divg-desc" id="divg_summary">미국/한국주식/화물운송이 서로 엇갈리는지 같이 확인합니다.</div>
+        <div class="divg-sub" id="divg_note">미국 지수 + 한국 주식(FRED) + 화물운송지수(FRED)를 함께 보는 보조 해석입니다.</div>
+      `;
+      table.insertBefore(row, table.children[1] || null);
+    }
+
+    function addRow(id, title, sub, afterId=null){
+      if(document.getElementById('v_' + id)) return;
+      const row = document.createElement('div');
+      row.className = 'tr c4';
+      row.innerHTML = `
+        <div>
+          <div class="tn">${title} <span class="at">AUTO</span></div>
+          <div class="tsb">${sub}</div>
+        </div>
+        <div class="tv" id="v_${id}" style="color:#3D4F68">—</div>
+        <div class="tl" id="s_${id}" style="color:#C7D0E0">—</div>
+        <div class="tsg"><div class="sig gn" id="sg_${id}"></div></div>
+      `;
+      if(afterId){
+        const anchor = document.getElementById('v_' + afterId);
+        const anchorRow = anchor ? anchor.closest('.tr') : null;
+        if(anchorRow && anchorRow.parentNode){
+          anchorRow.insertAdjacentElement('afterend', row);
+          return;
+        }
+      }
+      table.appendChild(row);
+    }
+
+    addRow('ks', '🇰🇷 한국 주식', 'FRED 한국 광의 주가(월간)', 'nd');
+  }
+
+  function judgeKs(v){
+    if(v == null) return {c:'n', t:'—'};
+    if(v >= 3) return {c:'g', t:'모멘텀 강함'};
+    if(v >= 0) return {c:'y', t:'중립'};
+    return {c:'o', t:'모멘텀 둔화'};
+  }
+
+  function judgeBdi(v){
+    if(v == null) return {c:'n', t:'—'};
+    if(v >= 1.00) return {c:'g', t:'개선'};
+    if(v >= 0.93) return {c:'y', t:'보합'};
+    return {c:'o', t:'둔화'};
+  }
+
+  function updateMarketExtras(){
+    ensureMarketExtras();
+
+    let payload = null;
+    try{ payload = state?.payload || null; }catch(e){ payload = null; }
+    if(!payload || !payload.market) return;
+
+    const m = payload.market || {};
+    const ks = pick(m, ['ks','kor','korea','koreaShares']);
+    const bdi = pick(m, ['bdi','freight','shipping','ship']);
+
+    const jKs = judgeKs(ks.value);
+    const jBdi = judgeBdi(bdi.value);
+
+    setText('v_ks', ks.value == null ? '—' : (fmt(ks.value,1) + '%'), ks.value == null ? '#3D4F68' : '#E6EDF3');
+    setText('s_ks', jKs.t + ' · ' + shortDate(ks.date), '#C7D0E0');
+    setSig('sg_ks', jKs.c);
+
+    setText('v_bdi', bdi.value == null ? '—' : fmt(bdi.value,3), bdi.value == null ? '#3D4F68' : '#E6EDF3');
+    setText('s_bdi', jBdi.t + ' · ' + shortDate(bdi.date), '#C7D0E0');
+    setSig('sg_bdi', jBdi.c);
+
+    const sp = pick(m, ['sp','snp','sp500']);
+    const nd = pick(m, ['nd','nasdaq100','ndx','nasdaq']);
+
+    const usStrong = (sp.value != null && sp.value >= 5200) || (nd.value != null && nd.value >= 18000);
+    const krStrong = ks.value != null && ks.value >= 3;
+    const krWeak = ks.value != null && ks.value < 0;
+    const freightGood = bdi.value != null && bdi.value >= 1.00;
+    const freightWeak = bdi.value != null && bdi.value < 0.93;
+
+    let stateCode = 'y';
+    let stateText = '혼조';
+    let summary = '미국/한국주식/화물운송이 서로 엇갈림 → 혼조 구간, 추가 확인 필요';
+    let note = 'PMI, 실업률, 금리차 지속기간과 같이 보는 것이 좋습니다.';
+
+    if(krStrong && freightGood && usStrong){
+      stateCode = 'g';
+      stateText = '정렬';
+      summary = '미국 강세 + 한국 회복 + 화물운송 개선 → 건강한 확산 가능성';
+      note = '미국에만 갇히지 않고 한국과 실물 쪽까지 퍼지는 흐름입니다.';
+    }else if(usStrong && (krWeak || freightWeak)){
+      stateCode = 'o';
+      stateText = '제한적 상승';
+      summary = '미국 중심 상승, 한국 또는 화물운송 반응은 제한적 → 다이버전스 경고';
+      note = '겉으로는 강해 보여도 내부 확산이 약할 수 있습니다.';
+    }else if(!usStrong && krStrong && freightGood){
+      stateCode = 'g';
+      stateText = '확산 회복';
+      summary = '한국 회복 + 화물운송 개선 → 글로벌 확산형 회복 가능성';
+      note = '미국 독주보다 경기민감 쪽 확산 여부를 확인하는 구간입니다.';
+    }else if(!usStrong && krStrong && !freightGood){
+      stateCode = 'y';
+      stateText = '로테이션';
+      summary = '한국 회복 대비 화물운송 확인은 부족 → 로테이션 가능성, 추가 확인 필요';
+      note = '확산인지 단순 상대강도 이동인지 PMI와 함께 보세요.';
+    }else if(krWeak && freightWeak){
+      stateCode = 'r';
+      stateText = '후반부 경고';
+      summary = '한국 둔화 + 화물운송 둔화 → 후반부/방어 구간 경고';
+      note = '미국이 버텨도 내부적으로는 취약성이 커질 수 있습니다.';
+    }
+
+    const pill = document.getElementById('divg_state');
+    if(pill){
+      pill.className = 'divg-pill ' + stateCode;
+      pill.textContent = stateText;
+    }
+    setText('divg_summary', summary, '#E6EDF3');
+    setText('divg_note', note, '#AAB6CA');
+  }
+
+  ensureMarketExtras();
+  updateMarketExtras();
+
+  if(typeof renderPayload === 'function' && !window.__marketExtraWrapped){
+    window.__marketExtraWrapped = true;
+    const orig = renderPayload;
+    renderPayload = function(payload, modeLabel){
+      const out = orig(payload, modeLabel);
+      try{ updateMarketExtras(); updateFreightCoreRow(); }catch(e){ console.warn(e); }
+      return out;
+    };
+  }
+
+  
+  function ensureFreightCoreRow(){
+    const coreTitle = Array.from(document.querySelectorAll('.sh .st'))
+      .find(n => n.textContent.includes('핵심'));
+    if(!coreTitle) return;
+    const sec = coreTitle.parentElement.parentElement;
+    const table = sec.querySelector('.card.tbl');
+    if(!table) return;
+
+    if(document.getElementById('core_bdi_row')) return;
+
+    const row = document.createElement('div');
+    row.className = 'tr c4m';
+    row.id = 'core_bdi_row';
+    row.innerHTML = `
+      <div>
+        <div class="tn">🚚 화물운송지수 <span class="at">AUTO</span></div>
+        <div class="tsb">실물수요 확인 (FRED Cass Freight Shipments)</div>
+      </div>
+      <div class="tv" id="core_bdi_v" style="color:#3D4F68">—</div>
+      <div class="tl" id="core_bdi_s" style="color:#C7D0E0">—</div>
+      <div class="tsg"><div class="sig gn" id="core_bdi_g"></div></div>
+    `;
+    const head = table.querySelector('.th');
+    if(head && head.nextSibling){
+      table.insertBefore(row, head.nextSibling);
+    }else{
+      table.appendChild(row);
+    }
+  }
+
+  function updateFreightCoreRow(){
+    ensureFreightCoreRow();
+    let payload = null;
+    try{ payload = state?.payload || null; }catch(e){ payload = null; }
+    if(!payload || !payload.market) return;
+
+    const m = payload.market || {};
+    const bdi = pick(m, ['bdi','freight','shipping','ship']);
+
+    let label = '—';
+    let code = 'n';
+    if(bdi.value != null){
+      if(bdi.value >= 1.00){ label = '개선'; code = 'g'; }
+      else if(bdi.value >= 0.93){ label = '보합'; code = 'y'; }
+      else { label = '둔화'; code = 'o'; }
+    }
+
+    setText('core_bdi_v', bdi.value == null ? '—' : fmt(bdi.value, 3), bdi.value == null ? '#3D4F68' : '#E6EDF3');
+    setText('core_bdi_s', label + ' · ' + shortDate(bdi.date), '#C7D0E0');
+    setSig('core_bdi_g', code);
+  }
+
+  ensureFreightCoreRow();
+  updateFreightCoreRow();
+
+  setInterval(() => { updateMarketExtras(); updateFreightCoreRow(); }, 1500);
 })();
 </script>
 
