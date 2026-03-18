@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-18T10:30:33+00:00",
+  "updatedAt": "2026-03-18T10:48:29+00:00",
   "market": {
     "sp": {
       "value": 6716.09,
@@ -15,7 +15,7 @@
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4983.2,
+      "value": 4978.54,
       "date": "2026-03-18"
     },
     "dx": {
@@ -60,8 +60,8 @@
   "fearGreed": {
     "score": 21.3714285714286,
     "rating": "extreme fear",
-    "timestamp": "2026-03-18T10:08:01+00:00",
-    "date": "2026-03-18T10:08:01+00:00",
+    "timestamp": "2026-03-18T10:27:46+00:00",
+    "date": "2026-03-18T10:27:46+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
