@@ -11,53 +11,116 @@ html,body{margin:0;padding:0;background:#0D1421;color:#EEF0F3;font-family:-apple
 .tinner{display:flex;white-space:nowrap;animation:scroll 50s linear infinite;}
 .tinner:hover{animation-play-state:paused;}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ti{display:inline-flex;align-items:center;gap:6px;padding:0 14px;border-right:1px solid #1E2D45;height:30px;}
-.ti-n{font-size:10px;color:#808A9D;}.ti-v{font-size:11px;font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+.ti-n{font-size:13px;color:#C7D0E0;}.ti-v{font-size:13px;font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
 .hdr{background:#131B2E;border-bottom:1px solid #1E2D45;display:flex;justify-content:space-between;align-items:center;padding:8px 14px;flex-wrap:wrap;gap:6px;}
 .logo{font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;}.logo-dot{width:8px;height:8px;background:#3861FB;border-radius:2px;}
-.hdr-r{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}.live{display:flex;align-items:center;gap:4px;font-size:10px;color:#16C784;background:rgba(22,199,132,.1);border:1px solid rgba(22,199,132,.2);padding:3px 8px;border-radius:20px;}
+.hdr-r{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}.live{display:flex;align-items:center;gap:4px;font-size:13px;color:#16C784;background:rgba(22,199,132,.1);border:1px solid rgba(22,199,132,.2);padding:3px 8px;border-radius:20px;}
 .dot{width:5px;height:5px;border-radius:50%;background:#16C784;animation:blink 2s infinite;}@keyframes blink{50%{opacity:.2}}
-.clk{font-size:10px;color:#808A9D;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}.nxt{font-size:10px;color:#3D4F68;background:#1A2438;border:1px solid #1E2D45;padding:2px 7px;border-radius:4px;}
-.btn{padding:4px 12px;border-radius:4px;cursor:pointer;font-size:10px;font-weight:700;border:1px solid;transition:all .15s;background:rgba(56,97,251,.1);border-color:rgba(56,97,251,.3);color:#6B8EFF;}
+.clk{font-size:13px;color:#C7D0E0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}.nxt{font-size:13px;color:#3D4F68;background:#1A2438;border:1px solid #1E2D45;padding:2px 7px;border-radius:4px;}
+.btn{padding:4px 12px;border-radius:4px;cursor:pointer;font-size:13px;font-weight:700;border:1px solid;transition:all .15s;background:rgba(56,97,251,.1);border-color:rgba(56,97,251,.3);color:#6B8EFF;}
 .btn:hover{background:rgba(56,97,251,.2);} .spin{animation:rot .8s linear infinite;}@keyframes rot{to{transform:rotate(360deg)}}
 .page{max-width:1380px;margin:0 auto;padding:8px;}.grid{display:grid;grid-template-columns:240px 1fr;gap:8px;}@media(max-width:780px){.grid{grid-template-columns:1fr;}}
 .card{background:#131B2E;border:1px solid #1E2D45;border-radius:8px;}.cp{padding:12px;}
 .ww{position:relative;width:160px;height:160px;margin:0 auto 10px;}.ww svg{width:100%;height:100%;}.wc{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;}
-.wl{font-size:8px;color:#808A9D;text-transform:uppercase;letter-spacing:.1em;}.wv{font-size:1.5rem;font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.1;}
-.sn{font-size:1.3rem;font-weight:700;margin:4px 0 2px;}.sd{font-size:10px;color:#808A9D;line-height:1.5;margin-bottom:8px;}
-.clb{display:inline-block;padding:4px 12px;border-radius:4px;font-size:10px;font-weight:700;border:1px solid;margin-bottom:8px;}
+.wl{font-size:8px;color:#C7D0E0;text-transform:uppercase;letter-spacing:.1em;}.wv{font-size:1.5rem;font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.1;}
+.sn{font-size:1.3rem;font-weight:700;margin:4px 0 2px;}.sd{font-size:13px;color:#C7D0E0;line-height:1.5;margin-bottom:8px;}
+.clb{display:inline-block;padding:4px 12px;border-radius:4px;font-size:13px;font-weight:700;border:1px solid;margin-bottom:8px;}
 .cl1{color:#16C784;border-color:rgba(22,199,132,.3);background:rgba(22,199,132,.07);} .cl2{color:#F3BA2F;border-color:rgba(243,186,47,.3);background:rgba(243,186,47,.07);} .cl3{color:#FF8C00;border-color:rgba(255,140,0,.3);background:rgba(255,140,0,.07);} .cl4{color:#EA3943;border-color:rgba(234,57,67,.3);background:rgba(234,57,67,.07);}
 .hbw{width:90%;margin:0 auto;}.hbl{display:flex;justify-content:space-between;font-size:8px;color:#3D4F68;margin-bottom:3px;}.hb{height:4px;border-radius:10px;background:linear-gradient(90deg,#3861FB,#16C784,#F3BA2F,#FF8C00,#EA3943);position:relative;}.hbt{position:absolute;top:50%;width:10px;height:10px;background:#fff;border:2px solid #0D1421;border-radius:50%;transform:translateY(-50%);transition:left 1s ease;box-shadow:0 0 4px rgba(255,255,255,.5);}
-.mlist{overflow:hidden;}.mr{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;border-bottom:1px solid #1E2D45;}.mr:last-child{border-bottom:none;}.ml{font-size:11px;color:#808A9D;display:flex;align-items:center;gap:5px;}.at{font-size:8px;padding:1px 4px;border-radius:2px;background:rgba(22,199,132,.1);color:#16C784;font-weight:700;}.mv{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;font-weight:700;text-align:right;}.ms{font-size:9px;color:#808A9D;text-align:right;}
-.cs{display:grid;grid-template-columns:repeat(4,1fr);border-radius:8px;overflow:hidden;border:1px solid #1E2D45;}.ci{background:#131B2E;padding:7px 4px;text-align:center;border-right:1px solid #1E2D45;transition:opacity .3s;}.ci:last-child{border-right:none;}.cn{font-size:11px;font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-bottom:1px;}.cl{font-size:8px;color:#808A9D;}
-.notice{background:rgba(56,97,251,.08);border:1px solid rgba(56,97,251,.18);border-radius:8px;padding:10px 12px;line-height:1.7;}.notice strong{color:#C7D4FF;}.notice .small{font-size:10px;color:#92A0B8;}
-.rp{display:flex;flex-direction:column;gap:8px;}.sh{display:flex;align-items:center;gap:8px;margin-bottom:4px;}.st{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#808A9D;}.sl{flex:1;height:1px;background:#1E2D45;}
-.tbl{overflow:hidden;}.tr{display:grid;padding:8px 12px;border-bottom:1px solid #1E2D45;align-items:center;}.tr:last-child{border-bottom:none;}.tr:hover{background:#1A2438;}.tr.hl{background:rgba(56,97,251,.05);border-left:2px solid #3861FB;}.th{display:grid;padding:6px 12px;background:#1A2438;border-bottom:1px solid #1E2D45;}.tht{font-size:9px;color:#808A9D;text-transform:uppercase;letter-spacing:.1em;}.tn{font-size:11px;font-weight:600;color:#EEF0F3;}.tsb{font-size:9px;color:#808A9D;margin-top:1px;}.tv{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;font-weight:700;text-align:right;}.tl{font-size:9px;text-align:right;}.tsg{display:flex;justify-content:flex-end;align-items:center;}.sig{width:7px;height:7px;border-radius:50%;}.gg{background:#16C784;box-shadow:0 0 4px #16C784;}.gy{background:#F3BA2F;box-shadow:0 0 4px #F3BA2F;}.go{background:#FF8C00;box-shadow:0 0 4px #FF8C00;}.gr{background:#EA3943;box-shadow:0 0 4px #EA3943;}.gn{background:#3D4F68;}.c4{grid-template-columns:1fr 80px 120px 40px;}.c4m{grid-template-columns:1fr 80px 130px 40px;}
+.mlist{overflow:hidden;}.mr{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;border-bottom:1px solid #1E2D45;}.mr:last-child{border-bottom:none;}.ml{font-size:13px;color:#C7D0E0;display:flex;align-items:center;gap:5px;}.at{font-size:8px;padding:1px 4px;border-radius:2px;background:rgba(22,199,132,.1);color:#16C784;font-weight:700;}.mv{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;font-weight:700;text-align:right;}.ms{font-size:14px;color:#C7D0E0;text-align:right;}
+.cs{display:grid;grid-template-columns:repeat(4,1fr);border-radius:8px;overflow:hidden;border:1px solid #1E2D45;}.ci{background:#131B2E;padding:7px 4px;text-align:center;border-right:1px solid #1E2D45;transition:opacity .3s;}.ci:last-child{border-right:none;}.cn{font-size:13px;font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-bottom:1px;}.cl{font-size:8px;color:#C7D0E0;}
+.notice{background:rgba(56,97,251,.08);border:1px solid rgba(56,97,251,.18);border-radius:8px;padding:10px 12px;line-height:1.7;}.notice strong{color:#C7D4FF;}.notice .small{font-size:13px;color:#92A0B8;}
+.rp{display:flex;flex-direction:column;gap:8px;}.sh{display:flex;align-items:center;gap:8px;margin-bottom:4px;}.st{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#C7D0E0;}.sl{flex:1;height:1px;background:#1E2D45;}
+.tbl{overflow:hidden;}.tr{display:grid;padding:8px 12px;border-bottom:1px solid #1E2D45;align-items:center;}.tr:last-child{border-bottom:none;}.tr:hover{background:#1A2438;}.tr.hl{background:rgba(56,97,251,.05);border-left:2px solid #3861FB;}.th{display:grid;padding:6px 12px;background:#1A2438;border-bottom:1px solid #1E2D45;}.tht{font-size:14px;color:#C7D0E0;text-transform:uppercase;letter-spacing:.1em;}.tn{font-size:13px;font-weight:600;color:#EEF0F3;}.tsb{font-size:14px;color:#C7D0E0;margin-top:1px;}.tv{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;font-weight:700;text-align:right;}.tl{font-size:14px;text-align:right;}.tsg{display:flex;justify-content:flex-end;align-items:center;}.sig{width:7px;height:7px;border-radius:50%;}.gg{background:#16C784;box-shadow:0 0 4px #16C784;}.gy{background:#F3BA2F;box-shadow:0 0 4px #F3BA2F;}.go{background:#FF8C00;box-shadow:0 0 4px #FF8C00;}.gr{background:#EA3943;box-shadow:0 0 4px #EA3943;}.gn{background:#3D4F68;}.c4{grid-template-columns:1fr 80px 120px 40px;}.c4m{grid-template-columns:1fr 80px 130px 40px;}
 .atbl{overflow:hidden;}.ar{display:grid;grid-template-columns:80px 1.2fr 1.2fr 1fr 55px;gap:6px;padding:9px 12px;border-bottom:1px solid #1E2D45;align-items:center;}.ar:last-child{border-bottom:none;}.ar:hover{background:#1A2438;}.ar.hl{background:rgba(56,97,251,.05);border-left:2px solid #3861FB;}
-.stag{display:inline-flex;align-items:center;gap:2px;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;}.tsp{background:rgba(22,199,132,.1);color:#16C784;}.tsu{background:rgba(243,186,47,.1);color:#F3BA2F;}.tfa{background:rgba(255,140,0,.1);color:#FF8C00;}.twi{background:rgba(56,97,251,.1);color:#3861FB;}
-.pills{display:flex;flex-wrap:wrap;gap:3px;}.pill{padding:1px 5px;border-radius:3px;font-size:9px;}.pg{background:rgba(22,199,132,.1);color:#16C784;}.py{background:rgba(243,186,47,.07);color:#F3BA2F;}.pb{background:rgba(56,97,251,.08);color:#6B8EFF;}.pr{background:rgba(234,57,67,.07);color:#EA3943;}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;justify-content:center;align-items:center;}.modal.on{display:flex;}.mbox{background:#131B2E;border:1px solid #1E2D45;border-radius:10px;padding:22px;width:90%;max-width:430px;}.mbox h3{font-size:14px;font-weight:700;margin:0 0 4px;}.msub{font-size:10px;color:#808A9D;margin-bottom:16px;}.flabel{font-size:10px;color:#808A9D;margin-bottom:5px;}.frow{display:flex;gap:6px;align-items:center;margin-bottom:6px;}.finp{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(56,97,251,.3);border-radius:5px;color:#EEF0F3;font-size:11px;padding:7px 10px;outline:none;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}.minfo{background:rgba(56,97,251,.07);border:1px solid rgba(56,97,251,.15);border-radius:6px;padding:10px 12px;font-size:10px;color:#808A9D;line-height:1.8;margin-bottom:12px;}.mst{font-size:10px;min-height:16px;margin-bottom:12px;}.mbtns{display:flex;gap:8px;justify-content:flex-end;}.bcancel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#808A9D;padding:7px 16px;border-radius:5px;cursor:pointer;font-size:11px;}.bsave{background:rgba(56,97,251,.2);border:1px solid rgba(56,97,251,.35);color:#6B8EFF;padding:7px 16px;border-radius:5px;cursor:pointer;font-size:11px;font-weight:700;}
-footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:9px;color:#3D4F68;display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;}
+.stag{display:inline-flex;align-items:center;gap:2px;padding:2px 7px;border-radius:4px;font-size:13px;font-weight:700;}.tsp{background:rgba(22,199,132,.1);color:#16C784;}.tsu{background:rgba(243,186,47,.1);color:#F3BA2F;}.tfa{background:rgba(255,140,0,.1);color:#FF8C00;}.twi{background:rgba(56,97,251,.1);color:#6EA8FF;}
+.pills{display:flex;flex-wrap:wrap;gap:3px;}.pill{padding:1px 5px;border-radius:3px;font-size:14px;}.pg{background:rgba(22,199,132,.1);color:#16C784;}.py{background:rgba(243,186,47,.07);color:#F3BA2F;}.pb{background:rgba(56,97,251,.08);color:#6B8EFF;}.pr{background:rgba(234,57,67,.07);color:#EA3943;}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;justify-content:center;align-items:center;}.modal.on{display:flex;}.mbox{background:#131B2E;border:1px solid #1E2D45;border-radius:10px;padding:22px;width:90%;max-width:430px;}.mbox h3{font-size:14px;font-weight:700;margin:0 0 4px;}.msub{font-size:13px;color:#C7D0E0;margin-bottom:16px;}.flabel{font-size:13px;color:#C7D0E0;margin-bottom:5px;}.frow{display:flex;gap:6px;align-items:center;margin-bottom:6px;}.finp{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(56,97,251,.3);border-radius:5px;color:#EEF0F3;font-size:13px;padding:7px 10px;outline:none;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}.minfo{background:rgba(56,97,251,.07);border:1px solid rgba(56,97,251,.15);border-radius:6px;padding:10px 12px;font-size:13px;color:#C7D0E0;line-height:1.8;margin-bottom:12px;}.mst{font-size:13px;min-height:16px;margin-bottom:12px;}.mbtns{display:flex;gap:8px;justify-content:flex-end;}.bcancel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#C7D0E0;padding:7px 16px;border-radius:5px;cursor:pointer;font-size:13px;}.bsave{background:rgba(56,97,251,.2);border:1px solid rgba(56,97,251,.35);color:#6B8EFF;padding:7px 16px;border-radius:5px;cursor:pointer;font-size:13px;font-weight:700;}
+footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F68;display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;}
+
+/* mobile readability patch */
+@media (max-width: 768px) {
+  body { font-size: 16px !important; }
+  .desc, .sub, .muted, .hint, .note, .small, .legend, .caption {
+    font-size: 14px !important;
+    color: #C7D0E0 !important;
+    line-height: 1.45 !important;
+  }
+  .stag { font-size: 14px !important; }
+  .pill { font-size: 12px !important; }
+}
+
+
+/* regime popup */
+#regimeHelpBtn{
+  position:fixed; right:16px; bottom:16px; z-index:9999;
+  background:#3861FB; color:#fff; border:none; border-radius:999px;
+  padding:12px 16px; font-size:14px; font-weight:700;
+  box-shadow:0 8px 24px rgba(0,0,0,.28); cursor:pointer;
+}
+#regimeHelpModal{
+  display:none; position:fixed; inset:0; z-index:10000;
+  background:rgba(5,10,20,.62); backdrop-filter:blur(3px);
+}
+#regimeHelpModal.open{ display:flex; align-items:flex-end; justify-content:center; }
+#regimeHelpSheet{
+  width:min(100%, 720px); max-height:86vh; overflow:auto;
+  background:#0F172A; color:#E6EDF3; border-top-left-radius:18px; border-top-right-radius:18px;
+  box-shadow:0 -10px 30px rgba(0,0,0,.35); padding:18px 16px 24px;
+  border:1px solid rgba(255,255,255,.06);
+}
+#regimeHelpHeader{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;
+}
+#regimeHelpTitle{ font-size:18px; font-weight:800; color:#fff; }
+#regimeHelpClose{
+  background:#1E293B; color:#E6EDF3; border:1px solid rgba(255,255,255,.08);
+  border-radius:10px; padding:8px 10px; font-size:13px; font-weight:700; cursor:pointer;
+}
+.rh-tabs{ display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 14px; }
+.rh-tab{
+  border:none; border-radius:999px; padding:8px 12px; cursor:pointer; font-size:13px; font-weight:700;
+  background:#1E293B; color:#C7D0E0;
+}
+.rh-tab.active{ background:#3861FB; color:#fff; }
+.rh-card{
+  background:#111827; border:1px solid rgba(255,255,255,.06); border-radius:14px;
+  padding:14px; margin-bottom:12px;
+}
+.rh-k{ font-size:12px; color:#94A3B8; margin-bottom:6px; }
+.rh-v{ font-size:15px; color:#E6EDF3; line-height:1.55; }
+.rh-list{ margin:8px 0 0 18px; color:#D6DEEA; line-height:1.6; }
+.rh-note{
+  margin-top:8px; font-size:13px; color:#B8C2D3; line-height:1.55;
+}
+@media (max-width:768px){
+  #regimeHelpBtn{ right:12px; bottom:12px; font-size:14px; padding:12px 14px; }
+  #regimeHelpTitle{ font-size:17px; }
+  .rh-v{ font-size:15px; }
+  .rh-list{ font-size:14px; }
+}
+
 </style>
 </head>
 <body>
 <div class="ticker">
   <div class="tinner">
-    <span class="ti"><span class="ti-n">S&amp;P500</span><span class="ti-v" id="tk_sp" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">NDX</span><span class="ti-v" id="tk_nd" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">Gold</span><span class="ti-v" id="tk_go" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">DXY</span><span class="ti-v" id="tk_dx" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">VIX</span><span class="ti-v" id="tk_vx" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">F&amp;G</span><span class="ti-v" id="tk_fg" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">PMI</span><span class="ti-v" id="tk_pm" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">LEI</span><span class="ti-v" id="tk_lei" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">S&amp;P500</span><span class="ti-v" id="tk_sp2" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">NDX</span><span class="ti-v" id="tk_nd2" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">Gold</span><span class="ti-v" id="tk_go2" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">DXY</span><span class="ti-v" id="tk_dx2" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">VIX</span><span class="ti-v" id="tk_vx2" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">F&amp;G</span><span class="ti-v" id="tk_fg2" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">PMI</span><span class="ti-v" id="tk_pm2" style="color:#808A9D">—</span></span>
-    <span class="ti"><span class="ti-n">LEI</span><span class="ti-v" id="tk_lei2" style="color:#808A9D">—</span></span>
+    <span class="ti"><span class="ti-n">S&amp;P500</span><span class="ti-v" id="tk_sp" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">NDX</span><span class="ti-v" id="tk_nd" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">Gold</span><span class="ti-v" id="tk_go" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">DXY</span><span class="ti-v" id="tk_dx" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">VIX</span><span class="ti-v" id="tk_vx" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">F&amp;G</span><span class="ti-v" id="tk_fg" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">PMI</span><span class="ti-v" id="tk_pm" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">LEI</span><span class="ti-v" id="tk_lei" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">S&amp;P500</span><span class="ti-v" id="tk_sp2" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">NDX</span><span class="ti-v" id="tk_nd2" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">Gold</span><span class="ti-v" id="tk_go2" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">DXY</span><span class="ti-v" id="tk_dx2" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">VIX</span><span class="ti-v" id="tk_vx2" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">F&amp;G</span><span class="ti-v" id="tk_fg2" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">PMI</span><span class="ti-v" id="tk_pm2" style="color:#C7D0E0">—</span></span>
+    <span class="ti"><span class="ti-n">LEI</span><span class="ti-v" id="tk_lei2" style="color:#C7D0E0">—</span></span>
   </div>
 </div>
 <div class="hdr">
@@ -130,11 +193,11 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:9px;color:#3D4F68
     <div class="sh"><div class="st">① 시장 온도</div><div class="sl"></div></div>
     <div class="card tbl">
       <div class="th c4"><span class="tht">지수</span><span class="tht" style="text-align:right">현재값</span><span class="tht" style="text-align:right">판단/날짜</span><span class="tht" style="text-align:right">신호</span></div>
-      <div class="tr c4"><div><div class="tn">🇺🇸 S&amp;P 500 <span class="at">AUTO</span></div><div class="tsb">고평가/과열 여부 참고</div></div><div class="tv" id="v_sp" style="color:#3D4F68">—</div><div class="tl" id="s_sp" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="sg_sp"></div></div></div>
-      <div class="tr c4"><div><div class="tn">💻 Nasdaq 100 <span class="at">AUTO</span></div><div class="tsb">성장주 민감도</div></div><div class="tv" id="v_nd" style="color:#3D4F68">—</div><div class="tl" id="s_nd" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="sg_nd"></div></div></div>
-      <div class="tr c4"><div><div class="tn">🥇 Gold <span class="at">AUTO</span></div><div class="tsb">위기 헤지 수요</div></div><div class="tv" id="v_go" style="color:#3D4F68">—</div><div class="tl" id="s_go" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="sg_go"></div></div></div>
-      <div class="tr c4"><div><div class="tn">💵 DXY <span class="at">AUTO</span></div><div class="tsb">강달러 압박</div></div><div class="tv" id="v_dx" style="color:#3D4F68">—</div><div class="tl" id="s_dx" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="sg_dx"></div></div></div>
-      <div class="tr c4"><div><div class="tn">😰 VIX <span class="at">AUTO</span></div><div class="tsb">20+주의 · 30+위험 · 40+공포</div></div><div class="tv" id="v_vx" style="color:#3D4F68">—</div><div class="tl" id="s_vx" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="sg_vx"></div></div></div>
+      <div class="tr c4"><div><div class="tn">🇺🇸 S&amp;P 500 <span class="at">AUTO</span></div><div class="tsb">고평가/과열 여부 참고</div></div><div class="tv" id="v_sp" style="color:#3D4F68">—</div><div class="tl" id="s_sp" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="sg_sp"></div></div></div>
+      <div class="tr c4"><div><div class="tn">💻 Nasdaq 100 <span class="at">AUTO</span></div><div class="tsb">성장주 민감도</div></div><div class="tv" id="v_nd" style="color:#3D4F68">—</div><div class="tl" id="s_nd" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="sg_nd"></div></div></div>
+      <div class="tr c4"><div><div class="tn">🥇 Gold <span class="at">AUTO</span></div><div class="tsb">위기 헤지 수요</div></div><div class="tv" id="v_go" style="color:#3D4F68">—</div><div class="tl" id="s_go" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="sg_go"></div></div></div>
+      <div class="tr c4"><div><div class="tn">💵 DXY <span class="at">AUTO</span></div><div class="tsb">강달러 압박</div></div><div class="tv" id="v_dx" style="color:#3D4F68">—</div><div class="tl" id="s_dx" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="sg_dx"></div></div></div>
+      <div class="tr c4"><div><div class="tn">😰 VIX <span class="at">AUTO</span></div><div class="tsb">20+주의 · 30+위험 · 40+공포</div></div><div class="tv" id="v_vx" style="color:#3D4F68">—</div><div class="tl" id="s_vx" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="sg_vx"></div></div></div>
     </div>
   </div>
 
@@ -142,15 +205,15 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:9px;color:#3D4F68
     <div class="sh"><div class="st">② Fear &amp; Greed</div><div class="sl"></div></div>
     <div class="card tbl">
       <div class="th c4"><span class="tht">지표</span><span class="tht" style="text-align:right">점수</span><span class="tht" style="text-align:right">등급</span><span class="tht" style="text-align:right">신호</span></div>
-      <div class="tr c4" style="background:#1A2438"><div><div class="tn">😱 CNN 종합 <span class="at">AUTO</span></div><div class="tsb">0=극단공포 · 100=극단탐욕</div></div><div class="tv" id="cnn_tot" style="color:#3D4F68">—</div><div class="tl" id="cnn_tot_r" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="cnn_tot_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">📅 전주/전월 비교</div><div class="tsb">심리 추세</div></div><div class="tv" id="cnn_his" style="color:#3D4F68">—</div><div class="tl" id="cnn_his_r" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="cnn_his_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">📈 주가 모멘텀</div><div class="tsb">S&amp;P500 vs 125일선</div></div><div class="tv" id="cnn_mom" style="color:#3D4F68">—</div><div class="tl" id="cnn_mom_r" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="cnn_mom_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">💪 주가 강도</div><div class="tsb">신고가 vs 신저가</div></div><div class="tv" id="cnn_str" style="color:#3D4F68">—</div><div class="tl" id="cnn_str_r" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="cnn_str_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">📊 주가 폭넓이</div><div class="tsb">참여 종목 확산</div></div><div class="tv" id="cnn_brd" style="color:#3D4F68">—</div><div class="tl" id="cnn_brd_r" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="cnn_brd_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">🔀 풋/콜 비율</div><div class="tsb">낮을수록 탐욕</div></div><div class="tv" id="cnn_pc" style="color:#3D4F68">—</div><div class="tl" id="cnn_pc_r" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="cnn_pc_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">😰 시장 변동성</div><div class="tsb">VIX 기반</div></div><div class="tv" id="cnn_vix" style="color:#3D4F68">—</div><div class="tl" id="cnn_vix_r" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="cnn_vix_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">🗑️ 정크본드 수요</div><div class="tsb">위험채 수요</div></div><div class="tv" id="cnn_jnk" style="color:#3D4F68">—</div><div class="tl" id="cnn_jnk_r" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="cnn_jnk_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">🛡️ 안전자산 수요</div><div class="tsb">주식 vs 국채</div></div><div class="tv" id="cnn_saf" style="color:#3D4F68">—</div><div class="tl" id="cnn_saf_r" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="cnn_saf_s"></div></div></div>
+      <div class="tr c4" style="background:#1A2438"><div><div class="tn">😱 CNN 종합 <span class="at">AUTO</span></div><div class="tsb">0=극단공포 · 100=극단탐욕</div></div><div class="tv" id="cnn_tot" style="color:#3D4F68">—</div><div class="tl" id="cnn_tot_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_tot_s"></div></div></div>
+      <div class="tr c4"><div><div class="tn">📅 전주/전월 비교</div><div class="tsb">심리 추세</div></div><div class="tv" id="cnn_his" style="color:#3D4F68">—</div><div class="tl" id="cnn_his_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_his_s"></div></div></div>
+      <div class="tr c4"><div><div class="tn">📈 주가 모멘텀</div><div class="tsb">S&amp;P500 vs 125일선</div></div><div class="tv" id="cnn_mom" style="color:#3D4F68">—</div><div class="tl" id="cnn_mom_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_mom_s"></div></div></div>
+      <div class="tr c4"><div><div class="tn">💪 주가 강도</div><div class="tsb">신고가 vs 신저가</div></div><div class="tv" id="cnn_str" style="color:#3D4F68">—</div><div class="tl" id="cnn_str_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_str_s"></div></div></div>
+      <div class="tr c4"><div><div class="tn">📊 주가 폭넓이</div><div class="tsb">참여 종목 확산</div></div><div class="tv" id="cnn_brd" style="color:#3D4F68">—</div><div class="tl" id="cnn_brd_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_brd_s"></div></div></div>
+      <div class="tr c4"><div><div class="tn">🔀 풋/콜 비율</div><div class="tsb">낮을수록 탐욕</div></div><div class="tv" id="cnn_pc" style="color:#3D4F68">—</div><div class="tl" id="cnn_pc_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_pc_s"></div></div></div>
+      <div class="tr c4"><div><div class="tn">😰 시장 변동성</div><div class="tsb">VIX 기반</div></div><div class="tv" id="cnn_vix" style="color:#3D4F68">—</div><div class="tl" id="cnn_vix_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_vix_s"></div></div></div>
+      <div class="tr c4"><div><div class="tn">🗑️ 정크본드 수요</div><div class="tsb">위험채 수요</div></div><div class="tv" id="cnn_jnk" style="color:#3D4F68">—</div><div class="tl" id="cnn_jnk_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_jnk_s"></div></div></div>
+      <div class="tr c4"><div><div class="tn">🛡️ 안전자산 수요</div><div class="tsb">주식 vs 국채</div></div><div class="tv" id="cnn_saf" style="color:#3D4F68">—</div><div class="tl" id="cnn_saf_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_saf_s"></div></div></div>
     </div>
   </div>
 
@@ -164,11 +227,11 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:9px;color:#3D4F68
   <div>
     <div class="sh"><div class="st">④ 방어 자산 가이드</div><div class="sl"></div></div>
     <div class="card atbl">
-      <div class="ar" style="background:#1A2438;border-bottom:1px solid #1E2D45;"><span style="font-size:9px;color:#808A9D">국면</span><span style="font-size:9px;color:#808A9D">유지/확대</span><span style="font-size:9px;color:#808A9D">줄이기</span><span style="font-size:9px;color:#808A9D">한 줄 가이드</span><span style="font-size:9px;color:#808A9D">현금%</span></div>
-      <div class="ar" data-s="spring"><div><span class="stag tsp">🌸 봄</span><div style="font-size:9px;color:#808A9D;margin-top:2px">회복기</div></div><div><div class="pills"><span class="pill pg">대형주</span><span class="pill pg">반도체</span><span class="pill py">경기민감</span></div></div><div><div class="pills"><span class="pill pr">초장기채</span><span class="pill pr">과도한현금</span></div></div><div style="font-size:10px;color:#16C784">위험자산 재진입<div style="font-size:9px;color:#808A9D">경고 신호 감소 확인</div></div><div style="color:#16C784;font-size:11px;font-weight:700">10~20%</div></div>
-      <div class="ar" data-s="summer"><div><span class="stag tsu">☀️ 여름</span><div style="font-size:9px;color:#808A9D;margin-top:2px">확장기</div></div><div><div class="pills"><span class="pill pg">주식</span><span class="pill py">퀄리티</span><span class="pill pb">현금약간</span></div></div><div><div class="pills"><span class="pill pr">방어과잉</span><span class="pill pr">추격매수</span></div></div><div style="font-size:10px;color:#F3BA2F">보유 중심<div style="font-size:9px;color:#808A9D">과열 전환 여부 점검</div></div><div style="color:#F3BA2F;font-size:11px;font-weight:700">15~25%</div></div>
-      <div class="ar" data-s="fall"><div><span class="stag tfa">🍂 가을</span><div style="font-size:9px;color:#808A9D;margin-top:2px">과열기</div></div><div><div class="pills"><span class="pill pg">금</span><span class="pill py">달러</span><span class="pill pb">단기채</span></div></div><div><div class="pills"><span class="pill pr">고베타</span><span class="pill pr">레버리지</span></div></div><div style="font-size:10px;color:#FF8C00">분할 축소<div style="font-size:9px;color:#808A9D">현금 비중 점증</div></div><div style="color:#FF8C00;font-size:11px;font-weight:700">30~45%</div></div>
-      <div class="ar" data-s="winter"><div><span class="stag twi">❄️ 겨울</span><div style="font-size:9px;color:#808A9D;margin-top:2px">수축기</div></div><div><div class="pills"><span class="pill pb">현금</span><span class="pill pg">금</span><span class="pill pb">단기국채</span></div></div><div><div class="pills"><span class="pill pr">고평가주</span><span class="pill pr">신용투자</span></div></div><div style="font-size:10px;color:#3861FB">방어 우선<div style="font-size:9px;color:#808A9D">극단공포는 분할매수 준비</div></div><div style="color:#3861FB;font-size:11px;font-weight:700">45~65%</div></div>
+      <div class="ar" style="background:#1A2438;border-bottom:1px solid #1E2D45;"><span style="font-size:14px;color:#C7D0E0">국면</span><span style="font-size:14px;color:#C7D0E0">유지/확대</span><span style="font-size:14px;color:#C7D0E0">줄이기</span><span style="font-size:14px;color:#C7D0E0">한 줄 가이드</span><span style="font-size:14px;color:#C7D0E0">현금%</span></div>
+      <div class="ar" data-s="spring"><div><span class="stag tsp">🌸 봄</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">회복기</div></div><div><div class="pills"><span class="pill pg">대형주</span><span class="pill pg">반도체</span><span class="pill py">경기민감</span></div></div><div><div class="pills"><span class="pill pr">초장기채</span><span class="pill pr">과도한현금</span></div></div><div style="font-size:13px;color:#16C784">위험자산 재진입<div style="font-size:14px;color:#C7D0E0">경고 신호 감소 확인</div></div><div style="color:#16C784;font-size:13px;font-weight:700">10~20%</div></div>
+      <div class="ar" data-s="summer"><div><span class="stag tsu">☀️ 여름</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">확장기</div></div><div><div class="pills"><span class="pill pg">주식</span><span class="pill py">퀄리티</span><span class="pill pb">현금약간</span></div></div><div><div class="pills"><span class="pill pr">방어과잉</span><span class="pill pr">추격매수</span></div></div><div style="font-size:13px;color:#F3BA2F">보유 중심<div style="font-size:14px;color:#C7D0E0">과열 전환 여부 점검</div></div><div style="color:#F3BA2F;font-size:13px;font-weight:700">15~25%</div></div>
+      <div class="ar" data-s="fall"><div><span class="stag tfa">🍂 가을</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">과열기</div></div><div><div class="pills"><span class="pill pg">금</span><span class="pill py">달러</span><span class="pill pb">단기채</span></div></div><div><div class="pills"><span class="pill pr">고베타</span><span class="pill pr">레버리지</span></div></div><div style="font-size:13px;color:#FF8C00">분할 축소<div style="font-size:14px;color:#C7D0E0">현금 비중 점증</div></div><div style="color:#FF8C00;font-size:13px;font-weight:700">30~45%</div></div>
+      <div class="ar" data-s="winter"><div><span class="stag twi">❄️ 겨울</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">수축기</div></div><div><div class="pills"><span class="pill pb">현금</span><span class="pill pg">금</span><span class="pill pb">단기국채</span></div></div><div><div class="pills"><span class="pill pr">고평가주</span><span class="pill pr">신용투자</span></div></div><div style="font-size:13px;color:#6EA8FF">방어 우선<div style="font-size:14px;color:#C7D0E0">극단공포는 분할매수 준비</div></div><div style="color:#6EA8FF;font-size:13px;font-weight:700">45~65%</div></div>
     </div>
   </div>
 
@@ -281,7 +344,7 @@ function buildCoreRows(){
   CORE.forEach(def=>{
     const row = document.createElement('div');
     row.className = 'tr c4m';
-    row.innerHTML = '<div><div class="tn">'+def.name+' <span class="at">AUTO</span></div><div class="tsb">'+def.hint+'</div></div><div class="tv" id="core_v_'+def.id+'" style="color:#3D4F68">—</div><div class="tl" id="core_l_'+def.id+'" style="color:#808A9D">—</div><div class="tsg"><div class="sig gn" id="core_s_'+def.id+'"></div></div>';
+    row.innerHTML = '<div><div class="tn">'+def.name+' <span class="at">AUTO</span></div><div class="tsb">'+def.hint+'</div></div><div class="tv" id="core_v_'+def.id+'" style="color:#3D4F68">—</div><div class="tl" id="core_l_'+def.id+'" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="core_s_'+def.id+'"></div></div>';
     tbl.appendChild(row);
   });
 }
@@ -559,5 +622,144 @@ if(el('cfgModal')) el('cfgModal').style.display = 'none';
 el('rb').addEventListener('click', doFetch);
 doFetch();
 </script>
+
+<button id="regimeHelpBtn" type="button">국면 설명</button>
+
+<div id="regimeHelpModal" aria-hidden="true">
+  <div id="regimeHelpSheet" role="dialog" aria-modal="true" aria-labelledby="regimeHelpTitle">
+    <div id="regimeHelpHeader">
+      <div id="regimeHelpTitle">4계절 국면 설명</div>
+      <button id="regimeHelpClose" type="button">닫기</button>
+    </div>
+
+    <div class="rh-tabs">
+      <button class="rh-tab active" data-rh="spring">봄</button>
+      <button class="rh-tab" data-rh="summer1">여름 초기</button>
+      <button class="rh-tab" data-rh="summer2">여름 후반</button>
+      <button class="rh-tab" data-rh="autumn">가을</button>
+      <button class="rh-tab" data-rh="winter">겨울</button>
+    </div>
+
+    <div id="rhContent"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const DATA = {
+    spring: {
+      title: "🌱 봄",
+      summary: "바닥 통과와 초기 회복이 시작되는 단계",
+      points: [
+        "PMI 개선, 심리 회복, 시장 선반영이 자주 나타남",
+        "아직 의심이 남아 있어서 변동성은 있을 수 있음",
+        "스타일: 성장주(Growth), 중소형주(Small Cap) 우세 경향"
+      ],
+      us: "미국 ETF 예시: QQQ, XLK, XLY",
+      kr: "한국 ETF 예시: 코스닥150, 반도체/성장 테마",
+      note: "설명용 예시이며, 상품 추천이 아니라 국면 이해를 돕기 위한 참고입니다."
+    },
+    summer1: {
+      title: "☀️ 여름 초기",
+      summary: "확장 국면이 비교적 건강하게 이어지는 단계",
+      points: [
+        "PMI 확장권, 고용 안정, 시장과 경기의 정렬 가능성",
+        "성장과 가치가 함께 갈 수 있는 구간",
+        "스타일: 성장주(Growth) + 가치주(Value) 균형"
+      ],
+      us: "미국 ETF 예시: SPY, VTI, XLK, XLI",
+      kr: "한국 ETF 예시: 코스피200, 반도체, 자동차",
+      note: "이 단계는 대체로 리스크 온이 넓게 확산되는지 함께 확인하는 것이 중요합니다."
+    },
+    summer2: {
+      title: "☀️ 여름 후반",
+      summary: "확장은 유지되지만 금리·밸류 부담이 쌓이는 단계",
+      points: [
+        "겉으로는 강해 보여도 내부 압력이 누적될 수 있음",
+        "금리 높음, 금리차 장기 역전, 다이버전스가 중요해짐",
+        "스타일: 가치주(Value), 고배당(Dividend) 상대 강도 상승 가능"
+      ],
+      us: "미국 ETF 예시: SCHD, XLF, XLV, XLE",
+      kr: "한국 ETF 예시: PLUS 고배당주, 은행/방어 섹터, 헬스케어",
+      note: "지금처럼 시장은 버티는데 내부는 무거운 구간을 설명할 때 가장 유용한 단계입니다."
+    },
+    autumn: {
+      title: "🍂 가을",
+      summary: "과열/후반부 부담이 커지는 단계",
+      points: [
+        "시장 심리가 경기보다 앞서기 쉬움",
+        "밸류 부담과 변동성 확대 가능성",
+        "스타일: 가치주(Value), 에너지/방어, 현금 비중 점검"
+      ],
+      us: "미국 ETF 예시: XLE, XLP, XLV, SCHD",
+      kr: "한국 ETF 예시: 고배당, 통신, 은행, 방어주",
+      note: "가을은 무조건 하락이 아니라, ‘늦은 사이클’ 경고 성격으로 읽는 것이 좋습니다."
+    },
+    winter: {
+      title: "❄️ 겨울",
+      summary: "수축/침체 리스크가 커져 방어가 우선되는 단계",
+      points: [
+        "경기 둔화, 실적 압박, 리스크 회피 강화",
+        "현금흐름 안정성과 방어력이 중요",
+        "스타일: 방어주(Defensive), 금(Gold), 단기채/국채"
+      ],
+      us: "미국 ETF 예시: SHY, IEF, TLT, XLV, XLP",
+      kr: "한국 ETF 예시: 국채 ETF, 방어/배당 성격 ETF",
+      note: "극단 공포 구간은 분할매수 준비 구간이 될 수도 있지만, 기본은 방어 우선입니다."
+    }
+  };
+
+  const btn = document.getElementById('regimeHelpBtn');
+  const modal = document.getElementById('regimeHelpModal');
+  const closeBtn = document.getElementById('regimeHelpClose');
+  const content = document.getElementById('rhContent');
+  const tabs = Array.from(document.querySelectorAll('.rh-tab'));
+
+  function render(key){
+    const d = DATA[key];
+    content.innerHTML = `
+      <div class="rh-card">
+        <div class="rh-k">현재 단계 설명</div>
+        <div class="rh-v"><strong>${d.title}</strong><br>${d.summary}</div>
+      </div>
+      <div class="rh-card">
+        <div class="rh-k">특징</div>
+        <ul class="rh-list">${d.points.map(x => `<li>${x}</li>`).join('')}</ul>
+      </div>
+      <div class="rh-card">
+        <div class="rh-k">ETF 예시</div>
+        <div class="rh-v">${d.us}<br>${d.kr}</div>
+        <div class="rh-note">${d.note}</div>
+      </div>
+    `;
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.rh === key));
+  }
+
+  btn.addEventListener('click', () => {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+  });
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  });
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  });
+  tabs.forEach(t => t.addEventListener('click', () => render(t.dataset.rh)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  render('summer2');
+})();
+</script>
+
 </body>
 </html>
