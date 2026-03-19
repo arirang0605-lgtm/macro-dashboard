@@ -289,18 +289,25 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
 
   <div>
     <div class="sh"><div class="st">⑤ 민스키·달걀 보조 패널</div><div class="sl"></div></div>
-    <div class="card cp" id="macroModelPanel" style="display:grid;gap:10px;">
-      <div style="padding:10px 12px;border:1px solid #1E2D45;border-radius:8px;background:#0F172A;">
-        <div style="font-size:13px;color:#AAB6CA;margin-bottom:4px;">민스키 경고</div>
-        <div id="minsky_phase" style="font-size:16px;font-weight:800;color:#E6EDF3;">—</div>
-        <div id="minsky_score" style="font-size:13px;color:#C7D0E0;margin-top:4px;">—</div>
-        <div id="minsky_signals" style="font-size:12px;color:#92A0B8;margin-top:6px;line-height:1.5;">—</div>
+    <div class="card tbl" id="macroModelPanel">
+      <div class="th c4m"><span class="tht">지표</span><span class="tht" style="text-align:right">현재값</span><span class="tht" style="text-align:right">판단 · 날짜</span><span class="tht" style="text-align:right">신호</span></div>
+      <div class="tr c4m">
+        <div>
+          <div class="tn">민스키 경고 <span class="at">AUTO</span></div>
+          <div class="tsb" id="minsky_desc">버블 붕괴 전조 보조 경고</div>
+        </div>
+        <div class="tv" id="minsky_score" style="color:#3D4F68">—</div>
+        <div class="tl" id="minsky_phase" style="color:#C7D0E0">—</div>
+        <div class="tsg"><div class="sig gn" id="minsky_sig"></div></div>
       </div>
-      <div style="padding:10px 12px;border:1px solid #1E2D45;border-radius:8px;background:#0F172A;">
-        <div style="font-size:13px;color:#AAB6CA;margin-bottom:4px;">코스톨라니 달걀</div>
-        <div id="egg_phase" style="font-size:16px;font-weight:800;color:#E6EDF3;">—</div>
-        <div id="egg_season" style="font-size:13px;color:#C7D0E0;margin-top:4px;">—</div>
-        <div id="egg_signals" style="font-size:12px;color:#92A0B8;margin-top:6px;line-height:1.5;">—</div>
+      <div class="tr c4m">
+        <div>
+          <div class="tn">코스톨라니 달걀 <span class="at">AUTO</span></div>
+          <div class="tsb" id="egg_desc">금리·경기 보조 국면</div>
+        </div>
+        <div class="tv" id="egg_season" style="color:#3D4F68">—</div>
+        <div class="tl" id="egg_phase" style="color:#C7D0E0">—</div>
+        <div class="tsg"><div class="sig gn" id="egg_sig"></div></div>
       </div>
     </div>
   </div>
