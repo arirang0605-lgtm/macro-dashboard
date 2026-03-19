@@ -288,7 +288,25 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
   </div>
 
   <div>
-    <div class="sh"><div class="st">⑤ 방어 자산 가이드</div><div class="sl"></div></div>
+    <div class="sh"><div class="st">⑤ 민스키·달걀 보조 패널</div><div class="sl"></div></div>
+    <div class="card cp" id="macroModelPanel" style="display:grid;gap:10px;">
+      <div style="padding:10px 12px;border:1px solid #1E2D45;border-radius:8px;background:#0F172A;">
+        <div style="font-size:13px;color:#AAB6CA;margin-bottom:4px;">민스키 경고</div>
+        <div id="minsky_phase" style="font-size:16px;font-weight:800;color:#E6EDF3;">—</div>
+        <div id="minsky_score" style="font-size:13px;color:#C7D0E0;margin-top:4px;">—</div>
+        <div id="minsky_signals" style="font-size:12px;color:#92A0B8;margin-top:6px;line-height:1.5;">—</div>
+      </div>
+      <div style="padding:10px 12px;border:1px solid #1E2D45;border-radius:8px;background:#0F172A;">
+        <div style="font-size:13px;color:#AAB6CA;margin-bottom:4px;">코스톨라니 달걀</div>
+        <div id="egg_phase" style="font-size:16px;font-weight:800;color:#E6EDF3;">—</div>
+        <div id="egg_season" style="font-size:13px;color:#C7D0E0;margin-top:4px;">—</div>
+        <div id="egg_signals" style="font-size:12px;color:#92A0B8;margin-top:6px;line-height:1.5;">—</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sh"><div class="st">⑥ 방어 자산 가이드</div><div class="sl"></div></div>
     <div class="card atbl">
       <div class="ar" style="background:#1A2438;border-bottom:1px solid #1E2D45;"><span style="font-size:14px;color:#C7D0E0">국면</span><span style="font-size:14px;color:#C7D0E0">유지/확대</span><span style="font-size:14px;color:#C7D0E0">줄이기</span><span style="font-size:14px;color:#C7D0E0">한 줄 가이드</span><span style="font-size:14px;color:#C7D0E0">현금%</span></div>
       <div class="ar" data-s="spring"><div><span class="stag tsp">🌸 봄</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">회복기</div></div><div><div class="pills"><span class="pill pg">대형주</span><span class="pill pg">반도체</span><span class="pill py">경기민감</span></div></div><div><div class="pills"><span class="pill pr">초장기채</span><span class="pill pr">과도한현금</span></div></div><div style="font-size:13px;color:#16C784">위험자산 재진입<div style="font-size:14px;color:#C7D0E0">경고 신호 감소 확인</div></div><div style="color:#16C784;font-size:13px;font-weight:700">10~20%</div></div>
@@ -741,12 +759,26 @@ function getSeasonLevelDesc(seasonId, level){
   return (map[seasonId] && map[seasonId][level]) || '국면 설명 준비중';
 }
 
+function renderMacroModels(payload){
+  const minsky = payload.minsky || {};
+  const egg = payload.eggModel || {};
+
+  setText('minsky_phase', minsky.phase ? '민스키: ' + minsky.phase : '—', '');
+  setText('minsky_score', minsky.score!=null ? '점수: ' + minsky.score : '—', '');
+  setText('minsky_signals', Array.isArray(minsky.signals) && minsky.signals.length ? minsky.signals.join(' · ') : '—', '');
+
+  setText('egg_phase', egg.phase ? '달걀: ' + egg.phase : '—', '');
+  setText('egg_season', egg.season ? '계절 매핑: ' + egg.season : '—', '');
+  setText('egg_signals', Array.isArray(egg.signals) && egg.signals.length ? egg.signals.join(' · ') : '—', '');
+}
+
 function renderPayload(payload, modeLabel){
   payload = applyManualOverrides(payload);
   state.payload = payload;
   renderMarket(payload.market || {});
   renderFearGreed(payload.fearGreed || null);
   calcAndRenderRisk(payload);
+  renderMacroModels(payload);
   const when = payload.updatedAt ? new Date(payload.updatedAt).toLocaleString('ko-KR') : new Date().toLocaleString('ko-KR');
   setText('ft', '마지막 업데이트: ' + when + (modeLabel ? ' · ' + modeLabel : ''), '');
 }
