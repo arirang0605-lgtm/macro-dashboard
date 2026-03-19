@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-19T10:40:26+00:00",
+  "updatedAt": "2026-03-19T10:42:28+00:00",
   "market": {
     "sp": {
       "value": 6624.7,
@@ -15,7 +15,7 @@
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4691.69,
+      "value": 4686.9,
       "date": "2026-03-19"
     },
     "dx": {
@@ -25,6 +25,10 @@
     "vx": {
       "value": 22.37,
       "date": "2026-03-17"
+    },
+    "bdi": {
+      "value": 0.89,
+      "date": "2026-01-01"
     }
   },
   "core": {
@@ -33,12 +37,12 @@
       "date": "2025-12-01"
     },
     "pmi": {
-      "value": 52.6,
+      "value": 52.4,
       "date": "2026-02-01"
     },
     "buffett": {
-      "value": 194.89,
-      "date": "2020-01-01"
+      "value": 230.34,
+      "date": "2025-07-01"
     },
     "jolts": {
       "value": 6.95,
@@ -51,45 +55,13 @@
     "michigan": {
       "value": 56.4,
       "date": "2026-01-01"
-    },
-    "dgs10": {
-      "value": 4.2,
-      "date": "2026-03-17"
-    },
-    "dgs2": {
-      "value": 3.68,
-      "date": "2026-03-17"
-    },
-    "t10y2y": {
-      "value": 0.5,
-      "date": "2026-03-18"
-    },
-    "t10y3m": {
-      "value": 0.53,
-      "date": "2026-03-18"
-    },
-    "fedfunds": {
-      "value": 3.64,
-      "date": "2026-02-01"
-    },
-    "sahm": {
-      "value": 0.27,
-      "date": "2026-02-01"
-    },
-    "icsa": {
-      "value": 213000.0,
-      "date": "2026-03-07"
-    },
-    "hySpread": {
-      "value": 3.22,
-      "date": "2026-03-17"
     }
   },
   "fearGreed": {
     "score": 17.0088183421517,
     "rating": "extreme fear",
-    "timestamp": "2026-03-19T10:20:01+00:00",
-    "date": "2026-03-19T10:20:01+00:00",
+    "timestamp": "2026-03-19T10:25:16+00:00",
+    "date": "2026-03-19T10:25:16+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -101,9 +73,9 @@
     "safeHavenDemand": null
   },
   "meta": {
-    "source": "scripts/update_data_api.py",
-    "fredMode": "official_api",
-    "trustedPrev": true,
+    "source": "scripts/update_data_mix.py",
+    "fredMode": "mixed_sources",
+    "trustedPrev": false,
     "errors": []
   }
 }
