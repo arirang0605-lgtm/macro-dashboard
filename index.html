@@ -649,7 +649,7 @@ function calcAndRenderRisk(payload){
   if(el('ht')) el('ht').style.left = (heat===null?20:Math.max(2,Math.min(98,heat))) + '%';
   if(el('wp')) el('wp').style.transform = 'rotate(' + season.deg + 'deg)';
   setText('sn', season.emoji + ' ' + season.name, season.color);
-  setText('sd', season.desc, '');
+  setText('sd', getSeasonLevelDesc(season.id, level), '');
   const badge = el('sb'); if(badge){ badge.className = 'clb cl' + level; badge.textContent = {1:'L1 — 정상',2:'L2 — 주의',3:'L3 — 위험',4:'L4 — 방어'}[level]; }
   [1,2,3,4].forEach(i=>{ const n=el('c'+i); if(n) n.style.opacity = i===level ? '1' : '0.22'; });
   document.querySelectorAll('[data-s]').forEach(row=>row.classList.toggle('hl', row.dataset.s === season.id));
@@ -710,6 +710,36 @@ function getSeason(heat, level){
   return {id:'summer',emoji:'☀️',name:'여름',color:'#F3BA2F',desc:'확장기 · 보유 중심, 과열 전환 점검',deg:90};
 }
 function heatColor(h){ return h<35 ? '#3861FB' : h<55 ? '#16C784' : h<70 ? '#F3BA2F' : h<85 ? '#FF8C00' : '#EA3943'; }
+
+function getSeasonLevelDesc(seasonId, level){
+  const map = {
+    spring: {
+      1:'봄 L1 · 회복 초입, 위험자산 재진입 관찰',
+      2:'봄 L2 · 회복 확인, 확산 여부 점검',
+      3:'봄 L3 · 회복 불안정, 추격보다 확인 우선',
+      4:'봄 L4 · 재약화 위험, 방어 비중 재점검'
+    },
+    summer: {
+      1:'여름 L1 · 확장 초입, 보유 중심',
+      2:'여름 L2 · 확장 둔화, 과열 전환 점검',
+      3:'여름 L3 · 과열 경계, 일부 차익실현 검토',
+      4:'여름 L4 · 확장 말기, 방어 자산 병행'
+    },
+    fall: {
+      1:'가을 L1 · 후기 둔화 초입, 민감주 점검',
+      2:'가을 L2 · 경계 강화, 현금 비중 점증',
+      3:'가을 L3 · 방어 준비, 위험노출 축소 검토',
+      4:'가을 L4 · 겨울 직전, 방어 중심 재배치'
+    },
+    winter: {
+      1:'겨울 L1 · 수축 초입, 방어 우선',
+      2:'겨울 L2 · 수축 진행, 현금/금/단기채 강화',
+      3:'겨울 L3 · 방어 강화, 리스크 노출 최소화',
+      4:'겨울 L4 · 침체 심화, 극단 방어 구간'
+    }
+  };
+  return (map[seasonId] && map[seasonId][level]) || '국면 설명 준비중';
+}
 
 function renderPayload(payload, modeLabel){
   payload = applyManualOverrides(payload);
