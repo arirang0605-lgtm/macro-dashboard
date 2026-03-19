@@ -763,13 +763,26 @@ function renderMacroModels(payload){
   const minsky = payload.minsky || {};
   const egg = payload.eggModel || {};
 
-  setText('minsky_phase', minsky.phase ? '민스키: ' + minsky.phase : '—', '');
-  setText('minsky_score', minsky.score!=null ? '점수: ' + minsky.score : '—', '');
-  setText('minsky_signals', Array.isArray(minsky.signals) && minsky.signals.length ? minsky.signals.join(' · ') : '—', '');
+  const minskyColor =
+    minsky.phase === '패닉위험' ? COLORS.r :
+    minsky.phase === '이익실현' ? COLORS.o :
+    minsky.phase === '행복감' ? COLORS.o :
+    minsky.phase === '투기 확대' ? COLORS.y :
+    COLORS.g;
 
-  setText('egg_phase', egg.phase ? '달걀: ' + egg.phase : '—', '');
-  setText('egg_season', egg.season ? '계절 매핑: ' + egg.season : '—', '');
-  setText('egg_signals', Array.isArray(egg.signals) && egg.signals.length ? egg.signals.join(' · ') : '—', '');
+  const eggColor =
+    egg.season === '겨울' ? COLORS.r :
+    egg.season === '가을' ? COLORS.o :
+    egg.season === '여름' ? COLORS.y :
+    COLORS.g;
+
+  setText('minsky_phase', minsky.phase ? '민스키: ' + minsky.phase : '—', minskyColor);
+  setText('minsky_score', minsky.score!=null ? '점수: ' + minsky.score : '—', minskyColor);
+  setText('minsky_signals', Array.isArray(minsky.signals) && minsky.signals.length ? minsky.signals.join(' · ') : '—', '#92A0B8');
+
+  setText('egg_phase', egg.phase ? '달걀: ' + egg.phase : '—', eggColor);
+  setText('egg_season', egg.season ? '계절 매핑: ' + egg.season : '—', eggColor);
+  setText('egg_signals', Array.isArray(egg.signals) && egg.signals.length ? egg.signals.join(' · ') : '—', '#92A0B8');
 }
 
 function renderPayload(payload, modeLabel){
