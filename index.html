@@ -375,7 +375,16 @@ const AUX = [
 ];
 
 const MARKET = {
-  sp:{name:'S&P500', fn:(v,item)=>{ const p = item && item.pctFrom200!=null ? Number(item.pctFrom200) : null; return p===null?{s:'n',l:'추세대기'}:p>=10?{s:'o',l:'과열이격'}:p>=3?{s:'y',l:'상승추세'}:p>=0?{s:'g',l:'200일선 상회'}:p>=-5?{s:'o',l:'추세훼손주의'}:{s:'r',l:'200일선 하회'}; } },
+  sp:{name:'S&P500', fn:(v,item)=>{ 
+    const p50 = item && item.pctFrom50!=null ? Number(item.pctFrom50) : null;
+    const p200 = item && item.pctFrom200!=null ? Number(item.pctFrom200) : null;
+    if(p50===null || p200===null) return {s:'n',l:'추세대기'};
+    if(p200 < 0) return {s:'r',l:'200일선 하회'};
+    if(p50 < 0) return {s:'o',l:'50일선 하회'};
+    if(p200 >= 0 && p50 >= 0 && p200 < 3) return {s:'g',l:'장기추세 유지'};
+    if(p50 >= 8) return {s:'o',l:'단기 과열'};
+    return {s:'y',l:'상승추세'};
+  } },
   nd:{name:'Nasdaq 100', fn:v=>v>=22000?{s:'o',l:'과열권'}:v>=18000?{s:'y',l:'고평가권'}:v>=15000?{s:'g',l:'중립'}:{s:'g',l:'저평가권'}},
   go:{name:'Gold', fn:v=>v>=3000?{s:'g',l:'안전자산 강세'}:v>=2400?{s:'y',l:'상승세'}:{s:'n',l:'보통'}},
   dx:{name:'DXY', fn:v=>v>=106?{s:'o',l:'강달러압박'}:v>=101?{s:'y',l:'중립'}:{s:'g',l:'약달러'}},
@@ -558,7 +567,13 @@ function calcAndRenderRisk(payload){
   if(fg != null) heats.push(Number(fg));
   const market = payload.market || {};
   if(market.vx && market.vx.value!=null){ const vix = Number(market.vx.value); heats.push(vix>=40?15:vix>=30?28:vix>=20?45:62); }
-  if(market.sp && market.sp.pctFrom200!=null){ const p = Number(market.sp.pctFrom200); heats.push(p<=-5?85:p<0?68:p<3?48:p<10?38:72); }
+  if(market.sp){
+    const p50 = market.sp.pctFrom50!=null ? Number(market.sp.pctFrom50) : null;
+    const p200 = market.sp.pctFrom200!=null ? Number(market.sp.pctFrom200) : null;
+    if(p50!==null && p200!==null){
+      heats.push(p200 < 0 ? 78 : p50 < 0 ? 64 : p200 < 3 ? 46 : p50 >= 8 ? 70 : 38);
+    }
+  }
   let heat = heats.length ? Math.round(heats.reduce((a,b)=>a+b,0)/heats.length) : null;
   let level = heat===null ? 1 : heat<30 ? 1 : heat<55 ? 2 : heat<75 ? 3 : 4;
   if(state.coreWarnings >= 5) level = Math.min(4, level + 1);
@@ -934,7 +949,7 @@ doFetch();
       row.className = 'divg-row';
       row.innerHTML = `
         <div class="divg-top">
-          <div class="divg-title">다이버전스 요약</div>
+          <div class="divg-title">시장-경기 괴리 요약</div>
           <div class="divg-pill y" id="divg_state">확인중</div>
         </div>
         <div class="divg-desc" id="divg_summary">미국/한국주식/화물운송이 서로 엇갈리는지 같이 확인합니다.</div>
