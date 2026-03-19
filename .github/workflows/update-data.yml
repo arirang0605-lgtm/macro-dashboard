@@ -35,7 +35,7 @@ jobs:
           PMI_MANUAL_VALUE: ${{ secrets.PMI_MANUAL_VALUE }}
           PMI_MANUAL_DATE: ${{ secrets.PMI_MANUAL_DATE }}
         run: |
-          python scripts/update_data_mix.py
+          python scripts/update_data_api.py
 
       - name: Show status
         run: |
