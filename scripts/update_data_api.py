@@ -140,6 +140,33 @@ def load_fred_series(series_id):
     out.sort(key=lambda x: x["date"])
     return out
 
+def load_sp500_long():
+    if not FRED_API_KEY:
+        raise RuntimeError("FRED_API_KEY 없음")
+
+    qs = urlencode({
+        "series_id": "SP500",
+        "api_key": FRED_API_KEY,
+        "file_type": "json",
+        "sort_order": "desc",
+        "limit": "260",
+    })
+    url = f"{FRED_API_BASE}?{qs}"
+    data = curl_json(url, timeout=20)
+
+    obs = data.get("observations", [])
+    out = []
+    for row in obs:
+        d = row.get("date")
+        v = safe_float(row.get("value"))
+        if d and v is not None:
+            out.append({"date": d, "value": v})
+
+    if len(out) < 200:
+        raise RuntimeError("SP500 장기 히스토리 부족")
+    out.sort(key=lambda x: x["date"])
+    return out
+
 def load_first_available(series_ids):
     last_error = None
     for sid in series_ids:
@@ -168,6 +195,21 @@ def transform_value(data, transform=None):
         value = round(float(last["value"]), 2)
 
     return {"value": value, "date": last["date"]}
+
+def transform_sp500_trend(data):
+    if not data or len(data) < 200:
+        return {"value": None, "date": None, "ma200": None, "pctFrom200": None}
+
+    last = data[-1]
+    ma200 = sum(x["value"] for x in data[-200:]) / 200.0
+    pct = ((last["value"] - ma200) / ma200) * 100 if ma200 else None
+
+    return {
+        "value": round(float(last["value"]), 2),
+        "date": last["date"],
+        "ma200": round(ma200, 2),
+        "pctFrom200": round(pct, 2) if pct is not None else None,
+    }
 
 def fetch_or_prev(label, fetch_fn, prev_path, default_obj):
     try:
@@ -336,9 +378,9 @@ def build_payload():
     market = {
         "sp": fetch_or_prev(
             "market.sp",
-            lambda: transform_value(load_fred_series("SP500")),
+            lambda: transform_sp500_trend(load_sp500_long()),
             ("market", "sp"),
-            {"value": None, "date": None},
+            {"value": None, "date": None, "ma200": None, "pctFrom200": None},
         ),
         "nd": fetch_or_prev(
             "market.nd",

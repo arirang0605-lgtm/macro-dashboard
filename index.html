@@ -375,7 +375,7 @@ const AUX = [
 ];
 
 const MARKET = {
-  sp:{name:'S&P500', fn:v=>v>=6200?{s:'o',l:'과열권'}:v>=5200?{s:'y',l:'고평가권'}:v>=4300?{s:'g',l:'중립'}:{s:'g',l:'저평가권'}},
+  sp:{name:'S&P500', fn:(v,item)=>{ const p = item && item.pctFrom200!=null ? Number(item.pctFrom200) : null; return p===null?{s:'n',l:'추세대기'}:p>=10?{s:'o',l:'과열이격'}:p>=3?{s:'y',l:'상승추세'}:p>=0?{s:'g',l:'200일선 상회'}:p>=-5?{s:'o',l:'추세훼손주의'}:{s:'r',l:'200일선 하회'}; } },
   nd:{name:'Nasdaq 100', fn:v=>v>=22000?{s:'o',l:'과열권'}:v>=18000?{s:'y',l:'고평가권'}:v>=15000?{s:'g',l:'중립'}:{s:'g',l:'저평가권'}},
   go:{name:'Gold', fn:v=>v>=3000?{s:'g',l:'안전자산 강세'}:v>=2400?{s:'y',l:'상승세'}:{s:'n',l:'보통'}},
   dx:{name:'DXY', fn:v=>v>=106?{s:'o',l:'강달러압박'}:v>=101?{s:'y',l:'중립'}:{s:'g',l:'약달러'}},
@@ -442,7 +442,7 @@ function renderMarket(market){
   ];
   map.forEach(([key,vid,sid,gid,mid,tids])=>{
     const item = market[key]; if(!item || item.value===undefined || item.value===null) return;
-    const rule = MARKET[key].fn(Number(item.value));
+    const rule = MARKET[key].fn(Number(item.value), item);
     const val = key==='sp' || key==='nd' ? fmtNum(item.value,0) : fmtNum(item.value,2);
     setText(vid, val, COLORS[rule.s]);
     setText(sid, rule.l + ' (' + ymdShort(item.date) + ')', COLORS[rule.s]);
@@ -558,7 +558,7 @@ function calcAndRenderRisk(payload){
   if(fg != null) heats.push(Number(fg));
   const market = payload.market || {};
   if(market.vx && market.vx.value!=null){ const vix = Number(market.vx.value); heats.push(vix>=40?15:vix>=30?28:vix>=20?45:62); }
-  if(market.sp && market.sp.value!=null){ const sp = Number(market.sp.value); heats.push(sp>=6200?82:sp>=5200?68:sp>=4300?50:40); }
+  if(market.sp && market.sp.pctFrom200!=null){ const p = Number(market.sp.pctFrom200); heats.push(p<=-5?85:p<0?68:p<3?48:p<10?38:72); }
   let heat = heats.length ? Math.round(heats.reduce((a,b)=>a+b,0)/heats.length) : null;
   let level = heat===null ? 1 : heat<30 ? 1 : heat<55 ? 2 : heat<75 ? 3 : 4;
   if(state.coreWarnings >= 5) level = Math.min(4, level + 1);
