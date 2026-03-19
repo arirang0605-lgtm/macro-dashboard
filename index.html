@@ -385,7 +385,7 @@ const state = { cache:{}, coreWarnings:0, payload:null };
 const CORE = [
   {id:'lei', name:'LEI 경기선행지수', hint:'0% 이상 개선, 음수 하락 경계', source:'Conference Board LEI', format:'pct1', fn:v=>v>=0.3?{s:'g',l:'개선',h:72,w:false}:v>=0?{s:'y',l:'횡보',h:56,w:false}:v>=-0.5?{s:'o',l:'하락',h:34,w:true}:{s:'r',l:'연속약화',h:18,w:true}},
   {id:'pmi', name:'PMI (ISM 제조업)', hint:'50 이상 확장, 48 이하는 위험', source:'ISM / manual', format:'num1', fn:v=>v>=52?{s:'g',l:'확장',h:72,w:false}:v>=50?{s:'y',l:'중립확장',h:56,w:false}:v>=48?{s:'o',l:'수축경계',h:34,w:true}:{s:'r',l:'수축심화',h:18,w:true}},
-  {id:'sahm', name:'Sahm Rule', hint:'0.5 이상이면 침체 경보', source:'SAHMREALTIME', format:'num2', fn:v=>v>=0.5?{s:'r',l:'침체경보',h:92,w:true}:v>=0.3?{s:'o',l:'악화주의',h:68,w:true}:v>=0.15?{s:'y',l:'관찰',h:52,w:false}:{s:'g',l:'안정',h:36,w:false}},
+  {id:'sahm', name:'Sahm Rule', hint:'후행 확인용 · 단독 경고 비중 낮춤', source:'SAHMREALTIME', format:'num2', fn:v=>v>=0.5?{s:'r',l:'침체확인',h:70,w:true}:v>=0.3?{s:'y',l:'관찰',h:48,w:false}:v>=0.15?{s:'y',l:'관찰',h:44,w:false}:{s:'g',l:'안정',h:36,w:false}},
   {id:'icsa', name:'신규 실업수당 청구', hint:'30만 이상 주의, 35만 이상 위험', source:'ICSA', format:'num0', fn:v=>v>=350000?{s:'r',l:'고용악화',h:90,w:true}:v>=300000?{s:'o',l:'주의',h:68,w:true}:v>=250000?{s:'y',l:'관찰',h:52,w:false}:{s:'g',l:'안정',h:36,w:false}},
   {id:'hySpread', name:'하이일드 스프레드', hint:'5 이상 위험, 4 이상 주의', source:'BAMLH0A0HYM2', format:'num2', fn:v=>v>=5?{s:'r',l:'신용경색',h:90,w:true}:v>=4?{s:'o',l:'경색주의',h:68,w:true}:v>=3?{s:'y',l:'보통',h:52,w:false}:{s:'g',l:'안정',h:36,w:false}},
   {id:'t10y2y', name:'장단기 금리차(10Y-2Y)', hint:'0 이하 역전, 0.5 이상 정상', source:'T10Y2Y', format:'num2', fn:v=>v<=0?{s:'r',l:'역전',h:88,w:true}:v<=0.5?{s:'o',l:'평탄',h:64,w:true}:v<=1?{s:'y',l:'보통',h:52,w:false}:{s:'g',l:'정상',h:38,w:false}},
@@ -640,7 +640,6 @@ function calcAndRenderRisk(payload){
   let leadWarnings = 0;
   if(lei !== null && lei < 0) leadWarnings += 1;
   if(pmi !== null && pmi < 50) leadWarnings += 1;
-  if(sahm !== null && sahm >= 0.3) leadWarnings += 1;
   if(icsa !== null && icsa >= 300000) leadWarnings += 1;
   if(hy !== null && hy >= 4) leadWarnings += 1;
   if(curve !== null && curve <= 0.5) leadWarnings += 1;
@@ -660,7 +659,6 @@ function calcAndRenderRisk(payload){
   }
 
   if(
-    (sahm !== null && sahm >= 0.5) ||
     ((icsa !== null && icsa >= 350000) && (hy !== null && hy >= 5))
   ){
     level = 4;
@@ -701,7 +699,6 @@ function getSeason(heat, level){
     ? Number(state.payload.market.sp.pctFrom200) : null;
 
   const hardWinter =
-    (sahm !== null && sahm >= 0.5) ||
     ((icsa !== null && icsa >= 350000) && (hy !== null && hy >= 5)) ||
     ((sp !== null && sp < 0) && (lei !== null && lei < 0) && (hy !== null && hy >= 4));
 
