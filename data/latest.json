@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-19T13:52:05+00:00",
+  "updatedAt": "2026-03-19T14:08:57+00:00",
   "market": {
     "sp": {
       "value": 6624.7,
@@ -23,12 +23,12 @@
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4575.44,
+      "value": 4626.43,
       "date": "2026-03-19",
-      "ma50": 4974.21,
-      "pctFrom50": -8.02,
-      "ma200": 4080.23,
-      "pctFrom200": 12.14
+      "ma50": 4975.23,
+      "pctFrom50": -7.01,
+      "ma200": 4080.49,
+      "pctFrom200": 13.38
     },
     "dx": {
       "value": 120.55,
@@ -45,8 +45,8 @@
   },
   "core": {
     "lei": {
-      "value": -0.2,
-      "date": "2025-12-01"
+      "value": 0.3,
+      "date": "2026-01-01"
     },
     "pmi": {
       "value": 52.4,
@@ -97,15 +97,15 @@
       "date": "2026-03-14"
     },
     "hySpread": {
-      "value": 3.22,
-      "date": "2026-03-17"
+      "value": 3.2,
+      "date": "2026-03-18"
     }
   },
   "fearGreed": {
-    "score": 15.1245149911817,
+    "score": 16.6560846560847,
     "rating": "extreme fear",
-    "timestamp": "2026-03-19T13:49:53+00:00",
-    "date": "2026-03-19T13:49:53+00:00",
+    "timestamp": "2026-03-19T14:05:05+00:00",
+    "date": "2026-03-19T14:05:05+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -131,10 +131,10 @@
     ]
   },
   "eggModel": {
-    "phase": "둔화 전환",
-    "season": "가을",
+    "phase": "확장/과열",
+    "season": "여름",
     "signals": [
-      "LEI 약화",
+      "LEI 개선",
       "PMI 확장",
       "고용 안정",
       "실업수당 안정",
