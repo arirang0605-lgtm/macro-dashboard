@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import os
+import re
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -12,8 +13,11 @@ LATEST_PATH = DATA_DIR / "latest.json"
 STATUS_PATH = DATA_DIR / "status.json"
 
 FRED_API_KEY = os.getenv("FRED_API_KEY", "").strip()
+PMI_MANUAL_VALUE = os.getenv("PMI_MANUAL_VALUE", "").strip()
+PMI_MANUAL_DATE = os.getenv("PMI_MANUAL_DATE", "").strip()
 FRED_API_BASE = "https://api.stlouisfed.org/fred/series/observations"
 CNN_FG_URL = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata"
+STOOQ_GOLD_URL = "https://stooq.com/q/d/l/?s=xauusd&i=d"
 
 errors = []
 
@@ -50,7 +54,7 @@ def prev_get(*keys):
         cur = cur[k]
     return cur
 
-def curl_json(url, timeout=20, extra_headers=None):
+def curl_request(url, timeout=20, extra_headers=None):
     cmd = [
         "curl",
         "-L",
@@ -84,11 +88,15 @@ def curl_json(url, timeout=20, extra_headers=None):
         except Exception:
             status = None
 
+    return body, status
+
+def curl_json(url, timeout=20, extra_headers=None):
+    body, status = curl_request(url, timeout=timeout, extra_headers=extra_headers)
     try:
         data = json.loads(body)
     except Exception:
-        snippet = (body or res.stderr or "")[:400].replace("\n", " ")
-        if status:
+        snippet = body[:400].replace("\n", " ")
+        if status and status >= 400:
             raise RuntimeError(f"HTTP {status} 응답 파싱 실패: {snippet}")
         raise RuntimeError(f"JSON 파싱 실패: {snippet}")
 
@@ -98,6 +106,13 @@ def curl_json(url, timeout=20, extra_headers=None):
 
     return data
 
+def curl_text(url, timeout=20, extra_headers=None):
+    body, status = curl_request(url, timeout=timeout, extra_headers=extra_headers)
+    if status and status >= 400:
+        snippet = body[:300].replace("\n", " ")
+        raise RuntimeError(f"HTTP {status}: {snippet}")
+    return body
+
 def load_fred_series(series_id):
     if not FRED_API_KEY:
         raise RuntimeError("FRED_API_KEY 없음")
@@ -106,8 +121,8 @@ def load_fred_series(series_id):
         "series_id": series_id,
         "api_key": FRED_API_KEY,
         "file_type": "json",
-        "sort_order": "asc",
-        "limit": "2000",
+        "sort_order": "desc",
+        "limit": "24",
     })
     url = f"{FRED_API_BASE}?{qs}"
     data = curl_json(url, timeout=20)
@@ -122,6 +137,7 @@ def load_fred_series(series_id):
 
     if not out:
         raise RuntimeError(f"FRED API 빈 응답: {series_id}")
+    out.sort(key=lambda x: x["date"])
     return out
 
 def load_first_available(series_ids):
@@ -166,6 +182,128 @@ def fetch_or_prev(label, fetch_fn, prev_path, default_obj):
         log("빈값 처리:", label)
         return default_obj
 
+
+
+def fetch_gold_stooq():
+    text = curl_text(STOOQ_GOLD_URL, timeout=20)
+    lines = [x.strip() for x in text.splitlines() if x.strip()]
+    if len(lines) < 2:
+        raise RuntimeError("Stooq gold CSV 빈 응답")
+
+    data_rows = []
+    for line in lines[1:]:
+        parts = [p.strip() for p in line.split(",")]
+        if len(parts) < 5:
+            continue
+        dt = parts[0]
+        close = safe_float(parts[4])
+        if dt and close is not None:
+            data_rows.append((dt, close))
+
+    if not data_rows:
+        raise RuntimeError("Stooq gold 파싱 실패")
+
+    dt, price = data_rows[-1]
+    return {"value": round(price, 2), "date": dt}
+
+def shift_month(year, month, delta):
+    total = year * 12 + (month - 1) + delta
+    new_year = total // 12
+    new_month = (total % 12) + 1
+    return new_year, new_month
+
+def fetch_pmi_manual():
+    if not PMI_MANUAL_VALUE:
+        raise RuntimeError("PMI_MANUAL_VALUE 없음")
+    value = float(PMI_MANUAL_VALUE)
+    date = PMI_MANUAL_DATE or now_iso()[:10]
+    if len(date) == 7:
+        date = date + "-01"
+    return {"value": round(value, 1), "date": date}
+
+def fetch_ism_pmi():
+    now = datetime.now(timezone.utc)
+    label_months = [
+        "january", "february", "march", "april", "may", "june",
+        "july", "august", "september", "october", "november", "december"
+    ]
+    candidates = []
+
+    for delta in (0, -1, -2, -3, -4):
+        y, m = shift_month(now.year, now.month, delta)
+        month_slug = label_months[m - 1]
+        candidates.append((
+            f"{y:04d}-{m:02d}-01",
+            f"https://www.ismworld.org/supply-management-news-and-reports/news-publications/inside-supply-management-magazine/blog/{y}/{y:04d}-{m:02d}/ism-pmi-reports-roundup-{month_slug}-{y}-manufacturing/"
+        ))
+        candidates.append((
+            f"{y:04d}-{m:02d}-01",
+            f"https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/pmi/{month_slug}/"
+        ))
+
+    patterns = [
+        r"Manufacturing PMI(?:®)?(?:\s+at|\s+registered at)?\s*([0-9]+(?:\.[0-9]+)?)\s*%",
+        r"Manufacturing PMI(?:®)?(?:\s+at|\s+registered at)?\s*([0-9]+(?:\.[0-9]+)?)\s*percent",
+        r"PMI(?:®)?.{0,80}?([0-9]+(?:\.[0-9]+)?)\s*%",
+        r"PMI(?:®)?.{0,80}?([0-9]+(?:\.[0-9]+)?)\s*percent",
+        r"registering\s+([0-9]+(?:\.[0-9]+)?)\s*%",
+        r"registering\s+([0-9]+(?:\.[0-9]+)?)\s*percent",
+    ]
+
+    for report_date, url in candidates:
+        try:
+            html = curl_text(url, timeout=20)
+        except Exception:
+            continue
+
+        html = re.sub(r"<script.*?</script>", " ", html, flags=re.I | re.S)
+        html = re.sub(r"<style.*?</style>", " ", html, flags=re.I | re.S)
+        text = re.sub(r"<[^>]+>", " ", html)
+        text = re.sub(r"&nbsp;|&#160;", " ", text)
+        text = re.sub(r"\s+", " ", text)
+
+        for pat in patterns:
+            mobj = re.search(pat, text, flags=re.I | re.S)
+            if mobj:
+                val = float(mobj.group(1))
+                if 30 <= val <= 80:
+                    return {"value": round(val, 1), "date": report_date}
+
+    raise RuntimeError("ISM PMI 파싱 실패")
+
+def fetch_conference_board_lei():
+    url = "https://www.conference-board.org/topics/us-leading-indicators"
+    html = curl_text(url, timeout=20)
+    text = re.sub(r"<script.*?</script>", " ", html, flags=re.I | re.S)
+    text = re.sub(r"<style.*?</style>", " ", text, flags=re.I | re.S)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text)
+
+    mobj = re.search(
+        r"Leading Economic Index.*?(declined|increased|fell|rose)\s+by\s+([0-9]+(?:\.[0-9]+)?)%\s+in\s+([A-Za-z]+)\s+([0-9]{4})\s+to\s+([0-9]+(?:\.[0-9]+)?)",
+        text,
+        flags=re.I | re.S
+    )
+    if not mobj:
+        raise RuntimeError("Conference Board LEI 파싱 실패")
+
+    direction = mobj.group(1).lower()
+    mom = float(mobj.group(2))
+    if direction in ("declined", "fell"):
+        mom = -mom
+
+    month_name = mobj.group(3).lower()
+    year = int(mobj.group(4))
+    month_map = {
+        "january":1,"february":2,"march":3,"april":4,"may":5,"june":6,
+        "july":7,"august":8,"september":9,"october":10,"november":11,"december":12
+    }
+    month = month_map.get(month_name)
+    if not month:
+        raise RuntimeError("Conference Board LEI 월 파싱 실패")
+
+    return {"value": round(mom, 2), "date": f"{year:04d}-{month:02d}-01"}
+
 def fetch_cnn_fear_greed():
     data = curl_json(
         CNN_FG_URL,
@@ -208,9 +346,15 @@ def build_payload():
             ("market", "nd"),
             {"value": None, "date": None},
         ),
+        "ks": fetch_or_prev(
+            "market.ks",
+            lambda: transform_value(load_fred_series("SPASTT01KRM657N")),
+            ("market", "ks"),
+            {"value": None, "date": None},
+        ),
         "go": fetch_or_prev(
             "market.go",
-            lambda: transform_value(load_first_available(["GOLDAMGBD228NLBM", "GOLDPMGBD228NLBM"])[1]),
+            fetch_gold_stooq,
             ("market", "go"),
             {"value": None, "date": None},
         ),
@@ -231,13 +375,13 @@ def build_payload():
     core = {
         "lei": fetch_or_prev(
             "core.lei",
-            lambda: transform_value(load_fred_series("USSLIND"), "mom"),
+            fetch_conference_board_lei,
             ("core", "lei"),
             {"value": None, "date": None},
         ),
         "pmi": fetch_or_prev(
             "core.pmi",
-            lambda: transform_value(load_fred_series("NAPMPMI")),
+            fetch_pmi_manual,
             ("core", "pmi"),
             {"value": None, "date": None},
         ),
@@ -263,6 +407,54 @@ def build_payload():
             "core.michigan",
             lambda: transform_value(load_fred_series("UMCSENT")),
             ("core", "michigan"),
+            {"value": None, "date": None},
+        ),
+        "dgs10": fetch_or_prev(
+            "core.dgs10",
+            lambda: transform_value(load_fred_series("DGS10")),
+            ("core", "dgs10"),
+            {"value": None, "date": None},
+        ),
+        "dgs2": fetch_or_prev(
+            "core.dgs2",
+            lambda: transform_value(load_fred_series("DGS2")),
+            ("core", "dgs2"),
+            {"value": None, "date": None},
+        ),
+        "t10y2y": fetch_or_prev(
+            "core.t10y2y",
+            lambda: transform_value(load_fred_series("T10Y2Y")),
+            ("core", "t10y2y"),
+            {"value": None, "date": None},
+        ),
+        "t10y3m": fetch_or_prev(
+            "core.t10y3m",
+            lambda: transform_value(load_fred_series("T10Y3M")),
+            ("core", "t10y3m"),
+            {"value": None, "date": None},
+        ),
+        "fedfunds": fetch_or_prev(
+            "core.fedfunds",
+            lambda: transform_value(load_fred_series("FEDFUNDS")),
+            ("core", "fedfunds"),
+            {"value": None, "date": None},
+        ),
+        "sahm": fetch_or_prev(
+            "core.sahm",
+            lambda: transform_value(load_fred_series("SAHMREALTIME")),
+            ("core", "sahm"),
+            {"value": None, "date": None},
+        ),
+        "icsa": fetch_or_prev(
+            "core.icsa",
+            lambda: transform_value(load_fred_series("ICSA")),
+            ("core", "icsa"),
+            {"value": None, "date": None},
+        ),
+        "hySpread": fetch_or_prev(
+            "core.hySpread",
+            lambda: transform_value(load_fred_series("BAMLH0A0HYM2")),
+            ("core", "hySpread"),
             {"value": None, "date": None},
         ),
     }
