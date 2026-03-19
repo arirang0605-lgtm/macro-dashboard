@@ -245,6 +245,165 @@ def fetch_buffett_proxy():
 
     return {"value": value, "date": date}
 
+def build_minsky_model(core, market, fear_greed):
+    fg = fear_greed.get("score")
+    buffett = core.get("buffett", {}).get("value")
+    margin = core.get("marginDebt", {}).get("value")
+    hy = core.get("hySpread", {}).get("value")
+    vix = market.get("vx", {}).get("value")
+    sp50 = market.get("sp", {}).get("pctFrom50")
+    sp200 = market.get("sp", {}).get("pctFrom200")
+    nd50 = market.get("nd", {}).get("pctFrom50")
+    nd200 = market.get("nd", {}).get("pctFrom200")
+    go200 = market.get("go", {}).get("pctFrom200")
+    dx200 = market.get("dx", {}).get("pctFrom200")
+
+    score = 0
+    signals = []
+
+    if buffett is not None and buffett >= 115:
+        score += 1
+        signals.append("밸류에이션 부담")
+    if buffett is not None and buffett >= 140:
+        score += 1
+        signals.append("밸류에이션 과열")
+    if margin is not None and margin >= 450:
+        score += 1
+        signals.append("레버리지 확대")
+    if margin is not None and margin >= 550:
+        score += 1
+        signals.append("레버리지 과열")
+    if fg is not None and fg >= 70:
+        score += 1
+        signals.append("탐욕 우세")
+    if fg is not None and fg >= 85:
+        score += 1
+        signals.append("행복감 과열")
+    if hy is not None and hy >= 4:
+        score += 1
+        signals.append("신용 스프레드 확대")
+    if hy is not None and hy >= 5:
+        score += 1
+        signals.append("신용 경색 경보")
+    if vix is not None and vix >= 20:
+        score += 1
+        signals.append("변동성 상승")
+    if vix is not None and vix >= 30:
+        score += 1
+        signals.append("변동성 급등")
+    if sp50 is not None and sp50 < 0:
+        score += 1
+        signals.append("S&P500 50일선 이탈")
+    if sp200 is not None and sp200 < 0:
+        score += 2
+        signals.append("S&P500 200일선 이탈")
+    if nd50 is not None and nd50 < 0:
+        score += 1
+        signals.append("나스닥100 50일선 이탈")
+    if nd200 is not None and nd200 < 0:
+        score += 2
+        signals.append("나스닥100 200일선 이탈")
+    if go200 is not None and go200 > 0:
+        score += 1
+        signals.append("금 강세")
+    if dx200 is not None and dx200 > 0:
+        score += 1
+        signals.append("달러 강세")
+
+    if ((sp200 is not None and sp200 < 0) or (nd200 is not None and nd200 < 0)) and ((vix is not None and vix >= 30) or (hy is not None and hy >= 5)):
+        phase = "패닉위험"
+    elif ((sp50 is not None and sp50 < 0) or (nd50 is not None and nd50 < 0)) and ((vix is not None and vix >= 20) or (hy is not None and hy >= 4)):
+        phase = "이익실현"
+    elif (fg is not None and fg >= 85) and (buffett is not None and buffett >= 140) and (margin is not None and margin >= 450) and (hy is not None and hy < 4):
+        phase = "행복감"
+    elif (fg is not None and fg >= 70) and (buffett is not None and buffett >= 115) and (margin is not None and margin >= 450):
+        phase = "투기 확대"
+    else:
+        phase = "과열 준비"
+
+    return {
+        "phase": phase,
+        "score": score,
+        "signals": signals[:6],
+    }
+
+def build_egg_model(core, market):
+    lei = core.get("lei", {}).get("value")
+    pmi = core.get("pmi", {}).get("value")
+    sahm = core.get("sahm", {}).get("value")
+    icsa = core.get("icsa", {}).get("value")
+    fedfunds = core.get("fedfunds", {}).get("value")
+    t10y2y = core.get("t10y2y", {}).get("value")
+    t10y3m = core.get("t10y3m", {}).get("value")
+    dgs10 = core.get("dgs10", {}).get("value")
+    dgs2 = core.get("dgs2", {}).get("value")
+
+    signals = []
+
+    if lei is not None and lei >= 0:
+        signals.append("LEI 개선")
+    elif lei is not None:
+        signals.append("LEI 약화")
+
+    if pmi is not None and pmi >= 50:
+        signals.append("PMI 확장")
+    elif pmi is not None:
+        signals.append("PMI 수축")
+
+    if sahm is not None and sahm >= 0.5:
+        signals.append("침체 경보")
+    elif sahm is not None and sahm < 0.3:
+        signals.append("고용 안정")
+
+    if icsa is not None and icsa >= 300000:
+        signals.append("실업수당 악화")
+    elif icsa is not None and icsa < 250000:
+        signals.append("실업수당 안정")
+
+    if fedfunds is not None and fedfunds >= 5:
+        signals.append("긴축 압박")
+    elif fedfunds is not None and fedfunds < 3:
+        signals.append("완화권")
+
+    if t10y2y is not None and t10y2y <= 0:
+        signals.append("10Y-2Y 역전")
+    elif t10y2y is not None and t10y2y > 0.5:
+        signals.append("10Y-2Y 정상")
+
+    if t10y3m is not None and t10y3m <= 0:
+        signals.append("10Y-3M 역전")
+    elif t10y3m is not None and t10y3m > 0.5:
+        signals.append("10Y-3M 정상")
+
+    if (sahm is not None and sahm >= 0.5) or ((icsa is not None and icsa >= 300000) and (pmi is not None and pmi < 50)):
+        phase = "침체 진입"
+        season = "겨울"
+    elif (lei is not None and lei < 0) and ((pmi is not None and pmi < 50) or (fedfunds is not None and fedfunds >= 3)):
+        phase = "둔화 전환"
+        season = "가을"
+    elif (pmi is not None and pmi >= 50) and (t10y2y is not None and t10y2y > 0) and (t10y3m is not None and t10y3m > 0):
+        phase = "확장/과열"
+        season = "여름"
+    elif (lei is not None and lei >= 0) and (sahm is not None and sahm < 0.3):
+        phase = "회복 초입"
+        season = "봄"
+    else:
+        phase = "완화 준비"
+        season = "봄"
+
+    return {
+        "phase": phase,
+        "season": season,
+        "signals": signals[:6],
+        "rates": {
+            "fedfunds": fedfunds,
+            "dgs10": dgs10,
+            "dgs2": dgs2,
+            "t10y2y": t10y2y,
+            "t10y3m": t10y3m,
+        },
+    }
+
 
 
 def load_gold_stooq_history():
@@ -543,12 +702,17 @@ def build_payload():
         },
     )
 
+    minsky = build_minsky_model(core, market, fear_greed)
+    egg_model = build_egg_model(core, market)
+
     return {
         "ok": True,
         "updatedAt": now_iso(),
         "market": market,
         "core": core,
         "fearGreed": fear_greed,
+        "minsky": minsky,
+        "eggModel": egg_model,
         "meta": {
             "source": "scripts/update_data_api.py",
             "fredMode": "official_api",
