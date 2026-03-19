@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-19T12:57:32+00:00",
+  "updatedAt": "2026-03-19T13:17:51+00:00",
   "market": {
     "sp": {
       "value": 6624.7,
@@ -23,12 +23,12 @@
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4583.97,
+      "value": 4557.71,
       "date": "2026-03-19",
-      "ma50": 4974.38,
-      "pctFrom50": -7.85,
-      "ma200": 4080.27,
-      "pctFrom200": 12.34
+      "ma50": 4973.85,
+      "pctFrom50": -8.37,
+      "ma200": 4080.14,
+      "pctFrom200": 11.7
     },
     "dx": {
       "value": 120.55,
@@ -102,10 +102,10 @@
     }
   },
   "fearGreed": {
-    "score": 16.2151675485009,
+    "score": 16.0388007054674,
     "rating": "extreme fear",
-    "timestamp": "2026-03-19T12:40:16+00:00",
-    "date": "2026-03-19T12:40:16+00:00",
+    "timestamp": "2026-03-19T13:00:16+00:00",
+    "date": "2026-03-19T13:00:16+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -115,6 +115,36 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null
+  },
+  "minsky": {
+    "phase": "이익실현",
+    "score": 9,
+    "signals": [
+      "밸류에이션 부담",
+      "밸류에이션 과열",
+      "레버리지 확대",
+      "레버리지 과열",
+      "변동성 상승",
+      "S&P500 50일선 이탈"
+    ]
+  },
+  "eggModel": {
+    "phase": "둔화 전환",
+    "season": "가을",
+    "signals": [
+      "LEI 약화",
+      "PMI 확장",
+      "고용 안정",
+      "실업수당 안정",
+      "10Y-3M 정상"
+    ],
+    "rates": {
+      "fedfunds": 3.64,
+      "dgs10": 4.2,
+      "dgs2": 3.68,
+      "t10y2y": 0.5,
+      "t10y3m": 0.53
+    }
   },
   "meta": {
     "source": "scripts/update_data_api.py",
