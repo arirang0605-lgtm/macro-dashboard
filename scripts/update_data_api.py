@@ -321,9 +321,18 @@ def build_minsky_model(core, market, fear_greed):
     else:
         phase = "과열 준비"
 
+    season = (
+        "겨울" if score >= 13 else
+        "가을" if score >= 9 else
+        "여름" if score >= 5 else
+        "봄"
+    )
+
     return {
         "phase": phase,
+        "season": season,
         "score": score,
+        "scoreMax": 18,
         "signals": signals[:6],
     }
 

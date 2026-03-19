@@ -762,27 +762,51 @@ function getSeasonLevelDesc(seasonId, level){
 function renderMacroModels(payload){
   const minsky = payload.minsky || {};
   const egg = payload.eggModel || {};
+  const asOf = monthShort(payload.updatedAt);
 
-  const minskyColor =
-    minsky.phase === '패닉위험' ? COLORS.r :
-    minsky.phase === '이익실현' ? COLORS.o :
-    minsky.phase === '행복감' ? COLORS.o :
-    minsky.phase === '투기 확대' ? COLORS.y :
-    COLORS.g;
+  const minskyCode =
+    minsky.season === '겨울' ? 'r' :
+    minsky.season === '가을' ? 'o' :
+    minsky.season === '여름' ? 'y' : 'g';
 
-  const eggColor =
-    egg.season === '겨울' ? COLORS.r :
-    egg.season === '가을' ? COLORS.o :
-    egg.season === '여름' ? COLORS.y :
-    COLORS.g;
+  const eggCode =
+    egg.season === '겨울' ? 'r' :
+    egg.season === '가을' ? 'o' :
+    egg.season === '여름' ? 'y' : 'g';
 
-  setText('minsky_phase', minsky.phase ? '민스키: ' + minsky.phase : '—', minskyColor);
-  setText('minsky_score', minsky.score!=null ? '점수: ' + minsky.score : '—', minskyColor);
-  setText('minsky_signals', Array.isArray(minsky.signals) && minsky.signals.length ? minsky.signals.join(' · ') : '—', '#92A0B8');
+  setText('minsky_score',
+    (minsky.season && minsky.score!=null)
+      ? (minsky.season + ' ' + minsky.score + '/' + (minsky.scoreMax || 18))
+      : '—',
+    COLORS[minskyCode]
+  );
+  setText('minsky_phase',
+    minsky.phase ? (minsky.phase + ' · ' + asOf) : '—',
+    COLORS[minskyCode]
+  );
+  setText('minsky_desc',
+    Array.isArray(minsky.signals) && minsky.signals.length
+      ? minsky.signals.slice(0,3).join(' · ')
+      : '버블 붕괴 전조 보조 경고',
+    '#C7D0E0'
+  );
+  setSig('minsky_sig', minskyCode);
 
-  setText('egg_phase', egg.phase ? '달걀: ' + egg.phase : '—', eggColor);
-  setText('egg_season', egg.season ? '계절 매핑: ' + egg.season : '—', eggColor);
-  setText('egg_signals', Array.isArray(egg.signals) && egg.signals.length ? egg.signals.join(' · ') : '—', '#92A0B8');
+  setText('egg_season',
+    egg.season ? egg.season : '—',
+    COLORS[eggCode]
+  );
+  setText('egg_phase',
+    egg.phase ? (egg.phase + ' · ' + asOf) : '—',
+    COLORS[eggCode]
+  );
+  setText('egg_desc',
+    Array.isArray(egg.signals) && egg.signals.length
+      ? egg.signals.slice(0,3).join(' · ')
+      : '금리·경기 보조 국면',
+    '#C7D0E0'
+  );
+  setSig('egg_sig', eggCode);
 }
 
 function renderPayload(payload, modeLabel){
