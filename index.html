@@ -872,6 +872,7 @@ doFetch();
     spring: {
       title: "🌱 봄",
       summary: "바닥 통과와 초기 회복이 시작되는 단계",
+      model: "달걀: 완화 준비·회복 초입 · 민스키: 초기 과열 전 단계",
       points: [
         "유동성 완화 기대, 심리 회복, 시장 선반영이 자주 나타남",
         "아직 의심이 남아 있어 변동성은 남을 수 있음",
@@ -884,6 +885,7 @@ doFetch();
     summer1: {
       title: "☀️ 여름 초기",
       summary: "확장 국면이 비교적 건강하게 이어지는 단계",
+      model: "달걀: 확장 정상 · 민스키: 과열 준비",
       points: [
         "PMI 확장권, 고용 안정, 경기와 시장의 정렬 가능성",
         "성장과 가치가 함께 갈 수 있는 구간",
@@ -896,6 +898,7 @@ doFetch();
     summer2: {
       title: "☀️ 여름 후반",
       summary: "확장은 유지되지만 금리·밸류 부담이 쌓이는 단계",
+      model: "달걀: 확장 후반·과열 경계 · 민스키: 투기 확대",
       points: [
         "겉으로는 강해 보여도 내부 압력이 누적될 수 있음",
         "금리 높음, 장단기금리차 왜곡, 다이버전스가 중요해짐",
@@ -908,6 +911,7 @@ doFetch();
     autumn: {
       title: "🍂 가을",
       summary: "후기 확장과 과열 부담이 커지는 단계",
+      model: "달걀: 둔화 전환 · 민스키: 행복감·이익실현",
       points: [
         "시장 심리가 경기보다 앞서기 쉬움",
         "밸류 부담과 변동성 확대 가능성",
@@ -920,6 +924,7 @@ doFetch();
     winter: {
       title: "❄️ 겨울",
       summary: "수축/침체 리스크가 커져 방어가 우선되는 단계",
+      model: "달걀: 침체 진입 · 민스키: 패닉위험",
       points: [
         "경기 둔화, 실적 압박, 리스크 회피 강화",
         "현금흐름 안정성과 방어력이 중요",
@@ -942,7 +947,7 @@ doFetch();
     content.innerHTML = `
       <div class="rh-card">
         <div class="rh-k">현재 단계 설명</div>
-        <div class="rh-v"><strong>${d.title}</strong><br>${d.summary}</div>
+        <div class="rh-v"><strong>${d.title}</strong><br>${d.summary}<br><span style="display:inline-block;margin-top:6px;color:#AAB6CA;font-size:12px;">${d.model || ""}</span></div>
       </div>
       <div class="rh-card">
         <div class="rh-k">특징</div>
