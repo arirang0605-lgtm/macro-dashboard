@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-19T11:18:58+00:00",
+  "updatedAt": "2026-03-19T11:21:53+00:00",
   "fredMode": "official_api",
-  "trustedPrev": false,
+  "trustedPrev": true,
   "errorCount": 0,
   "errors": []
 }
