@@ -368,7 +368,7 @@ const CORE = [
 ];
 
 const AUX = [
-  {id:'buffett', name:'버핏 지수', hint:'과열 해설용', source:'DDDM01USA156NWDB', format:'pct1', fn:v=>v>=220?{s:'r',l:'역사적과열'}:v>=200?{s:'r',l:'과열'}:v>=150?{s:'o',l:'고평가'}:{s:'g',l:'적정권'}},
+  {id:'buffett', name:'버핏 프록시', hint:'시장가치/GDP 기반 과열 보조', source:'NCBEILQ027S / GDP', format:'pct1', fn:v=>v>=140?{s:'r',l:'과열'}:v>=115?{s:'o',l:'고평가'}:v>=80?{s:'y',l:'보통'}:{s:'g',l:'저평가권'}},
   {id:'jolts', name:'JOLTS 구인건수', hint:'고용 온도 보조', source:'JTSJOL', format:'num1', fn:v=>v>=8?{s:'g',l:'고용견조'}:v>=6?{s:'y',l:'둔화관찰'}:v>=5?{s:'o',l:'냉각'}:{s:'r',l:'침체수준'}},
   {id:'marginDebt', name:'마진 데빗(프록시)', hint:'레버리지 과열 보조', source:'BOGZ1FL663067003Q', format:'usdB1', fn:v=>v>=550?{s:'r',l:'레버리지확대'}:v>=450?{s:'o',l:'높은수준'}:v>=350?{s:'y',l:'보통'}:{s:'g',l:'낮은수준'}},
   {id:'michigan', name:'미시간대 소비자심리', hint:'소비심리 보조', source:'UMCSENT', format:'num1', fn:v=>v>=85?{s:'g',l:'소비강세'}:v>=75?{s:'y',l:'보통'}:v>=65?{s:'o',l:'소비둔화'}:{s:'r',l:'침체심리'}},

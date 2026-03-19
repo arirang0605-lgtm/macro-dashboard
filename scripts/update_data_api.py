@@ -228,6 +228,23 @@ def fetch_or_prev(label, fetch_fn, prev_path, default_obj):
         log("빈값 처리:", label)
         return default_obj
 
+def fetch_buffett_proxy():
+    equities = transform_value(load_fred_series("NCBEILQ027S"))
+    gdp = transform_value(load_fred_series("GDP"))
+
+    ev = equities.get("value")
+    gv = gdp.get("value")
+    ed = equities.get("date")
+    gd = gdp.get("date")
+
+    if ev is None or gv in (None, 0):
+        raise RuntimeError("buffett proxy 계산 실패")
+
+    value = round((ev / (gv * 1000.0)) * 100.0, 2)
+    date = ed if (ed and gd and ed >= gd) else gd or ed
+
+    return {"value": value, "date": date}
+
 
 
 def load_gold_stooq_history():
@@ -433,7 +450,7 @@ def build_payload():
         ),
         "buffett": fetch_or_prev(
             "core.buffett",
-            lambda: transform_value(load_fred_series("DDDM01USA156NWDB")),
+            fetch_buffett_proxy,
             ("core", "buffett"),
             {"value": None, "date": None},
         ),
