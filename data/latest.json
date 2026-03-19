@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-19T10:42:28+00:00",
+  "updatedAt": "2026-03-19T11:00:43+00:00",
   "market": {
     "sp": {
       "value": 6624.7,
@@ -15,7 +15,7 @@
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4686.9,
+      "value": 4682.05,
       "date": "2026-03-19"
     },
     "dx": {
@@ -60,8 +60,8 @@
   "fearGreed": {
     "score": 17.0088183421517,
     "rating": "extreme fear",
-    "timestamp": "2026-03-19T10:25:16+00:00",
-    "date": "2026-03-19T10:25:16+00:00",
+    "timestamp": "2026-03-19T10:45:01+00:00",
+    "date": "2026-03-19T10:45:01+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -75,7 +75,9 @@
   "meta": {
     "source": "scripts/update_data_mix.py",
     "fredMode": "mixed_sources",
-    "trustedPrev": false,
-    "errors": []
+    "trustedPrev": true,
+    "errors": [
+      "market.vx: HTTP 500: Internal Server Error"
+    ]
   }
 }

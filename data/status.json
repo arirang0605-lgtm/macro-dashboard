@@ -1,8 +1,10 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-19T10:42:28+00:00",
+  "updatedAt": "2026-03-19T11:00:43+00:00",
   "fredMode": "mixed_sources",
-  "trustedPrev": false,
-  "errorCount": 0,
-  "errors": []
+  "trustedPrev": true,
+  "errorCount": 1,
+  "errors": [
+    "market.vx: HTTP 500: Internal Server Error"
+  ]
 }
