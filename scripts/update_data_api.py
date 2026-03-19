@@ -198,17 +198,21 @@ def transform_value(data, transform=None):
 
 def transform_sp500_trend(data):
     if not data or len(data) < 200:
-        return {"value": None, "date": None, "ma200": None, "pctFrom200": None}
+        return {"value": None, "date": None, "ma50": None, "pctFrom50": None, "ma200": None, "pctFrom200": None}
 
     last = data[-1]
+    ma50 = sum(x["value"] for x in data[-50:]) / 50.0
     ma200 = sum(x["value"] for x in data[-200:]) / 200.0
-    pct = ((last["value"] - ma200) / ma200) * 100 if ma200 else None
+    pct50 = ((last["value"] - ma50) / ma50) * 100 if ma50 else None
+    pct200 = ((last["value"] - ma200) / ma200) * 100 if ma200 else None
 
     return {
         "value": round(float(last["value"]), 2),
         "date": last["date"],
+        "ma50": round(ma50, 2),
+        "pctFrom50": round(pct50, 2) if pct50 is not None else None,
         "ma200": round(ma200, 2),
-        "pctFrom200": round(pct, 2) if pct is not None else None,
+        "pctFrom200": round(pct200, 2) if pct200 is not None else None,
     }
 
 def fetch_or_prev(label, fetch_fn, prev_path, default_obj):
@@ -380,7 +384,7 @@ def build_payload():
             "market.sp",
             lambda: transform_sp500_trend(load_sp500_long()),
             ("market", "sp"),
-            {"value": None, "date": None, "ma200": None, "pctFrom200": None},
+            {"value": None, "date": None, "ma50": None, "pctFrom50": None, "ma200": None, "pctFrom200": None},
         ),
         "nd": fetch_or_prev(
             "market.nd",
