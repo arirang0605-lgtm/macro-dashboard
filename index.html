@@ -348,12 +348,13 @@ const SIG = {g:'gg', y:'gy', o:'go', r:'gr', n:'gn'};
 const state = { cache:{}, coreWarnings:0, payload:null };
 
 const CORE = [
-  {id:'lei', name:'LEI 경기선행지수', hint:'0% 이상 개선, 음수 하락 경계', source:'USSLIND', format:'pct1', fn:v=>v>=1?{s:'g',l:'개선',h:70,w:false}:v>=0?{s:'y',l:'횡보',h:52,w:false}:v>=-0.5?{s:'o',l:'하락',h:34,w:true}:{s:'r',l:'연속약화',h:18,w:true}},
-  {id:'pmi', name:'PMI (ISM 제조업)', hint:'50 이상 확장, 48 이하는 위험', source:'NAPMPMI', format:'num1', fn:v=>v>=55?{s:'g',l:'강한확장',h:76,w:false}:v>=50?{s:'y',l:'확장/중립',h:56,w:false}:v>=48?{s:'o',l:'수축경계',h:34,w:true}:{s:'r',l:'수축심화',h:18,w:true}},
-  {id:'buffett', name:'버핏 지수', hint:'150% 이상 주의, 200% 이상 과열', source:'DDDM01USA156NWDB', format:'pct1', fn:v=>v>=220?{s:'r',l:'역사적과열',h:92,w:true}:v>=200?{s:'r',l:'과열',h:84,w:true}:v>=150?{s:'o',l:'고평가',h:68,w:true}:{s:'g',l:'적정권',h:42,w:false}},
-  {id:'jolts', name:'JOLTs 구인건수', hint:'고용 냉각 여부', source:'JTSJOL', format:'num1', fn:v=>v>=8?{s:'g',l:'고용견조',h:66,w:false}:v>=6?{s:'y',l:'둔화관찰',h:50,w:false}:v>=5?{s:'o',l:'냉각',h:32,w:true}:{s:'r',l:'침체수준',h:18,w:true}},
-  {id:'marginDebt', name:'마진 데빗(프록시)', hint:'증권사 고객 마진론', source:'BOGZ1FL663067003Q', format:'usdB1', fn:v=>v>=550?{s:'r',l:'레버리지확대',h:86,w:true}:v>=450?{s:'o',l:'높은수준',h:70,w:true}:v>=350?{s:'y',l:'보통',h:52,w:false}:{s:'g',l:'낮은수준',h:36,w:false}},
-  {id:'michigan', name:'미시간대 소비자심리', hint:'70 미만이면 소비 둔화', source:'UMCSENT', format:'num1', fn:v=>v>=85?{s:'g',l:'소비강세',h:68,w:false}:v>=75?{s:'y',l:'보통',h:54,w:false}:v>=65?{s:'o',l:'소비둔화',h:34,w:true}:{s:'r',l:'침체심리',h:18,w:true}},
+  {id:'lei', name:'LEI 경기선행지수', hint:'0% 이상 개선, 음수 하락 경계', source:'Conference Board LEI', format:'pct1', fn:v=>v>=0.3?{s:'g',l:'개선',h:72,w:false}:v>=0?{s:'y',l:'횡보',h:56,w:false}:v>=-0.5?{s:'o',l:'하락',h:34,w:true}:{s:'r',l:'연속약화',h:18,w:true}},
+  {id:'pmi', name:'PMI (ISM 제조업)', hint:'50 이상 확장, 48 이하는 위험', source:'ISM / manual', format:'num1', fn:v=>v>=52?{s:'g',l:'확장',h:72,w:false}:v>=50?{s:'y',l:'중립확장',h:56,w:false}:v>=48?{s:'o',l:'수축경계',h:34,w:true}:{s:'r',l:'수축심화',h:18,w:true}},
+  {id:'sahm', name:'Sahm Rule', hint:'0.5 이상이면 침체 경보', source:'SAHMREALTIME', format:'num2', fn:v=>v>=0.5?{s:'r',l:'침체경보',h:92,w:true}:v>=0.3?{s:'o',l:'악화주의',h:68,w:true}:v>=0.15?{s:'y',l:'관찰',h:52,w:false}:{s:'g',l:'안정',h:36,w:false}},
+  {id:'icsa', name:'신규 실업수당 청구', hint:'30만 이상 주의, 35만 이상 위험', source:'ICSA', format:'num0', fn:v=>v>=350000?{s:'r',l:'고용악화',h:90,w:true}:v>=300000?{s:'o',l:'주의',h:68,w:true}:v>=250000?{s:'y',l:'관찰',h:52,w:false}:{s:'g',l:'안정',h:36,w:false}},
+  {id:'hySpread', name:'하이일드 스프레드', hint:'5 이상 위험, 4 이상 주의', source:'BAMLH0A0HYM2', format:'num2', fn:v=>v>=5?{s:'r',l:'신용경색',h:90,w:true}:v>=4?{s:'o',l:'경색주의',h:68,w:true}:v>=3?{s:'y',l:'보통',h:52,w:false}:{s:'g',l:'안정',h:36,w:false}},
+  {id:'t10y2y', name:'장단기 금리차(10Y-2Y)', hint:'0 이하 역전, 0.5 이상 정상', source:'T10Y2Y', format:'num2', fn:v=>v<=0?{s:'r',l:'역전',h:88,w:true}:v<=0.5?{s:'o',l:'평탄',h:64,w:true}:v<=1?{s:'y',l:'보통',h:52,w:false}:{s:'g',l:'정상',h:38,w:false}},
+  {id:'fedfunds', name:'기준금리', hint:'금리 수준 자체보다 경기압박 해석용', source:'FEDFUNDS', format:'num2', fn:v=>v>=5?{s:'o',l:'긴축압박',h:66,w:true}:v>=3?{s:'y',l:'중립~긴축',h:54,w:false}:{s:'g',l:'완화권',h:40,w:false}},
 ];
 
 const MARKET = {
@@ -565,7 +566,19 @@ function getSeason(heat, level){
   if(heat < 35){
     return {id:'winter',emoji:'❄️',name:'겨울',color:'#3861FB',desc:'수축기 · 방어자산 중심',deg:270};
   }
-  if(heat < 55){
+
+  if(level === 2){
+    if(
+      (fg !== null && fg <= 25) ||
+      (vix !== null && vix >= 20) ||
+      (lei !== null && lei < 0)
+    ){
+      return {id:'fall',emoji:'🍂',name:'가을',color:'#FF8C00',desc:'후기 둔화/경계 · 방어 비중 점검',deg:180};
+    }
+    return {id:'summer',emoji:'☀️',name:'여름',color:'#F3BA2F',desc:'확장 둔화 · 보유 중심, 과열 전환 점검',deg:90};
+  }
+
+  if(heat < 45){
     return {id:'spring',emoji:'🌸',name:'봄',color:'#16C784',desc:'회복기 · 대형주 재진입',deg:0};
   }
   return {id:'summer',emoji:'☀️',name:'여름',color:'#F3BA2F',desc:'확장기 · 보유 중심, 과열 전환 점검',deg:90};
