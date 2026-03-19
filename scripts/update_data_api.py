@@ -140,16 +140,16 @@ def load_fred_series(series_id):
     out.sort(key=lambda x: x["date"])
     return out
 
-def load_sp500_long():
+def load_fred_series_long(series_id, limit=260):
     if not FRED_API_KEY:
         raise RuntimeError("FRED_API_KEY 없음")
 
     qs = urlencode({
-        "series_id": "SP500",
+        "series_id": series_id,
         "api_key": FRED_API_KEY,
         "file_type": "json",
         "sort_order": "desc",
-        "limit": "260",
+        "limit": str(limit),
     })
     url = f"{FRED_API_BASE}?{qs}"
     data = curl_json(url, timeout=20)
@@ -163,7 +163,7 @@ def load_sp500_long():
             out.append({"date": d, "value": v})
 
     if len(out) < 200:
-        raise RuntimeError("SP500 장기 히스토리 부족")
+        raise RuntimeError(f"{series_id} 장기 히스토리 부족")
     out.sort(key=lambda x: x["date"])
     return out
 
@@ -196,7 +196,7 @@ def transform_value(data, transform=None):
 
     return {"value": value, "date": last["date"]}
 
-def transform_sp500_trend(data):
+def transform_trend(data):
     if not data or len(data) < 200:
         return {"value": None, "date": None, "ma50": None, "pctFrom50": None, "ma200": None, "pctFrom200": None}
 
@@ -230,13 +230,13 @@ def fetch_or_prev(label, fetch_fn, prev_path, default_obj):
 
 
 
-def fetch_gold_stooq():
+def load_gold_stooq_history():
     text = curl_text(STOOQ_GOLD_URL, timeout=20)
     lines = [x.strip() for x in text.splitlines() if x.strip()]
     if len(lines) < 2:
         raise RuntimeError("Stooq gold CSV 빈 응답")
 
-    data_rows = []
+    out = []
     for line in lines[1:]:
         parts = [p.strip() for p in line.split(",")]
         if len(parts) < 5:
@@ -244,13 +244,13 @@ def fetch_gold_stooq():
         dt = parts[0]
         close = safe_float(parts[4])
         if dt and close is not None:
-            data_rows.append((dt, close))
+            out.append({"date": dt, "value": close})
 
-    if not data_rows:
-        raise RuntimeError("Stooq gold 파싱 실패")
+    if len(out) < 200:
+        raise RuntimeError("Stooq gold 히스토리 부족")
 
-    dt, price = data_rows[-1]
-    return {"value": round(price, 2), "date": dt}
+    out.sort(key=lambda x: x["date"])
+    return out
 
 def shift_month(year, month, delta):
     total = year * 12 + (month - 1) + delta
@@ -382,15 +382,15 @@ def build_payload():
     market = {
         "sp": fetch_or_prev(
             "market.sp",
-            lambda: transform_sp500_trend(load_sp500_long()),
+            lambda: transform_trend(load_fred_series_long("SP500")),
             ("market", "sp"),
             {"value": None, "date": None, "ma50": None, "pctFrom50": None, "ma200": None, "pctFrom200": None},
         ),
         "nd": fetch_or_prev(
             "market.nd",
-            lambda: transform_value(load_first_available(["NASDAQ100", "NASDAQCOM"])[1]),
+            lambda: transform_trend(load_fred_series_long(load_first_available(["NASDAQ100", "NASDAQCOM"])[0])),
             ("market", "nd"),
-            {"value": None, "date": None},
+            {"value": None, "date": None, "ma50": None, "pctFrom50": None, "ma200": None, "pctFrom200": None},
         ),
         "ks": fetch_or_prev(
             "market.ks",
@@ -400,15 +400,15 @@ def build_payload():
         ),
         "go": fetch_or_prev(
             "market.go",
-            fetch_gold_stooq,
+            lambda: transform_trend(load_gold_stooq_history()),
             ("market", "go"),
-            {"value": None, "date": None},
+            {"value": None, "date": None, "ma50": None, "pctFrom50": None, "ma200": None, "pctFrom200": None},
         ),
         "dx": fetch_or_prev(
             "market.dx",
-            lambda: transform_value(load_fred_series("DTWEXBGS")),
+            lambda: transform_trend(load_fred_series_long("DTWEXBGS")),
             ("market", "dx"),
-            {"value": None, "date": None},
+            {"value": None, "date": None, "ma50": None, "pctFrom50": None, "ma200": None, "pctFrom200": None},
         ),
         "vx": fetch_or_prev(
             "market.vx",

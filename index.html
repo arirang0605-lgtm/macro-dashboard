@@ -385,9 +385,31 @@ const MARKET = {
     if(p50 >= 8) return {s:'o',l:'단기 과열'};
     return {s:'y',l:'상승추세'};
   } },
-  nd:{name:'Nasdaq 100', fn:v=>v>=22000?{s:'o',l:'과열권'}:v>=18000?{s:'y',l:'고평가권'}:v>=15000?{s:'g',l:'중립'}:{s:'g',l:'저평가권'}},
-  go:{name:'Gold', fn:v=>v>=3000?{s:'g',l:'안전자산 강세'}:v>=2400?{s:'y',l:'상승세'}:{s:'n',l:'보통'}},
-  dx:{name:'DXY', fn:v=>v>=106?{s:'o',l:'강달러압박'}:v>=101?{s:'y',l:'중립'}:{s:'g',l:'약달러'}},
+  nd:{name:'Nasdaq 100', fn:(v,item)=>{
+    const p50 = item && item.pctFrom50!=null ? Number(item.pctFrom50) : null;
+    const p200 = item && item.pctFrom200!=null ? Number(item.pctFrom200) : null;
+    if(p50===null || p200===null) return {s:'n',l:'추세대기'};
+    if(p200 < 0) return {s:'r',l:'200일선 하회'};
+    if(p50 < 0) return {s:'o',l:'50일선 하회'};
+    if(p50 >= 10) return {s:'o',l:'단기 과열'};
+    return {s:'y',l:'상승추세'};
+  }},
+  go:{name:'Gold', fn:(v,item)=>{
+    const p50 = item && item.pctFrom50!=null ? Number(item.pctFrom50) : null;
+    const p200 = item && item.pctFrom200!=null ? Number(item.pctFrom200) : null;
+    if(p50===null || p200===null) return {s:'n',l:'추세대기'};
+    if(p200 >= 0 && p50 >= 0) return {s:'g',l:'안전자산 강세'};
+    if(p200 >= 0 && p50 < 0) return {s:'y',l:'장기상승 유지'};
+    return {s:'n',l:'보통'};
+  }},
+  dx:{name:'DXY', fn:(v,item)=>{
+    const p50 = item && item.pctFrom50!=null ? Number(item.pctFrom50) : null;
+    const p200 = item && item.pctFrom200!=null ? Number(item.pctFrom200) : null;
+    if(p50===null || p200===null) return {s:'n',l:'추세대기'};
+    if(p50 >= 0 && p200 >= 0) return {s:'o',l:'강달러 추세'};
+    if(p200 >= 0 && p50 < 0) return {s:'y',l:'강달러 둔화'};
+    return {s:'g',l:'달러 완화'};
+  }},
   vx:{name:'VIX', fn:v=>v>=40?{s:'r',l:'공포'}:v>=30?{s:'o',l:'위험'}:v>=20?{s:'y',l:'주의'}:{s:'g',l:'안정'}},
 };
 
