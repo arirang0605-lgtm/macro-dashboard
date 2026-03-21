@@ -3,9 +3,12 @@ from pathlib import Path
 
 from bubble_engine import valuation_score, fragility_score, bubble_risk, detect_fall
 
-LATEST_FILE = Path("../data/latest.json")
-HISTORY_FILE = Path("../data/history.json")
-STATE_FILE = Path("../data/persistence_state.json")
+ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT / "data"
+
+LATEST_FILE = DATA_DIR / "latest.json"
+HISTORY_FILE = DATA_DIR / "history.json"
+STATE_FILE = DATA_DIR / "persistence_state.json"
 
 LEVEL_WEIGHT = 0.7
 TREND_WEIGHT = 0.3
@@ -95,6 +98,28 @@ def score_icsa(v):
         return 0.2
 
 
+def score_continuing_claims(v):
+    if v < 1850000:
+        return 0.8
+    elif v < 2100000:
+        return 0.6
+    elif v < 2400000:
+        return 0.4
+    else:
+        return 0.2
+
+
+def score_bbb_spread(v):
+    if v < 1.5:
+        return 0.9
+    elif v < 2.0:
+        return 0.7
+    elif v < 3.0:
+        return 0.4
+    else:
+        return 0.1
+
+
 def score_sahm(v):
     if v < 0.3:
         return 0.8
@@ -149,6 +174,9 @@ def trend_score_positive(series):
     값이 올라갈수록 좋은 지표
     예: PMI, LEI
     """
+    if not series or len(series) < 3:
+        return 0.5
+
     current = series[0]
     old = series[-1]
     delta = current - old
@@ -170,6 +198,9 @@ def trend_score_negative(series):
     값이 내려갈수록 좋은 지표
     예: ICSA
     """
+    if not series or len(series) < 3:
+        return 0.5
+
     current = series[0]
     old = series[-1]
     delta = current - old
@@ -191,6 +222,9 @@ def trend_score_negative_small(series):
     값이 내려갈수록 좋은데 절대 변화폭이 작은 지표
     예: HY Spread
     """
+    if not series or len(series) < 3:
+        return 0.5
+
     current = series[0]
     old = series[-1]
     delta = current - old
@@ -216,15 +250,26 @@ def combine_score(level_score, trend_score):
 # -----------------------------
 
 def credit_axis(core, history):
-    level = score_hy_spread(core["hySpread"]["value"])
-    trend = trend_score_negative_small(history["hySpread"])
-    final = combine_score(level, trend)
+    hy_level = score_hy_spread(core["hySpread"]["value"])
+    hy_trend = trend_score_negative_small(history["hySpread"])
+    hy_final = combine_score(hy_level, hy_trend)
+
+    bbb_level = score_bbb_spread(core["bbbSpread"]["value"])
+    bbb_hist = history.get("bbbSpread")
+    bbb_trend = trend_score_negative_small(bbb_hist) if bbb_hist else 0.5
+    bbb_final = combine_score(bbb_level, bbb_trend)
+
+    final = (hy_final + bbb_final) / 2
 
     return {
-        "level": level,
-        "trend": trend,
+        "hy_level": hy_level,
+        "hy_trend": hy_trend,
+        "hy_final": hy_final,
+        "bbb_level": bbb_level,
+        "bbb_trend": bbb_trend,
+        "bbb_final": bbb_final,
         "raw_final": final,
-        "stamp": core["hySpread"]["date"],
+        "stamp": max_date(core["hySpread"]["date"], core["bbbSpread"]["date"]),
     }
 
 
@@ -233,18 +278,26 @@ def employment_axis(core, history):
     icsa_trend = trend_score_negative(history["icsa"])
     icsa_final = combine_score(icsa_level, icsa_trend)
 
+    cc_level = score_continuing_claims(core["continuingClaims"]["value"])
+    cc_hist = history.get("continuingClaims")
+    cc_trend = trend_score_negative(cc_hist) if cc_hist else 0.5
+    cc_final = combine_score(cc_level, cc_trend)
+
     sahm_level = score_sahm(core["sahm"]["value"])
     sahm_final = sahm_level
 
-    final = (icsa_final + sahm_final) / 2
+    final = (icsa_final + cc_final + sahm_final) / 3
 
     return {
         "icsa_level": icsa_level,
         "icsa_trend": icsa_trend,
         "icsa_final": icsa_final,
+        "continuing_claims_level": cc_level,
+        "continuing_claims_trend": cc_trend,
+        "continuing_claims_final": cc_final,
         "sahm_level": sahm_level,
         "raw_final": final,
-        "stamp": max_date(core["icsa"]["date"], core["sahm"]["date"]),
+        "stamp": max_date(max_date(core["icsa"]["date"], core["continuingClaims"]["date"]), core["sahm"]["date"]),
     }
 
 
@@ -253,21 +306,29 @@ def leading_axis(core, history):
     pmi_trend = trend_score_positive(history["pmi"])
     pmi_final = combine_score(pmi_level, pmi_trend)
 
+    spmi_level = score_pmi(core["servicesPmi"]["value"])
+    spmi_hist = history.get("servicesPmi")
+    spmi_trend = trend_score_positive(spmi_hist) if spmi_hist else 0.5
+    spmi_final = combine_score(spmi_level, spmi_trend)
+
     lei_level = score_lei(core["lei"]["value"])
     lei_trend = trend_score_positive(history["lei"])
     lei_final = combine_score(lei_level, lei_trend)
 
-    final = (pmi_final + lei_final) / 2
+    final = (pmi_final + spmi_final + lei_final) / 3
 
     return {
         "pmi_level": pmi_level,
         "pmi_trend": pmi_trend,
         "pmi_final": pmi_final,
+        "services_pmi_level": spmi_level,
+        "services_pmi_trend": spmi_trend,
+        "services_pmi_final": spmi_final,
         "lei_level": lei_level,
         "lei_trend": lei_trend,
         "lei_final": lei_final,
         "raw_final": final,
-        "stamp": max_date(core["pmi"]["date"], core["lei"]["date"]),
+        "stamp": max_date(max_date(core["pmi"]["date"], core["servicesPmi"]["date"]), core["lei"]["date"]),
     }
 
 

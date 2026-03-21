@@ -11,10 +11,32 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 LATEST_PATH = DATA_DIR / "latest.json"
 STATUS_PATH = DATA_DIR / "status.json"
+HISTORY_PATH = DATA_DIR / "history.json"
+
+def load_local_env(path=".env"):
+    if not os.path.exists(path):
+        return
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            for raw in f:
+                line = raw.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, v = line.split("=", 1)
+                k = k.strip()
+                v = v.strip().strip('"').strip("'")
+                if k and not os.getenv(k):
+                    os.environ[k] = v
+    except Exception:
+        pass
+
+load_local_env()
 
 FRED_API_KEY = os.getenv("FRED_API_KEY", "").strip()
 PMI_MANUAL_VALUE = os.getenv("PMI_MANUAL_VALUE", "").strip()
 PMI_MANUAL_DATE = os.getenv("PMI_MANUAL_DATE", "").strip()
+SERVICES_PMI_MANUAL_VALUE = os.getenv("SERVICES_PMI_MANUAL_VALUE", "").strip()
+SERVICES_PMI_MANUAL_DATE = os.getenv("SERVICES_PMI_MANUAL_DATE", "").strip()
 FRED_API_BASE = "https://api.stlouisfed.org/fred/series/observations"
 CNN_FG_URL = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata"
 STOOQ_GOLD_URL = "https://stooq.com/q/d/l/?s=xauusd&i=d"
@@ -452,6 +474,14 @@ def fetch_pmi_manual():
         date = date + "-01"
     return {"value": round(value, 1), "date": date}
 
+
+def fetch_services_pmi_manual():
+    if not SERVICES_PMI_MANUAL_VALUE:
+        raise RuntimeError("SERVICES_PMI_MANUAL_VALUE 없음")
+    value = float(SERVICES_PMI_MANUAL_VALUE)
+    date = SERVICES_PMI_MANUAL_DATE or now_iso()[:10]
+    return {"value": round(value, 1), "date": date}
+
 def fetch_ism_pmi():
     now = datetime.now(timezone.utc)
     label_months = [
@@ -501,6 +531,68 @@ def fetch_ism_pmi():
                     return {"value": round(val, 1), "date": report_date}
 
     raise RuntimeError("ISM PMI 파싱 실패")
+
+def fetch_ism_services_pmi():
+    import urllib.request
+
+    now = datetime.now(timezone.utc)
+    label_months = [
+        "january", "february", "march", "april", "may", "june",
+        "july", "august", "september", "october", "november", "december"
+    ]
+
+    def browser_text(url, timeout=20):
+        req = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": "Mozilla/5.0",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.9",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            raw = resp.read()
+        return raw.decode("utf-8", errors="ignore")
+
+    patterns = [
+        r"Services PMI(?:®)?\s*(?:at|of|registered(?:\s+at)?)\s*([0-9]+(?:\.[0-9]+)?)\s*%",
+        r"Services PMI(?:®)?.{0,80}?([0-9]+(?:\.[0-9]+)?)\s*percent",
+        r"Services PMI(?:®)?.{0,80}?([0-9]+(?:\.[0-9]+)?)\s*%",
+    ]
+
+    candidates = []
+    for delta in (0, -1, -2, -3, -4):
+        y, m = shift_month(now.year, now.month, delta)
+        month_slug = label_months[m - 1]
+        candidates.append((
+            f"{y:04d}-{m:02d}-01",
+            f"https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/services/{month_slug}/"
+        ))
+        candidates.append((
+            f"{y:04d}-{m:02d}-01",
+            f"https://www.ismworld.org/supply-management-news-and-reports/news-publications/inside-supply-management-magazine/blog/{y}/{y:04d}-{m:02d}/ism-pmi-reports-roundup-{month_slug}-{y}-services/"
+        ))
+
+    for report_date, url in candidates:
+        try:
+            html = browser_text(url, timeout=20)
+        except Exception:
+            continue
+
+        body = re.sub(r"<script.*?</script>", " ", html, flags=re.I | re.S)
+        body = re.sub(r"<style.*?</style>", " ", body, flags=re.I | re.S)
+        body = re.sub(r"<[^>]+>", " ", body)
+        body = re.sub(r"&nbsp;|&#160;", " ", body)
+        body = re.sub(r"\s+", " ", body)
+
+        for pat in patterns:
+            mobj = re.search(pat, body, flags=re.I | re.S)
+            if mobj:
+                val = float(mobj.group(1))
+                if 30 <= val <= 80:
+                    return {"value": round(val, 1), "date": report_date}
+
+    raise RuntimeError("ISM Services PMI 파싱 실패")
 
 def fetch_conference_board_lei():
     url = "https://www.conference-board.org/topics/us-leading-indicators"
@@ -616,6 +708,12 @@ def build_payload():
             ("core", "pmi"),
             {"value": None, "date": None},
         ),
+        "servicesPmi": fetch_or_prev(
+            "core.servicesPmi",
+            fetch_services_pmi_manual,
+            ("core", "servicesPmi"),
+            {"value": None, "date": None},
+        ),
         "buffett": fetch_or_prev(
             "core.buffett",
             fetch_buffett_proxy,
@@ -682,10 +780,22 @@ def build_payload():
             ("core", "icsa"),
             {"value": None, "date": None},
         ),
+        "continuingClaims": fetch_or_prev(
+            "core.continuingClaims",
+            lambda: transform_value(load_fred_series("CCSA")),
+            ("core", "continuingClaims"),
+            {"value": None, "date": None},
+        ),
         "hySpread": fetch_or_prev(
             "core.hySpread",
             lambda: transform_value(load_fred_series("BAMLH0A0HYM2")),
             ("core", "hySpread"),
+            {"value": None, "date": None},
+        ),
+        "bbbSpread": fetch_or_prev(
+            "core.bbbSpread",
+            lambda: transform_value(load_fred_series("BAMLC0A4CBBB")),
+            ("core", "bbbSpread"),
             {"value": None, "date": None},
         ),
     }
@@ -730,12 +840,77 @@ def build_payload():
         },
     }
 
+
+def load_history_payload():
+    if not HISTORY_PATH.exists():
+        return {}
+    try:
+        data = json.loads(HISTORY_PATH.read_text())
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
+
+def update_history_from_payload(payload):
+    history = load_history_payload()
+    stamps = history.get("_stamps", {})
+    if not isinstance(stamps, dict):
+        stamps = {}
+
+    core = payload.get("core", {})
+    series_map = {
+        "pmi": (core.get("pmi", {}) or {}).get("value"), "pmi_date": (core.get("pmi", {}) or {}).get("date"),
+        "servicesPmi": (core.get("servicesPmi", {}) or {}).get("value"), "servicesPmi_date": (core.get("servicesPmi", {}) or {}).get("date"),
+        "lei": (core.get("lei", {}) or {}).get("value"), "lei_date": (core.get("lei", {}) or {}).get("date"),
+        "icsa": (core.get("icsa", {}) or {}).get("value"), "icsa_date": (core.get("icsa", {}) or {}).get("date"),
+        "continuingClaims": (core.get("continuingClaims", {}) or {}).get("value"), "continuingClaims_date": (core.get("continuingClaims", {}) or {}).get("date"),
+        "hySpread": (core.get("hySpread", {}) or {}).get("value"), "hySpread_date": (core.get("hySpread", {}) or {}).get("date"),
+        "bbbSpread": (core.get("bbbSpread", {}) or {}).get("value"), "bbbSpread_date": (core.get("bbbSpread", {}) or {}).get("date"),
+    }
+
+    for key in ["pmi", "servicesPmi", "lei", "icsa", "continuingClaims", "hySpread", "bbbSpread"]:
+        value = series_map.get(key)
+        stamp = series_map.get(f"{key}_date")
+
+        if value is None or not stamp:
+            continue
+
+        values = history.get(key, [])
+        dates = stamps.get(key, [])
+
+        if not isinstance(values, list):
+            values = []
+        if not isinstance(dates, list):
+            dates = []
+
+        if not dates:
+            if values:
+                if values[0] != value:
+                    values = [value] + values
+                dates = [stamp] + [""] * max(0, len(values) - 1)
+            else:
+                values = [value]
+                dates = [stamp]
+        elif dates[0] == stamp:
+            values[0] = value
+        else:
+            values = [value] + values
+            dates = [stamp] + dates
+
+        history[key] = values[:3]
+        stamps[key] = dates[:3]
+
+    history["_stamps"] = stamps
+    HISTORY_PATH.write_text(json.dumps(history, ensure_ascii=False, indent=2))
+
+
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     log("데이터 생성 시작")
     payload = build_payload()
 
     LATEST_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2))
+    update_history_from_payload(payload)
     STATUS_PATH.write_text(json.dumps({
         "ok": True,
         "updatedAt": payload["updatedAt"],
