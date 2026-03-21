@@ -7,6 +7,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlencode
 
+from engine import run_engine
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 LATEST_PATH = DATA_DIR / "latest.json"
@@ -911,6 +913,14 @@ def main():
 
     LATEST_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2))
     update_history_from_payload(payload)
+
+    try:
+        payload["engine"] = run_engine()
+        LATEST_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2))
+    except Exception as exc:
+        errors.append(f"engine: {exc}")
+        payload["engine"] = {"error": str(exc)}
+
     STATUS_PATH.write_text(json.dumps({
         "ok": True,
         "updatedAt": payload["updatedAt"],

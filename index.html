@@ -707,7 +707,26 @@ function calcAndRenderRisk(payload){
     level = 4;
   }
 
-  const season = getSeason(heat, level);
+  let season = getSeason(heat, level);
+
+  const engine = payload.engine || null;
+  if(engine && !engine.error){
+    const engineSeasonId = getEngineSeasonId(engine.final_season || engine.base_season);
+    const engineStage = typeof engine.stage === 'string' && /^L[1-4]$/.test(engine.stage)
+      ? Number(engine.stage.replace('L',''))
+      : null;
+    const engineScore = engine.macro_score != null ? Number(engine.macro_score) : null;
+
+    if(engineSeasonId){
+      const meta = getSeasonMetaById(engineSeasonId);
+      if(meta) season = meta;
+    }
+    if(engineStage !== null) level = engineStage;
+    if(engineScore !== null && !Number.isNaN(engineScore)){
+      heat = Math.round(engineScore * 100);
+    }
+  }
+
   setSafeAllocation(season.id, level);
   setText('wh', heat===null?'—':String(heat), heat===null?COLORS.n:heatColor(heat));
   setText('m_ht', heat===null?'—':heat + '/100', heat===null?COLORS.n:heatColor(heat));
@@ -720,6 +739,23 @@ function calcAndRenderRisk(payload){
   const badge = el('sb'); if(badge){ badge.className = 'clb cl' + level; badge.textContent = {1:'L1 — 정상',2:'L2 — 주의',3:'L3 — 위험',4:'L4 — 방어'}[level]; }
   [1,2,3,4].forEach(i=>{ const n=el('c'+i); if(n) n.style.opacity = i===level ? '1' : '0.22'; });
   document.querySelectorAll('[data-s]').forEach(row=>row.classList.toggle('hl', row.dataset.s === season.id));
+}
+
+function getEngineSeasonId(label){
+  if(!label) return null;
+  if(label.includes('봄')) return 'spring';
+  if(label.includes('여름')) return 'summer';
+  if(label.includes('가을')) return 'fall';
+  if(label.includes('겨울')) return 'winter';
+  return null;
+}
+
+function getSeasonMetaById(id){
+  if(id === 'spring') return {id:'spring',emoji:'🌸',name:'봄',color:'#16C784',desc:'회복기 · 대형주 재진입',deg:0};
+  if(id === 'summer') return {id:'summer',emoji:'☀️',name:'여름',color:'#F3BA2F',desc:'확장기 · 보유 중심, 과열 전환 점검',deg:90};
+  if(id === 'fall') return {id:'fall',emoji:'🍂',name:'가을',color:'#FF8C00',desc:'후기 경계 · 안전자산 비중 확대 검토',deg:180};
+  if(id === 'winter') return {id:'winter',emoji:'❄️',name:'겨울',color:'#3861FB',desc:'방어 우선 · 현금/금/단기채 비중 확대',deg:270};
+  return null;
 }
 
 function getSeason(heat, level){
