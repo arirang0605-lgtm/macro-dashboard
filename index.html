@@ -340,7 +340,7 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
       <div class="ar" data-s="spring"><div><span class="stag tsp">🌸 봄</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">회복기</div></div><div><div class="pills"><span class="pill pg">대형주</span><span class="pill pg">반도체</span><span class="pill py">경기민감</span></div></div><div><div class="pills"><span class="pill pr">초장기채</span><span class="pill pr">과도한현금</span></div></div><div style="font-size:13px;color:#16C784">위험자산 재진입<div style="font-size:14px;color:#C7D0E0">경고 신호 감소 확인</div></div><div style="color:#16C784;font-size:13px;font-weight:700">10~20%</div></div>
       <div class="ar" data-s="summer"><div><span class="stag tsu">☀️ 여름</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">확장기</div></div><div><div class="pills"><span class="pill pg">주식</span><span class="pill py">퀄리티</span><span class="pill pb">현금약간</span></div></div><div><div class="pills"><span class="pill pr">방어과잉</span><span class="pill pr">추격매수</span></div></div><div style="font-size:13px;color:#F3BA2F">보유 중심<div style="font-size:14px;color:#C7D0E0">과열 전환 여부 점검</div></div><div style="color:#F3BA2F;font-size:13px;font-weight:700">15~25%</div></div>
       <div class="ar" data-s="fall"><div><span class="stag tfa">🍂 가을</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">후기경계</div></div><div><div class="pills"><span class="pill pg">금</span><span class="pill py">달러</span><span class="pill pb">단기채</span></div></div><div><div class="pills"><span class="pill pr">고베타</span><span class="pill pr">레버리지</span></div></div><div style="font-size:13px;color:#FF8C00">방어 비중 확대<div style="font-size:14px;color:#C7D0E0">버블 위험 높을수록 축소</div></div><div style="color:#FF8C00;font-size:13px;font-weight:700">55~65%</div></div>
-      <div class="ar" data-s="winter"><div><span class="stag twi">❄️ 겨울</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">수축기</div></div><div><div class="pills"><span class="pill pb">현금</span><span class="pill pg">금</span><span class="pill pb">단기국채</span></div></div><div><div class="pills"><span class="pill pr">고평가주</span><span class="pill pr">신용투자</span></div></div><div style="font-size:13px;color:#6EA8FF">방어 우선<div style="font-size:14px;color:#C7D0E0">리스크 노출 최소화</div></div><div style="color:#6EA8FF;font-size:13px;font-weight:700">70~90%</div></div>
+      <div class="ar" data-s="winter"><div><span class="stag twi">❄️ 겨울</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">수축기</div></div><div><div class="pills"><span class="pill pb">현금</span><span class="pill pg">금</span><span class="pill pb">단기국채</span></div></div><div><div class="pills"><span class="pill pr">고평가주</span><span class="pill pr">신용투자</span></div></div><div style="font-size:13px;color:#6EA8FF">방어 우선<div style="font-size:14px;color:#C7D0E0">안전자산 중심 유지</div></div><div style="color:#6EA8FF;font-size:13px;font-weight:700">70~90%</div></div>
     </div>
   </div>
 
@@ -751,7 +751,7 @@ function getSeason(heat, level){
   }
 
   if(level >= 3 || heat >= 70){
-    return {id:'fall',emoji:'🍂',name:'가을',color:'#FF8C00',desc:'후기 둔화/경계 · 방어 비중 점검',deg:180};
+    return {id:'fall',emoji:'🍂',name:'가을',color:'#FF8C00',desc:'후기 경계 · 안전자산 비중 확대 검토',deg:180};
   }
 
   if(heat < 35){
@@ -765,7 +765,7 @@ function getSeason(heat, level){
       (lei !== null && lei < 0) ||
       (pmi !== null && pmi < 50)
     ){
-      return {id:'fall',emoji:'🍂',name:'가을',color:'#FF8C00',desc:'후기 둔화/경계 · 방어 비중 점검',deg:180};
+      return {id:'fall',emoji:'🍂',name:'가을',color:'#FF8C00',desc:'후기 경계 · 안전자산 비중 확대 검토',deg:180};
     }
     return {id:'summer',emoji:'☀️',name:'여름',color:'#F3BA2F',desc:'확장 둔화 · 보유 중심, 과열 전환 점검',deg:90};
   }
@@ -792,15 +792,15 @@ function getSeasonLevelDesc(seasonId, level){
       4:'여름 L4 · 확장 말기, 방어 자산 병행'
     },
     fall: {
-      1:'가을 L1 · 후기 둔화 초입, 민감주 점검',
-      2:'가을 L2 · 경계 강화, 현금 비중 점증',
-      3:'가을 L3 · 방어 준비, 위험노출 축소 검토',
+      1:'가을 L1 · 후기 경계 초입, 민감주 점검',
+      2:'가을 L2 · 경계 강화, 안전자산 비중 확대',
+      3:'가을 L3 · 방어 비중 확대, 위험노출 축소 검토',
       4:'가을 L4 · 겨울 직전, 방어 중심 재배치'
     },
     winter: {
       1:'겨울 L1 · 수축 초입, 방어 우선',
       2:'겨울 L2 · 수축 진행, 현금/금/단기채 강화',
-      3:'겨울 L3 · 방어 강화, 리스크 노출 최소화',
+      3:'겨울 L3 · 방어 강화, 안전자산 중심 유지',
       4:'겨울 L4 · 침체 심화, 극단 방어 구간'
     }
   };
@@ -822,15 +822,15 @@ function getSafeAllocation(seasonId, level){
       4:{safe:[20,30], note:'확장 말기 · 방어 자산 병행'}
     },
     fall: {
-      1:{safe:[40,50], note:'후기 둔화 초입 · 민감주 점검'},
-      2:{safe:[50,60], note:'경계 강화 · 현금 비중 점증'},
-      3:{safe:[55,65], note:'버블 위험 높음 · 방어 준비'},
+      1:{safe:[40,50], note:'후기 경계 초입 · 민감주 점검'},
+      2:{safe:[50,60], note:'경계 강화 · 안전자산 비중 확대'},
+      3:{safe:[55,65], note:'버블 위험 높음 · 방어 비중 확대'},
       4:{safe:[65,75], note:'겨울 직전 · 방어 중심 재배치'}
     },
     winter: {
       1:{safe:[70,80], note:'수축 초입 · 방어 우선'},
       2:{safe:[75,85], note:'수축 진행 · 현금/금/단기채 강화'},
-      3:{safe:[80,90], note:'방어 강화 · 리스크 노출 최소화'},
+      3:{safe:[80,90], note:'방어 강화 · 안전자산 중심 유지'},
       4:{safe:[85,95], note:'침체 심화 · 극단 방어 구간'}
     }
   };
@@ -1082,7 +1082,7 @@ doFetch();
       ],
       us: "미국 유리 섹터: 에너지·필수소비재·헬스케어·고배당<br>미국 ETF 예시: XLE, XLP, XLV, SCHD",
       kr: "한국 유리 섹터: 은행·보험·통신·배당주<br>한국 ETF 예시: KODEX 은행, KODEX 보험, 고배당 ETF, 방어 성격 ETF",
-      note: "가을은 무조건 하락이 아니라 '늦은 사이클 경고'로 읽는 단계입니다. 공격보다 방어 비중 점검이 중요합니다."
+      note: "가을은 무조건 하락이 아니라 '늦은 사이클 경고'로 읽는 단계입니다. 공격보다 안전자산 비중 확대 검토가 중요합니다."
     },
     winter: {
       title: "❄️ 겨울",
