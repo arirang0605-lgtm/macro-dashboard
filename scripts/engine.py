@@ -525,10 +525,22 @@ def classify_stage(score):
 # 지금은 latest.json 구조에 맞춰 임시 연결
 # -----------------------------
 
-def run_bubble_overlay(latest):
+def run_bubble_overlay(latest, history):
     buffett_proxy = latest["core"].get("buffett", {}).get("value", 180)
     hy_spread = latest["core"]["hySpread"]["value"]
-    hy_spread_36m_low = 3.0
+
+    hy_hist = [
+        v for v in (history.get("hySpread") or [])
+        if isinstance(v, (int, float))
+    ]
+    if isinstance(hy_spread, (int, float)):
+        hy_hist.append(hy_spread)
+
+    hy_spread_36m_low = min(hy_hist) if hy_hist else 3.0
+    if not hy_spread_36m_low or hy_spread_36m_low <= 0:
+        hy_spread_36m_low = 3.0
+
+    # VIX history는 아직 누적하지 않으므로 임시 고정 기준 유지
     current_vix = latest["market"]["vx"]["value"]
     vix_36m_avg = 18.0
 
@@ -545,6 +557,8 @@ def run_bubble_overlay(latest):
         "valuation": val,
         "fragility": frag,
         "risk": risk,
+        "hy_spread_36m_low": hy_spread_36m_low,
+        "vix_36m_avg": vix_36m_avg,
     }
 
 
@@ -596,7 +610,7 @@ def run_engine():
     base_season = classify_base_season(macro_score)
     stage = classify_stage(macro_score)
 
-    bubble = run_bubble_overlay(latest)
+    bubble = run_bubble_overlay(latest, history)
 
     final_season = base_season
     if base_season == "여름 (Expansion)":
