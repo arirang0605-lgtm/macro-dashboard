@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-21T16:27:18+00:00",
+  "updatedAt": "2026-03-21T23:31:51+00:00",
   "market": {
     "sp": {
       "value": 6506.48,
@@ -168,5 +168,86 @@
     "errors": [
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
+  },
+  "engine": {
+    "credit": {
+      "hy_level": 0.7,
+      "hy_trend": 0.65,
+      "hy_final": 0.6849999999999999,
+      "bbb_level": 0.9,
+      "bbb_trend": 0.5,
+      "bbb_final": 0.78,
+      "raw_final": 0.7324999999999999,
+      "stamp": "2026-03-19",
+      "effective_final": 0.755,
+      "persistence": {
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
+        "pending_count": 0
+      }
+    },
+    "employment": {
+      "icsa_level": 0.8,
+      "icsa_trend": 0.8,
+      "icsa_final": 0.7999999999999999,
+      "continuing_claims_level": 0.6,
+      "continuing_claims_trend": 0.5,
+      "continuing_claims_final": 0.57,
+      "sahm_level": 0.8,
+      "raw_final": 0.7233333333333333,
+      "stamp": "2026-03-14",
+      "effective_final": 0.8,
+      "persistence": {
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
+        "pending_count": 0
+      }
+    },
+    "leading": {
+      "pmi_level": 0.7,
+      "pmi_trend": 0.8,
+      "pmi_final": 0.73,
+      "services_pmi_level": 0.5,
+      "services_pmi_trend": 0.5,
+      "services_pmi_final": 0.5,
+      "lei_level": 0.6,
+      "lei_trend": 0.65,
+      "lei_final": 0.615,
+      "raw_final": 0.615,
+      "stamp": "2026-02-01",
+      "effective_final": 0.58,
+      "persistence": {
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
+        "pending_count": 0
+      }
+    },
+    "policy": {
+      "yc_level": 0.8,
+      "fedfunds_level": 0.5,
+      "raw_final": 0.65,
+      "stamp": "2026-03-20",
+      "effective_final": 0.8,
+      "persistence": {
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
+        "pending_count": 0
+      }
+    },
+    "raw_macro_score": 0.6880000000000001,
+    "macro_score": 0.7314999999999999,
+    "raw_base_season": "여름 (Expansion)",
+    "base_season": "여름 (Expansion)",
+    "final_season": "가을 (Bubble / Late Cycle)",
+    "stage": "L4",
+    "bubble": {
+      "valuation": 1.0,
+      "fragility": 0.5,
+      "risk": 0.8
+    }
   }
 }

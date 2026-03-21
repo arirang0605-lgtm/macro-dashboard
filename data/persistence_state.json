@@ -15,14 +15,14 @@
   },
   "leading": {
     "effective_score": 0.58,
-    "last_raw_score": 0.7083333333333334,
+    "last_raw_score": 0.615,
     "last_stamp": "2026-02-01",
     "pending_direction": null,
     "pending_count": 0
   },
   "policy": {
     "effective_score": 0.8,
-    "last_raw_score": 0.8,
+    "last_raw_score": 0.65,
     "last_stamp": "2026-03-20",
     "pending_direction": null,
     "pending_count": 0
