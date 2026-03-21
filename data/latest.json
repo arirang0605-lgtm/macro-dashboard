@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-21T23:47:07+00:00",
+  "updatedAt": "2026-03-21T23:55:47+00:00",
   "market": {
     "sp": {
       "value": 6506.48,
@@ -244,6 +244,8 @@
     "base_season": "여름 (Expansion)",
     "final_season": "가을 (Bubble / Late Cycle)",
     "stage": "L4",
+    "stage_delta": -0.04349999999999987,
+    "stage_bias": "cooling",
     "bubble": {
       "valuation": 1.0,
       "fragility": 0.5,
