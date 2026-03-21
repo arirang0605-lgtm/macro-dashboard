@@ -1,12 +1,20 @@
-def valuation_score(shiller_cape):
+def valuation_score(buffett_proxy):
+    """Buffett proxy (market cap / GDP 계열 프록시) 기준 버블 밸류에이션 점수.
+    대략적 해석:
+    - < 80  : 저평가권
+    - < 100 : 보통
+    - < 115 : 다소 높음
+    - < 140 : 고평가
+    - >=140 : 과열
+    """
 
-    if shiller_cape < 16:
+    if buffett_proxy < 80:
         return 0.0
-    elif shiller_cape < 22:
+    elif buffett_proxy < 100:
         return 0.2
-    elif shiller_cape < 28:
+    elif buffett_proxy < 115:
         return 0.5
-    elif shiller_cape < 33:
+    elif buffett_proxy < 140:
         return 0.75
     else:
         return 1.0
@@ -50,13 +58,13 @@ def detect_fall(macro_season, bubble_risk_score):
 
 if __name__ == "__main__":
 
-    shiller_cape = 31
+    buffett_proxy = 125
     hy_spread = 3.4
     hy_spread_36m_low = 3.2
     current_vix = 13
     vix_36m_avg = 18
 
-    val = valuation_score(shiller_cape)
+    val = valuation_score(buffett_proxy)
 
     frag = fragility_score(
         hy_spread,

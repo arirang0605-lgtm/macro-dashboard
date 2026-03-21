@@ -132,6 +132,8 @@ def score_sahm(v):
 
 
 def score_pmi(v):
+    if v is None:
+        return 0.5
     if v > 55:
         return 0.9
     elif v > 50:
@@ -306,10 +308,16 @@ def leading_axis(core, history):
     pmi_trend = trend_score_positive(history["pmi"])
     pmi_final = combine_score(pmi_level, pmi_trend)
 
-    spmi_level = score_pmi(core["servicesPmi"]["value"])
-    spmi_hist = history.get("servicesPmi")
-    spmi_trend = trend_score_positive(spmi_hist) if spmi_hist else 0.5
-    spmi_final = combine_score(spmi_level, spmi_trend)
+    spmi_value = core.get("servicesPmi", {}).get("value")
+    if spmi_value is None:
+        spmi_level = 0.5
+        spmi_trend = 0.5
+        spmi_final = 0.5
+    else:
+        spmi_level = score_pmi(spmi_value)
+        spmi_hist = history.get("servicesPmi")
+        spmi_trend = trend_score_positive(spmi_hist) if spmi_hist else 0.5
+        spmi_final = combine_score(spmi_level, spmi_trend)
 
     lei_level = score_lei(core["lei"]["value"])
     lei_trend = trend_score_positive(history["lei"])
@@ -332,12 +340,30 @@ def leading_axis(core, history):
     }
 
 
+def score_fedfunds(v):
+    if v is None:
+        return 0.5
+    if v >= 5.0:
+        return 0.2
+    elif v >= 4.0:
+        return 0.35
+    elif v >= 3.0:
+        return 0.5
+    elif v >= 2.0:
+        return 0.65
+    else:
+        return 0.8
+
+
 def policy_axis(core):
     yc_level = score_yield_curve(core["t10y2y"]["value"])
+    ff_level = score_fedfunds(core.get("fedfunds", {}).get("value"))
+    final = (yc_level + ff_level) / 2
 
     return {
         "yc_level": yc_level,
-        "raw_final": yc_level,
+        "fedfunds_level": ff_level,
+        "raw_final": final,
         "stamp": max_date(core["t10y2y"]["date"], core["fedfunds"]["date"]),
     }
 
@@ -500,13 +526,13 @@ def classify_stage(score):
 # -----------------------------
 
 def run_bubble_overlay(latest):
-    shiller_cape = latest["core"].get("buffett", {}).get("value", 180)
+    buffett_proxy = latest["core"].get("buffett", {}).get("value", 180)
     hy_spread = latest["core"]["hySpread"]["value"]
     hy_spread_36m_low = 3.0
     current_vix = latest["market"]["vx"]["value"]
     vix_36m_avg = 18.0
 
-    val = valuation_score(shiller_cape)
+    val = valuation_score(buffett_proxy)
     frag = fragility_score(
         hy_spread,
         hy_spread_36m_low,
