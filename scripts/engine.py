@@ -1,17 +1,76 @@
 import json
 from pathlib import Path
 
+from bubble_engine import valuation_score, fragility_score, bubble_risk, detect_fall
 
-DATA_FILE = Path("../data/latest.json")
+LATEST_FILE = Path("../data/latest.json")
+HISTORY_FILE = Path("../data/history.json")
+STATE_FILE = Path("../data/persistence_state.json")
+
+LEVEL_WEIGHT = 0.7
+TREND_WEIGHT = 0.3
+
+AXIS_WEIGHTS = {
+    "credit": 0.30,
+    "employment": 0.30,
+    "leading": 0.25,
+    "policy": 0.15,
+}
+
+# 높은 점수 = 더 건강한 상태
+PERSISTENCE = {
+    "credit": {
+        "deteriorate": 0,
+        "recover": 1,
+    },
+    "employment": {
+        "deteriorate": 2,
+        "recover": 4,
+    },
+    "leading": {
+        "deteriorate": 2,
+        "recover": 5,
+    },
+    "policy": {
+        "deteriorate": 0,
+        "recover": 1,
+    },
+}
 
 
-def load_data():
-    with open(DATA_FILE) as f:
+def load_json(path):
+    with open(path) as f:
         return json.load(f)
 
 
+def load_latest():
+    return load_json(LATEST_FILE)
+
+
+def load_history():
+    return load_json(HISTORY_FILE)
+
+
+def load_state():
+    if not STATE_FILE.exists():
+        return {}
+    return load_json(STATE_FILE)
+
+
+def save_state(state):
+    with open(STATE_FILE, "w") as f:
+        json.dump(state, f, indent=2, ensure_ascii=False)
+
+
+def max_date(*dates):
+    valid = [d for d in dates if d]
+    if not valid:
+        return ""
+    return max(valid)
+
+
 # -----------------------------
-# LEVEL SCORE FUNCTIONS
+# LEVEL SCORE
 # -----------------------------
 
 def score_hy_spread(v):
@@ -41,7 +100,7 @@ def score_sahm(v):
         return 0.8
     elif v < 0.5:
         return 0.6
-    elif v < 1:
+    elif v < 1.0:
         return 0.3
     else:
         return 0.1
@@ -81,93 +140,425 @@ def score_yield_curve(v):
 
 
 # -----------------------------
-# AXIS CALCULATION
+# TREND SCORE
+# history 배열: [현재, 1개월전, 2개월전]
 # -----------------------------
 
-def credit_axis(core):
-    return score_hy_spread(core["hySpread"]["value"])
+def trend_score_positive(series):
+    """
+    값이 올라갈수록 좋은 지표
+    예: PMI, LEI
+    """
+    current = series[0]
+    old = series[-1]
+    delta = current - old
+
+    if delta > 1.0:
+        return 0.8
+    elif delta > 0.2:
+        return 0.65
+    elif delta > -0.2:
+        return 0.5
+    elif delta > -1.0:
+        return 0.35
+    else:
+        return 0.2
 
 
-def employment_axis(core):
-    icsa = score_icsa(core["icsa"]["value"])
-    sahm = score_sahm(core["sahm"]["value"])
+def trend_score_negative(series):
+    """
+    값이 내려갈수록 좋은 지표
+    예: ICSA
+    """
+    current = series[0]
+    old = series[-1]
+    delta = current - old
 
-    return (icsa + sahm) / 2
+    if delta < -10000:
+        return 0.8
+    elif delta < -2000:
+        return 0.65
+    elif delta < 2000:
+        return 0.5
+    elif delta < 10000:
+        return 0.35
+    else:
+        return 0.2
 
 
-def leading_axis(core):
-    pmi = score_pmi(core["pmi"]["value"])
-    lei = score_lei(core["lei"]["value"])
+def trend_score_negative_small(series):
+    """
+    값이 내려갈수록 좋은데 절대 변화폭이 작은 지표
+    예: HY Spread
+    """
+    current = series[0]
+    old = series[-1]
+    delta = current - old
 
-    return (pmi + lei) / 2
+    if delta < -0.20:
+        return 0.8
+    elif delta < -0.05:
+        return 0.65
+    elif delta < 0.05:
+        return 0.5
+    elif delta < 0.20:
+        return 0.35
+    else:
+        return 0.2
+
+
+def combine_score(level_score, trend_score):
+    return (level_score * LEVEL_WEIGHT) + (trend_score * TREND_WEIGHT)
+
+
+# -----------------------------
+# AXIS CALC
+# -----------------------------
+
+def credit_axis(core, history):
+    level = score_hy_spread(core["hySpread"]["value"])
+    trend = trend_score_negative_small(history["hySpread"])
+    final = combine_score(level, trend)
+
+    return {
+        "level": level,
+        "trend": trend,
+        "raw_final": final,
+        "stamp": core["hySpread"]["date"],
+    }
+
+
+def employment_axis(core, history):
+    icsa_level = score_icsa(core["icsa"]["value"])
+    icsa_trend = trend_score_negative(history["icsa"])
+    icsa_final = combine_score(icsa_level, icsa_trend)
+
+    sahm_level = score_sahm(core["sahm"]["value"])
+    sahm_final = sahm_level
+
+    final = (icsa_final + sahm_final) / 2
+
+    return {
+        "icsa_level": icsa_level,
+        "icsa_trend": icsa_trend,
+        "icsa_final": icsa_final,
+        "sahm_level": sahm_level,
+        "raw_final": final,
+        "stamp": max_date(core["icsa"]["date"], core["sahm"]["date"]),
+    }
+
+
+def leading_axis(core, history):
+    pmi_level = score_pmi(core["pmi"]["value"])
+    pmi_trend = trend_score_positive(history["pmi"])
+    pmi_final = combine_score(pmi_level, pmi_trend)
+
+    lei_level = score_lei(core["lei"]["value"])
+    lei_trend = trend_score_positive(history["lei"])
+    lei_final = combine_score(lei_level, lei_trend)
+
+    final = (pmi_final + lei_final) / 2
+
+    return {
+        "pmi_level": pmi_level,
+        "pmi_trend": pmi_trend,
+        "pmi_final": pmi_final,
+        "lei_level": lei_level,
+        "lei_trend": lei_trend,
+        "lei_final": lei_final,
+        "raw_final": final,
+        "stamp": max_date(core["pmi"]["date"], core["lei"]["date"]),
+    }
 
 
 def policy_axis(core):
-    yc = score_yield_curve(core["t10y2y"]["value"])
-    return yc
+    yc_level = score_yield_curve(core["t10y2y"]["value"])
+
+    return {
+        "yc_level": yc_level,
+        "raw_final": yc_level,
+        "stamp": max_date(core["t10y2y"]["date"], core["fedfunds"]["date"]),
+    }
 
 
 # -----------------------------
-# SEASON CLASSIFIER
+# PERSISTENCE
 # -----------------------------
 
-def classify_season(score):
+def init_axis_state(raw_score, stamp):
+    return {
+        "effective_score": raw_score,
+        "last_raw_score": raw_score,
+        "last_stamp": stamp,
+        "pending_direction": None,
+        "pending_count": 0,
+    }
 
-    if score > 0.75:
-        return "여름 (Expansion)"
-    elif score > 0.55:
-        return "봄 (Recovery)"
-    elif score > 0.35:
-        return "가을 (Late Cycle)"
+
+def apply_axis_persistence(axis_name, raw_score, stamp, state):
+    axis_state = state.get(axis_name)
+
+    if not axis_state:
+        axis_state = init_axis_state(raw_score, stamp)
+        state[axis_name] = axis_state
+        return raw_score, {
+            "status": "initialized",
+            "direction": "flat",
+            "required": 0,
+            "pending_count": 0,
+        }
+
+    effective_score = axis_state["effective_score"]
+    prev_stamp = axis_state.get("last_stamp", "")
+
+    if stamp == prev_stamp:
+        axis_state["last_raw_score"] = raw_score
+        state[axis_name] = axis_state
+        return effective_score, {
+            "status": "same_stamp_hold",
+            "direction": "flat",
+            "required": 0,
+            "pending_count": axis_state.get("pending_count", 0),
+        }
+
+    eps = 1e-9
+
+    if raw_score > effective_score + eps:
+        direction = "recover"
+    elif raw_score < effective_score - eps:
+        direction = "deteriorate"
     else:
-        return "겨울 (Recession)"
+        direction = "flat"
+
+    if direction == "flat":
+        axis_state["effective_score"] = raw_score
+        axis_state["last_raw_score"] = raw_score
+        axis_state["last_stamp"] = stamp
+        axis_state["pending_direction"] = None
+        axis_state["pending_count"] = 0
+        state[axis_name] = axis_state
+
+        return raw_score, {
+            "status": "flat_update",
+            "direction": "flat",
+            "required": 0,
+            "pending_count": 0,
+        }
+
+    required = PERSISTENCE[axis_name][direction]
+
+    if required == 0:
+        axis_state["effective_score"] = raw_score
+        axis_state["last_raw_score"] = raw_score
+        axis_state["last_stamp"] = stamp
+        axis_state["pending_direction"] = None
+        axis_state["pending_count"] = 0
+        state[axis_name] = axis_state
+
+        return raw_score, {
+            "status": "immediate_apply",
+            "direction": direction,
+            "required": required,
+            "pending_count": 0,
+        }
+
+    prev_pending_direction = axis_state.get("pending_direction")
+    prev_pending_count = axis_state.get("pending_count", 0)
+
+    if prev_pending_direction == direction:
+        pending_count = prev_pending_count + 1
+    else:
+        pending_count = 1
+
+    if pending_count >= required:
+        axis_state["effective_score"] = raw_score
+        axis_state["last_raw_score"] = raw_score
+        axis_state["last_stamp"] = stamp
+        axis_state["pending_direction"] = None
+        axis_state["pending_count"] = 0
+        state[axis_name] = axis_state
+
+        return raw_score, {
+            "status": "confirmed_apply",
+            "direction": direction,
+            "required": required,
+            "pending_count": pending_count,
+        }
+
+    axis_state["last_raw_score"] = raw_score
+    axis_state["last_stamp"] = stamp
+    axis_state["pending_direction"] = direction
+    axis_state["pending_count"] = pending_count
+    state[axis_name] = axis_state
+
+    return effective_score, {
+        "status": "hold_waiting_confirmation",
+        "direction": direction,
+        "required": required,
+        "pending_count": pending_count,
+    }
 
 
 # -----------------------------
-# ENGINE
+# SEASON / STAGE
+# Fall은 bubble overlay로만 진입
+# -----------------------------
+
+def classify_base_season(score):
+    if score < 0.35:
+        return "겨울 (Recession)"
+    elif score < 0.65:
+        return "봄 (Recovery)"
+    else:
+        return "여름 (Expansion)"
+
+
+def classify_stage(score):
+    if score < 0.25:
+        band_pos = score / 0.25
+    elif score < 0.50:
+        band_pos = (score - 0.25) / 0.25
+    elif score < 0.75:
+        band_pos = (score - 0.50) / 0.25
+    else:
+        band_pos = (score - 0.75) / 0.25
+
+    if band_pos < 0.25:
+        return "L1"
+    elif band_pos < 0.50:
+        return "L2"
+    elif band_pos < 0.75:
+        return "L3"
+    else:
+        return "L4"
+
+
+# -----------------------------
+# BUBBLE ENGINE INPUTS
+# 지금은 latest.json 구조에 맞춰 임시 연결
+# -----------------------------
+
+def run_bubble_overlay(latest):
+    shiller_cape = latest["core"].get("buffett", {}).get("value", 180)
+    hy_spread = latest["core"]["hySpread"]["value"]
+    hy_spread_36m_low = 3.0
+    current_vix = latest["market"]["vx"]["value"]
+    vix_36m_avg = 18.0
+
+    val = valuation_score(shiller_cape)
+    frag = fragility_score(
+        hy_spread,
+        hy_spread_36m_low,
+        current_vix,
+        vix_36m_avg
+    )
+    risk = bubble_risk(val, frag)
+
+    return {
+        "valuation": val,
+        "fragility": frag,
+        "risk": risk,
+    }
+
+
+# -----------------------------
+# MAIN ENGINE
 # -----------------------------
 
 def run_engine():
+    latest = load_latest()
+    history = load_history()
+    state = load_state()
+    core = latest["core"]
 
-    data = load_data()
-    core = data["core"]
-
-    credit = credit_axis(core)
-    employment = employment_axis(core)
-    leading = leading_axis(core)
+    credit = credit_axis(core, history)
+    employment = employment_axis(core, history)
+    leading = leading_axis(core, history)
     policy = policy_axis(core)
 
-    macro_score = (
-        credit * 0.30 +
-        employment * 0.30 +
-        leading * 0.25 +
-        policy * 0.15
+    raw_macro_score = (
+        credit["raw_final"] * AXIS_WEIGHTS["credit"] +
+        employment["raw_final"] * AXIS_WEIGHTS["employment"] +
+        leading["raw_final"] * AXIS_WEIGHTS["leading"] +
+        policy["raw_final"] * AXIS_WEIGHTS["policy"]
     )
 
-    season = classify_season(macro_score)
+    credit["effective_final"], credit["persistence"] = apply_axis_persistence(
+        "credit", credit["raw_final"], credit["stamp"], state
+    )
+    employment["effective_final"], employment["persistence"] = apply_axis_persistence(
+        "employment", employment["raw_final"], employment["stamp"], state
+    )
+    leading["effective_final"], leading["persistence"] = apply_axis_persistence(
+        "leading", leading["raw_final"], leading["stamp"], state
+    )
+    policy["effective_final"], policy["persistence"] = apply_axis_persistence(
+        "policy", policy["raw_final"], policy["stamp"], state
+    )
+
+    save_state(state)
+
+    macro_score = (
+        credit["effective_final"] * AXIS_WEIGHTS["credit"] +
+        employment["effective_final"] * AXIS_WEIGHTS["employment"] +
+        leading["effective_final"] * AXIS_WEIGHTS["leading"] +
+        policy["effective_final"] * AXIS_WEIGHTS["policy"]
+    )
+
+    raw_base_season = classify_base_season(raw_macro_score)
+    base_season = classify_base_season(macro_score)
+    stage = classify_stage(macro_score)
+
+    bubble = run_bubble_overlay(latest)
+
+    final_season = base_season
+    if base_season == "여름 (Expansion)":
+        mapped = detect_fall("Summer", bubble["risk"])
+        if mapped == "Fall":
+            final_season = "가을 (Bubble / Late Cycle)"
 
     return {
         "credit": credit,
         "employment": employment,
         "leading": leading,
         "policy": policy,
+        "raw_macro_score": raw_macro_score,
         "macro_score": macro_score,
-        "season": season
+        "raw_base_season": raw_base_season,
+        "base_season": base_season,
+        "final_season": final_season,
+        "stage": stage,
+        "bubble": bubble,
     }
 
 
-# -----------------------------
-# RUN
-# -----------------------------
-
 if __name__ == "__main__":
-
     result = run_engine()
 
-    print("Credit Axis:", round(result["credit"], 3))
-    print("Employment Axis:", round(result["employment"], 3))
-    print("Leading Axis:", round(result["leading"], 3))
-    print("Policy Axis:", round(result["policy"], 3))
+    print("Credit Axis:")
+    print("  - Raw:", round(result["credit"]["raw_final"], 3))
+    print("  - Effective:", round(result["credit"]["effective_final"], 3))
+    print("  - Persistence:", result["credit"]["persistence"])
 
-    print("Macro Score:", round(result["macro_score"], 3))
-    print("Season:", result["season"])
+    print("Employment Axis:")
+    print("  - Raw:", round(result["employment"]["raw_final"], 3))
+    print("  - Effective:", round(result["employment"]["effective_final"], 3))
+    print("  - Persistence:", result["employment"]["persistence"])
+
+    print("Leading Axis:")
+    print("  - Raw:", round(result["leading"]["raw_final"], 3))
+    print("  - Effective:", round(result["leading"]["effective_final"], 3))
+    print("  - Persistence:", result["leading"]["persistence"])
+
+    print("Policy Axis:")
+    print("  - Raw:", round(result["policy"]["raw_final"], 3))
+    print("  - Effective:", round(result["policy"]["effective_final"], 3))
+    print("  - Persistence:", result["policy"]["persistence"])
+
+    print("Raw Macro Score:", round(result["raw_macro_score"], 3))
+    print("Effective Macro Score:", round(result["macro_score"], 3))
+    print("Raw Base Season:", result["raw_base_season"])
+    print("Base Season:", result["base_season"])
+    print("Final Season:", result["final_season"])
+    print("Stage:", result["stage"])
+    print("Bubble Risk:", round(result["bubble"]["risk"], 3))
