@@ -500,7 +500,7 @@ def classify_base_season(score):
         return "여름 (Expansion)"
 
 
-def classify_stage(score):
+def classify_stage(score, season=None, delta=0.0):
     if score < 0.25:
         band_pos = score / 0.25
     elif score < 0.50:
@@ -509,6 +509,15 @@ def classify_stage(score):
         band_pos = (score - 0.50) / 0.25
     else:
         band_pos = (score - 0.75) / 0.25
+
+    # 현재 raw score가 effective score보다 얼마나 앞서/뒤처지는지 약하게 반영
+    # 겨울은 점수 상승이 "덜 나빠짐"이므로 방향을 반대로 해석
+    if delta >= 0.03:
+        band_pos += -0.12 if season == "겨울 (Recession)" else 0.12
+    elif delta <= -0.03:
+        band_pos += 0.12 if season == "겨울 (Recession)" else -0.12
+
+    band_pos = max(0.0, min(0.999, band_pos))
 
     if band_pos < 0.25:
         return "L1"
@@ -612,7 +621,16 @@ def run_engine():
 
     raw_base_season = classify_base_season(raw_macro_score)
     base_season = classify_base_season(macro_score)
-    stage = classify_stage(macro_score)
+    stage_delta = raw_macro_score - macro_score
+
+    if stage_delta >= 0.03:
+        stage_bias = "warming"
+    elif stage_delta <= -0.03:
+        stage_bias = "cooling"
+    else:
+        stage_bias = "flat"
+
+    stage = classify_stage(macro_score, season=base_season, delta=stage_delta)
 
     bubble = run_bubble_overlay(latest, history)
 
@@ -633,6 +651,8 @@ def run_engine():
         "base_season": base_season,
         "final_season": final_season,
         "stage": stage,
+        "stage_delta": stage_delta,
+        "stage_bias": stage_bias,
         "bubble": bubble,
     }
 
