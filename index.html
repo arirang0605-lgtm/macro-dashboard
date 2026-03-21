@@ -1021,7 +1021,7 @@ doFetch();
       <button class="rh-tab active" data-rh="spring">봄</button>
       <button class="rh-tab" data-rh="summer1">여름 초기</button>
       <button class="rh-tab" data-rh="summer2">여름 후반</button>
-      <button class="rh-tab" data-rh="autumn">가을</button>
+      <button class="rh-tab" data-rh="autumn">가을(오버레이)</button>
       <button class="rh-tab" data-rh="winter">겨울</button>
     </div>
 
@@ -1047,8 +1047,8 @@ doFetch();
     },
     summer1: {
       title: "☀️ 여름 초기",
-      summary: "확장 국면이 비교적 건강하게 이어지는 단계",
-      model: "달걀: 확장 정상 · 민스키: 과열 준비",
+      summary: "메인 엔진 기준 확장 초입으로 해석하는 Base Season 단계",
+      model: "메인엔진: Base Season 여름 · 달걀: 확장 정상 · 민스키: 과열 준비",
       points: [
         "PMI 확장권, 고용 안정, 경기와 시장의 정렬 가능성",
         "성장과 가치가 함께 갈 수 있는 구간",
@@ -1056,12 +1056,12 @@ doFetch();
       ],
       us: "미국 유리 섹터: 산업재·금융·소재·광범위 시장<br>미국 ETF 예시: XLI, XLF, XLB, SPY, VTI",
       kr: "한국 유리 섹터: 기계장비·운송·은행·자동차<br>한국 ETF 예시: KODEX 기계장비, KODEX 운송, KODEX 은행, KODEX 자동차",
-      note: "여름 초기는 리스크온이 넓게 퍼지는지 확인하는 단계입니다. 지수만 보지 말고 업종 확산도 같이 보세요."
+      note: "여름 초기는 메인 엔진상 Base Season 확장 구간입니다. 지수만 보지 말고 업종 확산과 경기 정렬을 함께 보세요."
     },
     summer2: {
       title: "☀️ 여름 후반",
-      summary: "확장은 유지되지만 금리·밸류 부담이 쌓이는 단계",
-      model: "달걀: 확장 후반·과열 경계 · 민스키: 투기 확대",
+      summary: "메인 엔진상 Base는 여름이지만 내부 부담이 커지는 후기 확장 단계",
+      model: "메인엔진: Base Season 여름 · 달걀: 확장 후반 · 민스키: 투기 확대",
       points: [
         "겉으로는 강해 보여도 내부 압력이 누적될 수 있음",
         "금리 높음, 장단기금리차 왜곡, 다이버전스가 중요해짐",
@@ -1069,12 +1069,12 @@ doFetch();
       ],
       us: "미국 유리 섹터: 금융·헬스케어·에너지·고배당<br>미국 ETF 예시: XLF, XLV, XLE, SCHD",
       kr: "한국 유리 섹터: 은행·보험·헬스케어·고배당<br>한국 ETF 예시: KODEX 은행, KODEX 보험, KODEX 헬스케어, PLUS 고배당주",
-      note: "여름 후반은 '시장 겉모습은 강하지만 내부는 무거운 구간'을 설명할 때 유용합니다. 이때는 비중 조절을 같이 보세요."
+      note: "여름 후반도 기본 해석은 여름입니다. 다만 버블 위험이 높아지면 Final Season이 가을로 보정될 수 있으니 Bubble Overlay를 함께 보세요."
     },
     autumn: {
-      title: "🍂 가을",
-      summary: "후기 확장과 과열 부담이 커지는 단계",
-      model: "달걀: 둔화 전환 · 민스키: 행복감·이익실현",
+      title: "🍂 가을 (Bubble Overlay)",
+      summary: "메인 엔진의 Base Season 위에 버블 위험이 덮이는 보정 단계",
+      model: "메인엔진: Base는 주로 여름 · Bubble Overlay: 가을 · 민스키: 행복감·이익실현",
       points: [
         "시장 심리가 경기보다 앞서기 쉬움",
         "밸류 부담과 변동성 확대 가능성",
@@ -1082,12 +1082,12 @@ doFetch();
       ],
       us: "미국 유리 섹터: 에너지·필수소비재·헬스케어·고배당<br>미국 ETF 예시: XLE, XLP, XLV, SCHD",
       kr: "한국 유리 섹터: 은행·보험·통신·배당주<br>한국 ETF 예시: KODEX 은행, KODEX 보험, 고배당 ETF, 방어 성격 ETF",
-      note: "가을은 무조건 하락이 아니라 '늦은 사이클 경고'로 읽는 단계입니다. 공격보다 안전자산 비중 확대 검토가 중요합니다."
+      note: "가을은 독립 점수축이라기보다 Bubble Overlay입니다. Base Season이 여름이어도 버블 위험이 높으면 Final Season이 가을로 보정될 수 있으며, 이때는 안전자산 비중 확대를 검토합니다."
     },
     winter: {
       title: "❄️ 겨울",
-      summary: "수축/침체 리스크가 커져 방어가 우선되는 단계",
-      model: "달걀: 침체 진입 · 민스키: 패닉위험",
+      summary: "메인 엔진상 수축/침체가 확인되어 방어가 우선되는 Base Season 단계",
+      model: "메인엔진: Base Season 겨울 · 달걀: 침체 진입 · 민스키: 패닉위험",
       points: [
         "경기 둔화, 실적 압박, 리스크 회피 강화",
         "현금흐름 안정성과 방어력이 중요",
