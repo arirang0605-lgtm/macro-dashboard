@@ -1,0 +1,5 @@
+.env
+scripts/__pycache__/
+*.bak
+*.bak_*
+data/status.json
