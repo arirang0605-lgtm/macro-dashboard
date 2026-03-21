@@ -860,6 +860,7 @@ def update_history_from_payload(payload):
         stamps = {}
 
     core = payload.get("core", {})
+    market = payload.get("market", {})
     series_map = {
         "pmi": (core.get("pmi", {}) or {}).get("value"), "pmi_date": (core.get("pmi", {}) or {}).get("date"),
         "servicesPmi": (core.get("servicesPmi", {}) or {}).get("value"), "servicesPmi_date": (core.get("servicesPmi", {}) or {}).get("date"),
@@ -868,9 +869,10 @@ def update_history_from_payload(payload):
         "continuingClaims": (core.get("continuingClaims", {}) or {}).get("value"), "continuingClaims_date": (core.get("continuingClaims", {}) or {}).get("date"),
         "hySpread": (core.get("hySpread", {}) or {}).get("value"), "hySpread_date": (core.get("hySpread", {}) or {}).get("date"),
         "bbbSpread": (core.get("bbbSpread", {}) or {}).get("value"), "bbbSpread_date": (core.get("bbbSpread", {}) or {}).get("date"),
+        "vx": (market.get("vx", {}) or {}).get("value"), "vx_date": (market.get("vx", {}) or {}).get("date"),
     }
 
-    for key in ["pmi", "servicesPmi", "lei", "icsa", "continuingClaims", "hySpread", "bbbSpread"]:
+    for key in ["pmi", "servicesPmi", "lei", "icsa", "continuingClaims", "hySpread", "bbbSpread", "vx"]:
         value = series_map.get(key)
         stamp = series_map.get(f"{key}_date")
 

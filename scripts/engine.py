@@ -540,9 +540,13 @@ def run_bubble_overlay(latest, history):
     if not hy_spread_36m_low or hy_spread_36m_low <= 0:
         hy_spread_36m_low = 3.0
 
-    # VIX history는 아직 누적하지 않으므로 임시 고정 기준 유지
     current_vix = latest["market"]["vx"]["value"]
-    vix_36m_avg = 18.0
+
+    vx_hist = [
+        v for v in (history.get("vx") or [])
+        if isinstance(v, (int, float))
+    ]
+    vix_36m_avg = round(sum(vx_hist) / len(vx_hist), 2) if vx_hist else 18.0
 
     val = valuation_score(buffett_proxy)
     frag = fragility_score(
