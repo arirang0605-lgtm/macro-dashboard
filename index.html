@@ -315,7 +315,7 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
       <div class="tr c4m">
         <div>
           <div class="tn">민스키 경고 <span class="at">AUTO</span></div>
-          <div class="tsb" id="minsky_desc">버블 붕괴 전조 보조 경고</div>
+          <div class="tsb" id="minsky_desc">버블 오버레이 보조 · 밸류/레버리지 과열 점검</div>
         </div>
         <div class="tv" id="minsky_score" style="color:#3D4F68">—</div>
         <div class="tl" id="minsky_phase" style="color:#C7D0E0">—</div>
@@ -324,7 +324,7 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
       <div class="tr c4m">
         <div>
           <div class="tn">코스톨라니 달걀 <span class="at">AUTO</span></div>
-          <div class="tsb" id="egg_desc">금리·경기 보조 국면</div>
+          <div class="tsb" id="egg_desc">Base Season 보조 · 경기/금리 정렬 점검</div>
         </div>
         <div class="tv" id="egg_season" style="color:#3D4F68">—</div>
         <div class="tl" id="egg_phase" style="color:#C7D0E0">—</div>
@@ -417,10 +417,10 @@ const CORE = [
 ];
 
 const AUX = [
-  {id:'buffett', name:'버핏 프록시', hint:'시장가치/GDP 기반 과열 보조', source:'NCBEILQ027S / GDP', format:'pct1', fn:v=>v>=140?{s:'r',l:'과열'}:v>=115?{s:'o',l:'고평가'}:v>=80?{s:'y',l:'보통'}:{s:'g',l:'저평가권'}},
-  {id:'jolts', name:'JOLTS 구인건수', hint:'고용 온도 보조', source:'JTSJOL', format:'num1', fn:v=>v>=8?{s:'g',l:'고용견조'}:v>=6?{s:'y',l:'둔화관찰'}:v>=5?{s:'o',l:'냉각'}:{s:'r',l:'침체수준'}},
-  {id:'marginDebt', name:'마진 데빗(프록시)', hint:'레버리지 과열 보조', source:'BOGZ1FL663067003Q', format:'usdB1', fn:v=>v>=550?{s:'r',l:'레버리지확대'}:v>=450?{s:'o',l:'높은수준'}:v>=350?{s:'y',l:'보통'}:{s:'g',l:'낮은수준'}},
-  {id:'michigan', name:'미시간대 소비자심리', hint:'소비심리 보조', source:'UMCSENT', format:'num1', fn:v=>v>=85?{s:'g',l:'소비강세'}:v>=75?{s:'y',l:'보통'}:v>=65?{s:'o',l:'소비둔화'}:{s:'r',l:'침체심리'}},
+  {id:'buffett', name:'버핏 프록시', hint:'메인 엔진 보조 · 밸류에이션 과열 점검', source:'NCBEILQ027S / GDP', format:'pct1', fn:v=>v>=140?{s:'r',l:'과열'}:v>=115?{s:'o',l:'고평가'}:v>=80?{s:'y',l:'보통'}:{s:'g',l:'저평가권'}},
+  {id:'jolts', name:'JOLTS 구인건수', hint:'메인 엔진 보조 · 고용 과열/둔화 보조 확인', source:'JTSJOL', format:'num1', fn:v=>v>=8?{s:'g',l:'고용견조'}:v>=6?{s:'y',l:'둔화관찰'}:v>=5?{s:'o',l:'냉각'}:{s:'r',l:'침체수준'}},
+  {id:'marginDebt', name:'마진 데빗(프록시)', hint:'메인 엔진 보조 · 레버리지 과열 점검', source:'BOGZ1FL663067003Q', format:'usdB1', fn:v=>v>=550?{s:'r',l:'레버리지확대'}:v>=450?{s:'o',l:'높은수준'}:v>=350?{s:'y',l:'보통'}:{s:'g',l:'낮은수준'}},
+  {id:'michigan', name:'미시간대 소비자심리', hint:'메인 엔진 보조 · 소비심리 과열/침체 보조 확인', source:'UMCSENT', format:'num1', fn:v=>v>=85?{s:'g',l:'소비강세'}:v>=75?{s:'y',l:'보통'}:v>=65?{s:'o',l:'소비둔화'}:{s:'r',l:'침체심리'}},
 ];
 
 const MARKET = {
@@ -870,7 +870,7 @@ function renderMacroModels(payload){
 
   setText('minsky_score',
     (minsky.season && minsky.score!=null)
-      ? (minsky.season + ' ' + minsky.score + '/' + (minsky.scoreMax || 18))
+      ? ('보조 ' + minsky.season + ' ' + minsky.score + '/' + (minsky.scoreMax || 18))
       : '—',
     COLORS[minskyCode]
   );
@@ -881,13 +881,13 @@ function renderMacroModels(payload){
   setText('minsky_desc',
     Array.isArray(minsky.signals) && minsky.signals.length
       ? minsky.signals.slice(0,3).join(' · ')
-      : '버블 붕괴 전조 보조 경고',
+      : '버블 오버레이 보조 · 밸류/레버리지 과열 점검',
     '#C7D0E0'
   );
   setSig('minsky_sig', minskyCode);
 
   setText('egg_season',
-    egg.season ? egg.season : '—',
+    egg.season ? ('보조 ' + egg.season) : '—',
     COLORS[eggCode]
   );
   setText('egg_phase',
@@ -897,7 +897,7 @@ function renderMacroModels(payload){
   setText('egg_desc',
     Array.isArray(egg.signals) && egg.signals.length
       ? egg.signals.slice(0,3).join(' · ')
-      : '금리·경기 보조 국면',
+      : 'Base Season 보조 · 경기/금리 정렬 점검',
     '#C7D0E0'
   );
   setSig('egg_sig', eggCode);
