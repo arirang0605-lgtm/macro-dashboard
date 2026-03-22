@@ -852,6 +852,58 @@ def load_history_payload():
     except Exception:
         return {}
 
+def monthly_sample(series, max_points=36):
+    bucket = {}
+    for row in series:
+        d = row.get("date")
+        v = row.get("value")
+        if not d or v is None:
+            continue
+        ym = d[:7]
+        bucket[ym] = {"date": d, "value": round(float(v), 2)}
+    out = [bucket[k] for k in sorted(bucket.keys())]
+    return out[-max_points:]
+
+def backfill_bubble_history(history):
+    stamps = history.get("_stamps", {})
+    if not isinstance(stamps, dict):
+        stamps = {}
+
+    need_hy = len(history.get("hySpread", []) or []) < 36
+    need_vx = len(history.get("vx", []) or []) < 36
+
+    if need_hy:
+        try:
+            hy_long = load_fred_series_long("BAMLH0A0HYM2", limit=900)
+            hy_monthly = monthly_sample(hy_long, max_points=36)
+            history["hySpread"] = [x["value"] for x in reversed(hy_monthly)]
+            stamps["hySpread"] = [x["date"] for x in reversed(hy_monthly)]
+        except Exception as e:
+            errors.append(f"hySpread backfill 실패: {e}")
+
+    if need_vx:
+        try:
+            vx_long = load_fred_series_long("VIXCLS", limit=900)
+            vx_monthly = monthly_sample(vx_long, max_points=36)
+            history["vx"] = [x["value"] for x in reversed(vx_monthly)]
+            stamps["vx"] = [x["date"] for x in reversed(vx_monthly)]
+        except Exception as e:
+            errors.append(f"vx backfill 실패: {e}")
+
+    history["_stamps"] = stamps
+    return history
+
+
+HISTORY_LIMITS = {
+    "pmi": 3,
+    "servicesPmi": 3,
+    "lei": 3,
+    "icsa": 3,
+    "continuingClaims": 3,
+    "hySpread": 36,
+    "bbbSpread": 3,
+    "vx": 36,
+}
 
 def update_history_from_payload(payload):
     history = load_history_payload()
@@ -901,10 +953,12 @@ def update_history_from_payload(payload):
             values = [value] + values
             dates = [stamp] + dates
 
-        history[key] = values[:3]
-        stamps[key] = dates[:3]
+        limit = HISTORY_LIMITS.get(key, 3)
+        history[key] = values[:limit]
+        stamps[key] = dates[:limit]
 
     history["_stamps"] = stamps
+    history = backfill_bubble_history(history)
     HISTORY_PATH.write_text(json.dumps(history, ensure_ascii=False, indent=2))
 
 
