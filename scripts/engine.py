@@ -1,4 +1,5 @@
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 from bubble_engine import valuation_score, fragility_score, bubble_risk, detect_fall
@@ -581,6 +582,67 @@ def run_bubble_overlay(latest, history):
     }
 
 
+SERIES_STALE_DAYS = {
+    "hySpread": 21,
+    "bbbSpread": 21,
+    "icsa": 21,
+    "continuingClaims": 28,
+    "sahm": 60,
+    "pmi": 50,
+    "servicesPmi": 50,
+    "lei": 70,
+    "t10y2y": 14,
+    "fedfunds": 60,
+}
+
+def parse_date_safe(value):
+    if not value:
+        return None
+    text = str(value)[:10]
+    try:
+        return datetime.strptime(text, "%Y-%m-%d").date()
+    except Exception:
+        return None
+
+def age_days_from_value(value):
+    dt = parse_date_safe(value)
+    if not dt:
+        return None
+    return (datetime.now(timezone.utc).date() - dt).days
+
+def is_stale_series(item, key):
+    threshold = SERIES_STALE_DAYS.get(key)
+    if threshold is None:
+        return False
+    age = age_days_from_value((item or {}).get("date"))
+    if age is None:
+        return True
+    return age > threshold
+
+def freshness_state(included_count, excluded_count):
+    if included_count and not excluded_count:
+        return "fresh"
+    if included_count and excluded_count:
+        return "mixed"
+    return "stale"
+
+def exclusion_note(name, item, reason):
+    return {
+        "series": name,
+        "date": (item or {}).get("date"),
+        "age_days": age_days_from_value((item or {}).get("date")),
+        "reason": reason,
+    }
+
+def weighted_average_dict(values, weights):
+    available = [(name, val) for name, val in values.items() if val is not None]
+    if not available:
+        return 0.5
+    total_weight = sum(weights.get(name, 1.0) for name, _ in available)
+    if not total_weight:
+        return 0.5
+    return sum(val * (weights.get(name, 1.0) / total_weight) for name, val in available)
+
 # -----------------------------
 # MAIN ENGINE
 # -----------------------------
@@ -595,6 +657,130 @@ def run_engine():
     employment = employment_axis(core, history)
     leading = leading_axis(core, history)
     policy = policy_axis(core)
+
+    # -----------------------------
+    # freshness / stale exclusion + reweight
+    # -----------------------------
+    credit_parts = {}
+    credit_excluded = []
+    hy_item = core.get("hySpread") or {}
+    bbb_item = core.get("bbbSpread") or {}
+
+    if credit.get("hy_final") is None:
+        credit_excluded.append(exclusion_note("hySpread", hy_item, "missing"))
+    elif is_stale_series(hy_item, "hySpread"):
+        credit_excluded.append(exclusion_note("hySpread", hy_item, "stale"))
+    else:
+        credit_parts["hySpread"] = credit.get("hy_final")
+
+    if credit.get("bbb_final") is None:
+        credit_excluded.append(exclusion_note("bbbSpread", bbb_item, "missing"))
+    elif is_stale_series(bbb_item, "bbbSpread"):
+        credit_excluded.append(exclusion_note("bbbSpread", bbb_item, "stale"))
+    else:
+        credit_parts["bbbSpread"] = credit.get("bbb_final")
+
+    credit["raw_final"] = weighted_average_dict(credit_parts, {"hySpread": 1.0, "bbbSpread": 1.0})
+    credit["axis_freshness"] = freshness_state(len(credit_parts), len(credit_excluded))
+    credit["excluded_series"] = credit_excluded
+
+    employment_parts = {}
+    employment_excluded = []
+    icsa_item = core.get("icsa") or {}
+    cc_item = core.get("continuingClaims") or {}
+    sahm_item = core.get("sahm") or {}
+
+    if employment.get("icsa_final") is None:
+        employment_excluded.append(exclusion_note("icsa", icsa_item, "missing"))
+    elif is_stale_series(icsa_item, "icsa"):
+        employment_excluded.append(exclusion_note("icsa", icsa_item, "stale"))
+    else:
+        employment_parts["icsa"] = employment.get("icsa_final")
+
+    if employment.get("continuing_claims_final") is None:
+        employment_excluded.append(exclusion_note("continuingClaims", cc_item, "missing"))
+    elif is_stale_series(cc_item, "continuingClaims"):
+        employment_excluded.append(exclusion_note("continuingClaims", cc_item, "stale"))
+    else:
+        employment_parts["continuingClaims"] = employment.get("continuing_claims_final")
+
+    if employment.get("sahm_level") is None:
+        employment_excluded.append(exclusion_note("sahm", sahm_item, "missing"))
+    elif is_stale_series(sahm_item, "sahm"):
+        employment_excluded.append(exclusion_note("sahm", sahm_item, "stale"))
+    else:
+        employment_parts["sahm"] = employment.get("sahm_level")
+
+    employment["raw_final"] = weighted_average_dict(
+        employment_parts,
+        {"icsa": 1.0, "continuingClaims": 1.0, "sahm": 1.0}
+    )
+    employment["axis_freshness"] = freshness_state(len(employment_parts), len(employment_excluded))
+    employment["excluded_series"] = employment_excluded
+
+    leading_parts = {}
+    leading_excluded = []
+    pmi_item = core.get("pmi") or {}
+    spmi_item = core.get("servicesPmi") or {}
+    lei_item = core.get("lei") or {}
+
+    if leading.get("pmi_final") is None:
+        leading_excluded.append(exclusion_note("pmi", pmi_item, "missing"))
+    elif is_stale_series(pmi_item, "pmi"):
+        leading_excluded.append(exclusion_note("pmi", pmi_item, "stale"))
+    else:
+        leading_parts["pmi"] = leading.get("pmi_final")
+
+    if leading.get("services_pmi_missing"):
+        leading_excluded.append(exclusion_note("servicesPmi", spmi_item, "missing"))
+    elif leading.get("services_pmi_final") is None:
+        leading_excluded.append(exclusion_note("servicesPmi", spmi_item, "missing"))
+    elif is_stale_series(spmi_item, "servicesPmi"):
+        leading_excluded.append(exclusion_note("servicesPmi", spmi_item, "stale"))
+    else:
+        leading_parts["servicesPmi"] = leading.get("services_pmi_final")
+
+    if leading.get("lei_final") is None:
+        leading_excluded.append(exclusion_note("lei", lei_item, "missing"))
+    elif is_stale_series(lei_item, "lei"):
+        leading_excluded.append(exclusion_note("lei", lei_item, "stale"))
+    else:
+        leading_parts["lei"] = leading.get("lei_final")
+
+    if leading.get("services_pmi_missing"):
+        leading_weights = {"pmi": 0.6, "lei": 0.4}
+        leading["leading_reliability"] = "reduced"
+    else:
+        leading_weights = {"pmi": 1.0, "servicesPmi": 1.0, "lei": 1.0}
+        if leading_excluded:
+            leading["leading_reliability"] = "reduced"
+
+    leading["raw_final"] = weighted_average_dict(leading_parts, leading_weights)
+    leading["axis_freshness"] = freshness_state(len(leading_parts), len(leading_excluded))
+    leading["excluded_series"] = leading_excluded
+
+    policy_parts = {}
+    policy_excluded = []
+    yc_item = core.get("t10y2y") or {}
+    ff_item = core.get("fedfunds") or {}
+
+    if policy.get("yc_level") is None:
+        policy_excluded.append(exclusion_note("t10y2y", yc_item, "missing"))
+    elif is_stale_series(yc_item, "t10y2y"):
+        policy_excluded.append(exclusion_note("t10y2y", yc_item, "stale"))
+    else:
+        policy_parts["t10y2y"] = policy.get("yc_level")
+
+    if policy.get("fedfunds_level") is None:
+        policy_excluded.append(exclusion_note("fedfunds", ff_item, "missing"))
+    elif is_stale_series(ff_item, "fedfunds"):
+        policy_excluded.append(exclusion_note("fedfunds", ff_item, "stale"))
+    else:
+        policy_parts["fedfunds"] = policy.get("fedfunds_level")
+
+    policy["raw_final"] = weighted_average_dict(policy_parts, {"t10y2y": 1.0, "fedfunds": 1.0})
+    policy["axis_freshness"] = freshness_state(len(policy_parts), len(policy_excluded))
+    policy["excluded_series"] = policy_excluded
 
     raw_macro_score = (
         credit["raw_final"] * AXIS_WEIGHTS["credit"] +
@@ -626,7 +812,21 @@ def run_engine():
     )
 
     raw_base_season = classify_base_season(raw_macro_score)
-    base_season = classify_base_season(macro_score)
+    score_base_season = classify_base_season(macro_score)
+
+    # 겨울은 점수만으로 진입하지 않고 Credit + Employment 동시 악화 확인 필수
+    credit_winter_confirm = credit["effective_final"] <= 0.45
+    employment_winter_confirm = employment["effective_final"] <= 0.45
+
+    early_warning = None
+    base_season = score_base_season
+    if score_base_season == "겨울 (Recession)":
+        if credit_winter_confirm and employment_winter_confirm:
+            base_season = "겨울 (Recession)"
+        else:
+            base_season = "봄 (Recovery)"
+            early_warning = "winter_watch"
+
     stage_delta = raw_macro_score - macro_score
 
     if stage_delta >= 0.03:
@@ -654,12 +854,48 @@ def run_engine():
         "raw_macro_score": raw_macro_score,
         "macro_score": macro_score,
         "raw_base_season": raw_base_season,
+        "score_base_season": score_base_season,
         "base_season": base_season,
         "final_season": final_season,
+        "early_warning": early_warning,
+        "winter_gate": {
+            "credit_confirm": credit_winter_confirm,
+            "employment_confirm": employment_winter_confirm,
+        },
         "stage": stage,
         "stage_delta": stage_delta,
         "stage_bias": stage_bias,
         "bubble": bubble,
+        "data_freshness": {
+            "overall": (
+                "stale"
+                if all(x.get("axis_freshness") == "stale" for x in [credit, employment, leading, policy])
+                else "mixed"
+                if (
+                    any(x.get("axis_freshness") != "fresh" for x in [credit, employment, leading, policy])
+                    or (latest.get("meta") or {}).get("trustedPrev")
+                    or ((latest.get("meta") or {}).get("errors") or [])
+                )
+                else "fresh"
+            ),
+            "updatedAt": latest.get("updatedAt"),
+            "updated_age_days": age_days_from_value(latest.get("updatedAt")),
+            "trusted_prev": (latest.get("meta") or {}).get("trustedPrev"),
+            "fetch_errors": (latest.get("meta") or {}).get("errors") or [],
+            "stale_policy": "exclude_and_reweight",
+        },
+        "axis_freshness": {
+            "credit": credit.get("axis_freshness"),
+            "employment": employment.get("axis_freshness"),
+            "leading": leading.get("axis_freshness"),
+            "policy": policy.get("axis_freshness"),
+        },
+        "stale_exclusions": {
+            "credit": credit.get("excluded_series"),
+            "employment": employment.get("excluded_series"),
+            "leading": leading.get("excluded_series"),
+            "policy": policy.get("excluded_series"),
+        },
     }
 
 

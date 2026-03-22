@@ -955,7 +955,7 @@ def update_history_from_payload(payload):
 
         limit = HISTORY_LIMITS.get(key, 3)
         history[key] = values[:limit]
-        stamps[key] = dates[:limit]
+        stamps[key] = [d if d else None for d in dates[:limit]]
 
     history["_stamps"] = stamps
     history = backfill_bubble_history(history)
