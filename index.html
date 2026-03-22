@@ -210,7 +210,7 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
           <circle cx="80" cy="80" r="4" fill="#3861FB"/>
         </g>
       </svg>
-      <div class="wc"><div class="wl">HEAT</div><div class="wv" id="wh">—</div></div>
+      <div class="wc"><div class="wl">위험도</div><div class="wv" id="wh">—</div></div>
     </div>
     <div class="sn" id="sn">분석중</div>
     <div class="sd" id="sd">핵심 7지표 + 시장심리 점검중</div>
@@ -279,20 +279,31 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
   </div>
 
   <div>
-    <div class="sh"><div class="st">② Fear &amp; Greed</div><div class="sl"></div></div>
-    <div class="card tbl">
-      <div class="th c4"><span class="tht">지표</span><span class="tht" style="text-align:right">점수</span><span class="tht" style="text-align:right">등급</span><span class="tht" style="text-align:right">신호</span></div>
-      <div class="tr c4" style="background:#1A2438"><div><div class="tn">😱 공포탐욕지수 <span class="at">AUTO</span></div><div class="tsb">0=극단공포 · 50=중립 · 100=극단탐욕</div></div><div class="tv" id="cnn_tot" style="color:#3D4F68">—</div><div class="tl" id="cnn_tot_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_tot_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">📅 전주/전월 비교</div><div class="tsb">심리 추세</div></div><div class="tv" id="cnn_his" style="color:#3D4F68">—</div><div class="tl" id="cnn_his_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_his_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">📈 주가 모멘텀</div><div class="tsb">S&amp;P500 vs 125일선</div></div><div class="tv" id="cnn_mom" style="color:#3D4F68">—</div><div class="tl" id="cnn_mom_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_mom_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">💪 주가 강도</div><div class="tsb">신고가 vs 신저가</div></div><div class="tv" id="cnn_str" style="color:#3D4F68">—</div><div class="tl" id="cnn_str_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_str_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">📊 주가 폭넓이</div><div class="tsb">참여 종목 확산</div></div><div class="tv" id="cnn_brd" style="color:#3D4F68">—</div><div class="tl" id="cnn_brd_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_brd_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">🔀 풋/콜 비율</div><div class="tsb">낮을수록 탐욕</div></div><div class="tv" id="cnn_pc" style="color:#3D4F68">—</div><div class="tl" id="cnn_pc_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_pc_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">😰 시장 변동성</div><div class="tsb">VIX 기반</div></div><div class="tv" id="cnn_vix" style="color:#3D4F68">—</div><div class="tl" id="cnn_vix_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_vix_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">🗑️ 정크본드 수요</div><div class="tsb">위험채 수요</div></div><div class="tv" id="cnn_jnk" style="color:#3D4F68">—</div><div class="tl" id="cnn_jnk_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_jnk_s"></div></div></div>
-      <div class="tr c4"><div><div class="tn">🛡️ 안전자산 수요</div><div class="tsb">주식 vs 국채</div></div><div class="tv" id="cnn_saf" style="color:#3D4F68">—</div><div class="tl" id="cnn_saf_r" style="color:#C7D0E0">—</div><div class="tsg"><div class="sig gn" id="cnn_saf_s"></div></div></div>
+    <div class="sh"><div class="st">② 실물경기·자산시장 보조 해석</div><div class="sl"></div></div>
+    <div class="card tbl" id="macroModelPanel">
+      <div class="th c4m"><span class="tht">지표</span><span class="tht" style="text-align:right">현재값</span><span class="tht" style="text-align:right">판단 · 날짜</span><span class="tht" style="text-align:right">신호</span></div>
+      <div class="tr c4m">
+        <div>
+          <div class="tn">실물 경기 해석 · 달걀 <span class="at">AUTO</span></div>
+          <div class="tsb" id="egg_desc">실물경기 흐름이 아직 확장 구간에 있음을 시사합니다.</div>
+        </div>
+        <div class="tv" id="egg_season" style="color:#3D4F68">—</div>
+        <div class="tl" id="egg_phase" style="color:#C7D0E0">—</div>
+        <div class="tsg"><div class="sig gn" id="egg_sig"></div></div>
+      </div>
+      <div class="tr c4m">
+        <div>
+          <div class="tn">자산 시장 해석 · 민스키 <span class="at">AUTO</span></div>
+          <div class="tsb" id="minsky_desc">자산시장 쪽 과열과 취약성이 높아졌다는 경고를 줍니다.</div>
+        </div>
+        <div class="tv" id="minsky_score" style="color:#3D4F68">—</div>
+        <div class="tl" id="minsky_phase" style="color:#C7D0E0">—</div>
+        <div class="tsg"><div class="sig gn" id="minsky_sig"></div></div>
+      </div>
     </div>
   </div>
+
+
 
   <div>
     <div class="sh"><div class="st">③ 핵심 7지표</div><div class="sl"></div></div>
@@ -308,35 +319,11 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
     </div>
   </div>
 
-  <div>
-    <div class="sh"><div class="st">⑤ 민스키·달걀 보조 패널</div><div class="sl"></div></div>
-    <div class="card tbl" id="macroModelPanel">
-      <div class="th c4m"><span class="tht">지표</span><span class="tht" style="text-align:right">현재값</span><span class="tht" style="text-align:right">판단 · 날짜</span><span class="tht" style="text-align:right">신호</span></div>
-      <div class="tr c4m">
-        <div>
-          <div class="tn">민스키 경고 <span class="at">AUTO</span></div>
-          <div class="tsb" id="minsky_desc">버블 오버레이 보조 · 밸류/레버리지 과열 점검</div>
-        </div>
-        <div class="tv" id="minsky_score" style="color:#3D4F68">—</div>
-        <div class="tl" id="minsky_phase" style="color:#C7D0E0">—</div>
-        <div class="tsg"><div class="sig gn" id="minsky_sig"></div></div>
-      </div>
-      <div class="tr c4m">
-        <div>
-          <div class="tn">코스톨라니 달걀 <span class="at">AUTO</span></div>
-          <div class="tsb" id="egg_desc">Base Season 보조 · 경기/금리 정렬 점검</div>
-        </div>
-        <div class="tv" id="egg_season" style="color:#3D4F68">—</div>
-        <div class="tl" id="egg_phase" style="color:#C7D0E0">—</div>
-        <div class="tsg"><div class="sig gn" id="egg_sig"></div></div>
-      </div>
-    </div>
-  </div>
 
   <div>
-    <div class="sh"><div class="st">⑥ 방어 자산 가이드</div><div class="sl"></div></div>
+    <div class="sh"><div class="st">⑤ 국면 참고 가이드</div><div class="sl"></div></div>
     <div class="card atbl">
-      <div class="ar" style="background:#1A2438;border-bottom:1px solid #1E2D45;"><span style="font-size:14px;color:#C7D0E0">국면</span><span style="font-size:14px;color:#C7D0E0">유지/확대</span><span style="font-size:14px;color:#C7D0E0">줄이기</span><span style="font-size:14px;color:#C7D0E0">한 줄 가이드</span><span style="font-size:14px;color:#C7D0E0">안전자산%</span></div>
+      <div class="ar" style="background:#1A2438;border-bottom:1px solid #1E2D45;"><span style="font-size:14px;color:#C7D0E0">국면</span><span style="font-size:14px;color:#C7D0E0">유지/확대</span><span style="font-size:14px;color:#C7D0E0">줄이기</span><span style="font-size:14px;color:#C7D0E0">한 줄 가이드</span><span style="font-size:14px;color:#C7D0E0">방어 참고범위</span></div>
       <div class="ar" data-s="spring"><div><span class="stag tsp">🌸 봄</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">회복기</div></div><div><div class="pills"><span class="pill pg">대형주</span><span class="pill pg">반도체</span><span class="pill py">경기민감</span></div></div><div><div class="pills"><span class="pill pr">초장기채</span><span class="pill pr">과도한현금</span></div></div><div style="font-size:13px;color:#16C784">위험자산 재진입<div style="font-size:14px;color:#C7D0E0">경고 신호 감소 확인</div></div><div id="safe_rng_spring" style="color:#16C784;font-size:13px;font-weight:700">—</div></div>
       <div class="ar" data-s="summer"><div><span class="stag tsu">☀️ 여름</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">확장기</div></div><div><div class="pills"><span class="pill pg">주식</span><span class="pill py">퀄리티</span><span class="pill pb">현금약간</span></div></div><div><div class="pills"><span class="pill pr">방어과잉</span><span class="pill pr">추격매수</span></div></div><div style="font-size:13px;color:#F3BA2F">보유 중심<div style="font-size:14px;color:#C7D0E0">과열 전환 여부 점검</div></div><div id="safe_rng_summer" style="color:#F3BA2F;font-size:13px;font-weight:700">—</div></div>
       <div class="ar" data-s="fall"><div><span class="stag tfa">🍂 가을</span><div style="font-size:14px;color:#C7D0E0;margin-top:2px">후기경계</div></div><div><div class="pills"><span class="pill pg">금</span><span class="pill py">달러</span><span class="pill pb">단기채</span></div></div><div><div class="pills"><span class="pill pr">고베타</span><span class="pill pr">레버리지</span></div></div><div style="font-size:13px;color:#FF8C00">방어 비중 확대<div style="font-size:14px;color:#C7D0E0">버블 위험 높을수록 축소</div></div><div id="safe_rng_fall" style="color:#FF8C00;font-size:13px;font-weight:700">—</div></div>
@@ -417,10 +404,10 @@ const CORE = [
 ];
 
 const AUX = [
-  {id:'buffett', name:'버핏 프록시', hint:'메인 엔진 보조 · 밸류에이션 과열 점검', source:'NCBEILQ027S / GDP', format:'pct1', fn:v=>v>=140?{s:'r',l:'과열'}:v>=115?{s:'o',l:'고평가'}:v>=80?{s:'y',l:'보통'}:{s:'g',l:'저평가권'}},
-  {id:'jolts', name:'JOLTS 구인건수', hint:'메인 엔진 보조 · 고용 과열/둔화 보조 확인', source:'JTSJOL', format:'num1', fn:v=>v>=8?{s:'g',l:'고용견조'}:v>=6?{s:'y',l:'둔화관찰'}:v>=5?{s:'o',l:'냉각'}:{s:'r',l:'침체수준'}},
-  {id:'marginDebt', name:'마진 데빗(프록시)', hint:'메인 엔진 보조 · 레버리지 과열 점검', source:'BOGZ1FL663067003Q', format:'usdB1', fn:v=>v>=550?{s:'r',l:'레버리지확대'}:v>=450?{s:'o',l:'높은수준'}:v>=350?{s:'y',l:'보통'}:{s:'g',l:'낮은수준'}},
-  {id:'michigan', name:'미시간대 소비자심리', hint:'메인 엔진 보조 · 소비심리 과열/침체 보조 확인', source:'UMCSENT', format:'num1', fn:v=>v>=85?{s:'g',l:'소비강세'}:v>=75?{s:'y',l:'보통'}:v>=65?{s:'o',l:'소비둔화'}:{s:'r',l:'침체심리'}},
+  {id:'buffett', name:'버핏 프록시', hint:'보조 참고 · 밸류에이션 점검', source:'NCBEILQ027S / GDP', format:'pct1', fn:v=>v>=140?{s:'r',l:'과열'}:v>=115?{s:'o',l:'고평가'}:v>=80?{s:'y',l:'보통'}:{s:'g',l:'저평가권'}},
+  {id:'jolts', name:'JOLTS 구인건수', hint:'보조 참고 · 고용 상태 확인', source:'JTSJOL', format:'num1', fn:v=>v>=8?{s:'g',l:'고용견조'}:v>=6?{s:'y',l:'둔화관찰'}:v>=5?{s:'o',l:'냉각'}:{s:'r',l:'침체수준'}},
+  {id:'marginDebt', name:'마진 데빗(프록시)', hint:'보조 참고 · 레버리지 점검', source:'BOGZ1FL663067003Q', format:'usdB1', fn:v=>v>=550?{s:'r',l:'레버리지확대'}:v>=450?{s:'o',l:'높은수준'}:v>=350?{s:'y',l:'보통'}:{s:'g',l:'낮은수준'}},
+  {id:'michigan', name:'미시간대 소비자심리', hint:'보조 참고 · 소비심리 확인', source:'UMCSENT', format:'num1', fn:v=>v>=85?{s:'g',l:'소비강세'}:v>=75?{s:'y',l:'보통'}:v>=65?{s:'o',l:'소비둔화'}:{s:'r',l:'침체심리'}},
 ];
 
 const MARKET = {
@@ -643,6 +630,78 @@ function renderAux(payload){
   });
 }
 
+
+function getMacroModelKey(seasonId, level){
+  if(seasonId === 'spring') return 'spring';
+  if(seasonId === 'winter') return 'winter';
+  if(seasonId === 'fall' || seasonId === 'autumn') return 'autumn';
+  return level <= 2 ? 'summer1' : 'summer2';
+}
+
+function renderMacroModelCopy(seasonId, level){
+  const key = getMacroModelKey(seasonId, level);
+  const COPY = {
+    spring: {
+      egg: '실물경기 흐름은 바닥 통과 뒤 회복 초입으로 해석합니다.',
+      minsky: '자산시장은 아직 본격 과열보다 초기 회복 국면에 가깝게 봅니다.'
+    },
+    summer1: {
+      egg: '실물경기 흐름이 확장 초입에 있으며 경기와 시장의 정렬 가능성을 시사합니다.',
+      minsky: '자산시장은 아직 과열 확정보다 확장 초기의 열기 형성 단계로 해석합니다.'
+    },
+    summer2: {
+      egg: '실물경기 흐름이 아직 확장 구간에 있으나 후기 확장 성격이 짙어졌음을 시사합니다.',
+      minsky: '자산시장 쪽 과열과 취약성이 높아졌다는 경고를 줍니다.'
+    },
+    autumn: {
+      egg: '실물경기 축은 아직 급침체보다 확장 후반 또는 둔화 초기로 해석합니다.',
+      minsky: '자산시장은 말기 확장 특유의 과열·이익실현 압력이 커졌음을 시사합니다.'
+    },
+    winter: {
+      egg: '실물경기 흐름은 확장 종료 이후 수축·침체 쪽으로 기울었음을 시사합니다.',
+      minsky: '자산시장은 과열 붕괴 이후 방어와 리스크 축소가 우선인 상태로 해석합니다.'
+    }
+  };
+
+  const d = COPY[key] || COPY.summer2;
+
+  const egg = document.getElementById('egg_desc');
+  const minsky = document.getElementById('minsky_desc');
+
+  if(egg) egg.textContent = d.egg;
+  if(minsky) minsky.textContent = d.minsky;
+}
+
+
+function getMainCardSubtitle(seasonId, level){
+  if(seasonId === 'spring'){
+    return level >= 3
+      ? '실물경기: 회복 초입 / 자산시장: 변동성 경계'
+      : '실물경기: 회복 초입 / 자산시장: 과열 전';
+  }
+  if(seasonId === 'summer'){
+    if(level >= 4) return '실물경기: 확장 후반 / 자산시장: 과열 경계';
+    if(level >= 3) return '실물경기: 확장 후반 / 자산시장: 과열 점검';
+    return '실물경기: 확장 초반 / 자산시장: 과열 점검';
+  }
+  if(seasonId === 'fall'){
+    return '실물경기: 둔화 경계 / 자산시장: 과열 부담';
+  }
+  if(seasonId === 'winter'){
+    return '실물경기: 수축 경계 / 자산시장: 방어 우선';
+  }
+  return getSeasonLevelDesc(seasonId, level);
+}
+
+function getMainCardBadge(seasonId, level){
+  if(level === 1) return 'L1 · 정상';
+  if(level === 2) return 'L2 · 주의';
+  if(level === 3) return seasonId === 'winter' ? 'L3 · 방어 준비' : 'L3 · 경계 강화';
+  if(level === 4) return seasonId === 'winter' ? 'L4 · 방어 우선' : 'L4 · 방어 병행';
+  return '—';
+}
+
+
 function calcAndRenderRisk(payload){
   const heats = renderCore(payload);
   renderAux(payload);
@@ -727,6 +786,7 @@ function calcAndRenderRisk(payload){
     }
   }
 
+  renderMacroModelCopy(season.id, level);
   setSafeAllocation(season.id, level);
   renderSafeGuideTable();
   setText('wh', heat===null?'—':String(heat), heat===null?COLORS.n:heatColor(heat));
@@ -736,8 +796,8 @@ function calcAndRenderRisk(payload){
   if(el('ht')) el('ht').style.left = (heat===null?20:Math.max(2,Math.min(98,heat))) + '%';
   if(el('wp')) el('wp').style.transform = 'rotate(' + season.deg + 'deg)';
   setText('sn', season.emoji + ' ' + season.name, season.color);
-  setText('sd', getSeasonLevelDesc(season.id, level), '');
-  const badge = el('sb'); if(badge){ badge.className = 'clb cl' + level; badge.textContent = {1:'L1 — 정상',2:'L2 — 주의',3:'L3 — 위험',4:'L4 — 방어'}[level]; }
+  setText('sd', getMainCardSubtitle(season.id, level), '');
+  const badge = el('sb'); if(badge){ badge.className = 'clb cl' + level; badge.textContent = getMainCardBadge(season.id, level); }
   [1,2,3,4].forEach(i=>{ const n=el('c'+i); if(n) n.style.opacity = i===level ? '1' : '0.22'; });
   document.querySelectorAll('[data-s]').forEach(row=>row.classList.toggle('hl', row.dataset.s === season.id));
 }
@@ -927,36 +987,82 @@ function renderMacroModels(payload){
     egg.season === '가을' ? 'o' :
     egg.season === '여름' ? 'y' : 'g';
 
+
+function normalizeEggPhase(raw, season){
+  const p = String(raw || '').trim();
+  const s = String(season || '').trim();
+
+  if (p.includes('회복')) return '회복 초입';
+  if (p.includes('침체')) return '침체 진입';
+  if (p.includes('확장') && (p.includes('후반') || p.includes('과열') || p.includes('말기'))) return '확장 후반';
+  if (p.includes('확장')) return '확장 초입';
+
+  if (s.includes('봄')) return '회복 초입';
+  if (s.includes('겨울')) return '침체 진입';
+  if (s.includes('가을')) return '확장 후반';
+  if (s.includes('여름')) return '확장 후반';
+
+  return '확장 후반';
+}
+
+function normalizeMinskyPhase(raw, season){
+  const p = String(raw || '').trim();
+  const s = String(season || '').trim();
+
+  if (p.includes('변위')) return '변위';
+  if (p.includes('붐')) return '붐';
+  if (p.includes('행복')) return '행복감';
+  if (p.includes('이익')) return '이익 실현';
+  if (p.includes('패닉')) return '패닉';
+
+  if (p.includes('투기')) return '행복감';
+  if (p.includes('과열')) return '붐';
+
+  if (s.includes('봄')) return '변위';
+  if (s.includes('가을')) return '이익 실현';
+  if (s.includes('겨울')) return '패닉';
+  if (s.includes('여름')) return '행복감';
+
+  return '행복감';
+}
+
+function getEggDesc(egg){
+  return '실물 경기 · 달걀: ' + normalizeEggPhase(egg?.phase, egg?.season);
+}
+
+function getMinskyDesc(minsky){
+  return '자산 시장 · 민스키: ' + normalizeMinskyPhase(minsky?.phase, minsky?.season);
+}
+
+
   setText('minsky_score',
-    (minsky.season && minsky.score!=null)
-      ? ('보조 ' + minsky.season + ' ' + minsky.score + '/' + (minsky.scoreMax || 18))
+    minsky.score!=null
+      ? (minsky.score + '/' + (minsky.scoreMax || 18))
       : '—',
     COLORS[minskyCode]
   );
+  const minskyPhaseText = normalizeMinskyPhase(minsky.phase, minsky.season);
   setText('minsky_phase',
-    minsky.phase ? (minsky.phase + ' · ' + asOf) : '—',
+    minskyPhaseText ? (minskyPhaseText + ' · ' + asOf) : '—',
     COLORS[minskyCode]
   );
   setText('minsky_desc',
-    Array.isArray(minsky.signals) && minsky.signals.length
-      ? minsky.signals.slice(0,3).join(' · ')
-      : '버블 오버레이 보조 · 밸류/레버리지 과열 점검',
+    getMinskyDesc(minsky),
     '#C7D0E0'
   );
   setSig('minsky_sig', minskyCode);
 
   setText('egg_season',
-    egg.season ? ('보조 ' + egg.season) : '—',
+    egg.season ? egg.season : '—',
     COLORS[eggCode]
   );
+  const eggPhaseText = normalizeEggPhase(egg.phase, egg.season);
   setText('egg_phase',
-    egg.phase ? (egg.phase + ' · ' + asOf) : '—',
+    eggPhaseText ? (eggPhaseText + ' · ' + asOf) : '—',
     COLORS[eggCode]
   );
   setText('egg_desc',
-    Array.isArray(egg.signals) && egg.signals.length
-      ? egg.signals.slice(0,3).join(' · ')
-      : 'Base Season 보조 · 경기/금리 정렬 점검',
+    getEggDesc(egg),
     '#C7D0E0'
   );
   setSig('egg_sig', eggCode);
@@ -1080,7 +1186,7 @@ doFetch();
       <button class="rh-tab active" data-rh="spring">봄</button>
       <button class="rh-tab" data-rh="summer1">여름 초기</button>
       <button class="rh-tab" data-rh="summer2">여름 후반</button>
-      <button class="rh-tab" data-rh="autumn">가을(오버레이)</button>
+      <button class="rh-tab" data-rh="autumn">가을(과열 보정)</button>
       <button class="rh-tab" data-rh="winter">겨울</button>
     </div>
 
@@ -1090,11 +1196,11 @@ doFetch();
 
 <script>
 (function(){
-  const DATA = {
+    const DATA = {
     spring: {
       title: "🌱 봄",
-      summary: "바닥 통과와 초기 회복이 시작되는 단계",
-      model: "달걀: 완화 준비·회복 초입 · 민스키: 초기 과열 전 단계",
+      summary: "시장과 경기가 바닥을 지나 회복 쪽으로 돌아서기 시작한 구간",
+      model: "현재 판정 기준: 기본 국면은 봄 · 실물 경기 · 달걀: 회복 초입 · 자산 시장 · 민스키: 변위",
       points: [
         "유동성 완화 기대, 심리 회복, 시장 선반영이 자주 나타남",
         "아직 의심이 남아 있어 변동성은 남을 수 있음",
@@ -1106,8 +1212,8 @@ doFetch();
     },
     summer1: {
       title: "☀️ 여름 초기",
-      summary: "메인 엔진 기준 확장 초입으로 해석하는 Base Season 단계",
-      model: "메인엔진: Base Season 여름 · 달걀: 확장 정상 · 민스키: 과열 준비",
+      summary: "경기와 시장이 함께 살아나며 확장이 본격화되기 시작한 구간",
+      model: "현재 판정 기준: 기본 국면은 여름 · 실물 경기 · 달걀: 확장 초입 · 자산 시장 · 민스키: 붐",
       points: [
         "PMI 확장권, 고용 안정, 경기와 시장의 정렬 가능성",
         "성장과 가치가 함께 갈 수 있는 구간",
@@ -1115,12 +1221,12 @@ doFetch();
       ],
       us: "미국 유리 섹터: 산업재·금융·소재·광범위 시장<br>미국 ETF 예시: XLI, XLF, XLB, SPY, VTI",
       kr: "한국 유리 섹터: 기계장비·운송·은행·자동차<br>한국 ETF 예시: KODEX 기계장비, KODEX 운송, KODEX 은행, KODEX 자동차",
-      note: "여름 초기는 메인 엔진상 Base Season 확장 구간입니다. 지수만 보지 말고 업종 확산과 경기 정렬을 함께 보세요."
+      note: "여름 초기는 기본 국면이 여름으로 읽히는 확장 초입 구간입니다. 지수만 보지 말고 업종 확산과 경기 정렬을 함께 보세요."
     },
     summer2: {
       title: "☀️ 여름 후반",
-      summary: "메인 엔진상 Base는 여름이지만 내부 부담이 커지는 후기 확장 단계",
-      model: "메인엔진: Base Season 여름 · 달걀: 확장 후반 · 민스키: 투기 확대",
+      summary: "겉으로는 강하지만 안에서는 부담이 쌓이기 쉬운 후기 확장 구간",
+      model: "현재 판정 기준: 기본 국면은 여름 · 실물 경기 · 달걀: 확장 후반 · 자산 시장 · 민스키: 행복감",
       points: [
         "겉으로는 강해 보여도 내부 압력이 누적될 수 있음",
         "금리 높음, 장단기금리차 왜곡, 다이버전스가 중요해짐",
@@ -1128,12 +1234,12 @@ doFetch();
       ],
       us: "미국 유리 섹터: 금융·헬스케어·에너지·고배당<br>미국 ETF 예시: XLF, XLV, XLE, SCHD",
       kr: "한국 유리 섹터: 은행·보험·헬스케어·고배당<br>한국 ETF 예시: KODEX 은행, KODEX 보험, KODEX 헬스케어, PLUS 고배당주",
-      note: "여름 후반도 기본 해석은 여름입니다. 다만 버블 위험이 높아지면 Final Season이 가을로 보정될 수 있으니 Bubble Overlay를 함께 보세요."
+      note: "여름 후반도 기본 해석은 여름입니다. 다만 과열 위험이 높아지면 최종 국면이 가을로 보정될 수 있으니 과열 보정을 함께 보세요."
     },
     autumn: {
-      title: "🍂 가을 (Bubble Overlay)",
-      summary: "메인 엔진의 Base Season 위에 버블 위험이 덮이는 보정 단계",
-      model: "메인엔진: Base는 주로 여름 · Bubble Overlay: 가을 · 민스키: 행복감·이익실현",
+      title: "🍂 가을 (과열 보정)",
+      summary: "기본 흐름은 확장이지만, 시장 과열 위험이 함께 커진 구간",
+      model: "현재 판정 기준: 기본 국면은 대체로 여름 · 과열 보정은 가을 · 실물 경기 · 달걀: 확장 후반 · 자산 시장 · 민스키: 이익 실현",
       points: [
         "시장 심리가 경기보다 앞서기 쉬움",
         "밸류 부담과 변동성 확대 가능성",
@@ -1141,12 +1247,12 @@ doFetch();
       ],
       us: "미국 유리 섹터: 에너지·필수소비재·헬스케어·고배당<br>미국 ETF 예시: XLE, XLP, XLV, SCHD",
       kr: "한국 유리 섹터: 은행·보험·통신·배당주<br>한국 ETF 예시: KODEX 은행, KODEX 보험, 고배당 ETF, 방어 성격 ETF",
-      note: "가을은 독립 점수축이라기보다 Bubble Overlay입니다. Base Season이 여름이어도 버블 위험이 높으면 Final Season이 가을로 보정될 수 있으며, 이때는 안전자산 비중 확대를 검토합니다."
+      note: "가을은 독립 기본 국면이 아니라 과열 보정입니다. 기본 국면이 여름이어도 과열 위험이 높으면 최종 국면이 가을로 보정될 수 있습니다."
     },
     winter: {
       title: "❄️ 겨울",
-      summary: "메인 엔진상 수축/침체가 확인되어 방어가 우선되는 Base Season 단계",
-      model: "메인엔진: Base Season 겨울 · 달걀: 침체 진입 · 민스키: 패닉위험",
+      summary: "경기 둔화나 침체 가능성이 커져 방어적으로 보는 편이 나은 구간",
+      model: "현재 판정 기준: 기본 국면은 겨울 · 실물 경기 · 달걀: 침체 진입 · 자산 시장 · 민스키: 패닉",
       points: [
         "경기 둔화, 실적 압박, 리스크 회피 강화",
         "현금흐름 안정성과 방어력이 중요",
