@@ -1,11 +1,6 @@
 def valuation_score(buffett_proxy):
-    """Buffett proxy (market cap / GDP 계열 프록시) 기준 버블 밸류에이션 점수.
-    대략적 해석:
-    - < 80  : 저평가권
-    - < 100 : 보통
-    - < 115 : 다소 높음
-    - < 140 : 고평가
-    - >=140 : 과열
+    """Buffett proxy 기준 버블 밸류에이션 점수.
+    하단 구간은 단순 유지, 상단만 촘촘하게 세분화.
     """
 
     if buffett_proxy < 80:
@@ -16,6 +11,10 @@ def valuation_score(buffett_proxy):
         return 0.5
     elif buffett_proxy < 140:
         return 0.75
+    elif buffett_proxy < 175:
+        return 0.85
+    elif buffett_proxy < 210:
+        return 0.93
     else:
         return 1.0
 
@@ -45,7 +44,7 @@ def bubble_risk(valuation_s, fragility_s):
     return (valuation_s * 0.6) + (fragility_s * 0.4)
 
 
-FALL_TRIGGER = 0.65
+FALL_TRIGGER = 0.75
 
 
 def detect_fall(macro_season, bubble_risk_score):

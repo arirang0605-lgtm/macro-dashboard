@@ -308,22 +308,26 @@ def leading_axis(core, history):
     pmi_trend = trend_score_positive(history["pmi"])
     pmi_final = combine_score(pmi_level, pmi_trend)
 
+    lei_level = score_lei(core["lei"]["value"])
+    lei_trend = trend_score_positive(history["lei"])
+    lei_final = combine_score(lei_level, lei_trend)
+
     spmi_value = core.get("servicesPmi", {}).get("value")
     if spmi_value is None:
-        spmi_level = 0.5
-        spmi_trend = 0.5
-        spmi_final = 0.5
+        spmi_level = None
+        spmi_trend = None
+        spmi_final = None
+        final = (pmi_final * 0.6) + (lei_final * 0.4)
+        leading_reliability = "reduced"
+        services_pmi_missing = True
     else:
         spmi_level = score_pmi(spmi_value)
         spmi_hist = history.get("servicesPmi")
         spmi_trend = trend_score_positive(spmi_hist) if spmi_hist else 0.5
         spmi_final = combine_score(spmi_level, spmi_trend)
-
-    lei_level = score_lei(core["lei"]["value"])
-    lei_trend = trend_score_positive(history["lei"])
-    lei_final = combine_score(lei_level, lei_trend)
-
-    final = (pmi_final + spmi_final + lei_final) / 3
+        final = (pmi_final + spmi_final + lei_final) / 3
+        leading_reliability = "full"
+        services_pmi_missing = False
 
     return {
         "pmi_level": pmi_level,
@@ -332,11 +336,13 @@ def leading_axis(core, history):
         "services_pmi_level": spmi_level,
         "services_pmi_trend": spmi_trend,
         "services_pmi_final": spmi_final,
+        "services_pmi_missing": services_pmi_missing,
+        "leading_reliability": leading_reliability,
         "lei_level": lei_level,
         "lei_trend": lei_trend,
         "lei_final": lei_final,
         "raw_final": final,
-        "stamp": max_date(max_date(core["pmi"]["date"], core["servicesPmi"]["date"]), core["lei"]["date"]),
+        "stamp": max_date(max_date(core["pmi"]["date"], core.get("servicesPmi", {}).get("date")), core["lei"]["date"]),
     }
 
 
