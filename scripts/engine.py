@@ -724,9 +724,12 @@ def run_engine():
     spmi_item = core.get("servicesPmi") or {}
     lei_item = core.get("lei") or {}
 
+    pmi_missing_or_stale = False
     if leading.get("pmi_final") is None:
+        pmi_missing_or_stale = True
         leading_excluded.append(exclusion_note("pmi", pmi_item, "missing"))
     elif is_stale_series(pmi_item, "pmi"):
+        pmi_missing_or_stale = True
         leading_excluded.append(exclusion_note("pmi", pmi_item, "stale"))
     else:
         leading_parts["pmi"] = leading.get("pmi_final")
@@ -758,6 +761,7 @@ def run_engine():
     leading["raw_final"] = weighted_average_dict(leading_parts, leading_weights)
     leading["axis_freshness"] = freshness_state(len(leading_parts), len(leading_excluded))
     leading["excluded_series"] = leading_excluded
+    leading["pmi_missing_or_stale"] = pmi_missing_or_stale
 
     policy_parts = {}
     policy_excluded = []
@@ -873,7 +877,6 @@ def run_engine():
                 else "mixed"
                 if (
                     any(x.get("axis_freshness") != "fresh" for x in [credit, employment, leading, policy])
-                    or (latest.get("meta") or {}).get("trustedPrev")
                     or ((latest.get("meta") or {}).get("errors") or [])
                 )
                 else "fresh"
