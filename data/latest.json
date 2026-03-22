@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-22T00:12:42+00:00",
+  "updatedAt": "2026-03-22T00:32:06+00:00",
   "market": {
     "sp": {
       "value": 6506.48,
@@ -209,13 +209,15 @@
       "pmi_level": 0.7,
       "pmi_trend": 0.8,
       "pmi_final": 0.73,
-      "services_pmi_level": 0.5,
-      "services_pmi_trend": 0.5,
-      "services_pmi_final": 0.5,
+      "services_pmi_level": null,
+      "services_pmi_trend": null,
+      "services_pmi_final": null,
+      "services_pmi_missing": true,
+      "leading_reliability": "reduced",
       "lei_level": 0.6,
       "lei_trend": 0.65,
       "lei_final": 0.615,
-      "raw_final": 0.615,
+      "raw_final": 0.6839999999999999,
       "stamp": "2026-02-01",
       "effective_final": 0.58,
       "persistence": {
@@ -238,14 +240,14 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.69475,
+    "raw_macro_score": 0.712,
     "macro_score": 0.7314999999999999,
     "raw_base_season": "여름 (Expansion)",
     "base_season": "여름 (Expansion)",
-    "final_season": "가을 (Bubble / Late Cycle)",
+    "final_season": "여름 (Expansion)",
     "stage": "L4",
-    "stage_delta": -0.03674999999999995,
-    "stage_bias": "cooling",
+    "stage_delta": -0.019499999999999962,
+    "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
       "fragility": 0.2,
