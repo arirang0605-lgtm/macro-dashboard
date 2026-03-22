@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-22T00:32:06+00:00",
+  "updatedAt": "2026-03-22T01:00:58+00:00",
   "market": {
     "sp": {
       "value": 6506.48,
@@ -166,7 +166,10 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.fedfunds: HTTP 500: Internal Server Error",
+      "core.sahm: HTTP 500: Internal Server Error",
+      "core.continuingClaims: HTTP 500: Internal Server Error"
     ]
   },
   "engine": {
@@ -179,6 +182,8 @@
       "bbb_final": 0.78,
       "raw_final": 0.755,
       "stamp": "2026-03-19",
+      "axis_freshness": "fresh",
+      "excluded_series": [],
       "effective_final": 0.755,
       "persistence": {
         "status": "same_stamp_hold",
@@ -195,8 +200,10 @@
       "continuing_claims_trend": 0.5,
       "continuing_claims_final": 0.57,
       "sahm_level": 0.8,
-      "raw_final": 0.7233333333333333,
+      "raw_final": 0.7233333333333332,
       "stamp": "2026-03-14",
+      "axis_freshness": "fresh",
+      "excluded_series": [],
       "effective_final": 0.8,
       "persistence": {
         "status": "same_stamp_hold",
@@ -217,8 +224,23 @@
       "lei_level": 0.6,
       "lei_trend": 0.65,
       "lei_final": 0.615,
-      "raw_final": 0.6839999999999999,
+      "raw_final": 0.73,
       "stamp": "2026-02-01",
+      "axis_freshness": "mixed",
+      "excluded_series": [
+        {
+          "series": "servicesPmi",
+          "date": null,
+          "age_days": null,
+          "reason": "missing"
+        },
+        {
+          "series": "lei",
+          "date": "2026-01-01",
+          "age_days": 80,
+          "reason": "stale"
+        }
+      ],
       "effective_final": 0.58,
       "persistence": {
         "status": "same_stamp_hold",
@@ -232,6 +254,8 @@
       "fedfunds_level": 0.5,
       "raw_final": 0.65,
       "stamp": "2026-03-20",
+      "axis_freshness": "fresh",
+      "excluded_series": [],
       "effective_final": 0.8,
       "persistence": {
         "status": "same_stamp_hold",
@@ -240,13 +264,19 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.712,
+    "raw_macro_score": 0.7234999999999999,
     "macro_score": 0.7314999999999999,
     "raw_base_season": "여름 (Expansion)",
+    "score_base_season": "여름 (Expansion)",
     "base_season": "여름 (Expansion)",
     "final_season": "여름 (Expansion)",
+    "early_warning": null,
+    "winter_gate": {
+      "credit_confirm": false,
+      "employment_confirm": false
+    },
     "stage": "L4",
-    "stage_delta": -0.019499999999999962,
+    "stage_delta": -0.008000000000000007,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -254,6 +284,44 @@
       "risk": 0.6799999999999999,
       "hy_spread_36m_low": 2.68,
       "vix_36m_avg": 16.56
+    },
+    "data_freshness": {
+      "overall": "mixed",
+      "updatedAt": "2026-03-22T01:00:58+00:00",
+      "updated_age_days": 0,
+      "trusted_prev": true,
+      "fetch_errors": [
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.fedfunds: HTTP 500: Internal Server Error",
+        "core.sahm: HTTP 500: Internal Server Error",
+        "core.continuingClaims: HTTP 500: Internal Server Error"
+      ],
+      "stale_policy": "exclude_and_reweight"
+    },
+    "axis_freshness": {
+      "credit": "fresh",
+      "employment": "fresh",
+      "leading": "mixed",
+      "policy": "fresh"
+    },
+    "stale_exclusions": {
+      "credit": [],
+      "employment": [],
+      "leading": [
+        {
+          "series": "servicesPmi",
+          "date": null,
+          "age_days": null,
+          "reason": "missing"
+        },
+        {
+          "series": "lei",
+          "date": "2026-01-01",
+          "age_days": 80,
+          "reason": "stale"
+        }
+      ],
+      "policy": []
     }
   }
 }

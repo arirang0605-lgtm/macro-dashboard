@@ -64,21 +64,21 @@
   "_stamps": {
     "pmi": [
       "2026-02-01",
-      "",
-      ""
+      null,
+      null
     ],
     "servicesPmi": [
       "2026-02-01"
     ],
     "lei": [
       "2026-01-01",
-      "",
-      ""
+      null,
+      null
     ],
     "icsa": [
       "2026-03-14",
-      "",
-      ""
+      null,
+      null
     ],
     "continuingClaims": [
       "2026-03-07"
