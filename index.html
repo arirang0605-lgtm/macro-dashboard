@@ -1635,5 +1635,31 @@ doFetch();
 })();
 </script>
 
+
+<script>
+(function(){
+  function removeHeroStageStrip(){
+    const nodes = ['c1','c2','c3','c4']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    if(nodes.length !== 4) return;
+
+    const parent = nodes[0].parentElement;
+    if(!parent) return;
+
+    // 하단 L1~L4 단계 바만 제거
+    parent.remove();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', removeHeroStageStrip);
+  } else {
+    removeHeroStageStrip();
+  }
+})();
+</script>
+
+
+\n
 </body>
 </html>
