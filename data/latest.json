@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-22T01:00:58+00:00",
+  "updatedAt": "2026-03-22T01:14:49+00:00",
   "market": {
     "sp": {
       "value": 6506.48,
@@ -166,10 +166,7 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-      "core.fedfunds: HTTP 500: Internal Server Error",
-      "core.sahm: HTTP 500: Internal Server Error",
-      "core.continuingClaims: HTTP 500: Internal Server Error"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
   "engine": {
@@ -241,6 +238,7 @@
           "reason": "stale"
         }
       ],
+      "pmi_missing_or_stale": false,
       "effective_final": 0.58,
       "persistence": {
         "status": "same_stamp_hold",
@@ -287,14 +285,11 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-03-22T01:00:58+00:00",
+      "updatedAt": "2026-03-22T01:14:49+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-        "core.fedfunds: HTTP 500: Internal Server Error",
-        "core.sahm: HTTP 500: Internal Server Error",
-        "core.continuingClaims: HTTP 500: Internal Server Error"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
     },
