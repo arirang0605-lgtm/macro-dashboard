@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-24T20:25:06+00:00",
+  "updatedAt": "2026-03-24T20:26:12+00:00",
   "market": {
     "sp": {
       "value": 6581.0,
@@ -23,12 +23,12 @@
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4462.13,
+      "value": 4478.01,
       "date": "2026-03-24",
-      "ma50": 4969.41,
-      "pctFrom50": -10.21,
-      "ma200": 4096.63,
-      "pctFrom200": 8.92
+      "ma50": 4969.73,
+      "pctFrom50": -9.89,
+      "ma200": 4096.71,
+      "pctFrom200": 9.31
     },
     "dx": {
       "value": 120.28,
@@ -165,7 +165,9 @@
     "source": "scripts/update_data_api.py",
     "fredMode": "official_api",
     "trustedPrev": true,
-    "errors": []
+    "errors": [
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+    ]
   },
   "engine": {
     "credit": {
@@ -181,7 +183,7 @@
       "excluded_series": [],
       "effective_final": 0.755,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -195,7 +197,7 @@
       "continuing_claims_trend": 0.5,
       "continuing_claims_final": 0.57,
       "sahm_level": 0.8,
-      "raw_final": 0.7233333333333333,
+      "raw_final": 0.7233333333333332,
       "stamp": "2026-03-14",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -260,13 +262,13 @@
       "excluded_series": [],
       "effective_final": 0.65,
       "persistence": {
-        "status": "immediate_apply",
-        "direction": "deteriorate",
+        "status": "same_stamp_hold",
+        "direction": "flat",
         "required": 0,
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.666,
+    "raw_macro_score": 0.6659999999999999,
     "macro_score": 0.709,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -278,7 +280,7 @@
       "employment_confirm": false
     },
     "stage": "L3",
-    "stage_delta": -0.04299999999999993,
+    "stage_delta": -0.04300000000000004,
     "stage_bias": "cooling",
     "bubble": {
       "valuation": 1.0,
@@ -289,10 +291,12 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-03-24T20:25:06+00:00",
+      "updatedAt": "2026-03-24T20:26:12+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
-      "fetch_errors": [],
+      "fetch_errors": [
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      ],
       "stale_policy": "exclude_and_reweight"
     },
     "axis_freshness": {
