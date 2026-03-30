@@ -1,34 +1,34 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-30T20:49:35+00:00",
+  "updatedAt": "2026-03-30T22:25:57+00:00",
   "market": {
     "sp": {
-      "value": 6368.85,
-      "date": "2026-03-27",
-      "ma50": 6814.16,
-      "pctFrom50": -6.54,
-      "ma200": 6634.83,
-      "pctFrom200": -4.01
+      "value": 6343.72,
+      "date": "2026-03-30",
+      "ma50": 6802.15,
+      "pctFrom50": -6.74,
+      "ma200": 6636.44,
+      "pctFrom200": -4.41
     },
     "nd": {
-      "value": 23132.77,
-      "date": "2026-03-27",
-      "ma50": 24922.36,
-      "pctFrom50": -7.18,
-      "ma200": 24410.67,
-      "pctFrom200": -5.24
+      "value": 20794.64,
+      "date": "2026-03-30",
+      "ma50": 22705.81,
+      "pctFrom50": -8.42,
+      "ma200": 22306.84,
+      "pctFrom200": -6.78
     },
     "ks": {
       "value": 16.42,
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4435.53,
-      "date": "2026-03-26",
-      "ma50": 4963.75,
-      "pctFrom50": -10.64,
-      "ma200": 4107.56,
-      "pctFrom200": 7.98
+      "value": 4539.4,
+      "date": "2026-03-30",
+      "ma50": 4939.49,
+      "pctFrom50": -8.1,
+      "ma200": 4096.85,
+      "pctFrom200": 10.8
     },
     "dx": {
       "value": 120.89,
@@ -81,12 +81,12 @@
       "date": "2026-03-27"
     },
     "t10y2y": {
-      "value": 0.56,
-      "date": "2026-03-27"
+      "value": 0.53,
+      "date": "2026-03-30"
     },
     "t10y3m": {
-      "value": 0.71,
-      "date": "2026-03-27"
+      "value": 0.64,
+      "date": "2026-03-30"
     },
     "fedfunds": {
       "value": 3.64,
@@ -116,8 +116,8 @@
   "fearGreed": {
     "score": 8.67060755336617,
     "rating": "extreme fear",
-    "timestamp": "2026-03-30T20:28:40+00:00",
-    "date": "2026-03-30T20:28:40+00:00",
+    "timestamp": "2026-03-30T22:08:45+00:00",
+    "date": "2026-03-30T22:08:45+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -157,8 +157,8 @@
       "fedfunds": 3.64,
       "dgs10": 4.44,
       "dgs2": 3.88,
-      "t10y2y": 0.56,
-      "t10y3m": 0.71
+      "t10y2y": 0.53,
+      "t10y3m": 0.64
     }
   },
   "meta": {
@@ -166,7 +166,6 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "market.go: Stooq gold CSV 빈 응답",
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
@@ -258,12 +257,12 @@
       "yc_level": 0.8,
       "fedfunds_level": 0.5,
       "raw_final": 0.65,
-      "stamp": "2026-03-27",
+      "stamp": "2026-03-30",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "effective_final": 0.65,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -292,11 +291,10 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-03-30T20:49:35+00:00",
+      "updatedAt": "2026-03-30T22:25:57+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "market.go: Stooq gold CSV 빈 응답",
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
