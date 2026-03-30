@@ -472,7 +472,7 @@ async function doFetch(){
       if(proxyErr.message !== 'proxy-not-configured') console.warn(proxyErr);
       payload = await fetchLegacyData();
     }
-    if(!payload.fearGreed){ try{ payload.fearGreed = await fetchDirectFearGreed(); }catch(e){} }
+    try{ payload.fearGreed = await fetchDirectFearGreed(); }catch(e){}
     renderPayload(payload, state.proxyUrl ? 'Apps Script' : 'Fallback');
     saveCache(payload);
   }catch(err){
