@@ -2,16 +2,16 @@
   "credit": {
     "effective_score": 0.755,
     "last_raw_score": 0.755,
-    "last_stamp": "2026-03-24",
+    "last_stamp": "2026-03-27",
     "pending_direction": null,
     "pending_count": 0
   },
   "employment": {
     "effective_score": 0.8,
-    "last_raw_score": 0.7233333333333332,
-    "last_stamp": "2026-03-14",
-    "pending_direction": null,
-    "pending_count": 0
+    "last_raw_score": 0.74,
+    "last_stamp": "2026-03-21",
+    "pending_direction": "deteriorate",
+    "pending_count": 1
   },
   "leading": {
     "effective_score": 0.58,
@@ -21,9 +21,9 @@
     "pending_count": 0
   },
   "policy": {
-    "effective_score": 0.55,
-    "last_raw_score": 0.55,
-    "last_stamp": "2026-03-25",
+    "effective_score": 0.65,
+    "last_raw_score": 0.65,
+    "last_stamp": "2026-03-27",
     "pending_direction": null,
     "pending_count": 0
   }

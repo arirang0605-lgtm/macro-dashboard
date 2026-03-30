@@ -1,22 +1,22 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-26T13:33:43+00:00",
+  "updatedAt": "2026-03-30T20:46:18+00:00",
   "market": {
     "sp": {
-      "value": 6591.9,
-      "date": "2026-03-25",
-      "ma50": 6835.05,
-      "pctFrom50": -3.56,
-      "ma200": 6630.83,
-      "pctFrom200": -0.59
+      "value": 6368.85,
+      "date": "2026-03-27",
+      "ma50": 6814.16,
+      "pctFrom50": -6.54,
+      "ma200": 6634.83,
+      "pctFrom200": -4.01
     },
     "nd": {
-      "value": 24162.98,
-      "date": "2026-03-25",
-      "ma50": 25012.12,
-      "pctFrom50": -3.39,
-      "ma200": 24395.77,
-      "pctFrom200": -0.95
+      "value": 23132.77,
+      "date": "2026-03-27",
+      "ma50": 24922.36,
+      "pctFrom50": -7.18,
+      "ma200": 24410.67,
+      "pctFrom200": -5.24
     },
     "ks": {
       "value": 16.42,
@@ -31,16 +31,16 @@
       "pctFrom200": 7.98
     },
     "dx": {
-      "value": 120.28,
-      "date": "2026-03-20",
-      "ma50": 118.81,
-      "pctFrom50": 1.24,
-      "ma200": 120.06,
-      "pctFrom200": 0.18
+      "value": 120.89,
+      "date": "2026-03-27",
+      "ma50": 118.83,
+      "pctFrom50": 1.73,
+      "ma200": 120.04,
+      "pctFrom200": 0.7
     },
     "vx": {
-      "value": 26.95,
-      "date": "2026-03-24"
+      "value": 31.05,
+      "date": "2026-03-27"
     }
   },
   "core": {
@@ -69,24 +69,24 @@
       "date": "2025-10-01"
     },
     "michigan": {
-      "value": 56.4,
-      "date": "2026-01-01"
+      "value": 56.6,
+      "date": "2026-02-01"
     },
     "dgs10": {
-      "value": 4.39,
-      "date": "2026-03-24"
+      "value": 4.44,
+      "date": "2026-03-27"
     },
     "dgs2": {
-      "value": 3.9,
-      "date": "2026-03-24"
+      "value": 3.88,
+      "date": "2026-03-27"
     },
     "t10y2y": {
-      "value": 0.49,
-      "date": "2026-03-25"
+      "value": 0.56,
+      "date": "2026-03-27"
     },
     "t10y3m": {
-      "value": 0.6,
-      "date": "2026-03-25"
+      "value": 0.71,
+      "date": "2026-03-27"
     },
     "fedfunds": {
       "value": 3.64,
@@ -97,27 +97,27 @@
       "date": "2026-02-01"
     },
     "icsa": {
-      "value": 205000.0,
-      "date": "2026-03-14"
+      "value": 210000.0,
+      "date": "2026-03-21"
     },
     "continuingClaims": {
-      "value": 1857000.0,
-      "date": "2026-03-07"
+      "value": 1819000.0,
+      "date": "2026-03-14"
     },
     "hySpread": {
-      "value": 3.19,
-      "date": "2026-03-24"
+      "value": 3.42,
+      "date": "2026-03-27"
     },
     "bbbSpread": {
-      "value": 1.09,
-      "date": "2026-03-24"
+      "value": 1.14,
+      "date": "2026-03-27"
     }
   },
   "fearGreed": {
-    "score": 18.5489795918367,
+    "score": 8.67060755336617,
     "rating": "extreme fear",
-    "timestamp": "2026-03-26T13:14:31+00:00",
-    "date": "2026-03-26T13:14:31+00:00",
+    "timestamp": "2026-03-30T20:28:40+00:00",
+    "date": "2026-03-30T20:28:40+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -129,9 +129,9 @@
     "safeHavenDemand": null
   },
   "minsky": {
-    "phase": "이익실현",
+    "phase": "패닉위험",
     "season": "겨울",
-    "score": 13,
+    "score": 14,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
@@ -139,7 +139,7 @@
       "레버리지 확대",
       "레버리지 과열",
       "변동성 상승",
-      "S&P500 50일선 이탈"
+      "변동성 급등"
     ]
   },
   "eggModel": {
@@ -150,14 +150,15 @@
       "PMI 확장",
       "고용 안정",
       "실업수당 안정",
+      "10Y-2Y 정상",
       "10Y-3M 정상"
     ],
     "rates": {
       "fedfunds": 3.64,
-      "dgs10": 4.39,
-      "dgs2": 3.9,
-      "t10y2y": 0.49,
-      "t10y3m": 0.6
+      "dgs10": 4.44,
+      "dgs2": 3.88,
+      "t10y2y": 0.56,
+      "t10y3m": 0.71
     }
   },
   "meta": {
@@ -165,6 +166,7 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
+      "market.go: Stooq gold CSV 빈 응답",
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
@@ -177,7 +179,7 @@
       "bbb_trend": 0.5,
       "bbb_final": 0.78,
       "raw_final": 0.755,
-      "stamp": "2026-03-24",
+      "stamp": "2026-03-27",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "effective_final": 0.755,
@@ -190,22 +192,22 @@
     },
     "employment": {
       "icsa_level": 0.8,
-      "icsa_trend": 0.8,
-      "icsa_final": 0.7999999999999999,
-      "continuing_claims_level": 0.6,
+      "icsa_trend": 0.5,
+      "icsa_final": 0.71,
+      "continuing_claims_level": 0.8,
       "continuing_claims_trend": 0.5,
-      "continuing_claims_final": 0.57,
+      "continuing_claims_final": 0.71,
       "sahm_level": 0.8,
-      "raw_final": 0.7233333333333332,
-      "stamp": "2026-03-14",
+      "raw_final": 0.74,
+      "stamp": "2026-03-21",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "effective_final": 0.8,
       "persistence": {
-        "status": "same_stamp_hold",
-        "direction": "flat",
-        "required": 0,
-        "pending_count": 0
+        "status": "hold_waiting_confirmation",
+        "direction": "deteriorate",
+        "required": 2,
+        "pending_count": 1
       }
     },
     "leading": {
@@ -227,19 +229,19 @@
         {
           "series": "pmi",
           "date": "2026-02-01",
-          "age_days": 53,
+          "age_days": 57,
           "reason": "stale"
         },
         {
           "series": "servicesPmi",
           "date": "2026-02-01",
-          "age_days": 53,
+          "age_days": 57,
           "reason": "stale"
         },
         {
           "series": "lei",
           "date": "2026-01-01",
-          "age_days": 84,
+          "age_days": 88,
           "reason": "stale"
         }
       ],
@@ -253,47 +255,48 @@
       }
     },
     "policy": {
-      "yc_level": 0.6,
+      "yc_level": 0.8,
       "fedfunds_level": 0.5,
-      "raw_final": 0.55,
-      "stamp": "2026-03-25",
+      "raw_final": 0.65,
+      "stamp": "2026-03-27",
       "axis_freshness": "fresh",
       "excluded_series": [],
-      "effective_final": 0.55,
+      "effective_final": 0.65,
       "persistence": {
-        "status": "immediate_apply",
-        "direction": "deteriorate",
-        "required": 0,
-        "pending_count": 0
+        "status": "confirmed_apply",
+        "direction": "recover",
+        "required": 1,
+        "pending_count": 1
       }
     },
-    "raw_macro_score": 0.6509999999999999,
-    "macro_score": 0.694,
+    "raw_macro_score": 0.671,
+    "macro_score": 0.709,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
     "base_season": "여름 (Expansion)",
-    "final_season": "가을 (Bubble / Late Cycle)",
+    "final_season": "여름 (Expansion)",
     "early_warning": null,
     "winter_gate": {
       "credit_confirm": false,
       "employment_confirm": false
     },
     "stage": "L3",
-    "stage_delta": -0.04300000000000004,
+    "stage_delta": -0.03799999999999992,
     "stage_bias": "cooling",
     "bubble": {
       "valuation": 1.0,
-      "fragility": 0.5,
-      "risk": 0.8,
+      "fragility": 0.2,
+      "risk": 0.6799999999999999,
       "hy_spread_36m_low": 2.68,
-      "vix_36m_avg": 17.1
+      "vix_36m_avg": 17.59
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-03-26T13:33:43+00:00",
+      "updatedAt": "2026-03-30T20:46:18+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
+        "market.go: Stooq gold CSV 빈 응답",
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
@@ -311,19 +314,19 @@
         {
           "series": "pmi",
           "date": "2026-02-01",
-          "age_days": 53,
+          "age_days": 57,
           "reason": "stale"
         },
         {
           "series": "servicesPmi",
           "date": "2026-02-01",
-          "age_days": 53,
+          "age_days": 57,
           "reason": "stale"
         },
         {
           "series": "lei",
           "date": "2026-01-01",
-          "age_days": 84,
+          "age_days": 88,
           "reason": "stale"
         }
       ],
