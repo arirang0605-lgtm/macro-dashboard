@@ -3,6 +3,10 @@ import json
 import os
 import re
 import subprocess
+import urllib.request
+import time as _time
+from io import StringIO
+import yfinance as yf
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlencode
@@ -39,6 +43,7 @@ PMI_MANUAL_VALUE = os.getenv("PMI_MANUAL_VALUE", "").strip()
 PMI_MANUAL_DATE = os.getenv("PMI_MANUAL_DATE", "").strip()
 SERVICES_PMI_MANUAL_VALUE = os.getenv("SERVICES_PMI_MANUAL_VALUE", "").strip()
 SERVICES_PMI_MANUAL_DATE = os.getenv("SERVICES_PMI_MANUAL_DATE", "").strip()
+ALPHA_VANTAGE_API_KEY = os.getenv("ALPHA_VANTAGE_API_KEY", "").strip()
 FRED_API_BASE = "https://api.stlouisfed.org/fred/series/observations"
 CNN_FG_URL = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata"
 STOOQ_GOLD_URL = "https://stooq.com/q/d/l/?s=xauusd&i=d"
@@ -190,6 +195,37 @@ def load_fred_series_long(series_id, limit=260):
         raise RuntimeError(f"{series_id} 장기 히스토리 부족")
     out.sort(key=lambda x: x["date"])
     return out
+
+
+def load_alpha_daily_adjusted(symbol, limit=260):
+    if not ALPHA_VANTAGE_API_KEY:
+        raise RuntimeError("ALPHA_VANTAGE_API_KEY 없음")
+
+    qs = urlencode({
+        "function": "TIME_SERIES_DAILY_ADJUSTED",
+        "symbol": symbol,
+        "outputsize": "full",
+        "apikey": ALPHA_VANTAGE_API_KEY,
+    })
+    url = f"https://www.alphavantage.co/query?{qs}"
+    data = curl_json(url, timeout=25)
+
+    if data.get("Note"):
+        raise RuntimeError(f"Alpha Vantage limit: {data.get('Note')}")
+    if data.get("Error Message"):
+        raise RuntimeError(f"Alpha Vantage error: {data.get('Error Message')}")
+
+    ts = data.get("Time Series (Daily)") or {}
+    out = []
+    for dt, row in ts.items():
+        close = safe_float((row or {}).get("5. adjusted close") or (row or {}).get("4. close"))
+        if dt and close is not None:
+            out.append({"date": dt, "value": close})
+
+    if len(out) < 200:
+        raise RuntimeError(f"{symbol} Alpha 일간 히스토리 부족")
+    out.sort(key=lambda x: x["date"])
+    return out[-limit:]
 
 def load_first_available(series_ids):
     last_error = None
@@ -461,6 +497,65 @@ def load_gold_stooq_history():
     out.sort(key=lambda x: x["date"])
     return out
 
+
+def load_yfinance_history(ticker: str, retries: int = 3) -> list:
+    """yfinance 종가를 [{date, value}, ...] 형태로 반환."""
+    for attempt in range(retries):
+        try:
+            df = yf.download(ticker, period="1y", auto_adjust=True, progress=False)
+            if df.empty:
+                raise ValueError(f"Empty data: {ticker}")
+            close = df["Close"].squeeze().dropna().sort_index()
+            return [
+                {"date": str(idx.date()), "value": round(float(val), 4)}
+                for idx, val in close.items()
+            ]
+        except Exception as e:
+            if attempt < retries - 1:
+                _time.sleep(2)
+            else:
+                raise RuntimeError(f"yfinance {ticker} 실패: {e}")
+
+
+def load_cboe_vix_history() -> list:
+    """Cboe 공식 CSV에서 VIX 종가를 [{date, value}, ...] 형태로 반환."""
+    url = "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+    try:
+        import pandas as pd
+        with urllib.request.urlopen(url, timeout=15) as r:
+            raw = r.read().decode("utf-8")
+        df = pd.read_csv(StringIO(raw))
+        df.columns = [c.strip().upper() for c in df.columns]
+        df["DATE"] = pd.to_datetime(df["DATE"])
+        df = df.set_index("DATE").sort_index()
+        close = df["CLOSE"].dropna()
+        return [
+            {"date": str(idx.date()), "value": round(float(val), 4)}
+            for idx, val in close.items()
+        ]
+    except Exception as e:
+        raise RuntimeError(f"Cboe VIX CSV 실패: {e}")
+
+
+def merge_latest_point(history, latest_point):
+    if not history or not latest_point:
+        return history
+    dt = latest_point.get("date")
+    val = latest_point.get("value")
+    if not dt or val is None:
+        return history
+
+    out = [dict(x) for x in history]
+    if out and out[-1].get("date") == dt:
+        out[-1]["value"] = float(val)
+        return out
+
+    if out and out[-1].get("date") > dt:
+        return out
+
+    out.append({"date": dt, "value": float(val)})
+    return out
+
 def shift_month(year, month, delta):
     total = year * 12 + (month - 1) + delta
     new_year = total // 12
@@ -661,13 +756,13 @@ def build_payload():
     market = {
         "sp": fetch_or_prev(
             "market.sp",
-            lambda: transform_trend(load_fred_series_long("SP500")),
+            lambda: transform_trend(load_yfinance_history("^GSPC")),
             ("market", "sp"),
             {"value": None, "date": None, "ma50": None, "pctFrom50": None, "ma200": None, "pctFrom200": None},
         ),
         "nd": fetch_or_prev(
             "market.nd",
-            lambda: transform_trend(load_fred_series_long(load_first_available(["NASDAQ100", "NASDAQCOM"])[0])),
+            lambda: transform_trend(load_yfinance_history("^IXIC")),
             ("market", "nd"),
             {"value": None, "date": None, "ma50": None, "pctFrom50": None, "ma200": None, "pctFrom200": None},
         ),
@@ -679,7 +774,7 @@ def build_payload():
         ),
         "go": fetch_or_prev(
             "market.go",
-            lambda: transform_trend(load_gold_stooq_history()),
+            lambda: transform_trend(load_yfinance_history("GC=F")),
             ("market", "go"),
             {"value": None, "date": None, "ma50": None, "pctFrom50": None, "ma200": None, "pctFrom200": None},
         ),
@@ -691,7 +786,7 @@ def build_payload():
         ),
         "vx": fetch_or_prev(
             "market.vx",
-            lambda: transform_value(load_fred_series("VIXCLS")),
+            lambda: transform_value(load_cboe_vix_history()),
             ("market", "vx"),
             {"value": None, "date": None},
         ),
