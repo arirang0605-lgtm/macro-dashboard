@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-30T20:46:18+00:00",
+  "updatedAt": "2026-03-30T20:49:35+00:00",
   "market": {
     "sp": {
       "value": 6368.85,
@@ -184,7 +184,7 @@
       "excluded_series": [],
       "effective_final": 0.755,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -204,9 +204,9 @@
       "excluded_series": [],
       "effective_final": 0.8,
       "persistence": {
-        "status": "hold_waiting_confirmation",
-        "direction": "deteriorate",
-        "required": 2,
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
         "pending_count": 1
       }
     },
@@ -263,10 +263,10 @@
       "excluded_series": [],
       "effective_final": 0.65,
       "persistence": {
-        "status": "confirmed_apply",
-        "direction": "recover",
-        "required": 1,
-        "pending_count": 1
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
+        "pending_count": 0
       }
     },
     "raw_macro_score": 0.671,
@@ -292,7 +292,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-03-30T20:46:18+00:00",
+      "updatedAt": "2026-03-30T20:49:35+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
