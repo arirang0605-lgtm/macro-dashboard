@@ -1,0 +1,53 @@
+name: Update dashboard data
+
+on:
+  push:
+    branches:
+      - stable-data-rebuild
+  workflow_dispatch:
+  schedule:
+    - cron: "15 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-dashboard-data-stable
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+
+    steps:
+      - name: Checkout stable-data-rebuild
+        uses: actions/checkout@v4
+        with:
+          ref: stable-data-rebuild
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run updater
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          PMI_MANUAL_VALUE: ${{ secrets.PMI_MANUAL_VALUE }}
+          PMI_MANUAL_DATE: ${{ secrets.PMI_MANUAL_DATE }}
+        run: |
+          python scripts/update_data_api.py
+
+      - name: Show status
+        run: |
+          cat data/latest.json || true
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/latest.json data/history.json data/persistence_state.json
+          git diff --cached --quiet || git commit -m "chore: update dashboard data"
+          git push origin HEAD:stable-data-rebuild
