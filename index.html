@@ -284,7 +284,7 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
       <div class="th c4m"><span class="tht">지표</span><span class="tht" style="text-align:right">현재값</span><span class="tht" style="text-align:right">판단 · 날짜</span><span class="tht" style="text-align:right">신호</span></div>
       <div class="tr c4m">
         <div>
-          <div class="tn">실물 경기 해석 · 달걀 <span class="at">자동수집</span></div>
+          <div class="tn">실물경기(달걀) 해석 <span class="at">자동수집</span></div>
           <div class="tsb" id="egg_desc">실물경기 흐름이 아직 확장 구간에 있음을 시사합니다.</div>
         </div>
         <div class="tv" id="egg_season" style="color:#3D4F68">—</div>
@@ -293,7 +293,7 @@ footer{border-top:1px solid #1E2D45;padding:8px 14px;font-size:14px;color:#3D4F6
       </div>
       <div class="tr c4m">
         <div>
-          <div class="tn">자산 시장 해석 · 민스키 <span class="at">자동수집</span></div>
+          <div class="tn">자산시장(민스키) 해석 <span class="at">자동수집</span></div>
           <div class="tsb" id="minsky_desc">자산시장 쪽 과열과 취약성이 높아졌다는 경고를 줍니다.</div>
         </div>
         <div class="tv" id="minsky_score" style="color:#3D4F68">—</div>
@@ -1039,11 +1039,11 @@ function normalizeMinskyPhase(raw, season){
 }
 
 function getEggDesc(egg){
-  return '실물 경기 · 달걀: ' + normalizeEggPhase(egg?.phase, egg?.season);
+  return '실물경기(달걀): ' + normalizeEggPhase(egg?.phase, egg?.season);
 }
 
 function getMinskyDesc(minsky){
-  return '자산 시장 · 민스키: ' + normalizeMinskyPhase(minsky?.phase, minsky?.season);
+  return '자산시장(민스키): ' + normalizeMinskyPhase(minsky?.phase, minsky?.season);
 }
 
 
@@ -1212,7 +1212,7 @@ doFetch();
     spring: {
       title: "🌱 봄",
       summary: "시장과 경기가 바닥을 지나 회복 쪽으로 돌아서기 시작한 구간",
-      model: "현재 판정 기준: 기본 국면은 봄 · 실물 경기 · 달걀: 회복 초입 · 자산 시장 · 민스키: 변위",
+      model: "현재 판정 기준: 기본 국면은 봄 · 실물경기(달걀): 회복 초입 · 자산시장(민스키): 변위",
       points: [
         "유동성 완화 기대, 심리 회복, 시장 선반영이 자주 나타남",
         "아직 의심이 남아 있어 변동성은 남을 수 있음",
@@ -1225,7 +1225,7 @@ doFetch();
     summer1: {
       title: "☀️ 여름 초기",
       summary: "경기와 시장이 함께 살아나며 확장이 본격화되기 시작한 구간",
-      model: "현재 판정 기준: 기본 국면은 여름 · 실물 경기 · 달걀: 확장 초입 · 자산 시장 · 민스키: 붐",
+      model: "현재 판정 기준: 기본 국면은 여름 · 실물경기(달걀): 확장 초입 · 자산시장(민스키): 붐",
       points: [
         "PMI 확장권, 고용 안정, 경기와 시장의 정렬 가능성",
         "성장과 가치가 함께 갈 수 있는 구간",
@@ -1238,7 +1238,7 @@ doFetch();
     summer2: {
       title: "☀️ 여름 후반",
       summary: "겉으로는 강하지만 안에서는 부담이 쌓이기 쉬운 후기 확장 구간",
-      model: "현재 판정 기준: 기본 국면은 여름 · 실물 경기 · 달걀: 확장 후반 · 자산 시장 · 민스키: 행복감",
+      model: "현재 판정 기준: 기본 국면은 여름 · 실물경기(달걀): 확장 후반 · 자산시장(민스키): 행복감",
       points: [
         "겉으로는 강해 보여도 내부 압력이 누적될 수 있음",
         "금리 높음, 장단기금리차 왜곡, 다이버전스가 중요해짐",
@@ -1251,7 +1251,7 @@ doFetch();
     autumn: {
       title: "🍂 가을 (과열·취약)",
       summary: "과열과 취약성이 전면화되어 겨울 전환 가능성을 함께 봐야 하는 구간",
-      model: "현재 판정 기준: 현재 국면은 가을 · 실물 경기 · 달걀: 확장 후반 · 자산 시장 · 민스키: 이익 실현",
+      model: "현재 판정 기준: 현재 국면은 가을 · 실물경기(달걀): 확장 후반 · 자산시장(민스키): 이익 실현",
       points: [
         "시장 심리가 경기보다 앞서기 쉬움",
         "밸류 부담과 변동성 확대 가능성",
@@ -1264,7 +1264,7 @@ doFetch();
     winter: {
       title: "❄️ 겨울",
       summary: "침체·수축 구간으로 방어를 우선해야 하는 시기",
-      model: "현재 판정 기준: 기본 국면은 겨울 · 실물 경기 · 달걀: 침체 진입 · 자산 시장 · 민스키: 패닉",
+      model: "현재 판정 기준: 기본 국면은 겨울 · 실물경기(달걀): 침체 진입 · 자산시장(민스키): 패닉",
       points: [
         "경기 둔화, 실적 압박, 리스크 회피 강화",
         "현금흐름 안정성과 방어력이 중요",
