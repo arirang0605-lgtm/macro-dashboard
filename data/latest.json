@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-30T22:25:57+00:00",
+  "updatedAt": "2026-03-31T10:54:10+00:00",
   "market": {
     "sp": {
       "value": 6343.72,
@@ -23,12 +23,12 @@
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4539.4,
-      "date": "2026-03-30",
-      "ma50": 4939.49,
-      "pctFrom50": -8.1,
-      "ma200": 4096.85,
-      "pctFrom200": 10.8
+      "value": 4574.1,
+      "date": "2026-03-31",
+      "ma50": 4938.93,
+      "pctFrom50": -7.39,
+      "ma200": 4102.5,
+      "pctFrom200": 11.5
     },
     "dx": {
       "value": 120.89,
@@ -39,8 +39,8 @@
       "pctFrom200": 0.7
     },
     "vx": {
-      "value": 31.05,
-      "date": "2026-03-27"
+      "value": 30.61,
+      "date": "2026-03-30"
     }
   },
   "core": {
@@ -114,10 +114,10 @@
     }
   },
   "fearGreed": {
-    "score": 8.67060755336617,
+    "score": 12.8441558441558,
     "rating": "extreme fear",
-    "timestamp": "2026-03-30T22:08:45+00:00",
-    "date": "2026-03-30T22:08:45+00:00",
+    "timestamp": "2026-03-31T10:34:46+00:00",
+    "date": "2026-03-31T10:34:46+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -228,19 +228,19 @@
         {
           "series": "pmi",
           "date": "2026-02-01",
-          "age_days": 57,
+          "age_days": 58,
           "reason": "stale"
         },
         {
           "series": "servicesPmi",
           "date": "2026-02-01",
-          "age_days": 57,
+          "age_days": 58,
           "reason": "stale"
         },
         {
           "series": "lei",
           "date": "2026-01-01",
-          "age_days": 88,
+          "age_days": 89,
           "reason": "stale"
         }
       ],
@@ -262,7 +262,7 @@
       "excluded_series": [],
       "effective_final": 0.65,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -287,11 +287,11 @@
       "fragility": 0.2,
       "risk": 0.6799999999999999,
       "hy_spread_36m_low": 2.68,
-      "vix_36m_avg": 17.59
+      "vix_36m_avg": 18.06
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-03-30T22:25:57+00:00",
+      "updatedAt": "2026-03-31T10:54:10+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
@@ -312,19 +312,19 @@
         {
           "series": "pmi",
           "date": "2026-02-01",
-          "age_days": 57,
+          "age_days": 58,
           "reason": "stale"
         },
         {
           "series": "servicesPmi",
           "date": "2026-02-01",
-          "age_days": 57,
+          "age_days": 58,
           "reason": "stale"
         },
         {
           "series": "lei",
           "date": "2026-01-01",
-          "age_days": 88,
+          "age_days": 89,
           "reason": "stale"
         }
       ],
