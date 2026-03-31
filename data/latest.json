@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-31T12:08:41+00:00",
+  "updatedAt": "2026-03-31T12:16:53+00:00",
   "market": {
     "sp": {
       "value": 6343.72,
@@ -23,12 +23,12 @@
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4607.4,
+      "value": 4617.9,
       "date": "2026-03-31",
-      "ma50": 4939.6,
-      "pctFrom50": -6.73,
-      "ma200": 4102.67,
-      "pctFrom200": 12.3
+      "ma50": 4939.81,
+      "pctFrom50": -6.52,
+      "ma200": 4102.72,
+      "pctFrom200": 12.56
     },
     "dx": {
       "value": 120.89,
@@ -116,8 +116,8 @@
   "fearGreed": {
     "score": 13.25,
     "rating": "extreme fear",
-    "timestamp": "2026-03-31T11:50:01+00:00",
-    "date": "2026-03-31T11:50:01+00:00",
+    "timestamp": "2026-03-31T12:00:01+00:00",
+    "date": "2026-03-31T12:00:01+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -165,9 +165,7 @@
     "source": "scripts/update_data_api.py",
     "fredMode": "official_api",
     "trustedPrev": true,
-    "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
-    ]
+    "errors": []
   },
   "engine": {
     "credit": {
@@ -273,7 +271,7 @@
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
     "base_season": "여름 (Expansion)",
-    "final_season": "여름 (Expansion)",
+    "final_season": "가을 (Bubble / Late Cycle)",
     "early_warning": null,
     "winter_gate": {
       "credit_confirm": false,
@@ -291,12 +289,10 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-03-31T12:08:41+00:00",
+      "updatedAt": "2026-03-31T12:16:53+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
-      "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
-      ],
+      "fetch_errors": [],
       "stale_policy": "exclude_and_reweight"
     },
     "axis_freshness": {

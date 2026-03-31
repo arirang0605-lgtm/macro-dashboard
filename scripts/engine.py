@@ -844,10 +844,22 @@ def run_engine():
 
     bubble = run_bubble_overlay(latest, history)
 
+    fg_score = latest.get("fearGreed", {}).get("score")
+    current_vix = latest.get("market", {}).get("vx", {}).get("value")
+
+    stress_autumn = (
+        base_season == "여름 (Expansion)"
+        and stage in ("L3", "L4")
+        and fg_score is not None
+        and current_vix is not None
+        and fg_score <= 20
+        and current_vix >= 28
+    )
+
     final_season = base_season
     if base_season == "여름 (Expansion)":
         mapped = detect_fall("Summer", bubble["risk"])
-        if mapped == "Fall":
+        if mapped == "Fall" or stress_autumn:
             final_season = "가을 (Bubble / Late Cycle)"
 
     return {
