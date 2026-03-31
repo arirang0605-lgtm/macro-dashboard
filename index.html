@@ -676,20 +676,24 @@ function renderMacroModelCopy(seasonId, level){
 
 function getMainCardSubtitle(seasonId, level){
   if(seasonId === 'spring'){
-    return level >= 3
-      ? '실물경기: 회복 초입 / 자산시장: 변동성 경계'
-      : '실물경기: 회복 초입 / 자산시장: 과열 전';
+    if(level >= 4) return '현재 국면: 회복 후반 · 재둔화 점검';
+    if(level >= 3) return '현재 국면: 회복 진행 · 아직 불안정';
+    return '현재 국면: 회복 시작';
   }
   if(seasonId === 'summer'){
-    if(level >= 4) return '실물경기: 확장 후반 / 자산시장: 과열 경계';
-    if(level >= 3) return '실물경기: 확장 후반 / 자산시장: 과열 점검';
-    return '실물경기: 확장 초반 / 자산시장: 과열 점검';
+    if(level >= 4) return '현재 국면: 확장 후반 · 피로 누적 경계';
+    if(level >= 3) return '현재 국면: 확장 후반 · 과열 점검';
+    return '현재 국면: 확장';
   }
   if(seasonId === 'fall'){
-    return '실물경기: 둔화 경계 / 자산시장: 과열 부담';
+    if(level >= 4) return '현재 국면: 과열·취약 · 침체 직전 경계';
+    if(level >= 3) return '현재 국면: 과열·취약 · 버블 경계';
+    return '현재 국면: 과열·취약';
   }
   if(seasonId === 'winter'){
-    return '실물경기: 수축 경계 / 자산시장: 방어 우선';
+    if(level >= 4) return '현재 국면: 침체·수축 · 방어 최우선';
+    if(level >= 3) return '현재 국면: 침체 진행 · 방어 우선';
+    return '현재 국면: 침체·수축';
   }
   return getSeasonLevelDesc(seasonId, level);
 }
@@ -1320,7 +1324,32 @@ doFetch();
     }
   });
 
-  render('summer2');
+  function getInitialRegimeHelpKey(){
+    try{
+      const eng = state?.payload?.engine || null;
+      if(!eng) return 'summer2';
+
+      const season = String(eng.final_season || eng.base_season || '');
+      const stageNum = typeof eng.stage === 'string' && /^L[1-4]$/.test(eng.stage)
+        ? Number(eng.stage.replace('L',''))
+        : null;
+
+      if(season.includes('봄')) return 'spring';
+      if(season.includes('겨울')) return 'winter';
+      if(season.includes('가을')) return 'autumn';
+
+      if(season.includes('여름')){
+        if(stageNum != null && stageNum <= 2) return 'summer1';
+        return 'summer2';
+      }
+
+      return 'summer2';
+    }catch(e){
+      return 'summer2';
+    }
+  }
+
+  render(getInitialRegimeHelpKey());
 })();
 </script>
 
