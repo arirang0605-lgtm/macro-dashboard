@@ -1,34 +1,34 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-31T13:32:31+00:00",
+  "updatedAt": "2026-03-31T22:11:32+00:00",
   "market": {
     "sp": {
-      "value": 6413.31,
+      "value": 6528.52,
       "date": "2026-03-31",
-      "ma50": 6791.61,
-      "pctFrom50": -5.57,
-      "ma200": 6638.28,
-      "pctFrom200": -3.39
+      "ma50": 6793.92,
+      "pctFrom50": -3.91,
+      "ma200": 6638.86,
+      "pctFrom200": -1.66
     },
     "nd": {
-      "value": 21084.05,
+      "value": 21590.63,
       "date": "2026-03-31",
-      "ma50": 22657.18,
-      "pctFrom50": -6.94,
-      "ma200": 22313.95,
-      "pctFrom200": -5.51
+      "ma50": 22667.31,
+      "pctFrom50": -4.75,
+      "ma200": 22316.49,
+      "pctFrom200": -3.25
     },
     "ks": {
       "value": 16.42,
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4615.8,
+      "value": 4707.5,
       "date": "2026-03-31",
-      "ma50": 4939.77,
-      "pctFrom50": -6.56,
-      "ma200": 4102.71,
-      "pctFrom200": 12.51
+      "ma50": 4941.6,
+      "pctFrom50": -4.74,
+      "ma200": 4103.17,
+      "pctFrom200": 14.73
     },
     "dx": {
       "value": 120.89,
@@ -61,8 +61,8 @@
       "date": "2025-10-01"
     },
     "jolts": {
-      "value": 6.95,
-      "date": "2026-01-01"
+      "value": 6.88,
+      "date": "2026-02-01"
     },
     "marginDebt": {
       "value": 609.67,
@@ -73,20 +73,20 @@
       "date": "2026-02-01"
     },
     "dgs10": {
-      "value": 4.44,
-      "date": "2026-03-27"
+      "value": 4.35,
+      "date": "2026-03-30"
     },
     "dgs2": {
-      "value": 3.88,
-      "date": "2026-03-27"
+      "value": 3.82,
+      "date": "2026-03-30"
     },
     "t10y2y": {
-      "value": 0.53,
-      "date": "2026-03-30"
+      "value": 0.51,
+      "date": "2026-03-31"
     },
     "t10y3m": {
-      "value": 0.64,
-      "date": "2026-03-30"
+      "value": 0.6,
+      "date": "2026-03-31"
     },
     "fedfunds": {
       "value": 3.64,
@@ -105,19 +105,19 @@
       "date": "2026-03-14"
     },
     "hySpread": {
-      "value": 3.42,
-      "date": "2026-03-27"
+      "value": 3.46,
+      "date": "2026-03-30"
     },
     "bbbSpread": {
-      "value": 1.14,
-      "date": "2026-03-27"
+      "value": 1.16,
+      "date": "2026-03-30"
     }
   },
   "fearGreed": {
-    "score": 13.6935064935065,
+    "score": 14.7142857142857,
     "rating": "extreme fear",
-    "timestamp": "2026-03-31T13:30:00+00:00",
-    "date": "2026-03-31T13:30:00+00:00",
+    "timestamp": "2026-03-31T21:55:30+00:00",
+    "date": "2026-03-31T21:55:30+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -155,10 +155,10 @@
     ],
     "rates": {
       "fedfunds": 3.64,
-      "dgs10": 4.44,
-      "dgs2": 3.88,
-      "t10y2y": 0.53,
-      "t10y3m": 0.64
+      "dgs10": 4.35,
+      "dgs2": 3.82,
+      "t10y2y": 0.51,
+      "t10y3m": 0.6
     }
   },
   "meta": {
@@ -166,11 +166,7 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-      "core.dgs10: HTTP 500: Internal Server Error",
-      "core.t10y3m: HTTP 500: Internal Server Error",
-      "core.fedfunds: HTTP 500: Internal Server Error",
-      "core.hySpread: HTTP 500: Internal Server Error"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
   "engine": {
@@ -179,16 +175,16 @@
       "hy_trend": 0.8,
       "hy_final": 0.73,
       "bbb_level": 0.9,
-      "bbb_trend": 0.5,
-      "bbb_final": 0.78,
-      "raw_final": 0.755,
-      "stamp": "2026-03-27",
+      "bbb_trend": 0.35,
+      "bbb_final": 0.735,
+      "raw_final": 0.7324999999999999,
+      "stamp": "2026-03-30",
       "axis_freshness": "fresh",
       "excluded_series": [],
-      "effective_final": 0.755,
+      "effective_final": 0.7324999999999999,
       "persistence": {
-        "status": "same_stamp_hold",
-        "direction": "flat",
+        "status": "immediate_apply",
+        "direction": "deteriorate",
         "required": 0,
         "pending_count": 0
       }
@@ -261,19 +257,19 @@
       "yc_level": 0.8,
       "fedfunds_level": 0.5,
       "raw_final": 0.65,
-      "stamp": "2026-03-30",
+      "stamp": "2026-03-31",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "effective_final": 0.65,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.671,
-    "macro_score": 0.709,
+    "raw_macro_score": 0.66425,
+    "macro_score": 0.70225,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
     "base_season": "여름 (Expansion)",
@@ -284,7 +280,7 @@
       "employment_confirm": false
     },
     "stage": "L3",
-    "stage_delta": -0.03799999999999992,
+    "stage_delta": -0.038000000000000034,
     "stage_bias": "cooling",
     "bubble": {
       "valuation": 1.0,
@@ -295,15 +291,11 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-03-31T13:32:31+00:00",
+      "updatedAt": "2026-03-31T22:11:32+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-        "core.dgs10: HTTP 500: Internal Server Error",
-        "core.t10y3m: HTTP 500: Internal Server Error",
-        "core.fedfunds: HTTP 500: Internal Server Error",
-        "core.hySpread: HTTP 500: Internal Server Error"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
     },
