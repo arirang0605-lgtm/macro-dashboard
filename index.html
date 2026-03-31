@@ -901,7 +901,6 @@ function calcAndRenderRisk(payload){
   if(el('wp')) el('wp').style.transform = 'rotate(' + season.deg + 'deg)';
   setText('sn', season.emoji + ' ' + season.name, season.color);
   setText('sd', getMainCardSubtitle(season.id, level), '');
-  setMainCardSupportWarning(season.id, level);\n  setMainCardSupportWarning(season.id, level);
   setMainCardSupportWarning(season.id, level);
   const badge = el('sb'); if(badge){ badge.className = 'clb cl' + level; badge.textContent = getMainCardBadge(season.id, level); }
   [1,2,3,4].forEach(i=>{ const n=el('c'+i); if(n) n.style.opacity = i===level ? '1' : '0.22'; });
@@ -1458,6 +1457,7 @@ doFetch();
 <script>
 /* market divergence enhancer */
 (function(){
+  return;
   function num(v){
     const n = Number(v);
     return Number.isFinite(n) ? n : null;
