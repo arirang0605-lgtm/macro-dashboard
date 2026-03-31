@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-31T12:17:27+00:00",
+  "updatedAt": "2026-03-31T13:23:06+00:00",
   "market": {
     "sp": {
       "value": 6343.72,
@@ -23,12 +23,12 @@
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4624.0,
+      "value": 4610.8,
       "date": "2026-03-31",
-      "ma50": 4939.93,
-      "pctFrom50": -6.4,
-      "ma200": 4102.75,
-      "pctFrom200": 12.7
+      "ma50": 4939.67,
+      "pctFrom50": -6.66,
+      "ma200": 4102.68,
+      "pctFrom200": 12.38
     },
     "dx": {
       "value": 120.89,
@@ -114,10 +114,10 @@
     }
   },
   "fearGreed": {
-    "score": 13.25,
+    "score": 13.4123376623377,
     "rating": "extreme fear",
-    "timestamp": "2026-03-31T12:00:01+00:00",
-    "date": "2026-03-31T12:00:01+00:00",
+    "timestamp": "2026-03-31T13:05:01+00:00",
+    "date": "2026-03-31T13:05:01+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -166,6 +166,8 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
+      "market.ks: HTTP 500: Internal Server Error",
+      "market.dx: HTTP 500: Internal Server Error",
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
@@ -291,10 +293,12 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-03-31T12:17:27+00:00",
+      "updatedAt": "2026-03-31T13:23:06+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
+        "market.ks: HTTP 500: Internal Server Error",
+        "market.dx: HTTP 500: Internal Server Error",
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
