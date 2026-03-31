@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-31T10:54:10+00:00",
+  "updatedAt": "2026-03-31T11:28:52+00:00",
   "market": {
     "sp": {
       "value": 6343.72,
@@ -23,12 +23,12 @@
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4574.1,
+      "value": 4596.5,
       "date": "2026-03-31",
-      "ma50": 4938.93,
-      "pctFrom50": -7.39,
-      "ma200": 4102.5,
-      "pctFrom200": 11.5
+      "ma50": 4939.38,
+      "pctFrom50": -6.94,
+      "ma200": 4102.61,
+      "pctFrom200": 12.04
     },
     "dx": {
       "value": 120.89,
@@ -114,10 +114,10 @@
     }
   },
   "fearGreed": {
-    "score": 12.8441558441558,
+    "score": 13.0064935064935,
     "rating": "extreme fear",
-    "timestamp": "2026-03-31T10:34:46+00:00",
-    "date": "2026-03-31T10:34:46+00:00",
+    "timestamp": "2026-03-31T11:10:01+00:00",
+    "date": "2026-03-31T11:10:01+00:00",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -291,7 +291,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-03-31T10:54:10+00:00",
+      "updatedAt": "2026-03-31T11:28:52+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
