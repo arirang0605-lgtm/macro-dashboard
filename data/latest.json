@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-03-31T12:16:53+00:00",
+  "updatedAt": "2026-03-31T12:17:27+00:00",
   "market": {
     "sp": {
       "value": 6343.72,
@@ -23,12 +23,12 @@
       "date": "2026-02-01"
     },
     "go": {
-      "value": 4617.9,
+      "value": 4624.0,
       "date": "2026-03-31",
-      "ma50": 4939.81,
-      "pctFrom50": -6.52,
-      "ma200": 4102.72,
-      "pctFrom200": 12.56
+      "ma50": 4939.93,
+      "pctFrom50": -6.4,
+      "ma200": 4102.75,
+      "pctFrom200": 12.7
     },
     "dx": {
       "value": 120.89,
@@ -165,7 +165,9 @@
     "source": "scripts/update_data_api.py",
     "fredMode": "official_api",
     "trustedPrev": true,
-    "errors": []
+    "errors": [
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+    ]
   },
   "engine": {
     "credit": {
@@ -289,10 +291,12 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-03-31T12:16:53+00:00",
+      "updatedAt": "2026-03-31T12:17:27+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
-      "fetch_errors": [],
+      "fetch_errors": [
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      ],
       "stale_policy": "exclude_and_reweight"
     },
     "axis_freshness": {
