@@ -739,6 +739,39 @@ function setMainCardSupportWarning(seasonId, level){
   node.style.display = msg ? '' : 'none';
 }
 
+function getMainCardSupportWarning(seasonId, level){
+  if(seasonId === 'summer' && level >= 3){
+    return '보조 경고: 확장 후반이지만 과열·취약 신호를 함께 점검';
+  }
+  if(seasonId === 'fall' && level >= 3){
+    return '보조 경고: 과열·취약 국면으로 겨울 전환 가능성 점검';
+  }
+  if(seasonId === 'winter' && level >= 3){
+    return '보조 경고: 방어 우선 해석 유지';
+  }
+  return '';
+}
+
+function setMainCardSupportWarning(seasonId, level){
+  const subtitle = el('sd');
+  if(!subtitle) return;
+
+  let node = document.getElementById('sd_warn');
+  if(!node){
+    node = document.createElement('div');
+    node.id = 'sd_warn';
+    node.style.marginTop = '6px';
+    node.style.fontSize = '12px';
+    node.style.lineHeight = '1.45';
+    node.style.color = '#FF8C00';
+    subtitle.insertAdjacentElement('afterend', node);
+  }
+
+  const msg = getMainCardSupportWarning(seasonId, level);
+  node.textContent = msg;
+  node.style.display = msg ? '' : 'none';
+}
+
 
 function calcAndRenderRisk(payload){
   const heats = renderCore(payload);
@@ -834,7 +867,7 @@ function calcAndRenderRisk(payload){
   if(el('ht')) el('ht').style.left = (heat===null?20:Math.max(2,Math.min(98,heat))) + '%';
   if(el('wp')) el('wp').style.transform = 'rotate(' + season.deg + 'deg)';
   setText('sn', season.emoji + ' ' + season.name, season.color);
-  setText('sd', getMainCardSubtitle(season.id, level), '');
+  setText('sd', getMainCardSubtitle(season.id, level), '');\n  setMainCardSupportWarning(season.id, level);
   setMainCardSupportWarning(season.id, level);
   const badge = el('sb'); if(badge){ badge.className = 'clb cl' + level; badge.textContent = getMainCardBadge(season.id, level); }
   [1,2,3,4].forEach(i=>{ const n=el('c'+i); if(n) n.style.opacity = i===level ? '1' : '0.22'; });
