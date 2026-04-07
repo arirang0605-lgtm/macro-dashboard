@@ -56,6 +56,22 @@ def log(*args):
 def now_iso():
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
+def today_utc_date():
+    return now_iso()[:10]
+
+def stamp_checked_date(node, checked_date):
+    if isinstance(node, dict):
+        if "date" in node and isinstance(node.get("date"), str):
+            if node.get("date") and not node.get("sourceDate"):
+                node["sourceDate"] = node["date"]
+            node["date"] = checked_date
+        for v in node.values():
+            stamp_checked_date(v, checked_date)
+    elif isinstance(node, list):
+        for item in node:
+            stamp_checked_date(item, checked_date)
+
+
 def safe_float(x):
     try:
         return float(x)
@@ -1061,6 +1077,16 @@ def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     log("데이터 생성 시작")
     payload = build_payload()
+
+    checked_date = today_utc_date()
+    stamp_checked_date(payload.get("market", {}), checked_date)
+    stamp_checked_date(payload.get("core", {}), checked_date)
+
+    if isinstance(payload.get("fearGreed"), dict):
+        fg = payload["fearGreed"]
+        if fg.get("date") and not fg.get("sourceDate"):
+            fg["sourceDate"] = fg["date"]
+        fg["date"] = checked_date
 
     LATEST_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2))
     update_history_from_payload(payload)
