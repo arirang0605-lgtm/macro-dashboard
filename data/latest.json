@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-07T12:29:00+00:00",
+  "updatedAt": "2026-04-07T12:41:09+00:00",
   "market": {
     "sp": {
       "value": 6611.83,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-02-01"
     },
     "go": {
-      "value": 4687.9,
+      "value": 4691.4,
       "date": "2026-04-07",
-      "ma50": 4926.46,
-      "pctFrom50": -4.84,
-      "ma200": 4129.06,
-      "pctFrom200": 13.53,
+      "ma50": 4926.53,
+      "pctFrom50": -4.77,
+      "ma200": 4129.08,
+      "pctFrom200": 13.62,
       "sourceDate": "2026-04-07"
     },
     "dx": {
@@ -139,7 +139,7 @@
   "fearGreed": {
     "score": 23.3142857142857,
     "rating": "extreme fear",
-    "timestamp": "2026-04-07T12:10:31+00:00",
+    "timestamp": "2026-04-07T12:25:31+00:00",
     "date": "2026-04-07",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-04-07T12:10:31+00:00"
+    "sourceDate": "2026-04-07T12:25:31+00:00"
   },
   "minsky": {
     "phase": "이익실현",
@@ -188,7 +188,9 @@
     "source": "scripts/update_data_api.py",
     "fredMode": "official_api",
     "trustedPrev": true,
-    "errors": []
+    "errors": [
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+    ]
   },
   "engine": {
     "credit": {
@@ -222,7 +224,7 @@
       "stamp": "2026-04-07",
       "axis_freshness": "fresh",
       "excluded_series": [],
-      "effective_final": 0.7849999999999999,
+      "effective_final": 0.7549999999999999,
       "persistence": {
         "status": "same_stamp_hold",
         "direction": "flat",
@@ -242,7 +244,7 @@
       "lei_level": 0.6,
       "lei_trend": 0.65,
       "lei_final": 0.615,
-      "raw_final": 0.6933333333333334,
+      "raw_final": 0.6933333333333332,
       "stamp": "2026-04-07",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -262,7 +264,7 @@
       "stamp": "2026-04-07",
       "axis_freshness": "fresh",
       "excluded_series": [],
-      "effective_final": 0.55,
+      "effective_final": 0.65,
       "persistence": {
         "status": "same_stamp_hold",
         "direction": "flat",
@@ -271,7 +273,7 @@
       }
     },
     "raw_macro_score": 0.7178333333333333,
-    "macro_score": 0.6895,
+    "macro_score": 0.6955,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
     "base_season": "여름 (Expansion)",
@@ -282,7 +284,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": 0.02833333333333332,
+    "stage_delta": 0.022333333333333316,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -292,11 +294,13 @@
       "vix_36m_avg": 18.35
     },
     "data_freshness": {
-      "overall": "fresh",
-      "updatedAt": "2026-04-07T12:29:00+00:00",
+      "overall": "mixed",
+      "updatedAt": "2026-04-07T12:41:09+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
-      "fetch_errors": [],
+      "fetch_errors": [
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      ],
       "stale_policy": "exclude_and_reweight"
     },
     "axis_freshness": {
