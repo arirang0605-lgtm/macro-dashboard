@@ -778,7 +778,7 @@ def build_payload():
         ),
         "nd": fetch_or_prev(
             "market.nd",
-            lambda: transform_trend(load_yfinance_history("^IXIC")),
+            lambda: transform_trend(load_yfinance_history("^NDX")),
             ("market", "nd"),
             {"value": None, "date": None, "ma50": None, "pctFrom50": None, "ma200": None, "pctFrom200": None},
         ),
