@@ -1,0 +1,23 @@
+{
+  "updatedAt": "2026-04-09T10:34:10Z",
+  "market": {
+    "sp": null,
+    "nd": null,
+    "go": null,
+    "dx": null,
+    "vx": null
+  },
+  "fearGreed": null,
+  "core": {
+    "pmi": null,
+    "yc": null,
+    "m2": null,
+    "buffett": null,
+    "jolts": null,
+    "michigan": null,
+    "lei": null,
+    "sahm": null,
+    "servicesPmi": null,
+    "bbb": null
+  }
+}
