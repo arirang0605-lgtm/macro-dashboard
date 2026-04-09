@@ -1,0 +1,80 @@
+name: 매일 데이터 자동 업데이트
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 데이터 fetch & latest.json 생성
+        env:
+          FRED_KEY: 863f05c54562bd51ede9b3040a7c57d0
+          FMP_KEY: fVa3nYaaMvUzNqPoM2j6ZgciTBNABY55
+        run: |
+          python3 << 'PYEOF'
+          import urllib.request, json, datetime, os
+          FRED_KEY = os.environ['FRED_KEY']
+          FMP_KEY  = os.environ['FMP_KEY']
+          def fred_val(sid, transform=None, limit=20):
+              url = (f'https://api.stlouisfed.org/fred/series/observations'
+                     f'?series_id={sid}&api_key={FRED_KEY}'
+                     f'&sort_order=desc&limit={limit}&file_type=json')
+              with urllib.request.urlopen(url, timeout=15) as r:
+                  d = json.loads(r.read())
+              obs = [o for o in d['observations'] if o['value'] != '.']
+              if not obs: return None, None
+              last = float(obs[0]['value']); date = obs[0]['date']
+              if transform == 'yoy' and len(obs) >= 13:
+                  ago = float(obs[12]['value']); val = round((last-ago)/ago*100,2)
+              elif transform == 'mom' and len(obs) >= 2:
+                  prev = float(obs[1]['value']); val = round((last-prev)/prev*100,2)
+              elif transform == 'div1000':
+                  val = round(last/1000,2)
+              else:
+                  val = last
+              return val, date
+          def fmp(syms):
+              url = f'https://financialmodelingprep.com/api/v3/quote/{syms}?apikey={FMP_KEY}'
+              with urllib.request.urlopen(url, timeout=15) as r:
+                  return {q['symbol']: q for q in json.loads(r.read())}
+          def safe(sid, tr=None, lim=20):
+              try:
+                  v,d = fred_val(sid,tr,lim)
+                  return {'value':v,'date':d}
+              except Exception as e:
+                  print(f'FRED {sid}:',e); return None
+          now = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+          try:
+              mkt = fmp('%5EGSPC,%5ENDX,GC%3DF,DX-Y.NYB,%5EVIX')
+          except Exception as e:
+              print('FMP:',e); mkt={}
+          def mi(sym):
+              q=mkt.get(sym)
+              return {'value':q['price'],'change':q['changesPercentage'],'date':now[:10]} if q else None
+          payload = {
+              'updatedAt': now,
+              'market': {'sp':mi('^GSPC'),'nd':mi('^NDX'),'go':mi('GC=F'),'dx':mi('DX-Y.NYB'),'vx':mi('^VIX')},
+              'fearGreed': None,
+              'core': {
+                  'pmi':safe('NAPMPMI'),'yc':safe('T10Y2Y'),'m2':safe('M2SL','yoy',20),
+                  'buffett':safe('DDDM01USA156NWDB'),'jolts':safe('JTSJOL','div1000'),
+                  'michigan':safe('UMCSENT'),'lei':safe('USSLIND','mom'),
+                  'sahm':safe('SAHMREALTIME'),'servicesPmi':safe('NMFCI'),'bbb':safe('BAMLH0A0HYM2'),
+              }
+          }
+          os.makedirs('data',exist_ok=True)
+          with open('data/latest.json','w') as f:
+              json.dump(payload,f,indent=2,ensure_ascii=False)
+          print('완료:',now)
+          PYEOF
+      - name: Git commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/latest.json
+          git diff --staged --quiet || git commit -m "auto: 데이터 업데이트 $(date -u +%Y-%m-%d)"
+          git push
