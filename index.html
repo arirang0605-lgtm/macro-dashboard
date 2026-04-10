@@ -228,7 +228,14 @@ const MARKET = {
 };
 
 function loadSettings(){
-  try{ state.cache = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') || {}; }catch(e){ state.cache = {}; }
+  try{
+    var raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') || {};
+    if(raw.updatedAt){
+      var age = Date.now() - new Date(raw.updatedAt).getTime();
+      if(age > 23 * 60 * 60 * 1000){ raw = {}; localStorage.removeItem(STORAGE_KEY); }
+    }
+    state.cache = raw;
+  }catch(e){ state.cache = {}; }
   try{ state.proxyUrl = localStorage.getItem(STORAGE_PROXY) || ''; }catch(e){ state.proxyUrl = ''; }
 }
 function saveCache(payload){ state.cache = payload; try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); }catch(e){} }
