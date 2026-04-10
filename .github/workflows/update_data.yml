@@ -2,7 +2,7 @@ name: 매일 데이터 자동 업데이트
 
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '30 21 * * 1-5'
   workflow_dispatch:
 
 jobs:
@@ -10,15 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: yfinance 설치
+        run: pip install yfinance
+
       - name: 데이터 fetch & latest.json 생성
         env:
           FRED_KEY: 863f05c54562bd51ede9b3040a7c57d0
-          FMP_KEY: fVa3nYaaMvUzNqPoM2j6ZgciTBNABY55
         run: |
           python3 << 'PYEOF'
           import urllib.request, json, datetime, os
+          import yfinance as yf
+
           FRED_KEY = os.environ['FRED_KEY']
-          FMP_KEY  = os.environ['FMP_KEY']
+
           def fred_val(sid, transform=None, limit=20):
               url = (f'https://api.stlouisfed.org/fred/series/observations'
                      f'?series_id={sid}&api_key={FRED_KEY}'
@@ -29,48 +34,79 @@ jobs:
               if not obs: return None, None
               last = float(obs[0]['value']); date = obs[0]['date']
               if transform == 'yoy' and len(obs) >= 13:
-                  ago = float(obs[12]['value']); val = round((last-ago)/ago*100,2)
+                  ago = float(obs[12]['value'])
+                  val = round((last-ago)/ago*100, 2)
               elif transform == 'mom' and len(obs) >= 2:
-                  prev = float(obs[1]['value']); val = round((last-prev)/prev*100,2)
+                  prev = float(obs[1]['value'])
+                  val = round((last-prev)/prev*100, 2)
               elif transform == 'div1000':
-                  val = round(last/1000,2)
+                  val = round(last/1000, 2)
               else:
                   val = last
               return val, date
-          def fmp(syms):
-              url = f'https://financialmodelingprep.com/api/v3/quote/{syms}?apikey={FMP_KEY}'
-              with urllib.request.urlopen(url, timeout=15) as r:
-                  return {q['symbol']: q for q in json.loads(r.read())}
+
           def safe(sid, tr=None, lim=20):
               try:
-                  v,d = fred_val(sid,tr,lim)
-                  return {'value':v,'date':d}
+                  v, d = fred_val(sid, tr, lim)
+                  return {'value': v, 'date': d}
               except Exception as e:
-                  print(f'FRED {sid}:',e); return None
+                  print(f'FRED {sid}:', e)
+                  return None
+
+          def get_market():
+              syms = {
+                  'sp':  '^GSPC',
+                  'nd':  '^NDX',
+                  'go':  'GC=F',
+                  'dx':  'DX-Y.NYB',
+                  'vx':  '^VIX'
+              }
+              result = {}
+              for key, sym in syms.items():
+                  try:
+                      t = yf.Ticker(sym)
+                      h = t.history(period='2d')
+                      if not h.empty:
+                          price = float(h['Close'].iloc[-1])
+                          prev  = float(h['Close'].iloc[-2]) if len(h)>1 else price
+                          chg   = round((price-prev)/prev*100, 2)
+                          date  = str(h.index[-1].date())
+                          result[key] = {'value': round(price,2), 'change': chg, 'date': date}
+                      else:
+                          result[key] = None
+                  except Exception as e:
+                      print(f'yfinance {sym}:', e)
+                      result[key] = None
+              return result
+
           now = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
-          try:
-              mkt = fmp('%5EGSPC,%5ENDX,GC%3DF,DX-Y.NYB,%5EVIX')
-          except Exception as e:
-              print('FMP:',e); mkt={}
-          def mi(sym):
-              q=mkt.get(sym)
-              return {'value':q['price'],'change':q['changesPercentage'],'date':now[:10]} if q else None
+
           payload = {
               'updatedAt': now,
-              'market': {'sp':mi('^GSPC'),'nd':mi('^NDX'),'go':mi('GC=F'),'dx':mi('DX-Y.NYB'),'vx':mi('^VIX')},
+              'market': get_market(),
               'fearGreed': None,
               'core': {
-                  'pmi':safe('NAPMPMI'),'yc':safe('T10Y2Y'),'m2':safe('M2SL','yoy',20),
-                  'buffett':safe('DDDM01USA156NWDB'),'jolts':safe('JTSJOL','div1000'),
-                  'michigan':safe('UMCSENT'),'lei':safe('USSLIND','mom'),
-                  'sahm':safe('SAHMREALTIME'),'servicesPmi':safe('NMFCI'),'bbb':safe('BAMLH0A0HYM2'),
+                  'pmi':        safe('NAPMPMI'),
+                  'yc':         safe('T10Y2Y'),
+                  'm2':         safe('M2SL', 'yoy', 20),
+                  'buffett':    safe('DDDM01USA156NWDB'),
+                  'jolts':      safe('JTSJOL', 'div1000'),
+                  'michigan':   safe('UMCSENT'),
+                  'lei':        safe('USSLIND', 'mom'),
+                  'sahm':       safe('SAHMREALTIME'),
+                  'servicesPmi':safe('NMFCI'),
+                  'bbb':        safe('BAMLH0A0HYM2'),
               }
           }
-          os.makedirs('data',exist_ok=True)
-          with open('data/latest.json','w') as f:
-              json.dump(payload,f,indent=2,ensure_ascii=False)
-          print('완료:',now)
+
+          os.makedirs('data', exist_ok=True)
+          with open('data/latest.json', 'w') as f:
+              json.dump(payload, f, indent=2, ensure_ascii=False)
+
+          print('완료:', now)
+          print('S&P500:', payload['market'].get('sp'))
           PYEOF
+
       - name: Git commit & push
         run: |
           git config user.name "github-actions[bot]"
