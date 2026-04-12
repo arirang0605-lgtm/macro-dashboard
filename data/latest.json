@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-12T03:47:22+00:00",
+  "updatedAt": "2026-04-12T07:45:23+00:00",
   "market": {
     "sp": {
       "value": 6816.89,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-02-01"
     },
     "go": {
-      "value": 4761.9,
+      "value": 4787.4,
       "date": "2026-04-12",
-      "ma50": 4902.7,
-      "pctFrom50": -2.87,
-      "ma200": 4150.31,
-      "pctFrom200": 14.74,
+      "ma50": 4903.21,
+      "pctFrom50": -2.36,
+      "ma200": 4150.44,
+      "pctFrom200": 15.35,
       "sourceDate": "2026-04-10"
     },
     "dx": {
@@ -206,7 +206,7 @@
       "excluded_series": [],
       "effective_final": 0.825,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -226,10 +226,10 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "confirmed_apply",
-        "direction": "deteriorate",
-        "required": 2,
-        "pending_count": 2
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
+        "pending_count": 0
       }
     },
     "leading": {
@@ -251,9 +251,9 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.58,
       "persistence": {
-        "status": "hold_waiting_confirmation",
-        "direction": "recover",
-        "required": 5,
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
         "pending_count": 4
       }
     },
@@ -266,7 +266,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-12T03:47:22+00:00",
+      "updatedAt": "2026-04-12T07:45:23+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
