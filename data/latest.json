@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-14T08:04:47+00:00",
+  "updatedAt": "2026-04-14T14:14:24+00:00",
   "market": {
     "sp": {
-      "value": 6886.24,
+      "value": 6931.72,
       "date": "2026-04-14",
-      "ma50": 6760.32,
-      "pctFrom50": 1.86,
-      "ma200": 6666.59,
-      "pctFrom200": 3.29,
-      "sourceDate": "2026-04-13"
+      "ma50": 6760.17,
+      "pctFrom50": 2.54,
+      "ma200": 6670.54,
+      "pctFrom200": 3.92,
+      "sourceDate": "2026-04-14"
     },
     "nd": {
-      "value": 25383.72,
+      "value": 25607.89,
       "date": "2026-04-14",
-      "ma50": 24673.65,
-      "pctFrom50": 2.88,
-      "ma200": 24535.4,
-      "pctFrom200": 3.46,
-      "sourceDate": "2026-04-13"
+      "ma50": 24674.76,
+      "pctFrom50": 3.78,
+      "ma200": 24551.21,
+      "pctFrom200": 4.3,
+      "sourceDate": "2026-04-14"
     },
     "ks": {
       "value": 16.42,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-02-01"
     },
     "go": {
-      "value": 4797.2,
+      "value": 4819.7,
       "date": "2026-04-14",
-      "ma50": 4892.84,
-      "pctFrom50": -1.95,
-      "ma200": 4164.98,
-      "pctFrom200": 15.18,
+      "ma50": 4893.29,
+      "pctFrom50": -1.5,
+      "ma200": 4165.09,
+      "pctFrom200": 15.72,
       "sourceDate": "2026-04-14"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 42.4857142857143,
-    "rating": "fear",
-    "timestamp": "2026-04-14T07:44:46+00:00",
+    "score": 45.6571428571429,
+    "rating": "neutral",
+    "timestamp": "2026-04-14T14:09:28+00:00",
     "date": "2026-04-14",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-04-14T07:44:46+00:00"
+    "sourceDate": "2026-04-14T14:09:28+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-14T08:04:47+00:00",
+      "updatedAt": "2026-04-14T14:14:24+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
