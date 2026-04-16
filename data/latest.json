@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-16T14:15:30+00:00",
+  "updatedAt": "2026-04-16T19:38:19+00:00",
   "market": {
     "sp": {
-      "value": 7021.28,
+      "value": 7035.93,
       "date": "2026-04-16",
-      "ma50": 6763.88,
-      "pctFrom50": 3.81,
-      "ma200": 6679.05,
-      "pctFrom200": 5.12,
+      "ma50": 6764.18,
+      "pctFrom50": 4.02,
+      "ma200": 6679.13,
+      "pctFrom200": 5.34,
       "sourceDate": "2026-04-16"
     },
     "nd": {
-      "value": 26202.1,
+      "value": 26304.65,
       "date": "2026-04-16",
-      "ma50": 24706.03,
-      "pctFrom50": 6.06,
-      "ma200": 24588.34,
-      "pctFrom200": 6.56,
+      "ma50": 24708.08,
+      "pctFrom50": 6.46,
+      "ma200": 24588.86,
+      "pctFrom200": 6.98,
       "sourceDate": "2026-04-16"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4810.1,
+      "value": 4812.4,
       "date": "2026-04-16",
-      "ma50": 4895.08,
-      "pctFrom50": -1.74,
-      "ma200": 4180.01,
-      "pctFrom200": 15.07,
+      "ma50": 4895.12,
+      "pctFrom50": -1.69,
+      "ma200": 4180.02,
+      "pctFrom200": 15.13,
       "sourceDate": "2026-04-16"
     },
     "dx": {
@@ -131,15 +131,15 @@
       "sourceDate": "2026-04-15"
     },
     "bbbSpread": {
-      "value": 1.02,
+      "value": 1.01,
       "date": "2026-04-16",
-      "sourceDate": "2026-04-14"
+      "sourceDate": "2026-04-15"
     }
   },
   "fearGreed": {
-    "score": 60.4285714285714,
+    "score": 61.5714285714286,
     "rating": "greed",
-    "timestamp": "2026-04-16T14:13:58+00:00",
+    "timestamp": "2026-04-16T19:34:34+00:00",
     "date": "2026-04-16",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-04-16T14:13:58+00:00"
+    "sourceDate": "2026-04-16T19:34:34+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -189,14 +189,7 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "market.ks: HTTP 500: Internal Server Error",
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-      "core.jolts: HTTP 500: Internal Server Error",
-      "core.marginDebt: HTTP 500: Internal Server Error",
-      "core.michigan: HTTP 500: Internal Server Error",
-      "core.dgs10: HTTP 500: Internal Server Error",
-      "core.dgs2: HTTP 500: Internal Server Error",
-      "core.bbbSpread: HTTP 500: Internal Server Error"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
   "engine": {
@@ -302,18 +295,11 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-16T14:15:30+00:00",
+      "updatedAt": "2026-04-16T19:38:19+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "market.ks: HTTP 500: Internal Server Error",
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-        "core.jolts: HTTP 500: Internal Server Error",
-        "core.marginDebt: HTTP 500: Internal Server Error",
-        "core.michigan: HTTP 500: Internal Server Error",
-        "core.dgs10: HTTP 500: Internal Server Error",
-        "core.dgs2: HTTP 500: Internal Server Error",
-        "core.bbbSpread: HTTP 500: Internal Server Error"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
     },
