@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-18T13:36:44+00:00",
+  "updatedAt": "2026-04-18T19:10:56+00:00",
   "market": {
     "sp": {
       "value": 7126.06,
@@ -189,7 +189,8 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.icsa: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di"
     ]
   },
   "engine": {
@@ -295,11 +296,12 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-18T13:36:44+00:00",
+      "updatedAt": "2026-04-18T19:10:56+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.icsa: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di"
       ],
       "stale_policy": "exclude_and_reweight"
     },
