@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-20T14:13:58+00:00",
+  "updatedAt": "2026-04-20T19:35:18+00:00",
   "market": {
     "sp": {
-      "value": 7116.03,
+      "value": 7101.39,
       "date": "2026-04-20",
-      "ma50": 6775.5,
-      "pctFrom50": 5.03,
-      "ma200": 6688.24,
-      "pctFrom200": 6.4,
+      "ma50": 6775.21,
+      "pctFrom50": 4.81,
+      "ma200": 6688.16,
+      "pctFrom200": 6.18,
       "sourceDate": "2026-04-20"
     },
     "nd": {
-      "value": 26602.62,
+      "value": 26564.1,
       "date": "2026-04-20",
-      "ma50": 24785.35,
-      "pctFrom50": 7.33,
-      "ma200": 24629.77,
-      "pctFrom200": 8.01,
+      "ma50": 24784.58,
+      "pctFrom50": 7.18,
+      "ma200": 24629.58,
+      "pctFrom200": 7.85,
       "sourceDate": "2026-04-20"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4833.7,
+      "value": 4838.9,
       "date": "2026-04-20",
-      "ma50": 4892.77,
-      "pctFrom50": -1.21,
-      "ma200": 4194.95,
-      "pctFrom200": 15.23,
+      "ma50": 4892.88,
+      "pctFrom50": -1.1,
+      "ma200": 4194.97,
+      "pctFrom200": 15.35,
       "sourceDate": "2026-04-20"
     },
     "dx": {
@@ -126,20 +126,20 @@
       "sourceDate": "2026-04-04"
     },
     "hySpread": {
-      "value": 2.86,
+      "value": 2.83,
       "date": "2026-04-20",
-      "sourceDate": "2026-04-16"
+      "sourceDate": "2026-04-17"
     },
     "bbbSpread": {
       "value": 1.01,
       "date": "2026-04-20",
-      "sourceDate": "2026-04-16"
+      "sourceDate": "2026-04-17"
     }
   },
   "fearGreed": {
-    "score": 70.5428571428571,
+    "score": 69.4857142857143,
     "rating": "greed",
-    "timestamp": "2026-04-20T14:12:35+00:00",
+    "timestamp": "2026-04-20T19:33:16+00:00",
     "date": "2026-04-20",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,19 +150,18 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-04-20T14:12:35+00:00"
+    "sourceDate": "2026-04-20T19:33:16+00:00"
   },
   "minsky": {
-    "phase": "투기 확대",
+    "phase": "과열 준비",
     "season": "여름",
-    "score": 6,
+    "score": 5,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
-      "탐욕 우세",
       "금 강세"
     ]
   },
@@ -190,7 +189,8 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.fedfunds: HTTP 500: Internal Server Error"
     ]
   },
   "engine": {
@@ -296,11 +296,12 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-20T14:13:58+00:00",
+      "updatedAt": "2026-04-20T19:35:18+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.fedfunds: HTTP 500: Internal Server Error"
       ],
       "stale_policy": "exclude_and_reweight"
     },
