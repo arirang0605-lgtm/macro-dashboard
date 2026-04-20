@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-20T08:28:39+00:00",
+  "updatedAt": "2026-04-20T14:13:58+00:00",
   "market": {
     "sp": {
-      "value": 7126.06,
+      "value": 7116.03,
       "date": "2026-04-20",
-      "ma50": 6769.15,
-      "pctFrom50": 5.27,
-      "ma200": 6683.79,
-      "pctFrom200": 6.62,
-      "sourceDate": "2026-04-17"
+      "ma50": 6775.5,
+      "pctFrom50": 5.03,
+      "ma200": 6688.24,
+      "pctFrom200": 6.4,
+      "sourceDate": "2026-04-20"
     },
     "nd": {
-      "value": 26672.43,
+      "value": 26602.62,
       "date": "2026-04-20",
-      "ma50": 24744.27,
-      "pctFrom50": 7.79,
-      "ma200": 24609.97,
-      "pctFrom200": 8.38,
-      "sourceDate": "2026-04-17"
+      "ma50": 24785.35,
+      "pctFrom50": 7.33,
+      "ma200": 24629.77,
+      "pctFrom200": 8.01,
+      "sourceDate": "2026-04-20"
     },
     "ks": {
       "value": -0.15,
@@ -26,13 +26,13 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4857.6,
+      "value": 4833.7,
       "date": "2026-04-20",
-      "ma50": 4893.33,
-      "pctFrom50": -0.73,
-      "ma200": 4187.43,
-      "pctFrom200": 16.0,
-      "sourceDate": "2026-04-17"
+      "ma50": 4892.77,
+      "pctFrom50": -1.21,
+      "ma200": 4194.95,
+      "pctFrom200": 15.23,
+      "sourceDate": "2026-04-20"
     },
     "dx": {
       "value": 118.86,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 68.0857142857143,
+    "score": 70.5428571428571,
     "rating": "greed",
-    "timestamp": "2026-04-20T08:12:31+00:00",
+    "timestamp": "2026-04-20T14:12:35+00:00",
     "date": "2026-04-20",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,19 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-04-20T08:12:31+00:00"
+    "sourceDate": "2026-04-20T14:12:35+00:00"
   },
   "minsky": {
-    "phase": "과열 준비",
+    "phase": "투기 확대",
     "season": "여름",
-    "score": 5,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
+      "탐욕 우세",
       "금 강세"
     ]
   },
@@ -295,7 +296,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-20T08:28:39+00:00",
+      "updatedAt": "2026-04-20T14:13:58+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
