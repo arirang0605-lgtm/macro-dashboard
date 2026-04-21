@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-21T14:09:44+00:00",
+  "updatedAt": "2026-04-21T19:38:22+00:00",
   "market": {
     "sp": {
-      "value": 7135.68,
+      "value": 7088.63,
       "date": "2026-04-21",
-      "ma50": 6779.43,
-      "pctFrom50": 5.25,
-      "ma200": 6692.48,
-      "pctFrom200": 6.62,
+      "ma50": 6778.49,
+      "pctFrom50": 4.58,
+      "ma200": 6692.25,
+      "pctFrom200": 5.92,
       "sourceDate": "2026-04-21"
     },
     "nd": {
-      "value": 26713.12,
+      "value": 26581.37,
       "date": "2026-04-21",
-      "ma50": 24817.85,
-      "pctFrom50": 7.64,
-      "ma200": 24648.94,
-      "pctFrom200": 8.37,
+      "ma50": 24815.22,
+      "pctFrom50": 7.12,
+      "ma200": 24648.28,
+      "pctFrom200": 7.84,
       "sourceDate": "2026-04-21"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4796.9,
+      "value": 4731.0,
       "date": "2026-04-21",
-      "ma50": 4889.14,
-      "pctFrom50": -1.89,
-      "ma200": 4202.13,
-      "pctFrom200": 14.15,
+      "ma50": 4887.83,
+      "pctFrom50": -3.21,
+      "ma200": 4201.8,
+      "pctFrom200": 12.59,
       "sourceDate": "2026-04-21"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 71.4571428571429,
+    "score": 68.7142857142857,
     "rating": "greed",
-    "timestamp": "2026-04-21T14:04:48+00:00",
+    "timestamp": "2026-04-21T19:34:32+00:00",
     "date": "2026-04-21",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,19 +150,18 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-04-21T14:04:48+00:00"
+    "sourceDate": "2026-04-21T19:34:32+00:00"
   },
   "minsky": {
-    "phase": "투기 확대",
+    "phase": "과열 준비",
     "season": "여름",
-    "score": 6,
+    "score": 5,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
-      "탐욕 우세",
       "금 강세"
     ]
   },
@@ -190,6 +189,7 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
+      "market.dx: HTTP 500: Internal Server Error",
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
@@ -296,10 +296,11 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-21T14:09:44+00:00",
+      "updatedAt": "2026-04-21T19:38:22+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
+        "market.dx: HTTP 500: Internal Server Error",
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
