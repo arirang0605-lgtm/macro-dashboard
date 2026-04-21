@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-21T03:46:42+00:00",
+  "updatedAt": "2026-04-21T08:09:13+00:00",
   "market": {
     "sp": {
       "value": 7109.14,
@@ -26,13 +26,13 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4816.3,
+      "value": 4803.5,
       "date": "2026-04-21",
-      "ma50": 4892.42,
-      "pctFrom50": -1.56,
-      "ma200": 4194.86,
-      "pctFrom200": 14.81,
-      "sourceDate": "2026-04-20"
+      "ma50": 4889.28,
+      "pctFrom50": -1.75,
+      "ma200": 4202.16,
+      "pctFrom200": 14.31,
+      "sourceDate": "2026-04-21"
     },
     "dx": {
       "value": 118.08,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 69.9428571428572,
+    "score": 70.9142857142857,
     "rating": "greed",
-    "timestamp": "2026-04-20T23:59:48+00:00",
+    "timestamp": "2026-04-21T07:49:31+00:00",
     "date": "2026-04-21",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,19 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-04-20T23:59:48+00:00"
+    "sourceDate": "2026-04-21T07:49:31+00:00"
   },
   "minsky": {
-    "phase": "과열 준비",
+    "phase": "투기 확대",
     "season": "여름",
-    "score": 5,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
+      "탐욕 우세",
       "금 강세"
     ]
   },
@@ -206,8 +207,8 @@
       "excluded_series": [],
       "effective_final": 0.8025,
       "persistence": {
-        "status": "immediate_apply",
-        "direction": "deteriorate",
+        "status": "same_stamp_hold",
+        "direction": "flat",
         "required": 0,
         "pending_count": 0
       }
@@ -226,7 +227,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -251,7 +252,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.6633333333333332,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -266,7 +267,7 @@
       "excluded_series": [],
       "effective_final": 0.65,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -295,7 +296,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-21T03:46:42+00:00",
+      "updatedAt": "2026-04-21T08:09:13+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
