@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-23T03:48:19+00:00",
+  "updatedAt": "2026-04-23T08:11:48+00:00",
   "market": {
     "sp": {
       "value": 7137.9,
@@ -26,13 +26,13 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4719.2,
+      "value": 4739.8,
       "date": "2026-04-23",
-      "ma50": 4880.54,
-      "pctFrom50": -3.31,
-      "ma200": 4208.57,
-      "pctFrom200": 12.13,
-      "sourceDate": "2026-04-22"
+      "ma50": 4875.53,
+      "pctFrom50": -2.78,
+      "ma200": 4215.8,
+      "pctFrom200": 12.43,
+      "sourceDate": "2026-04-23"
     },
     "dx": {
       "value": 118.08,
@@ -44,9 +44,9 @@
       "sourceDate": "2026-04-17"
     },
     "vx": {
-      "value": 19.5,
+      "value": 18.92,
       "date": "2026-04-23",
-      "sourceDate": "2026-04-21"
+      "sourceDate": "2026-04-22"
     }
   },
   "core": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 68.1428571428572,
+    "score": 68.5428571428571,
     "rating": "greed",
-    "timestamp": "2026-04-22T23:59:47+00:00",
+    "timestamp": "2026-04-23T07:52:01+00:00",
     "date": "2026-04-23",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-04-22T23:59:47+00:00"
+    "sourceDate": "2026-04-23T07:52:01+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -189,7 +189,6 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "market.vx: Cboe VIX CSV 실패: The read operation timed out",
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
@@ -207,8 +206,8 @@
       "excluded_series": [],
       "effective_final": 0.7575000000000001,
       "persistence": {
-        "status": "immediate_apply",
-        "direction": "deteriorate",
+        "status": "same_stamp_hold",
+        "direction": "flat",
         "required": 0,
         "pending_count": 0
       }
@@ -227,7 +226,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -252,7 +251,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.6633333333333332,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -267,7 +266,7 @@
       "excluded_series": [],
       "effective_final": 0.65,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -292,15 +291,14 @@
       "fragility": 0.5,
       "risk": 0.8,
       "hy_spread_36m_low": 2.68,
-      "vix_36m_avg": 19.66
+      "vix_36m_avg": 19.64
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-23T03:48:19+00:00",
+      "updatedAt": "2026-04-23T08:11:48+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "market.vx: Cboe VIX CSV 실패: The read operation timed out",
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
