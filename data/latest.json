@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-23T14:13:15+00:00",
+  "updatedAt": "2026-04-23T19:41:54+00:00",
   "market": {
     "sp": {
-      "value": 7124.27,
+      "value": 7102.56,
       "date": "2026-04-23",
-      "ma50": 6785.11,
-      "pctFrom50": 5.0,
-      "ma200": 6701.16,
-      "pctFrom200": 6.31,
+      "ma50": 6784.68,
+      "pctFrom50": 4.69,
+      "ma200": 6701.05,
+      "pctFrom200": 5.99,
       "sourceDate": "2026-04-23"
     },
     "nd": {
-      "value": 26843.9,
+      "value": 26741.16,
       "date": "2026-04-23",
-      "ma50": 24880.89,
-      "pctFrom50": 7.89,
-      "ma200": 24689.74,
-      "pctFrom200": 8.72,
+      "ma50": 24878.83,
+      "pctFrom50": 7.49,
+      "ma200": 24689.23,
+      "pctFrom200": 8.31,
       "sourceDate": "2026-04-23"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4735.5,
+      "value": 4716.4,
       "date": "2026-04-23",
-      "ma50": 4875.44,
-      "pctFrom50": -2.87,
-      "ma200": 4215.78,
-      "pctFrom200": 12.33,
+      "ma50": 4875.06,
+      "pctFrom50": -3.25,
+      "ma200": 4215.69,
+      "pctFrom200": 11.88,
       "sourceDate": "2026-04-23"
     },
     "dx": {
@@ -121,25 +121,25 @@
       "sourceDate": "2026-04-18"
     },
     "continuingClaims": {
-      "value": 1818000.0,
+      "value": 1821000.0,
       "date": "2026-04-23",
-      "sourceDate": "2026-04-04"
+      "sourceDate": "2026-04-11"
     },
     "hySpread": {
-      "value": 2.85,
+      "value": 2.84,
       "date": "2026-04-23",
-      "sourceDate": "2026-04-21"
+      "sourceDate": "2026-04-22"
     },
     "bbbSpread": {
-      "value": 1.0,
+      "value": 0.99,
       "date": "2026-04-23",
-      "sourceDate": "2026-04-21"
+      "sourceDate": "2026-04-22"
     }
   },
   "fearGreed": {
-    "score": 69.0857142857143,
+    "score": 66.2571428571429,
     "rating": "greed",
-    "timestamp": "2026-04-23T14:12:14+00:00",
+    "timestamp": "2026-04-23T19:38:05+00:00",
     "date": "2026-04-23",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-04-23T14:12:14+00:00"
+    "sourceDate": "2026-04-23T19:38:05+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -189,10 +189,7 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-      "core.continuingClaims: HTTP 500: Internal Server Error",
-      "core.hySpread: HTTP 500: Internal Server Error",
-      "core.bbbSpread: HTTP 500: Internal Server Error"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
   "engine": {
@@ -220,10 +217,10 @@
       "icsa_trend": 0.35,
       "icsa_final": 0.6649999999999999,
       "continuing_claims_level": 0.8,
-      "continuing_claims_trend": 0.5,
-      "continuing_claims_final": 0.71,
+      "continuing_claims_trend": 0.35,
+      "continuing_claims_final": 0.6649999999999999,
       "sahm_level": 0.8,
-      "raw_final": 0.7249999999999999,
+      "raw_final": 0.71,
       "stamp": "2026-04-23",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -275,7 +272,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.7080833333333333,
+    "raw_macro_score": 0.7035833333333333,
     "macro_score": 0.7125833333333333,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -287,7 +284,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": -0.0045000000000000595,
+    "stage_delta": -0.009000000000000008,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -298,14 +295,11 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-23T14:13:15+00:00",
+      "updatedAt": "2026-04-23T19:41:54+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-        "core.continuingClaims: HTTP 500: Internal Server Error",
-        "core.hySpread: HTTP 500: Internal Server Error",
-        "core.bbbSpread: HTTP 500: Internal Server Error"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
     },
