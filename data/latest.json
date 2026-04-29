@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-29T04:03:49+00:00",
+  "updatedAt": "2026-04-29T08:34:24+00:00",
   "market": {
     "sp": {
       "value": 7138.8,
@@ -26,13 +26,13 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4591.5,
+      "value": 4582.0,
       "date": "2026-04-29",
-      "ma50": 4854.27,
-      "pctFrom50": -5.41,
-      "ma200": 4235.65,
-      "pctFrom200": 8.4,
-      "sourceDate": "2026-04-28"
+      "ma50": 4848.25,
+      "pctFrom50": -5.49,
+      "ma200": 4241.8,
+      "pctFrom200": 8.02,
+      "sourceDate": "2026-04-29"
     },
     "dx": {
       "value": 118.73,
@@ -96,9 +96,9 @@
       "sourceDate": "2026-04-27"
     },
     "t10y2y": {
-      "value": 0.57,
+      "value": 0.52,
       "date": "2026-04-29",
-      "sourceDate": "2026-04-27"
+      "sourceDate": "2026-04-28"
     },
     "t10y3m": {
       "value": 0.68,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 63.8,
+    "score": 63.8285714285714,
     "rating": "greed",
-    "timestamp": "2026-04-28T23:59:45+00:00",
+    "timestamp": "2026-04-29T08:14:46+00:00",
     "date": "2026-04-29",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-04-28T23:59:45+00:00"
+    "sourceDate": "2026-04-29T08:14:46+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -180,7 +180,7 @@
       "fedfunds": 3.64,
       "dgs10": 4.35,
       "dgs2": 3.78,
-      "t10y2y": 0.57,
+      "t10y2y": 0.52,
       "t10y3m": 0.68
     }
   },
@@ -189,8 +189,7 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-      "core.t10y2y: HTTP 500: Internal Server Error"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
   "engine": {
@@ -207,7 +206,7 @@
       "excluded_series": [],
       "effective_final": 0.825,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -227,7 +226,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -252,7 +251,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.6633333333333332,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -267,7 +266,7 @@
       "excluded_series": [],
       "effective_final": 0.65,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -296,12 +295,11 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-29T04:03:49+00:00",
+      "updatedAt": "2026-04-29T08:34:24+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-        "core.t10y2y: HTTP 500: Internal Server Error"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
     },
