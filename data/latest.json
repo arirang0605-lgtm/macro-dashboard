@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-04-30T08:36:29+00:00",
+  "updatedAt": "2026-04-30T14:24:48+00:00",
   "market": {
     "sp": {
-      "value": 7135.95,
+      "value": 7139.95,
       "date": "2026-04-30",
-      "ma50": 6808.0,
-      "pctFrom50": 4.82,
-      "ma200": 6718.79,
-      "pctFrom200": 6.21,
-      "sourceDate": "2026-04-29"
+      "ma50": 6813.17,
+      "pctFrom50": 4.8,
+      "ma200": 6723.27,
+      "pctFrom200": 6.2,
+      "sourceDate": "2026-04-30"
     },
     "nd": {
-      "value": 27186.98,
+      "value": 27097.97,
       "date": "2026-04-30",
-      "ma50": 25069.7,
-      "pctFrom50": 8.45,
-      "ma200": 24776.91,
-      "pctFrom200": 9.73,
-      "sourceDate": "2026-04-29"
+      "ma50": 25113.69,
+      "pctFrom50": 7.9,
+      "ma200": 24797.98,
+      "pctFrom200": 9.27,
+      "sourceDate": "2026-04-30"
     },
     "ks": {
       "value": -0.15,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4628.7,
+      "value": 4631.7,
       "date": "2026-04-30",
-      "ma50": 4840.36,
-      "pctFrom50": -4.37,
-      "ma200": 4248.12,
-      "pctFrom200": 8.96,
+      "ma50": 4840.42,
+      "pctFrom50": -4.31,
+      "ma200": 4248.13,
+      "pctFrom200": 9.03,
       "sourceDate": "2026-04-30"
     },
     "dx": {
@@ -51,9 +51,9 @@
   },
   "core": {
     "lei": {
-      "value": 0.3,
+      "value": -0.6,
       "date": "2026-04-30",
-      "sourceDate": "2026-01-01"
+      "sourceDate": "2026-03-01"
     },
     "pmi": {
       "value": 52.4,
@@ -66,9 +66,9 @@
       "sourceDate": "2026-02-01"
     },
     "buffett": {
-      "value": 232.74,
+      "value": 229.57,
       "date": "2026-04-30",
-      "sourceDate": "2025-10-01"
+      "sourceDate": "2026-01-01"
     },
     "jolts": {
       "value": 6.88,
@@ -116,30 +116,30 @@
       "sourceDate": "2026-03-01"
     },
     "icsa": {
-      "value": 214000.0,
+      "value": 189000.0,
+      "date": "2026-04-30",
+      "sourceDate": "2026-04-25"
+    },
+    "continuingClaims": {
+      "value": 1785000.0,
       "date": "2026-04-30",
       "sourceDate": "2026-04-18"
     },
-    "continuingClaims": {
-      "value": 1821000.0,
-      "date": "2026-04-30",
-      "sourceDate": "2026-04-11"
-    },
     "hySpread": {
-      "value": 2.85,
+      "value": 2.82,
       "date": "2026-04-30",
-      "sourceDate": "2026-04-28"
+      "sourceDate": "2026-04-29"
     },
     "bbbSpread": {
-      "value": 1.02,
+      "value": 1.01,
       "date": "2026-04-30",
-      "sourceDate": "2026-04-28"
+      "sourceDate": "2026-04-29"
     }
   },
   "fearGreed": {
-    "score": 63.4285714285714,
+    "score": 64.3714285714286,
     "rating": "greed",
-    "timestamp": "2026-04-30T08:20:01+00:00",
+    "timestamp": "2026-04-30T14:24:01+00:00",
     "date": "2026-04-30",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-04-30T08:20:01+00:00"
+    "sourceDate": "2026-04-30T14:24:01+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -166,10 +166,10 @@
     ]
   },
   "eggModel": {
-    "phase": "확장/과열",
-    "season": "여름",
+    "phase": "둔화 전환",
+    "season": "가을",
     "signals": [
-      "LEI 개선",
+      "LEI 약화",
       "PMI 확장",
       "고용 안정",
       "실업수당 안정",
@@ -213,13 +213,13 @@
     },
     "employment": {
       "icsa_level": 0.8,
-      "icsa_trend": 0.5,
-      "icsa_final": 0.71,
+      "icsa_trend": 0.8,
+      "icsa_final": 0.7999999999999999,
       "continuing_claims_level": 0.8,
-      "continuing_claims_trend": 0.5,
-      "continuing_claims_final": 0.71,
+      "continuing_claims_trend": 0.8,
+      "continuing_claims_final": 0.7999999999999999,
       "sahm_level": 0.8,
-      "raw_final": 0.74,
+      "raw_final": 0.7999999999999998,
       "stamp": "2026-04-30",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -240,10 +240,10 @@
       "services_pmi_final": 0.78,
       "services_pmi_missing": false,
       "leading_reliability": "full",
-      "lei_level": 0.6,
-      "lei_trend": 0.5,
-      "lei_final": 0.57,
-      "raw_final": 0.6633333333333332,
+      "lei_level": 0.2,
+      "lei_trend": 0.35,
+      "lei_final": 0.245,
+      "raw_final": 0.5549999999999999,
       "stamp": "2026-04-30",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -271,7 +271,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.7110833333333333,
+    "raw_macro_score": 0.702,
     "macro_score": 0.7110833333333333,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -283,7 +283,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": 0.0,
+    "stage_delta": -0.009083333333333332,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-04-30T08:36:29+00:00",
+      "updatedAt": "2026-04-30T14:24:48+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
