@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-02T03:52:38+00:00",
+  "updatedAt": "2026-05-02T08:00:43+00:00",
   "market": {
     "sp": {
       "value": 7230.12,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4625.6,
+      "value": 4629.9,
       "date": "2026-05-02",
-      "ma50": 4833.07,
-      "pctFrom50": -4.29,
-      "ma200": 4254.41,
-      "pctFrom200": 8.72,
+      "ma50": 4833.16,
+      "pctFrom50": -4.21,
+      "ma200": 4254.43,
+      "pctFrom200": 8.83,
       "sourceDate": "2026-05-01"
     },
     "dx": {
@@ -189,7 +189,18 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "market.ks: HTTP 500: Internal Server Error",
+      "market.dx: HTTP 500: Internal Server Error",
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.michigan: HTTP 500: Internal Server Error",
+      "core.dgs10: HTTP 500: Internal Server Error",
+      "core.dgs2: HTTP 500: Internal Server Error",
+      "core.t10y2y: HTTP 500: Internal Server Error",
+      "core.fedfunds: HTTP 500: Internal Server Error",
+      "core.sahm: HTTP 500: Internal Server Error",
+      "core.icsa: HTTP 500: Internal Server Error",
+      "core.continuingClaims: HTTP 500: Internal Server Error",
+      "core.hySpread: HTTP 500: Internal Server Error"
     ]
   },
   "engine": {
@@ -206,7 +217,7 @@
       "excluded_series": [],
       "effective_final": 0.78,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -226,7 +237,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -251,10 +262,10 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "confirmed_apply",
-        "direction": "deteriorate",
-        "required": 2,
-        "pending_count": 2
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
+        "pending_count": 0
       }
     },
     "policy": {
@@ -266,7 +277,7 @@
       "excluded_series": [],
       "effective_final": 0.65,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -295,11 +306,22 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-02T03:52:38+00:00",
+      "updatedAt": "2026-05-02T08:00:43+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+        "market.ks: HTTP 500: Internal Server Error",
+        "market.dx: HTTP 500: Internal Server Error",
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.michigan: HTTP 500: Internal Server Error",
+        "core.dgs10: HTTP 500: Internal Server Error",
+        "core.dgs2: HTTP 500: Internal Server Error",
+        "core.t10y2y: HTTP 500: Internal Server Error",
+        "core.fedfunds: HTTP 500: Internal Server Error",
+        "core.sahm: HTTP 500: Internal Server Error",
+        "core.icsa: HTTP 500: Internal Server Error",
+        "core.continuingClaims: HTTP 500: Internal Server Error",
+        "core.hySpread: HTTP 500: Internal Server Error"
       ],
       "stale_policy": "exclude_and_reweight"
     },
