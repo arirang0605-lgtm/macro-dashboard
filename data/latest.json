@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-04T14:32:29+00:00",
+  "updatedAt": "2026-05-04T19:56:04+00:00",
   "market": {
     "sp": {
-      "value": 7239.84,
+      "value": 7198.52,
       "date": "2026-05-04",
-      "ma50": 6828.52,
-      "pctFrom50": 6.02,
-      "ma200": 6733.16,
-      "pctFrom200": 7.53,
+      "ma50": 6827.69,
+      "pctFrom50": 5.43,
+      "ma200": 6732.95,
+      "pctFrom200": 6.91,
       "sourceDate": "2026-05-04"
     },
     "nd": {
-      "value": 27770.1,
+      "value": 27633.47,
       "date": "2026-05-04",
-      "ma50": 25234.18,
-      "pctFrom50": 10.05,
-      "ma200": 24847.2,
-      "pctFrom200": 11.76,
+      "ma50": 25231.45,
+      "pctFrom50": 9.52,
+      "ma200": 24846.52,
+      "pctFrom200": 11.22,
       "sourceDate": "2026-05-04"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4591.4,
+      "value": 4530.8,
       "date": "2026-05-04",
-      "ma50": 4823.8,
-      "pctFrom50": -4.82,
-      "ma200": 4260.69,
-      "pctFrom200": 7.76,
+      "ma50": 4822.59,
+      "pctFrom50": -6.05,
+      "ma200": 4260.39,
+      "pctFrom200": 6.35,
       "sourceDate": "2026-05-04"
     },
     "dx": {
@@ -126,20 +126,20 @@
       "sourceDate": "2026-04-18"
     },
     "hySpread": {
-      "value": 2.83,
+      "value": 2.77,
       "date": "2026-05-04",
-      "sourceDate": "2026-04-30"
+      "sourceDate": "2026-05-01"
     },
     "bbbSpread": {
-      "value": 1.02,
+      "value": 1.01,
       "date": "2026-05-04",
-      "sourceDate": "2026-04-30"
+      "sourceDate": "2026-05-01"
     }
   },
   "fearGreed": {
-    "score": 66,
+    "score": 63.0857142857143,
     "rating": "greed",
-    "timestamp": "2026-05-04T14:27:23+00:00",
+    "timestamp": "2026-05-04T19:53:25+00:00",
     "date": "2026-05-04",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-04T14:27:23+00:00"
+    "sourceDate": "2026-05-04T19:53:25+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -189,7 +189,8 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.continuingClaims: HTTP 500: Internal Server Error"
     ]
   },
   "engine": {
@@ -290,16 +291,17 @@
       "valuation": 1.0,
       "fragility": 0.5,
       "risk": 0.8,
-      "hy_spread_36m_low": 2.81,
+      "hy_spread_36m_low": 2.77,
       "vix_36m_avg": 19.65
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-04T14:32:29+00:00",
+      "updatedAt": "2026-05-04T19:56:04+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.continuingClaims: HTTP 500: Internal Server Error"
       ],
       "stale_policy": "exclude_and_reweight"
     },
