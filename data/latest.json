@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-06T04:06:29+00:00",
+  "updatedAt": "2026-05-06T14:48:25+00:00",
   "market": {
     "sp": {
-      "value": 7259.22,
+      "value": 7340.78,
       "date": "2026-05-06",
-      "ma50": 6836.17,
-      "pctFrom50": 6.19,
-      "ma200": 6737.77,
-      "pctFrom200": 7.74,
-      "sourceDate": "2026-05-05"
+      "ma50": 6845.18,
+      "pctFrom50": 7.24,
+      "ma200": 6742.95,
+      "pctFrom200": 8.87,
+      "sourceDate": "2026-05-06"
     },
     "nd": {
-      "value": 28015.06,
+      "value": 28411.07,
       "date": "2026-05-06",
-      "ma50": 25297.94,
-      "pctFrom50": 10.74,
-      "ma200": 24871.36,
-      "pctFrom200": 12.64,
-      "sourceDate": "2026-05-05"
+      "ma50": 25366.62,
+      "pctFrom50": 12.0,
+      "ma200": 24897.52,
+      "pctFrom200": 14.11,
+      "sourceDate": "2026-05-06"
     },
     "ks": {
       "value": -0.15,
@@ -26,13 +26,13 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4555.8,
+      "value": 4719.3,
       "date": "2026-05-06",
-      "ma50": 4809.39,
-      "pctFrom50": -5.27,
-      "ma200": 4266.34,
-      "pctFrom200": 6.78,
-      "sourceDate": "2026-05-05"
+      "ma50": 4800.66,
+      "pctFrom50": -1.69,
+      "ma200": 4272.93,
+      "pctFrom200": 10.45,
+      "sourceDate": "2026-05-06"
     },
     "dx": {
       "value": 118.39,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-04-18"
     },
     "hySpread": {
-      "value": 2.78,
+      "value": 2.77,
       "date": "2026-05-06",
-      "sourceDate": "2026-05-04"
+      "sourceDate": "2026-05-05"
     },
     "bbbSpread": {
-      "value": 1.01,
+      "value": 0.99,
       "date": "2026-05-06",
-      "sourceDate": "2026-05-04"
+      "sourceDate": "2026-05-05"
     }
   },
   "fearGreed": {
-    "score": 66.9428571428572,
+    "score": 69.2571428571429,
     "rating": "greed",
-    "timestamp": "2026-05-05T23:59:54+00:00",
+    "timestamp": "2026-05-06T14:47:09+00:00",
     "date": "2026-05-06",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-05T23:59:54+00:00"
+    "sourceDate": "2026-05-06T14:47:09+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -188,8 +188,7 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-      "core.icsa: HTTP 500: Internal Server Error"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
   "engine": {
@@ -206,8 +205,8 @@
       "excluded_series": [],
       "effective_final": 0.78,
       "persistence": {
-        "status": "immediate_apply",
-        "direction": "deteriorate",
+        "status": "same_stamp_hold",
+        "direction": "flat",
         "required": 0,
         "pending_count": 0
       }
@@ -226,7 +225,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -251,7 +250,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -266,7 +265,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -295,12 +294,11 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-06T04:06:29+00:00",
+      "updatedAt": "2026-05-06T14:48:25+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-        "core.icsa: HTTP 500: Internal Server Error"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
     },
