@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-07T08:48:22+00:00",
+  "updatedAt": "2026-05-07T15:05:32+00:00",
   "market": {
     "sp": {
-      "value": 7365.12,
+      "value": 7381.22,
       "date": "2026-05-07",
-      "ma50": 6845.67,
-      "pctFrom50": 7.59,
-      "ma200": 6743.07,
-      "pctFrom200": 9.22,
-      "sourceDate": "2026-05-06"
+      "ma50": 6854.37,
+      "pctFrom50": 7.69,
+      "ma200": 6748.43,
+      "pctFrom200": 9.38,
+      "sourceDate": "2026-05-07"
     },
     "nd": {
-      "value": 28599.17,
+      "value": 28774.9,
       "date": "2026-05-07",
-      "ma50": 25370.38,
-      "pctFrom50": 12.73,
-      "ma200": 24898.46,
-      "pctFrom200": 14.86,
-      "sourceDate": "2026-05-06"
+      "ma50": 25439.29,
+      "pctFrom50": 13.11,
+      "ma200": 24927.01,
+      "pctFrom200": 15.44,
+      "sourceDate": "2026-05-07"
     },
     "ks": {
       "value": -0.15,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4744.6,
+      "value": 4771.3,
       "date": "2026-05-07",
-      "ma50": 4790.67,
-      "pctFrom50": -0.96,
-      "ma200": 4279.27,
-      "pctFrom200": 10.87,
+      "ma50": 4791.21,
+      "pctFrom50": -0.42,
+      "ma200": 4279.4,
+      "pctFrom200": 11.49,
       "sourceDate": "2026-05-07"
     },
     "dx": {
@@ -116,30 +116,30 @@
       "sourceDate": "2026-03-01"
     },
     "icsa": {
-      "value": 189000.0,
+      "value": 200000.0,
+      "date": "2026-05-07",
+      "sourceDate": "2026-05-02"
+    },
+    "continuingClaims": {
+      "value": 1766000.0,
       "date": "2026-05-07",
       "sourceDate": "2026-04-25"
     },
-    "continuingClaims": {
-      "value": 1785000.0,
-      "date": "2026-05-07",
-      "sourceDate": "2026-04-18"
-    },
     "hySpread": {
-      "value": 2.77,
+      "value": 2.75,
       "date": "2026-05-07",
-      "sourceDate": "2026-05-05"
+      "sourceDate": "2026-05-06"
     },
     "bbbSpread": {
       "value": 0.99,
       "date": "2026-05-07",
-      "sourceDate": "2026-05-05"
+      "sourceDate": "2026-05-06"
     }
   },
   "fearGreed": {
-    "score": 68.6285714285714,
+    "score": 69.2285714285714,
     "rating": "greed",
-    "timestamp": "2026-05-07T08:28:46+00:00",
+    "timestamp": "2026-05-07T15:01:08+00:00",
     "date": "2026-05-07",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-07T08:28:46+00:00"
+    "sourceDate": "2026-05-07T15:01:08+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -188,7 +188,8 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.fedfunds: HTTP 500: Internal Server Error"
     ]
   },
   "engine": {
@@ -213,13 +214,13 @@
     },
     "employment": {
       "icsa_level": 0.8,
-      "icsa_trend": 0.5,
-      "icsa_final": 0.71,
+      "icsa_trend": 0.2,
+      "icsa_final": 0.6199999999999999,
       "continuing_claims_level": 0.8,
-      "continuing_claims_trend": 0.5,
-      "continuing_claims_final": 0.71,
+      "continuing_claims_trend": 0.8,
+      "continuing_claims_final": 0.7999999999999999,
       "sahm_level": 0.8,
-      "raw_final": 0.74,
+      "raw_final": 0.7399999999999999,
       "stamp": "2026-05-07",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -289,16 +290,17 @@
       "valuation": 1.0,
       "fragility": 0.5,
       "risk": 0.8,
-      "hy_spread_36m_low": 2.77,
+      "hy_spread_36m_low": 2.75,
       "vix_36m_avg": 19.77
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-07T08:48:22+00:00",
+      "updatedAt": "2026-05-07T15:05:32+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.fedfunds: HTTP 500: Internal Server Error"
       ],
       "stale_policy": "exclude_and_reweight"
     },
