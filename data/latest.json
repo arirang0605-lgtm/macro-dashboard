@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-07T15:05:32+00:00",
+  "updatedAt": "2026-05-07T19:55:19+00:00",
   "market": {
     "sp": {
-      "value": 7381.22,
+      "value": 7332.8,
       "date": "2026-05-07",
-      "ma50": 6854.37,
-      "pctFrom50": 7.69,
-      "ma200": 6748.43,
-      "pctFrom200": 9.38,
+      "ma50": 6853.4,
+      "pctFrom50": 7.0,
+      "ma200": 6748.19,
+      "pctFrom200": 8.66,
       "sourceDate": "2026-05-07"
     },
     "nd": {
-      "value": 28774.9,
+      "value": 28545.72,
       "date": "2026-05-07",
-      "ma50": 25439.29,
-      "pctFrom50": 13.11,
-      "ma200": 24927.01,
-      "pctFrom200": 15.44,
+      "ma50": 25434.71,
+      "pctFrom50": 12.23,
+      "ma200": 24925.87,
+      "pctFrom200": 14.52,
       "sourceDate": "2026-05-07"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4771.3,
+      "value": 4718.3,
       "date": "2026-05-07",
-      "ma50": 4791.21,
-      "pctFrom50": -0.42,
-      "ma200": 4279.4,
-      "pctFrom200": 11.49,
+      "ma50": 4790.15,
+      "pctFrom50": -1.5,
+      "ma200": 4279.14,
+      "pctFrom200": 10.26,
       "sourceDate": "2026-05-07"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 69.2285714285714,
+    "score": 67.8857142857143,
     "rating": "greed",
-    "timestamp": "2026-05-07T15:01:08+00:00",
+    "timestamp": "2026-05-07T19:52:16+00:00",
     "date": "2026-05-07",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-07T15:01:08+00:00"
+    "sourceDate": "2026-05-07T19:52:16+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -189,7 +189,10 @@
     "trustedPrev": true,
     "errors": [
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-      "core.fedfunds: HTTP 500: Internal Server Error"
+      "core.michigan: HTTP 500: Internal Server Error",
+      "core.dgs10: HTTP 500: Internal Server Error",
+      "core.dgs2: HTTP 500: Internal Server Error",
+      "core.sahm: HTTP 500: Internal Server Error"
     ]
   },
   "engine": {
@@ -295,12 +298,15 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-07T15:05:32+00:00",
+      "updatedAt": "2026-05-07T19:55:19+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-        "core.fedfunds: HTTP 500: Internal Server Error"
+        "core.michigan: HTTP 500: Internal Server Error",
+        "core.dgs10: HTTP 500: Internal Server Error",
+        "core.dgs2: HTTP 500: Internal Server Error",
+        "core.sahm: HTTP 500: Internal Server Error"
       ],
       "stale_policy": "exclude_and_reweight"
     },
