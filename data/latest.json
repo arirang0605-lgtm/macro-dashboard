@@ -1,42 +1,42 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-07T19:55:19+00:00",
+  "updatedAt": "2026-05-08T03:54:46+00:00",
   "market": {
     "sp": {
-      "value": 7332.8,
-      "date": "2026-05-07",
-      "ma50": 6853.4,
-      "pctFrom50": 7.0,
-      "ma200": 6748.19,
-      "pctFrom200": 8.66,
+      "value": 7337.11,
+      "date": "2026-05-08",
+      "ma50": 6853.49,
+      "pctFrom50": 7.06,
+      "ma200": 6748.21,
+      "pctFrom200": 8.73,
       "sourceDate": "2026-05-07"
     },
     "nd": {
-      "value": 28545.72,
-      "date": "2026-05-07",
-      "ma50": 25434.71,
-      "pctFrom50": 12.23,
-      "ma200": 24925.87,
-      "pctFrom200": 14.52,
+      "value": 28563.95,
+      "date": "2026-05-08",
+      "ma50": 25435.08,
+      "pctFrom50": 12.3,
+      "ma200": 24925.96,
+      "pctFrom200": 14.6,
       "sourceDate": "2026-05-07"
     },
     "ks": {
       "value": -0.15,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4718.3,
-      "date": "2026-05-07",
-      "ma50": 4790.15,
-      "pctFrom50": -1.5,
-      "ma200": 4279.14,
-      "pctFrom200": 10.26,
+      "value": 4733.2,
+      "date": "2026-05-08",
+      "ma50": 4790.44,
+      "pctFrom50": -1.19,
+      "ma200": 4279.21,
+      "pctFrom200": 10.61,
       "sourceDate": "2026-05-07"
     },
     "dx": {
       "value": 118.39,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "ma50": 119.3,
       "pctFrom50": -0.76,
       "ma200": 119.92,
@@ -44,103 +44,103 @@
       "sourceDate": "2026-05-01"
     },
     "vx": {
-      "value": 17.39,
-      "date": "2026-05-07",
-      "sourceDate": "2026-05-06"
+      "value": 17.08,
+      "date": "2026-05-08",
+      "sourceDate": "2026-05-07"
     }
   },
   "core": {
     "lei": {
       "value": -0.6,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-03-01"
     },
     "pmi": {
       "value": 52.4,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-02-01"
     },
     "servicesPmi": {
       "value": 56.1,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-02-01"
     },
     "buffett": {
       "value": 229.57,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-01-01"
     },
     "jolts": {
       "value": 6.87,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-03-01"
     },
     "marginDebt": {
       "value": 609.67,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2025-10-01"
     },
     "michigan": {
       "value": 53.3,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-03-01"
     },
     "dgs10": {
-      "value": 4.43,
-      "date": "2026-05-07",
-      "sourceDate": "2026-05-05"
+      "value": 4.36,
+      "date": "2026-05-08",
+      "sourceDate": "2026-05-06"
     },
     "dgs2": {
-      "value": 3.93,
-      "date": "2026-05-07",
-      "sourceDate": "2026-05-05"
+      "value": 3.87,
+      "date": "2026-05-08",
+      "sourceDate": "2026-05-06"
     },
     "t10y2y": {
       "value": 0.49,
-      "date": "2026-05-07",
-      "sourceDate": "2026-05-06"
+      "date": "2026-05-08",
+      "sourceDate": "2026-05-07"
     },
     "t10y3m": {
-      "value": 0.67,
-      "date": "2026-05-07",
-      "sourceDate": "2026-05-06"
+      "value": 0.72,
+      "date": "2026-05-08",
+      "sourceDate": "2026-05-07"
     },
     "fedfunds": {
       "value": 3.64,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-04-01"
     },
     "sahm": {
       "value": 0.2,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-03-01"
     },
     "icsa": {
       "value": 200000.0,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-05-02"
     },
     "continuingClaims": {
       "value": 1766000.0,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-04-25"
     },
     "hySpread": {
       "value": 2.75,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-05-06"
     },
     "bbbSpread": {
       "value": 0.99,
-      "date": "2026-05-07",
+      "date": "2026-05-08",
       "sourceDate": "2026-05-06"
     }
   },
   "fearGreed": {
-    "score": 67.8857142857143,
+    "score": 67.6285714285714,
     "rating": "greed",
-    "timestamp": "2026-05-07T19:52:16+00:00",
-    "date": "2026-05-07",
+    "timestamp": "2026-05-07T23:59:53+00:00",
+    "date": "2026-05-08",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-07T19:52:16+00:00"
+    "sourceDate": "2026-05-07T23:59:53+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -177,10 +177,10 @@
     ],
     "rates": {
       "fedfunds": 3.64,
-      "dgs10": 4.43,
-      "dgs2": 3.93,
+      "dgs10": 4.36,
+      "dgs2": 3.87,
       "t10y2y": 0.49,
-      "t10y3m": 0.67
+      "t10y3m": 0.72
     }
   },
   "meta": {
@@ -188,31 +188,27 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-      "core.michigan: HTTP 500: Internal Server Error",
-      "core.dgs10: HTTP 500: Internal Server Error",
-      "core.dgs2: HTTP 500: Internal Server Error",
-      "core.sahm: HTTP 500: Internal Server Error"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
   "engine": {
     "credit": {
       "hy_level": 0.9,
-      "hy_trend": 0.65,
-      "hy_final": 0.825,
+      "hy_trend": 0.8,
+      "hy_final": 0.87,
       "bbb_level": 0.9,
       "bbb_trend": 0.5,
       "bbb_final": 0.78,
-      "raw_final": 0.8025,
-      "stamp": "2026-05-07",
+      "raw_final": 0.825,
+      "stamp": "2026-05-08",
       "axis_freshness": "fresh",
       "excluded_series": [],
-      "effective_final": 0.8025,
+      "effective_final": 0.825,
       "persistence": {
-        "status": "same_stamp_hold",
-        "direction": "flat",
-        "required": 0,
-        "pending_count": 0
+        "status": "confirmed_apply",
+        "direction": "recover",
+        "required": 1,
+        "pending_count": 1
       }
     },
     "employment": {
@@ -224,12 +220,12 @@
       "continuing_claims_final": 0.7999999999999999,
       "sahm_level": 0.8,
       "raw_final": 0.7399999999999999,
-      "stamp": "2026-05-07",
+      "stamp": "2026-05-08",
       "axis_freshness": "fresh",
       "excluded_series": [],
-      "effective_final": 0.74,
+      "effective_final": 0.7399999999999999,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -248,13 +244,13 @@
       "lei_trend": 0.5,
       "lei_final": 0.29,
       "raw_final": 0.57,
-      "stamp": "2026-05-07",
+      "stamp": "2026-05-08",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -264,19 +260,19 @@
       "yc_level": 0.6,
       "fedfunds_level": 0.5,
       "raw_final": 0.55,
-      "stamp": "2026-05-07",
+      "stamp": "2026-05-08",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.68775,
-    "macro_score": 0.68775,
+    "raw_macro_score": 0.6944999999999999,
+    "macro_score": 0.6944999999999999,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
     "base_season": "여름 (Expansion)",
@@ -294,19 +290,15 @@
       "fragility": 0.5,
       "risk": 0.8,
       "hy_spread_36m_low": 2.75,
-      "vix_36m_avg": 19.77
+      "vix_36m_avg": 19.76
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-07T19:55:19+00:00",
+      "updatedAt": "2026-05-08T03:54:46+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-        "core.michigan: HTTP 500: Internal Server Error",
-        "core.dgs10: HTTP 500: Internal Server Error",
-        "core.dgs2: HTTP 500: Internal Server Error",
-        "core.sahm: HTTP 500: Internal Server Error"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
     },
