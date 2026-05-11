@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-11T10:00:41+00:00",
+  "updatedAt": "2026-05-11T15:36:19+00:00",
   "market": {
     "sp": {
-      "value": 7398.93,
+      "value": 7419.96,
       "date": "2026-05-11",
-      "ma50": 6863.29,
-      "pctFrom50": 7.8,
-      "ma200": 6753.41,
-      "pctFrom200": 9.56,
-      "sourceDate": "2026-05-08"
+      "ma50": 6874.11,
+      "pctFrom50": 7.94,
+      "ma200": 6758.69,
+      "pctFrom200": 9.78,
+      "sourceDate": "2026-05-11"
     },
     "nd": {
-      "value": 29234.99,
+      "value": 29303.96,
       "date": "2026-05-11",
-      "ma50": 25519.09,
-      "pctFrom50": 14.56,
-      "ma200": 24956.32,
-      "pctFrom200": 17.14,
-      "sourceDate": "2026-05-08"
+      "ma50": 25605.97,
+      "pctFrom50": 14.44,
+      "ma200": 24986.74,
+      "pctFrom200": 17.28,
+      "sourceDate": "2026-05-11"
     },
     "ks": {
       "value": -0.15,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4670.6,
+      "value": 4744.5,
       "date": "2026-05-11",
-      "ma50": 4769.46,
-      "pctFrom50": -2.07,
-      "ma200": 4292.18,
-      "pctFrom200": 8.82,
+      "ma50": 4770.93,
+      "pctFrom50": -0.55,
+      "ma200": 4292.55,
+      "pctFrom200": 10.53,
       "sourceDate": "2026-05-11"
     },
     "dx": {
@@ -126,9 +126,9 @@
       "sourceDate": "2026-04-25"
     },
     "hySpread": {
-      "value": 2.79,
+      "value": 2.81,
       "date": "2026-05-11",
-      "sourceDate": "2026-05-07"
+      "sourceDate": "2026-05-08"
     },
     "bbbSpread": {
       "value": 0.99,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 66.9142857142857,
+    "score": 68.0571428571428,
     "rating": "greed",
-    "timestamp": "2026-05-11T09:40:31+00:00",
+    "timestamp": "2026-05-11T15:29:39+00:00",
     "date": "2026-05-11",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-11T09:40:31+00:00"
+    "sourceDate": "2026-05-11T15:29:39+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -189,16 +189,10 @@
     "trustedPrev": true,
     "errors": [
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-      "core.buffett: HTTP 500: Internal Server Error",
-      "core.jolts: HTTP 500: Internal Server Error",
-      "core.dgs10: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di",
-      "core.t10y2y: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di",
+      "core.t10y2y: HTTP 500: Internal Server Error",
       "core.t10y3m: HTTP 500: Internal Server Error",
-      "core.fedfunds: HTTP 500: Internal Server Error",
       "core.sahm: HTTP 500: Internal Server Error",
-      "core.icsa: HTTP 500: Internal Server Error",
       "core.continuingClaims: HTTP 500: Internal Server Error",
-      "core.hySpread: HTTP 500: Internal Server Error",
       "core.bbbSpread: HTTP 500: Internal Server Error"
     ]
   },
@@ -305,21 +299,15 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-11T10:00:41+00:00",
+      "updatedAt": "2026-05-11T15:36:19+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-        "core.buffett: HTTP 500: Internal Server Error",
-        "core.jolts: HTTP 500: Internal Server Error",
-        "core.dgs10: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di",
-        "core.t10y2y: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di",
+        "core.t10y2y: HTTP 500: Internal Server Error",
         "core.t10y3m: HTTP 500: Internal Server Error",
-        "core.fedfunds: HTTP 500: Internal Server Error",
         "core.sahm: HTTP 500: Internal Server Error",
-        "core.icsa: HTTP 500: Internal Server Error",
         "core.continuingClaims: HTTP 500: Internal Server Error",
-        "core.hySpread: HTTP 500: Internal Server Error",
         "core.bbbSpread: HTTP 500: Internal Server Error"
       ],
       "stale_policy": "exclude_and_reweight"
