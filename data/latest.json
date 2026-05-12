@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-12T09:12:58+00:00",
+  "updatedAt": "2026-05-12T14:51:22+00:00",
   "market": {
     "sp": {
-      "value": 7412.84,
+      "value": 7358.05,
       "date": "2026-05-12",
-      "ma50": 6873.97,
-      "pctFrom50": 7.84,
-      "ma200": 6758.66,
-      "pctFrom200": 9.68,
-      "sourceDate": "2026-05-11"
+      "ma50": 6883.5,
+      "pctFrom50": 6.89,
+      "ma200": 6763.5,
+      "pctFrom200": 8.79,
+      "sourceDate": "2026-05-12"
     },
     "nd": {
-      "value": 29320.66,
+      "value": 28908.76,
       "date": "2026-05-12",
-      "ma50": 25606.3,
-      "pctFrom50": 14.51,
-      "ma200": 24986.83,
-      "pctFrom200": 17.34,
-      "sourceDate": "2026-05-11"
+      "ma50": 25684.62,
+      "pctFrom50": 12.55,
+      "ma200": 25015.01,
+      "pctFrom200": 15.57,
+      "sourceDate": "2026-05-12"
     },
     "ks": {
       "value": -0.15,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4708.4,
+      "value": 4692.6,
       "date": "2026-05-12",
-      "ma50": 4758.7,
-      "pctFrom50": -1.06,
-      "ma200": 4299.29,
-      "pctFrom200": 9.52,
+      "ma50": 4758.38,
+      "pctFrom50": -1.38,
+      "ma200": 4299.21,
+      "pctFrom200": 9.15,
       "sourceDate": "2026-05-12"
     },
     "dx": {
@@ -126,20 +126,20 @@
       "sourceDate": "2026-04-25"
     },
     "hySpread": {
-      "value": 2.81,
+      "value": 2.79,
       "date": "2026-05-12",
-      "sourceDate": "2026-05-08"
+      "sourceDate": "2026-05-11"
     },
     "bbbSpread": {
-      "value": 0.99,
+      "value": 0.98,
       "date": "2026-05-12",
-      "sourceDate": "2026-05-08"
+      "sourceDate": "2026-05-11"
     }
   },
   "fearGreed": {
-    "score": 65.9142857142857,
+    "score": 65.4285714285714,
     "rating": "greed",
-    "timestamp": "2026-05-12T08:52:46+00:00",
+    "timestamp": "2026-05-12T14:45:49+00:00",
     "date": "2026-05-12",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-12T08:52:46+00:00"
+    "sourceDate": "2026-05-12T14:45:49+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -188,7 +188,13 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.marginDebt: HTTP 500: Internal Server Error",
+      "core.michigan: HTTP 500: Internal Server Error",
+      "core.dgs2: HTTP 500: Internal Server Error",
+      "core.t10y3m: HTTP 500: Internal Server Error",
+      "core.fedfunds: HTTP 500: Internal Server Error",
+      "core.sahm: HTTP 500: Internal Server Error"
     ]
   },
   "engine": {
@@ -294,11 +300,17 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-12T09:12:58+00:00",
+      "updatedAt": "2026-05-12T14:51:22+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.marginDebt: HTTP 500: Internal Server Error",
+        "core.michigan: HTTP 500: Internal Server Error",
+        "core.dgs2: HTTP 500: Internal Server Error",
+        "core.t10y3m: HTTP 500: Internal Server Error",
+        "core.fedfunds: HTTP 500: Internal Server Error",
+        "core.sahm: HTTP 500: Internal Server Error"
       ],
       "stale_policy": "exclude_and_reweight"
     },
