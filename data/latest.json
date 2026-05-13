@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-13T15:15:03+00:00",
+  "updatedAt": "2026-05-13T20:11:22+00:00",
   "market": {
     "sp": {
-      "value": 7410.8,
+      "value": 7444.25,
       "date": "2026-05-13",
-      "ma50": 6896.24,
-      "pctFrom50": 7.46,
-      "ma200": 6768.82,
-      "pctFrom200": 9.48,
+      "ma50": 6896.91,
+      "pctFrom50": 7.94,
+      "ma200": 6768.99,
+      "pctFrom200": 9.98,
       "sourceDate": "2026-05-13"
     },
     "nd": {
-      "value": 29218.49,
+      "value": 29366.94,
       "date": "2026-05-13",
-      "ma50": 25777.71,
-      "pctFrom50": 13.35,
-      "ma200": 25045.1,
-      "pctFrom200": 16.66,
+      "ma50": 25780.68,
+      "pctFrom50": 13.91,
+      "ma200": 25045.84,
+      "pctFrom200": 17.25,
       "sourceDate": "2026-05-13"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4691.5,
+      "value": 4695.4,
       "date": "2026-05-13",
-      "ma50": 4749.76,
-      "pctFrom50": -1.23,
-      "ma200": 4306.05,
-      "pctFrom200": 8.95,
+      "ma50": 4749.84,
+      "pctFrom50": -1.15,
+      "ma200": 4306.07,
+      "pctFrom200": 9.04,
       "sourceDate": "2026-05-13"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 66.3142857142857,
+    "score": 66.0571428571429,
     "rating": "greed",
-    "timestamp": "2026-05-13T15:10:04+00:00",
+    "timestamp": "2026-05-13T20:00:51+00:00",
     "date": "2026-05-13",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-13T15:10:04+00:00"
+    "sourceDate": "2026-05-13T20:00:51+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -188,7 +188,9 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.t10y2y: HTTP 500: Internal Server Error",
+      "core.continuingClaims: HTTP 500: Internal Server Error"
     ]
   },
   "engine": {
@@ -294,11 +296,13 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-13T15:15:03+00:00",
+      "updatedAt": "2026-05-13T20:11:22+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.t10y2y: HTTP 500: Internal Server Error",
+        "core.continuingClaims: HTTP 500: Internal Server Error"
       ],
       "stale_policy": "exclude_and_reweight"
     },
