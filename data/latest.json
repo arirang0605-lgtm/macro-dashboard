@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-14T04:13:26+00:00",
+  "updatedAt": "2026-05-14T09:10:13+00:00",
   "market": {
     "sp": {
       "value": 7444.25,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-03-01"
     },
     "go": {
-      "value": 4680.4,
+      "value": 4700.3,
       "date": "2026-05-14",
-      "ma50": 4741.09,
-      "pctFrom50": -1.28,
-      "ma200": 4312.86,
-      "pctFrom200": 8.52,
+      "ma50": 4741.49,
+      "pctFrom50": -0.87,
+      "ma200": 4312.96,
+      "pctFrom200": 8.98,
       "sourceDate": "2026-05-14"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 65.8,
+    "score": 64.3714285714286,
     "rating": "greed",
-    "timestamp": "2026-05-14T00:00:00+00:00",
+    "timestamp": "2026-05-14T08:51:46+00:00",
     "date": "2026-05-14",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-14T00:00:00+00:00"
+    "sourceDate": "2026-05-14T08:51:46+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -188,7 +188,15 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "market.dx: HTTP 500: Internal Server Error",
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.buffett: HTTP 500: Internal Server Error",
+      "core.jolts: HTTP 500: Internal Server Error",
+      "core.marginDebt: HTTP 500: Internal Server Error",
+      "core.michigan: HTTP 500: Internal Server Error",
+      "core.dgs10: HTTP 500: Internal Server Error",
+      "core.dgs2: HTTP 500: Internal Server Error",
+      "core.fedfunds: HTTP 500: Internal Server Error"
     ]
   },
   "engine": {
@@ -205,7 +213,7 @@
       "excluded_series": [],
       "effective_final": 0.825,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -225,7 +233,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -250,7 +258,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -265,7 +273,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -294,11 +302,19 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-14T04:13:26+00:00",
+      "updatedAt": "2026-05-14T09:10:13+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+        "market.dx: HTTP 500: Internal Server Error",
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.buffett: HTTP 500: Internal Server Error",
+        "core.jolts: HTTP 500: Internal Server Error",
+        "core.marginDebt: HTTP 500: Internal Server Error",
+        "core.michigan: HTTP 500: Internal Server Error",
+        "core.dgs10: HTTP 500: Internal Server Error",
+        "core.dgs2: HTTP 500: Internal Server Error",
+        "core.fedfunds: HTTP 500: Internal Server Error"
       ],
       "stale_policy": "exclude_and_reweight"
     },
