@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-16T04:03:41+00:00",
+  "updatedAt": "2026-05-16T08:19:59+00:00",
   "market": {
     "sp": {
       "value": 7408.5,
@@ -205,7 +205,7 @@
       "excluded_series": [],
       "effective_final": 0.8025,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -225,7 +225,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -250,7 +250,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -265,7 +265,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-16T04:03:41+00:00",
+      "updatedAt": "2026-05-16T08:19:59+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
