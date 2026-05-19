@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-19T15:50:31+00:00",
+  "updatedAt": "2026-05-19T20:04:05+00:00",
   "market": {
     "sp": {
-      "value": 7356.63,
+      "value": 7353.61,
       "date": "2026-05-19",
-      "ma50": 6945.57,
-      "pctFrom50": 5.92,
-      "ma200": 6790.78,
-      "pctFrom200": 8.33,
+      "ma50": 6945.51,
+      "pctFrom50": 5.88,
+      "ma200": 6790.77,
+      "pctFrom200": 8.29,
       "sourceDate": "2026-05-19"
     },
     "nd": {
-      "value": 28751.77,
+      "value": 28818.84,
       "date": "2026-05-19",
-      "ma50": 26115.23,
-      "pctFrom50": 10.1,
-      "ma200": 25164.92,
-      "pctFrom200": 14.25,
+      "ma50": 26116.57,
+      "pctFrom50": 10.35,
+      "ma200": 25165.26,
+      "pctFrom200": 14.52,
       "sourceDate": "2026-05-19"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-04-01"
     },
     "go": {
-      "value": 4504.6,
+      "value": 4488.4,
       "date": "2026-05-19",
-      "ma50": 4707.25,
-      "pctFrom50": -4.3,
-      "ma200": 4331.23,
-      "pctFrom200": 4.0,
+      "ma50": 4706.92,
+      "pctFrom50": -4.64,
+      "ma200": 4331.15,
+      "pctFrom200": 3.63,
       "sourceDate": "2026-05-19"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 60.8,
+    "score": 60.9142857142857,
     "rating": "greed",
-    "timestamp": "2026-05-19T15:49:41+00:00",
+    "timestamp": "2026-05-19T19:59:57+00:00",
     "date": "2026-05-19",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-19T15:49:41+00:00"
+    "sourceDate": "2026-05-19T19:59:57+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-19T15:50:31+00:00",
+      "updatedAt": "2026-05-19T20:04:05+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
