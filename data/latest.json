@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-21T04:45:18+00:00",
+  "updatedAt": "2026-05-21T10:04:06+00:00",
   "market": {
     "sp": {
       "value": 7432.97,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-04-01"
     },
     "go": {
-      "value": 4538.1,
+      "value": 4533.4,
       "date": "2026-05-21",
-      "ma50": 4680.73,
-      "pctFrom50": -3.05,
-      "ma200": 4342.81,
-      "pctFrom200": 4.5,
+      "ma50": 4680.63,
+      "pctFrom50": -3.15,
+      "ma200": 4342.78,
+      "pctFrom200": 4.39,
       "sourceDate": "2026-05-21"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 60.8571428571429,
+    "score": 60.8285714285714,
     "rating": "greed",
-    "timestamp": "2026-05-21T00:00:00+00:00",
+    "timestamp": "2026-05-21T09:43:31+00:00",
     "date": "2026-05-21",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-21T00:00:00+00:00"
+    "sourceDate": "2026-05-21T09:43:31+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -206,7 +206,7 @@
       "excluded_series": [],
       "effective_final": 0.78,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -226,7 +226,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -251,7 +251,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -266,7 +266,7 @@
       "excluded_series": [],
       "effective_final": 0.65,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-21T04:45:18+00:00",
+      "updatedAt": "2026-05-21T10:04:06+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
