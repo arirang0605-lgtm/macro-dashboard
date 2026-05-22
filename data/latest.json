@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-22T09:50:26+00:00",
+  "updatedAt": "2026-05-22T15:23:40+00:00",
   "market": {
     "sp": {
-      "value": 7445.72,
+      "value": 7488.48,
       "date": "2026-05-22",
-      "ma50": 6971.94,
-      "pctFrom50": 6.8,
-      "ma200": 6802.02,
-      "pctFrom200": 9.46,
-      "sourceDate": "2026-05-21"
+      "ma50": 6988.26,
+      "pctFrom50": 7.16,
+      "ma200": 6807.73,
+      "pctFrom200": 10.0,
+      "sourceDate": "2026-05-22"
     },
     "nd": {
-      "value": 29357.27,
+      "value": 29599.15,
       "date": "2026-05-22",
-      "ma50": 26291.24,
-      "pctFrom50": 11.66,
-      "ma200": 25227.5,
-      "pctFrom200": 16.37,
-      "sourceDate": "2026-05-21"
+      "ma50": 26392.55,
+      "pctFrom50": 12.15,
+      "ma200": 25258.92,
+      "pctFrom200": 17.18,
+      "sourceDate": "2026-05-22"
     },
     "ks": {
       "value": 9.08,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-04-01"
     },
     "go": {
-      "value": 4525.0,
+      "value": 4511.8,
       "date": "2026-05-22",
-      "ma50": 4668.94,
-      "pctFrom50": -3.08,
-      "ma200": 4348.54,
-      "pctFrom200": 4.06,
+      "ma50": 4668.68,
+      "pctFrom50": -3.36,
+      "ma200": 4348.47,
+      "pctFrom200": 3.76,
       "sourceDate": "2026-05-22"
     },
     "dx": {
@@ -81,9 +81,9 @@
       "sourceDate": "2025-10-01"
     },
     "michigan": {
-      "value": 53.3,
+      "value": 49.8,
       "date": "2026-05-22",
-      "sourceDate": "2026-03-01"
+      "sourceDate": "2026-04-01"
     },
     "dgs10": {
       "value": 4.57,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-05-09"
     },
     "hySpread": {
-      "value": 2.8,
+      "value": 2.78,
       "date": "2026-05-22",
-      "sourceDate": "2026-05-20"
+      "sourceDate": "2026-05-21"
     },
     "bbbSpread": {
-      "value": 0.95,
+      "value": 0.94,
       "date": "2026-05-22",
-      "sourceDate": "2026-05-20"
+      "sourceDate": "2026-05-21"
     }
   },
   "fearGreed": {
-    "score": 58.0285714285714,
+    "score": 60.7142857142857,
     "rating": "greed",
-    "timestamp": "2026-05-22T09:30:46+00:00",
+    "timestamp": "2026-05-22T15:15:00+00:00",
     "date": "2026-05-22",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-05-22T09:30:46+00:00"
+    "sourceDate": "2026-05-22T15:15:00+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -188,6 +188,7 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
+      "core.lei: Conference Board LEI 파싱 실패",
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
@@ -294,10 +295,11 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-22T09:50:26+00:00",
+      "updatedAt": "2026-05-22T15:23:40+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
+        "core.lei: Conference Board LEI 파싱 실패",
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
