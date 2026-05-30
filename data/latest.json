@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-30T14:05:28+00:00",
+  "updatedAt": "2026-05-30T19:41:30+00:00",
   "market": {
     "sp": {
       "value": 7580.06,
@@ -103,7 +103,7 @@
     "t10y3m": {
       "value": 0.76,
       "date": "2026-05-30",
-      "sourceDate": "2026-05-28"
+      "sourceDate": "2026-05-29"
     },
     "fedfunds": {
       "value": 3.64,
@@ -189,7 +189,14 @@
     "trustedPrev": true,
     "errors": [
       "core.lei: Conference Board LEI 파싱 실패",
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.jolts: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.marginDebt: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.dgs2: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.t10y2y: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.sahm: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.icsa: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.continuingClaims: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
     ]
   },
   "engine": {
@@ -295,12 +302,19 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-30T14:05:28+00:00",
+      "updatedAt": "2026-05-30T19:41:30+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
         "core.lei: Conference Board LEI 파싱 실패",
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.jolts: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.marginDebt: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.dgs2: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.t10y2y: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.sahm: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.icsa: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.continuingClaims: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
       ],
       "stale_policy": "exclude_and_reweight"
     },
