@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-31T04:52:47+00:00",
+  "updatedAt": "2026-05-31T09:24:35+00:00",
   "market": {
     "sp": {
       "value": 7580.06,
@@ -197,8 +197,7 @@
       "core.t10y3m: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
       "core.fedfunds: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
       "core.continuingClaims: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.hySpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.bbbSpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
+      "core.hySpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
     ]
   },
   "engine": {
@@ -215,7 +214,7 @@
       "excluded_series": [],
       "effective_final": 0.8025,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -235,7 +234,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -260,7 +259,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -275,7 +274,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -304,7 +303,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-31T04:52:47+00:00",
+      "updatedAt": "2026-05-31T09:24:35+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
@@ -317,8 +316,7 @@
         "core.t10y3m: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
         "core.fedfunds: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
         "core.continuingClaims: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.hySpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.bbbSpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
+        "core.hySpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
       ],
       "stale_policy": "exclude_and_reweight"
     },
