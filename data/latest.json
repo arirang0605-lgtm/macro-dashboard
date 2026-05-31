@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-05-31T09:24:35+00:00",
+  "updatedAt": "2026-05-31T14:12:27+00:00",
   "market": {
     "sp": {
       "value": 7580.06,
@@ -195,7 +195,7 @@
       "core.michigan: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
       "core.t10y2y: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
       "core.t10y3m: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.fedfunds: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.icsa: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
       "core.continuingClaims: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
       "core.hySpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
     ]
@@ -303,7 +303,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-05-31T09:24:35+00:00",
+      "updatedAt": "2026-05-31T14:12:27+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
@@ -314,7 +314,7 @@
         "core.michigan: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
         "core.t10y2y: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
         "core.t10y3m: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.fedfunds: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.icsa: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
         "core.continuingClaims: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
         "core.hySpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
       ],
