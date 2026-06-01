@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-01T12:10:08+00:00",
+  "updatedAt": "2026-06-01T18:17:16+00:00",
   "market": {
     "sp": {
-      "value": 7580.06,
+      "value": 7611.52,
       "date": "2026-06-01",
-      "ma50": 7058.17,
-      "pctFrom50": 7.39,
-      "ma200": 6830.83,
-      "pctFrom200": 10.97,
-      "sourceDate": "2026-05-29"
+      "ma50": 7078.27,
+      "pctFrom50": 7.53,
+      "ma200": 6836.55,
+      "pctFrom200": 11.34,
+      "sourceDate": "2026-06-01"
     },
     "nd": {
-      "value": 30333.18,
+      "value": 30576.9,
       "date": "2026-06-01",
-      "ma50": 26836.01,
-      "pctFrom50": 13.03,
-      "ma200": 25389.16,
-      "pctFrom200": 19.47,
-      "sourceDate": "2026-05-29"
+      "ma50": 26960.44,
+      "pctFrom50": 13.41,
+      "ma200": 25422.8,
+      "pctFrom200": 20.27,
+      "sourceDate": "2026-06-01"
     },
     "ks": {
       "value": 9.08,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-04-01"
     },
     "go": {
-      "value": 4535.3,
+      "value": 4518.1,
       "date": "2026-06-01",
-      "ma50": 4628.96,
-      "pctFrom50": -2.02,
-      "ma200": 4376.73,
-      "pctFrom200": 3.62,
+      "ma50": 4628.62,
+      "pctFrom50": -2.39,
+      "ma200": 4376.65,
+      "pctFrom200": 3.23,
       "sourceDate": "2026-06-01"
     },
     "dx": {
@@ -126,9 +126,9 @@
       "sourceDate": "2026-05-16"
     },
     "hySpread": {
-      "value": 2.72,
+      "value": 2.74,
       "date": "2026-06-01",
-      "sourceDate": "2026-05-28"
+      "sourceDate": "2026-05-31"
     },
     "bbbSpread": {
       "value": 0.93,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 59.1714285714286,
+    "score": 59.8285714285714,
     "rating": "greed",
-    "timestamp": "2026-06-01T11:54:31+00:00",
+    "timestamp": "2026-06-01T18:10:28+00:00",
     "date": "2026-06-01",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-01T11:54:31+00:00"
+    "sourceDate": "2026-06-01T18:10:28+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -191,11 +191,11 @@
       "core.lei: Conference Board LEI 파싱 실패",
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
       "core.jolts: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.dgs10: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.t10y3m: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.fedfunds: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.continuingClaims: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.hySpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.marginDebt: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.michigan: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.t10y2y: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.sahm: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.icsa: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
       "core.bbbSpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
     ]
   },
@@ -302,18 +302,18 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-01T12:10:08+00:00",
+      "updatedAt": "2026-06-01T18:17:16+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
         "core.lei: Conference Board LEI 파싱 실패",
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
         "core.jolts: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.dgs10: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.t10y3m: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.fedfunds: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.continuingClaims: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.hySpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.marginDebt: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.michigan: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.t10y2y: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.sahm: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.icsa: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
         "core.bbbSpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
       ],
       "stale_policy": "exclude_and_reweight"
