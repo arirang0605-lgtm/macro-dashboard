@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-02T05:01:05+00:00",
+  "updatedAt": "2026-06-02T10:55:18+00:00",
   "market": {
     "sp": {
       "value": 7599.96,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-04-01"
     },
     "go": {
-      "value": 4544.4,
+      "value": 4559.1,
       "date": "2026-06-02",
-      "ma50": 4627.24,
-      "pctFrom50": -1.79,
-      "ma200": 4382.48,
-      "pctFrom200": 3.69,
+      "ma50": 4627.53,
+      "pctFrom50": -1.48,
+      "ma200": 4382.55,
+      "pctFrom200": 4.03,
       "sourceDate": "2026-06-02"
     },
     "dx": {
@@ -91,9 +91,9 @@
       "sourceDate": "2026-05-28"
     },
     "dgs2": {
-      "value": 3.99,
+      "value": 3.98,
       "date": "2026-06-02",
-      "sourceDate": "2026-05-28"
+      "sourceDate": "2026-05-29"
     },
     "t10y2y": {
       "value": 0.42,
@@ -106,9 +106,9 @@
       "sourceDate": "2026-06-01"
     },
     "fedfunds": {
-      "value": 3.64,
+      "value": 3.63,
       "date": "2026-06-02",
-      "sourceDate": "2026-04-01"
+      "sourceDate": "2026-05-01"
     },
     "sahm": {
       "value": 0.13,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 59.0285714285714,
+    "score": 57.1428571428571,
     "rating": "greed",
-    "timestamp": "2026-06-02T00:00:00+00:00",
+    "timestamp": "2026-06-02T10:36:31+00:00",
     "date": "2026-06-02",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-02T00:00:00+00:00"
+    "sourceDate": "2026-06-02T10:36:31+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -176,9 +176,9 @@
       "10Y-3M 정상"
     ],
     "rates": {
-      "fedfunds": 3.64,
+      "fedfunds": 3.63,
       "dgs10": 4.45,
-      "dgs2": 3.99,
+      "dgs2": 3.98,
       "t10y2y": 0.42,
       "t10y3m": 0.69
     }
@@ -192,9 +192,9 @@
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
       "core.jolts: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
       "core.dgs10: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.dgs2: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.fedfunds: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.sahm: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
+      "core.t10y3m: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.icsa: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.continuingClaims: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
     ]
   },
   "engine": {
@@ -211,7 +211,7 @@
       "excluded_series": [],
       "effective_final": 0.8025,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -231,7 +231,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -256,7 +256,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -271,7 +271,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -300,7 +300,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-02T05:01:05+00:00",
+      "updatedAt": "2026-06-02T10:55:18+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
@@ -308,9 +308,9 @@
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
         "core.jolts: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
         "core.dgs10: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.dgs2: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.fedfunds: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.sahm: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
+        "core.t10y3m: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.icsa: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.continuingClaims: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
       ],
       "stale_policy": "exclude_and_reweight"
     },
