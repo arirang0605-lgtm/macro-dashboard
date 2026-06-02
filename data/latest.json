@@ -1,146 +1,146 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-01T18:17:16+00:00",
+  "updatedAt": "2026-06-02T05:01:05+00:00",
   "market": {
     "sp": {
-      "value": 7611.52,
-      "date": "2026-06-01",
-      "ma50": 7078.27,
-      "pctFrom50": 7.53,
-      "ma200": 6836.55,
-      "pctFrom200": 11.34,
+      "value": 7599.96,
+      "date": "2026-06-02",
+      "ma50": 7078.04,
+      "pctFrom50": 7.37,
+      "ma200": 6836.5,
+      "pctFrom200": 11.17,
       "sourceDate": "2026-06-01"
     },
     "nd": {
-      "value": 30576.9,
-      "date": "2026-06-01",
-      "ma50": 26960.44,
-      "pctFrom50": 13.41,
-      "ma200": 25422.8,
-      "pctFrom200": 20.27,
+      "value": 30513.86,
+      "date": "2026-06-02",
+      "ma50": 26959.18,
+      "pctFrom50": 13.19,
+      "ma200": 25422.48,
+      "pctFrom200": 20.03,
       "sourceDate": "2026-06-01"
     },
     "ks": {
       "value": 9.08,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-04-01"
     },
     "go": {
-      "value": 4518.1,
-      "date": "2026-06-01",
-      "ma50": 4628.62,
-      "pctFrom50": -2.39,
-      "ma200": 4376.65,
-      "pctFrom200": 3.23,
-      "sourceDate": "2026-06-01"
+      "value": 4544.4,
+      "date": "2026-06-02",
+      "ma50": 4627.24,
+      "pctFrom50": -1.79,
+      "ma200": 4382.48,
+      "pctFrom200": 3.69,
+      "sourceDate": "2026-06-02"
     },
     "dx": {
-      "value": 119.29,
-      "date": "2026-06-01",
-      "ma50": 119.24,
-      "pctFrom50": 0.04,
-      "ma200": 119.79,
-      "pctFrom200": -0.42,
-      "sourceDate": "2026-05-22"
+      "value": 118.88,
+      "date": "2026-06-02",
+      "ma50": 119.17,
+      "pctFrom50": -0.24,
+      "ma200": 119.76,
+      "pctFrom200": -0.73,
+      "sourceDate": "2026-05-29"
     },
     "vx": {
-      "value": 15.32,
-      "date": "2026-06-01",
-      "sourceDate": "2026-05-29"
+      "value": 16.05,
+      "date": "2026-06-02",
+      "sourceDate": "2026-06-01"
     }
   },
   "core": {
     "lei": {
       "value": -0.6,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-03-01"
     },
     "pmi": {
       "value": 52.4,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-02-01"
     },
     "servicesPmi": {
       "value": 56.1,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-02-01"
     },
     "buffett": {
       "value": 229.84,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-01-01"
     },
     "jolts": {
       "value": 6.87,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-03-01"
     },
     "marginDebt": {
       "value": 609.67,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2025-10-01"
     },
     "michigan": {
       "value": 49.8,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-04-01"
     },
     "dgs10": {
       "value": 4.45,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-05-28"
     },
     "dgs2": {
       "value": 3.99,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-05-28"
     },
     "t10y2y": {
-      "value": 0.47,
-      "date": "2026-06-01",
-      "sourceDate": "2026-05-29"
+      "value": 0.42,
+      "date": "2026-06-02",
+      "sourceDate": "2026-06-01"
     },
     "t10y3m": {
-      "value": 0.76,
-      "date": "2026-06-01",
-      "sourceDate": "2026-05-29"
+      "value": 0.69,
+      "date": "2026-06-02",
+      "sourceDate": "2026-06-01"
     },
     "fedfunds": {
       "value": 3.64,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-04-01"
     },
     "sahm": {
       "value": 0.13,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-04-01"
     },
     "icsa": {
       "value": 215000.0,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-05-23"
     },
     "continuingClaims": {
       "value": 1786000.0,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-05-16"
     },
     "hySpread": {
       "value": 2.74,
-      "date": "2026-06-01",
+      "date": "2026-06-02",
       "sourceDate": "2026-05-31"
     },
     "bbbSpread": {
       "value": 0.93,
-      "date": "2026-06-01",
-      "sourceDate": "2026-05-28"
+      "date": "2026-06-02",
+      "sourceDate": "2026-05-31"
     }
   },
   "fearGreed": {
-    "score": 59.8285714285714,
+    "score": 59.0285714285714,
     "rating": "greed",
-    "timestamp": "2026-06-01T18:10:28+00:00",
-    "date": "2026-06-01",
+    "timestamp": "2026-06-02T00:00:00+00:00",
+    "date": "2026-06-02",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-01T18:10:28+00:00"
+    "sourceDate": "2026-06-02T00:00:00+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -179,8 +179,8 @@
       "fedfunds": 3.64,
       "dgs10": 4.45,
       "dgs2": 3.99,
-      "t10y2y": 0.47,
-      "t10y3m": 0.76
+      "t10y2y": 0.42,
+      "t10y3m": 0.69
     }
   },
   "meta": {
@@ -191,12 +191,10 @@
       "core.lei: Conference Board LEI 파싱 실패",
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
       "core.jolts: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.marginDebt: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.michigan: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.t10y2y: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.sahm: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.icsa: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-      "core.bbbSpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
+      "core.dgs10: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.dgs2: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.fedfunds: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+      "core.sahm: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
     ]
   },
   "engine": {
@@ -208,12 +206,12 @@
       "bbb_trend": 0.5,
       "bbb_final": 0.78,
       "raw_final": 0.8025,
-      "stamp": "2026-06-01",
+      "stamp": "2026-06-02",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "effective_final": 0.8025,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -228,12 +226,12 @@
       "continuing_claims_final": 0.71,
       "sahm_level": 0.8,
       "raw_final": 0.74,
-      "stamp": "2026-06-01",
+      "stamp": "2026-06-02",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -252,13 +250,13 @@
       "lei_trend": 0.5,
       "lei_final": 0.29,
       "raw_final": 0.57,
-      "stamp": "2026-06-01",
+      "stamp": "2026-06-02",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -268,12 +266,12 @@
       "yc_level": 0.6,
       "fedfunds_level": 0.5,
       "raw_final": 0.55,
-      "stamp": "2026-06-01",
+      "stamp": "2026-06-02",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -298,23 +296,21 @@
       "fragility": 0.5,
       "risk": 0.8,
       "hy_spread_36m_low": 2.71,
-      "vix_36m_avg": 17.26
+      "vix_36m_avg": 17.19
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-01T18:17:16+00:00",
+      "updatedAt": "2026-06-02T05:01:05+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
         "core.lei: Conference Board LEI 파싱 실패",
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
         "core.jolts: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.marginDebt: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.michigan: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.t10y2y: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.sahm: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.icsa: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
-        "core.bbbSpread: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
+        "core.dgs10: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.dgs2: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.fedfunds: HTTP 429: Too Many Requests.  Exceeded Rate Limit",
+        "core.sahm: HTTP 429: Too Many Requests.  Exceeded Rate Limit"
       ],
       "stale_policy": "exclude_and_reweight"
     },
