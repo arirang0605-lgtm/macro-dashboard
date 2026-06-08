@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-08T16:20:35+00:00",
+  "updatedAt": "2026-06-08T20:33:50+00:00",
   "market": {
     "sp": {
-      "value": 7451.07,
+      "value": 7405.73,
       "date": "2026-06-08",
-      "ma50": 7175.44,
-      "pctFrom50": 3.84,
-      "ma200": 6863.54,
-      "pctFrom200": 8.56,
+      "ma50": 7174.53,
+      "pctFrom50": 3.22,
+      "ma200": 6863.31,
+      "pctFrom200": 7.9,
       "sourceDate": "2026-06-08"
     },
     "nd": {
-      "value": 29632.44,
+      "value": 29414.26,
       "date": "2026-06-08",
-      "ma50": 27566.99,
-      "pctFrom50": 7.49,
-      "ma200": 25584.17,
-      "pctFrom200": 15.82,
+      "ma50": 27562.63,
+      "pctFrom50": 6.72,
+      "ma200": 25583.08,
+      "pctFrom200": 14.98,
       "sourceDate": "2026-06-08"
     },
     "ks": {
@@ -26,22 +26,22 @@
       "sourceDate": "2026-04-01"
     },
     "go": {
-      "value": 4362.5,
+      "value": 4351.4,
       "date": "2026-06-08",
-      "ma50": 4623.8,
-      "pctFrom50": -5.65,
-      "ma200": 4403.64,
-      "pctFrom200": -0.93,
+      "ma50": 4623.58,
+      "pctFrom50": -5.89,
+      "ma200": 4403.59,
+      "pctFrom200": -1.19,
       "sourceDate": "2026-06-08"
     },
     "dx": {
-      "value": 118.88,
+      "value": 120.08,
       "date": "2026-06-08",
-      "ma50": 119.17,
-      "pctFrom50": -0.24,
-      "ma200": 119.76,
-      "pctFrom200": -0.73,
-      "sourceDate": "2026-05-29"
+      "ma50": 119.09,
+      "pctFrom50": 0.83,
+      "ma200": 119.73,
+      "pctFrom200": 0.29,
+      "sourceDate": "2026-06-05"
     },
     "vx": {
       "value": 21.51,
@@ -86,14 +86,14 @@
       "sourceDate": "2026-04-01"
     },
     "dgs10": {
-      "value": 4.47,
+      "value": 4.55,
       "date": "2026-06-08",
-      "sourceDate": "2026-06-04"
+      "sourceDate": "2026-06-05"
     },
     "dgs2": {
-      "value": 4.05,
+      "value": 4.17,
       "date": "2026-06-08",
-      "sourceDate": "2026-06-04"
+      "sourceDate": "2026-06-05"
     },
     "t10y2y": {
       "value": 0.38,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 43.4571428571429,
+    "score": 40.1142857142857,
     "rating": "fear",
-    "timestamp": "2026-06-08T16:15:24+00:00",
+    "timestamp": "2026-06-08T20:20:01+00:00",
     "date": "2026-06-08",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,19 +150,20 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-08T16:15:24+00:00"
+    "sourceDate": "2026-06-08T20:20:01+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
     "season": "여름",
-    "score": 5,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
-      "변동성 상승"
+      "변동성 상승",
+      "달러 강세"
     ]
   },
   "eggModel": {
@@ -177,8 +178,8 @@
     ],
     "rates": {
       "fedfunds": 3.63,
-      "dgs10": 4.47,
-      "dgs2": 4.05,
+      "dgs10": 4.55,
+      "dgs2": 4.17,
       "t10y2y": 0.38,
       "t10y3m": 0.77
     }
@@ -295,7 +296,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-08T16:20:35+00:00",
+      "updatedAt": "2026-06-08T20:33:50+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
