@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-11T04:59:26+00:00",
+  "updatedAt": "2026-06-11T10:58:13+00:00",
   "market": {
     "sp": {
-      "value": 7386.65,
+      "value": 7266.99,
       "date": "2026-06-11",
-      "ma50": 7194.89,
-      "pctFrom50": 2.67,
-      "ma200": 6868.39,
-      "pctFrom200": 7.55,
-      "sourceDate": "2026-06-09"
+      "ma50": 7213.35,
+      "pctFrom50": 0.74,
+      "ma200": 6872.39,
+      "pctFrom200": 5.74,
+      "sourceDate": "2026-06-10"
     },
     "nd": {
-      "value": 29084.5,
+      "value": 28508.03,
       "date": "2026-06-11",
-      "ma50": 27681.66,
-      "pctFrom50": 5.07,
-      "ma200": 25612.79,
-      "pctFrom200": 13.55,
-      "sourceDate": "2026-06-09"
+      "ma50": 27792.75,
+      "pctFrom50": 2.57,
+      "ma200": 25637.84,
+      "pctFrom200": 11.2,
+      "sourceDate": "2026-06-10"
     },
     "ks": {
       "value": 9.08,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-04-01"
     },
     "go": {
-      "value": 4106.0,
+      "value": 4109.6,
       "date": "2026-06-11",
-      "ma50": 4599.44,
-      "pctFrom50": -10.73,
-      "ma200": 4415.45,
-      "pctFrom200": -7.01,
+      "ma50": 4599.51,
+      "pctFrom50": -10.65,
+      "ma200": 4415.47,
+      "pctFrom200": -6.93,
       "sourceDate": "2026-06-11"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 27.5714285714286,
+    "score": 27.2,
     "rating": "fear",
-    "timestamp": "2026-06-11T00:00:00+00:00",
+    "timestamp": "2026-06-11T10:41:46+00:00",
     "date": "2026-06-11",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-11T00:00:00+00:00"
+    "sourceDate": "2026-06-11T10:41:46+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -207,7 +207,7 @@
       "excluded_series": [],
       "effective_final": 0.78,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -227,7 +227,7 @@
       "excluded_series": [],
       "effective_final": 0.6933333333333334,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -252,7 +252,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -267,7 +267,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -296,7 +296,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-11T04:59:26+00:00",
+      "updatedAt": "2026-06-11T10:58:13+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
