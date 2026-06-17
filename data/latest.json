@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-17T05:17:10+00:00",
+  "updatedAt": "2026-06-17T11:17:50+00:00",
   "market": {
     "sp": {
       "value": 7511.35,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4344.4,
+      "value": 4348.8,
       "date": "2026-06-17",
-      "ma50": 4568.52,
-      "pctFrom50": -4.91,
-      "ma200": 4432.97,
-      "pctFrom200": -2.0,
+      "ma50": 4568.61,
+      "pctFrom50": -4.81,
+      "ma200": 4432.99,
+      "pctFrom200": -1.9,
       "sourceDate": "2026-06-17"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 39.2857142857143,
+    "score": 39.5142857142857,
     "rating": "fear",
-    "timestamp": "2026-06-17T00:00:00+00:00",
+    "timestamp": "2026-06-17T11:01:31+00:00",
     "date": "2026-06-17",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-17T00:00:00+00:00"
+    "sourceDate": "2026-06-17T11:01:31+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -205,7 +205,7 @@
       "excluded_series": [],
       "effective_final": 0.8025,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -225,7 +225,7 @@
       "excluded_series": [],
       "effective_final": 0.6933333333333334,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -250,7 +250,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -265,7 +265,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-17T05:17:10+00:00",
+      "updatedAt": "2026-06-17T11:17:50+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
