@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-18T10:48:37+00:00",
+  "updatedAt": "2026-06-18T15:53:10+00:00",
   "market": {
     "sp": {
-      "value": 7420.1,
+      "value": 7490.18,
       "date": "2026-06-18",
-      "ma50": 7301.28,
-      "pctFrom50": 1.63,
-      "ma200": 6897.21,
-      "pctFrom200": 7.58,
-      "sourceDate": "2026-06-17"
+      "ma50": 7315.42,
+      "pctFrom50": 2.39,
+      "ma200": 6902.58,
+      "pctFrom200": 8.51,
+      "sourceDate": "2026-06-18"
     },
     "nd": {
-      "value": 29670.95,
+      "value": 30287.21,
       "date": "2026-06-18",
-      "ma50": 28374.05,
-      "pctFrom50": 4.57,
-      "ma200": 25795.98,
-      "pctFrom200": 15.02,
-      "sourceDate": "2026-06-17"
+      "ma50": 28481.73,
+      "pctFrom50": 6.34,
+      "ma200": 25831.26,
+      "pctFrom200": 17.25,
+      "sourceDate": "2026-06-18"
     },
     "ks": {
       "value": 25.75,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4284.0,
+      "value": 4252.0,
       "date": "2026-06-18",
-      "ma50": 4559.5,
-      "pctFrom50": -6.04,
-      "ma200": 4436.72,
-      "pctFrom200": -3.44,
+      "ma50": 4558.86,
+      "pctFrom50": -6.73,
+      "ma200": 4436.56,
+      "pctFrom200": -4.16,
       "sourceDate": "2026-06-18"
     },
     "dx": {
@@ -51,9 +51,9 @@
   },
   "core": {
     "lei": {
-      "value": -0.6,
+      "value": 0.2,
       "date": "2026-06-18",
-      "sourceDate": "2026-03-01"
+      "sourceDate": "2026-05-01"
     },
     "pmi": {
       "value": 52.4,
@@ -116,30 +116,30 @@
       "sourceDate": "2026-05-01"
     },
     "icsa": {
-      "value": 229000.0,
+      "value": 226000.0,
+      "date": "2026-06-18",
+      "sourceDate": "2026-06-13"
+    },
+    "continuingClaims": {
+      "value": 1810000.0,
       "date": "2026-06-18",
       "sourceDate": "2026-06-06"
     },
-    "continuingClaims": {
-      "value": 1795000.0,
-      "date": "2026-06-18",
-      "sourceDate": "2026-05-30"
-    },
     "hySpread": {
-      "value": 2.71,
+      "value": 2.63,
       "date": "2026-06-18",
-      "sourceDate": "2026-06-16"
+      "sourceDate": "2026-06-17"
     },
     "bbbSpread": {
-      "value": 0.93,
+      "value": 0.92,
       "date": "2026-06-18",
-      "sourceDate": "2026-06-16"
+      "sourceDate": "2026-06-17"
     }
   },
   "fearGreed": {
-    "score": 32.0285714285714,
+    "score": 36.1714285714286,
     "rating": "fear",
-    "timestamp": "2026-06-18T10:28:46+00:00",
+    "timestamp": "2026-06-18T15:49:03+00:00",
     "date": "2026-06-18",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-18T10:28:46+00:00"
+    "sourceDate": "2026-06-18T15:49:03+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -165,10 +165,10 @@
     ]
   },
   "eggModel": {
-    "phase": "둔화 전환",
-    "season": "가을",
+    "phase": "확장/과열",
+    "season": "여름",
     "signals": [
-      "LEI 약화",
+      "LEI 개선",
       "PMI 확장",
       "고용 안정",
       "실업수당 안정",
@@ -187,7 +187,6 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.lei: Conference Board LEI 파싱 실패",
       "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
@@ -213,13 +212,13 @@
     },
     "employment": {
       "icsa_level": 0.6,
-      "icsa_trend": 0.5,
-      "icsa_final": 0.57,
+      "icsa_trend": 0.65,
+      "icsa_final": 0.615,
       "continuing_claims_level": 0.8,
-      "continuing_claims_trend": 0.5,
-      "continuing_claims_final": 0.71,
+      "continuing_claims_trend": 0.2,
+      "continuing_claims_final": 0.6199999999999999,
       "sahm_level": 0.8,
-      "raw_final": 0.6933333333333334,
+      "raw_final": 0.6783333333333332,
       "stamp": "2026-06-18",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -240,10 +239,10 @@
       "services_pmi_final": 0.78,
       "services_pmi_missing": false,
       "leading_reliability": "full",
-      "lei_level": 0.2,
-      "lei_trend": 0.5,
-      "lei_final": 0.29,
-      "raw_final": 0.57,
+      "lei_level": 0.6,
+      "lei_trend": 0.65,
+      "lei_final": 0.615,
+      "raw_final": 0.6783333333333332,
       "stamp": "2026-06-18",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -271,7 +270,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.67375,
+    "raw_macro_score": 0.6963333333333332,
     "macro_score": 0.67375,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -283,22 +282,21 @@
       "employment_confirm": false
     },
     "stage": "L3",
-    "stage_delta": 0.0,
+    "stage_delta": 0.02258333333333329,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
       "fragility": 0.5,
       "risk": 0.8,
-      "hy_spread_36m_low": 2.66,
+      "hy_spread_36m_low": 2.63,
       "vix_36m_avg": 17.63
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-18T10:48:37+00:00",
+      "updatedAt": "2026-06-18T15:53:10+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.lei: Conference Board LEI 파싱 실패",
         "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
