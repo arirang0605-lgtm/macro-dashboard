@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-19T15:43:17+00:00",
+  "updatedAt": "2026-06-19T20:03:56+00:00",
   "market": {
     "sp": {
-      "value": 7500.58,
+      "value": 7420.1,
       "date": "2026-06-19",
-      "ma50": 7315.63,
-      "pctFrom50": 2.53,
-      "ma200": 6902.63,
-      "pctFrom200": 8.66,
-      "sourceDate": "2026-06-18"
+      "ma50": 7301.28,
+      "pctFrom50": 1.63,
+      "ma200": 6897.21,
+      "pctFrom200": 7.58,
+      "sourceDate": "2026-06-17"
     },
     "nd": {
-      "value": 30406.19,
+      "value": 29670.95,
       "date": "2026-06-19",
-      "ma50": 28484.11,
-      "pctFrom50": 6.75,
-      "ma200": 25831.86,
-      "pctFrom200": 17.71,
-      "sourceDate": "2026-06-18"
+      "ma50": 28374.05,
+      "pctFrom50": 4.57,
+      "ma200": 25795.98,
+      "pctFrom200": 15.02,
+      "sourceDate": "2026-06-17"
     },
     "ks": {
       "value": 25.75,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4170.0,
+      "value": 4172.9,
       "date": "2026-06-19",
-      "ma50": 4545.86,
-      "pctFrom50": -8.27,
-      "ma200": 4439.3,
-      "pctFrom200": -6.07,
+      "ma50": 4545.92,
+      "pctFrom50": -8.21,
+      "ma200": 4439.32,
+      "pctFrom200": -6.0,
       "sourceDate": "2026-06-19"
     },
     "dx": {
@@ -293,7 +293,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-19T15:43:17+00:00",
+      "updatedAt": "2026-06-19T20:03:56+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
