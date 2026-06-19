@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-19T10:57:30+00:00",
+  "updatedAt": "2026-06-19T15:43:17+00:00",
   "market": {
     "sp": {
       "value": 7500.58,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4170.6,
+      "value": 4170.0,
       "date": "2026-06-19",
-      "ma50": 4545.87,
-      "pctFrom50": -8.26,
-      "ma200": 4439.31,
-      "pctFrom200": -6.05,
+      "ma50": 4545.86,
+      "pctFrom50": -8.27,
+      "ma200": 4439.3,
+      "pctFrom200": -6.07,
       "sourceDate": "2026-06-19"
     },
     "dx": {
@@ -293,7 +293,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-19T10:57:30+00:00",
+      "updatedAt": "2026-06-19T15:43:17+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
