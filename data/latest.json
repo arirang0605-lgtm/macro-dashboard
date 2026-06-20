@@ -1,15 +1,15 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-20T09:42:41+00:00",
+  "updatedAt": "2026-06-20T14:31:33+00:00",
   "market": {
     "sp": {
-      "value": 7420.1,
+      "value": 7500.58,
       "date": "2026-06-20",
-      "ma50": 7301.28,
-      "pctFrom50": 1.63,
-      "ma200": 6897.21,
-      "pctFrom200": 7.58,
-      "sourceDate": "2026-06-17"
+      "ma50": 7315.63,
+      "pctFrom50": 2.53,
+      "ma200": 6902.63,
+      "pctFrom200": 8.66,
+      "sourceDate": "2026-06-18"
     },
     "nd": {
       "value": 30406.19,
@@ -44,9 +44,9 @@
       "sourceDate": "2026-06-12"
     },
     "vx": {
-      "value": 16.4,
+      "value": 16.78,
       "date": "2026-06-20",
-      "sourceDate": "2026-06-18"
+      "sourceDate": "2026-06-19"
     }
   },
   "core": {
@@ -289,11 +289,11 @@
       "fragility": 0.5,
       "risk": 0.8,
       "hy_spread_36m_low": 2.63,
-      "vix_36m_avg": 17.56
+      "vix_36m_avg": 17.57
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-20T09:42:41+00:00",
+      "updatedAt": "2026-06-20T14:31:33+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
