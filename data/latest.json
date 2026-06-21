@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-21T05:18:58+00:00",
+  "updatedAt": "2026-06-21T10:05:29+00:00",
   "market": {
     "sp": {
       "value": 7500.58,
@@ -204,7 +204,7 @@
       "excluded_series": [],
       "effective_final": 0.8025,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -224,7 +224,7 @@
       "excluded_series": [],
       "effective_final": 0.6933333333333334,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -249,9 +249,9 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.57,
       "persistence": {
-        "status": "hold_waiting_confirmation",
-        "direction": "recover",
-        "required": 5,
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
         "pending_count": 3
       }
     },
@@ -264,7 +264,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -293,7 +293,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-21T05:18:58+00:00",
+      "updatedAt": "2026-06-21T10:05:29+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
