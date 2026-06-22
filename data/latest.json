@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-22T12:26:19+00:00",
+  "updatedAt": "2026-06-22T21:14:07+00:00",
   "market": {
     "sp": {
-      "value": 7500.58,
+      "value": 7472.79,
       "date": "2026-06-22",
-      "ma50": 7315.63,
-      "pctFrom50": 2.53,
-      "ma200": 6902.63,
-      "pctFrom200": 8.66,
-      "sourceDate": "2026-06-18"
+      "ma50": 7328.59,
+      "pctFrom50": 1.97,
+      "ma200": 6907.75,
+      "pctFrom200": 8.18,
+      "sourceDate": "2026-06-22"
     },
     "nd": {
-      "value": 30406.19,
+      "value": 30347.08,
       "date": "2026-06-22",
-      "ma50": 28484.11,
-      "pctFrom50": 6.75,
-      "ma200": 25831.86,
-      "pctFrom200": 17.71,
-      "sourceDate": "2026-06-18"
+      "ma50": 28589.41,
+      "pctFrom50": 6.15,
+      "ma200": 25866.52,
+      "pctFrom200": 17.32,
+      "sourceDate": "2026-06-22"
     },
     "ks": {
       "value": 25.75,
@@ -26,22 +26,22 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4225.2,
+      "value": 4209.7,
       "date": "2026-06-22",
-      "ma50": 4546.96,
-      "pctFrom50": -7.08,
-      "ma200": 4439.58,
-      "pctFrom200": -4.83,
+      "ma50": 4546.65,
+      "pctFrom50": -7.41,
+      "ma200": 4439.5,
+      "pctFrom200": -5.18,
       "sourceDate": "2026-06-22"
     },
     "dx": {
-      "value": 119.51,
+      "value": 120.4,
       "date": "2026-06-22",
-      "ma50": 119.01,
-      "pctFrom50": 0.42,
-      "ma200": 119.71,
-      "pctFrom200": -0.17,
-      "sourceDate": "2026-06-12"
+      "ma50": 118.96,
+      "pctFrom50": 1.2,
+      "ma200": 119.7,
+      "pctFrom200": 0.58,
+      "sourceDate": "2026-06-18"
     },
     "vx": {
       "value": 16.78,
@@ -86,24 +86,24 @@
       "sourceDate": "2026-04-01"
     },
     "dgs10": {
-      "value": 4.49,
+      "value": 4.46,
       "date": "2026-06-22",
-      "sourceDate": "2026-06-17"
+      "sourceDate": "2026-06-18"
     },
     "dgs2": {
-      "value": 4.2,
+      "value": 4.19,
       "date": "2026-06-22",
-      "sourceDate": "2026-06-17"
+      "sourceDate": "2026-06-18"
     },
     "t10y2y": {
       "value": 0.27,
       "date": "2026-06-22",
-      "sourceDate": "2026-06-18"
+      "sourceDate": "2026-06-22"
     },
     "t10y3m": {
-      "value": 0.63,
+      "value": 0.66,
       "date": "2026-06-22",
-      "sourceDate": "2026-06-18"
+      "sourceDate": "2026-06-22"
     },
     "fedfunds": {
       "value": 3.63,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-06-06"
     },
     "hySpread": {
-      "value": 2.63,
+      "value": 2.66,
       "date": "2026-06-22",
-      "sourceDate": "2026-06-17"
+      "sourceDate": "2026-06-19"
     },
     "bbbSpread": {
-      "value": 0.92,
+      "value": 0.93,
       "date": "2026-06-22",
-      "sourceDate": "2026-06-17"
+      "sourceDate": "2026-06-19"
     }
   },
   "fearGreed": {
-    "score": 37.2571428571429,
+    "score": 34.7428571428571,
     "rating": "fear",
-    "timestamp": "2026-06-22T12:09:31+00:00",
+    "timestamp": "2026-06-22T20:55:12+00:00",
     "date": "2026-06-22",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,19 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-22T12:09:31+00:00"
+    "sourceDate": "2026-06-22T20:55:12+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
-    "season": "봄",
-    "score": 4,
+    "season": "여름",
+    "score": 5,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
-      "레버리지 과열"
+      "레버리지 과열",
+      "달러 강세"
     ]
   },
   "eggModel": {
@@ -176,10 +177,10 @@
     ],
     "rates": {
       "fedfunds": 3.63,
-      "dgs10": 4.49,
-      "dgs2": 4.2,
+      "dgs10": 4.46,
+      "dgs2": 4.19,
       "t10y2y": 0.27,
-      "t10y3m": 0.63
+      "t10y3m": 0.66
     }
   },
   "meta": {
@@ -293,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-22T12:26:19+00:00",
+      "updatedAt": "2026-06-22T21:14:07+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
