@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-23T10:03:26+00:00",
+  "updatedAt": "2026-06-23T15:25:02+00:00",
   "market": {
     "sp": {
-      "value": 7472.79,
+      "value": 7374.34,
       "date": "2026-06-23",
-      "ma50": 7328.59,
-      "pctFrom50": 1.97,
-      "ma200": 6907.75,
-      "pctFrom200": 8.18,
-      "sourceDate": "2026-06-22"
+      "ma50": 7339.74,
+      "pctFrom50": 0.47,
+      "ma200": 6912.12,
+      "pctFrom200": 6.69,
+      "sourceDate": "2026-06-23"
     },
     "nd": {
-      "value": 30347.08,
+      "value": 29422.01,
       "date": "2026-06-23",
-      "ma50": 28589.41,
-      "pctFrom50": 6.15,
-      "ma200": 25866.52,
-      "pctFrom200": 17.32,
-      "sourceDate": "2026-06-22"
+      "ma50": 28675.52,
+      "pctFrom50": 2.6,
+      "ma200": 25895.47,
+      "pctFrom200": 13.62,
+      "sourceDate": "2026-06-23"
     },
     "ks": {
       "value": 25.75,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4134.2,
+      "value": 4144.9,
       "date": "2026-06-23",
-      "ma50": 4533.54,
-      "pctFrom50": -8.81,
-      "ma200": 4442.2,
-      "pctFrom200": -6.93,
+      "ma50": 4533.76,
+      "pctFrom50": -8.58,
+      "ma200": 4442.26,
+      "pctFrom200": -6.69,
       "sourceDate": "2026-06-23"
     },
     "dx": {
@@ -126,20 +126,20 @@
       "sourceDate": "2026-06-06"
     },
     "hySpread": {
-      "value": 2.66,
+      "value": 2.65,
       "date": "2026-06-23",
-      "sourceDate": "2026-06-19"
+      "sourceDate": "2026-06-22"
     },
     "bbbSpread": {
       "value": 0.93,
       "date": "2026-06-23",
-      "sourceDate": "2026-06-19"
+      "sourceDate": "2026-06-22"
     }
   },
   "fearGreed": {
-    "score": 34.3428571428571,
+    "score": 28.3428571428571,
     "rating": "fear",
-    "timestamp": "2026-06-23T09:46:16+00:00",
+    "timestamp": "2026-06-23T15:21:20+00:00",
     "date": "2026-06-23",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-23T09:46:16+00:00"
+    "sourceDate": "2026-06-23T15:21:20+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-23T10:03:26+00:00",
+      "updatedAt": "2026-06-23T15:25:02+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
