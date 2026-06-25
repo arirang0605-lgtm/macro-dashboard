@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-25T09:45:27+00:00",
+  "updatedAt": "2026-06-25T15:15:28+00:00",
   "market": {
     "sp": {
-      "value": 7358.22,
+      "value": 7348.62,
       "date": "2026-06-25",
-      "ma50": 7349.01,
-      "pctFrom50": 0.13,
-      "ma200": 6916.45,
-      "pctFrom200": 6.39,
-      "sourceDate": "2026-06-24"
+      "ma50": 7356.63,
+      "pctFrom50": -0.11,
+      "ma200": 6920.72,
+      "pctFrom200": 6.18,
+      "sourceDate": "2026-06-25"
     },
     "nd": {
-      "value": 29220.06,
+      "value": 29177.5,
       "date": "2026-06-25",
-      "ma50": 28750.76,
-      "pctFrom50": 1.63,
-      "ma200": 25922.93,
-      "pctFrom200": 12.72,
-      "sourceDate": "2026-06-24"
+      "ma50": 28817.47,
+      "pctFrom50": 1.25,
+      "ma200": 25950.01,
+      "pctFrom200": 12.44,
+      "sourceDate": "2026-06-25"
     },
     "ks": {
       "value": 25.75,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4008.9,
+      "value": 4033.5,
       "date": "2026-06-25",
-      "ma50": 4502.09,
-      "pctFrom50": -10.95,
-      "ma200": 4445.92,
-      "pctFrom200": -9.83,
+      "ma50": 4502.59,
+      "pctFrom50": -10.42,
+      "ma200": 4446.05,
+      "pctFrom200": -9.28,
       "sourceDate": "2026-06-25"
     },
     "dx": {
@@ -66,7 +66,7 @@
       "sourceDate": "2026-02-01"
     },
     "buffett": {
-      "value": 218.46,
+      "value": 218.14,
       "date": "2026-06-25",
       "sourceDate": "2026-01-01"
     },
@@ -116,14 +116,14 @@
       "sourceDate": "2026-05-01"
     },
     "icsa": {
-      "value": 226000.0,
+      "value": 215000.0,
       "date": "2026-06-25",
-      "sourceDate": "2026-06-13"
+      "sourceDate": "2026-06-20"
     },
     "continuingClaims": {
-      "value": 1810000.0,
+      "value": 1821000.0,
       "date": "2026-06-25",
-      "sourceDate": "2026-06-06"
+      "sourceDate": "2026-06-13"
     },
     "hySpread": {
       "value": 2.71,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 25.8,
+    "score": 26.9142857142857,
     "rating": "fear",
-    "timestamp": "2026-06-25T09:25:16+00:00",
+    "timestamp": "2026-06-25T15:10:04+00:00",
     "date": "2026-06-25",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,19 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-25T09:25:16+00:00"
+    "sourceDate": "2026-06-25T15:10:04+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
     "season": "여름",
-    "score": 5,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
+      "S&P500 50일선 이탈",
       "달러 강세"
     ]
   },
@@ -212,14 +213,14 @@
       }
     },
     "employment": {
-      "icsa_level": 0.6,
-      "icsa_trend": 0.5,
-      "icsa_final": 0.57,
+      "icsa_level": 0.8,
+      "icsa_trend": 0.8,
+      "icsa_final": 0.7999999999999999,
       "continuing_claims_level": 0.8,
-      "continuing_claims_trend": 0.5,
-      "continuing_claims_final": 0.71,
+      "continuing_claims_trend": 0.2,
+      "continuing_claims_final": 0.6199999999999999,
       "sahm_level": 0.8,
-      "raw_final": 0.6933333333333334,
+      "raw_final": 0.7399999999999999,
       "stamp": "2026-06-25",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -271,7 +272,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.6970833333333333,
+    "raw_macro_score": 0.7110833333333333,
     "macro_score": 0.6970833333333333,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -283,7 +284,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": 0.0,
+    "stage_delta": 0.014000000000000012,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -294,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-25T09:45:27+00:00",
+      "updatedAt": "2026-06-25T15:15:28+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
