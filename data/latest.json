@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-26T14:47:55+00:00",
+  "updatedAt": "2026-06-26T20:10:27+00:00",
   "market": {
     "sp": {
-      "value": 7356.47,
+      "value": 7354.02,
       "date": "2026-06-26",
-      "ma50": 7363.48,
-      "pctFrom50": -0.1,
-      "ma200": 6924.99,
-      "pctFrom200": 6.23,
+      "ma50": 7363.43,
+      "pctFrom50": -0.13,
+      "ma200": 6924.97,
+      "pctFrom200": 6.2,
       "sourceDate": "2026-06-26"
     },
     "nd": {
-      "value": 29236.76,
+      "value": 29118.24,
       "date": "2026-06-26",
-      "ma50": 28883.37,
-      "pctFrom50": 1.22,
-      "ma200": 25978.3,
-      "pctFrom200": 12.54,
+      "ma50": 28881.0,
+      "pctFrom50": 0.82,
+      "ma200": 25977.71,
+      "pctFrom200": 12.09,
       "sourceDate": "2026-06-26"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4093.2,
+      "value": 4086.3,
       "date": "2026-06-26",
-      "ma50": 4488.39,
-      "pctFrom50": -8.8,
-      "ma200": 4448.28,
-      "pctFrom200": -7.98,
+      "ma50": 4488.25,
+      "pctFrom50": -8.96,
+      "ma200": 4448.25,
+      "pctFrom200": -8.14,
       "sourceDate": "2026-06-26"
     },
     "dx": {
@@ -81,9 +81,9 @@
       "sourceDate": "2026-01-01"
     },
     "michigan": {
-      "value": 49.8,
+      "value": 44.8,
       "date": "2026-06-26",
-      "sourceDate": "2026-04-01"
+      "sourceDate": "2026-05-01"
     },
     "dgs10": {
       "value": 4.41,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-06-13"
     },
     "hySpread": {
-      "value": 2.76,
+      "value": 2.78,
       "date": "2026-06-26",
-      "sourceDate": "2026-06-24"
+      "sourceDate": "2026-06-25"
     },
     "bbbSpread": {
-      "value": 0.94,
+      "value": 0.95,
       "date": "2026-06-26",
-      "sourceDate": "2026-06-24"
+      "sourceDate": "2026-06-25"
     }
   },
   "fearGreed": {
-    "score": 25.3714285714286,
-    "rating": "fear",
-    "timestamp": "2026-06-26T14:41:14+00:00",
+    "score": 24.6571428571429,
+    "rating": "extreme fear",
+    "timestamp": "2026-06-26T19:59:59+00:00",
     "date": "2026-06-26",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-26T14:41:14+00:00"
+    "sourceDate": "2026-06-26T19:59:59+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-26T14:47:55+00:00",
+      "updatedAt": "2026-06-26T20:10:27+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
