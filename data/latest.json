@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-26T09:52:06+00:00",
+  "updatedAt": "2026-06-26T14:47:55+00:00",
   "market": {
     "sp": {
-      "value": 7357.49,
+      "value": 7356.47,
       "date": "2026-06-26",
-      "ma50": 7356.81,
-      "pctFrom50": 0.01,
-      "ma200": 6920.77,
-      "pctFrom200": 6.31,
-      "sourceDate": "2026-06-25"
+      "ma50": 7363.48,
+      "pctFrom50": -0.1,
+      "ma200": 6924.99,
+      "pctFrom200": 6.23,
+      "sourceDate": "2026-06-26"
     },
     "nd": {
-      "value": 29440.32,
+      "value": 29236.76,
       "date": "2026-06-26",
-      "ma50": 28822.72,
-      "pctFrom50": 2.14,
-      "ma200": 25951.32,
-      "pctFrom200": 13.44,
-      "sourceDate": "2026-06-25"
+      "ma50": 28883.37,
+      "pctFrom50": 1.22,
+      "ma200": 25978.3,
+      "pctFrom200": 12.54,
+      "sourceDate": "2026-06-26"
     },
     "ks": {
       "value": 25.75,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4065.5,
+      "value": 4093.2,
       "date": "2026-06-26",
-      "ma50": 4487.84,
-      "pctFrom50": -9.41,
-      "ma200": 4448.14,
-      "pctFrom200": -8.6,
+      "ma50": 4488.39,
+      "pctFrom50": -8.8,
+      "ma200": 4448.28,
+      "pctFrom200": -7.98,
       "sourceDate": "2026-06-26"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 24.592673992674,
-    "rating": "extreme fear",
-    "timestamp": "2026-06-26T09:32:16+00:00",
+    "score": 25.3714285714286,
+    "rating": "fear",
+    "timestamp": "2026-06-26T14:41:14+00:00",
     "date": "2026-06-26",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,19 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-26T09:32:16+00:00"
+    "sourceDate": "2026-06-26T14:41:14+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
     "season": "여름",
-    "score": 5,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
+      "S&P500 50일선 이탈",
       "달러 강세"
     ]
   },
@@ -294,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-26T09:52:06+00:00",
+      "updatedAt": "2026-06-26T14:47:55+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
