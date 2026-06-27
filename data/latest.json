@@ -1,15 +1,15 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-27T08:50:01+00:00",
+  "updatedAt": "2026-06-27T14:07:03+00:00",
   "market": {
     "sp": {
-      "value": 7357.49,
+      "value": 7354.02,
       "date": "2026-06-27",
-      "ma50": 7356.81,
-      "pctFrom50": 0.01,
-      "ma200": 6920.77,
-      "pctFrom200": 6.31,
-      "sourceDate": "2026-06-25"
+      "ma50": 7363.43,
+      "pctFrom50": -0.13,
+      "ma200": 6924.97,
+      "pctFrom200": 6.2,
+      "sourceDate": "2026-06-26"
     },
     "nd": {
       "value": 29440.32,
@@ -155,13 +155,14 @@
   "minsky": {
     "phase": "과열 준비",
     "season": "여름",
-    "score": 5,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
+      "S&P500 50일선 이탈",
       "달러 강세"
     ]
   },
@@ -294,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-27T08:50:01+00:00",
+      "updatedAt": "2026-06-27T14:07:03+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
