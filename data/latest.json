@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-06-30T10:01:33+00:00",
+  "updatedAt": "2026-06-30T14:43:52+00:00",
   "market": {
     "sp": {
-      "value": 7440.43,
+      "value": 7471.84,
       "date": "2026-06-30",
-      "ma50": 7371.41,
-      "pctFrom50": 0.94,
-      "ma200": 6929.52,
-      "pctFrom200": 7.37,
-      "sourceDate": "2026-06-29"
+      "ma50": 7378.33,
+      "pctFrom50": 1.27,
+      "ma200": 6933.94,
+      "pctFrom200": 7.76,
+      "sourceDate": "2026-06-30"
     },
     "nd": {
-      "value": 29774.75,
+      "value": 30108.04,
       "date": "2026-06-30",
-      "ma50": 28949.83,
-      "pctFrom50": 2.85,
-      "ma200": 26007.34,
-      "pctFrom200": 14.49,
-      "sourceDate": "2026-06-29"
+      "ma50": 29018.54,
+      "pctFrom50": 3.75,
+      "ma200": 26037.92,
+      "pctFrom200": 15.63,
+      "sourceDate": "2026-06-30"
     },
     "ks": {
       "value": 25.75,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4033.5,
+      "value": 4068.3,
       "date": "2026-06-30",
-      "ma50": 4456.36,
-      "pctFrom50": -9.49,
-      "ma200": 4452.08,
-      "pctFrom200": -9.4,
+      "ma50": 4457.05,
+      "pctFrom50": -8.72,
+      "ma200": 4452.26,
+      "pctFrom200": -8.62,
       "sourceDate": "2026-06-30"
     },
     "dx": {
@@ -71,9 +71,9 @@
       "sourceDate": "2026-01-01"
     },
     "jolts": {
-      "value": 7.62,
+      "value": 7.59,
       "date": "2026-06-30",
-      "sourceDate": "2026-04-01"
+      "sourceDate": "2026-05-01"
     },
     "marginDebt": {
       "value": 622.2,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-06-13"
     },
     "hySpread": {
-      "value": 2.83,
+      "value": 2.8,
       "date": "2026-06-30",
-      "sourceDate": "2026-06-26"
+      "sourceDate": "2026-06-29"
     },
     "bbbSpread": {
-      "value": 0.96,
+      "value": 0.95,
       "date": "2026-06-30",
-      "sourceDate": "2026-06-26"
+      "sourceDate": "2026-06-29"
     }
   },
   "fearGreed": {
-    "score": 27.1714285714286,
+    "score": 29.7714285714286,
     "rating": "fear",
-    "timestamp": "2026-06-30T09:41:16+00:00",
+    "timestamp": "2026-06-30T14:40:54+00:00",
     "date": "2026-06-30",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-06-30T09:41:16+00:00"
+    "sourceDate": "2026-06-30T14:40:54+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-06-30T10:01:33+00:00",
+      "updatedAt": "2026-06-30T14:43:52+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
