@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-03T14:32:34+00:00",
+  "updatedAt": "2026-07-03T19:50:07+00:00",
   "market": {
     "sp": {
       "value": 7483.24,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4176.0,
+      "value": 4187.3,
       "date": "2026-07-03",
-      "ma50": 4418.53,
-      "pctFrom50": -5.49,
-      "ma200": 4458.71,
-      "pctFrom200": -6.34,
+      "ma50": 4418.76,
+      "pctFrom50": -5.24,
+      "ma200": 4458.77,
+      "pctFrom200": -6.09,
       "sourceDate": "2026-07-03"
     },
     "dx": {
@@ -126,14 +126,14 @@
       "sourceDate": "2026-06-20"
     },
     "hySpread": {
-      "value": 2.74,
+      "value": 2.75,
       "date": "2026-07-03",
-      "sourceDate": "2026-07-01"
+      "sourceDate": "2026-07-02"
     },
     "bbbSpread": {
       "value": 0.94,
       "date": "2026-07-03",
-      "sourceDate": "2026-07-01"
+      "sourceDate": "2026-07-02"
     }
   },
   "fearGreed": {
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-03T14:32:34+00:00",
+      "updatedAt": "2026-07-03T19:50:07+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
