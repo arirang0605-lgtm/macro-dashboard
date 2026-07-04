@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-04T09:01:08+00:00",
+  "updatedAt": "2026-07-04T13:59:11+00:00",
   "market": {
     "sp": {
       "value": 7483.24,
@@ -44,9 +44,9 @@
       "sourceDate": "2026-06-26"
     },
     "vx": {
-      "value": 16.15,
+      "value": 15.81,
       "date": "2026-07-04",
-      "sourceDate": "2026-07-02"
+      "sourceDate": "2026-07-03"
     }
   },
   "core": {
@@ -290,11 +290,11 @@
       "fragility": 0.5,
       "risk": 0.8,
       "hy_spread_36m_low": 2.63,
-      "vix_36m_avg": 17.71
+      "vix_36m_avg": 17.7
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-04T09:01:08+00:00",
+      "updatedAt": "2026-07-04T13:59:11+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
