@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-08T14:41:22+00:00",
+  "updatedAt": "2026-07-08T19:55:51+00:00",
   "market": {
     "sp": {
-      "value": 7450.12,
+      "value": 7484.18,
       "date": "2026-07-08",
-      "ma50": 7416.35,
-      "pctFrom50": 0.46,
-      "ma200": 6956.17,
-      "pctFrom200": 7.1,
+      "ma50": 7417.03,
+      "pctFrom50": 0.91,
+      "ma200": 6956.34,
+      "pctFrom200": 7.59,
       "sourceDate": "2026-07-08"
     },
     "nd": {
-      "value": 29034.75,
+      "value": 29249.92,
       "date": "2026-07-08",
-      "ma50": 29280.92,
-      "pctFrom50": -0.84,
-      "ma200": 26167.28,
-      "pctFrom200": 10.96,
+      "ma50": 29285.23,
+      "pctFrom50": -0.12,
+      "ma200": 26168.36,
+      "pctFrom200": 11.78,
       "sourceDate": "2026-07-08"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4068.3,
+      "value": 4090.3,
       "date": "2026-07-08",
-      "ma50": 4393.84,
-      "pctFrom50": -7.41,
-      "ma200": 4463.05,
-      "pctFrom200": -8.84,
+      "ma50": 4394.28,
+      "pctFrom50": -6.92,
+      "ma200": 4463.16,
+      "pctFrom200": -8.35,
       "sourceDate": "2026-07-08"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 42.1142857142857,
+    "score": 41.9428571428571,
     "rating": "fear",
-    "timestamp": "2026-07-08T14:34:37+00:00",
+    "timestamp": "2026-07-08T19:50:30+00:00",
     "date": "2026-07-08",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-07-08T14:34:37+00:00"
+    "sourceDate": "2026-07-08T19:50:30+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-08T14:41:22+00:00",
+      "updatedAt": "2026-07-08T19:55:51+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
