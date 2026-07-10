@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-10T09:53:18+00:00",
+  "updatedAt": "2026-07-10T15:01:58+00:00",
   "market": {
     "sp": {
-      "value": 7543.64,
+      "value": 7536.45,
       "date": "2026-07-10",
-      "ma50": 7424.39,
-      "pctFrom50": 1.61,
-      "ma200": 6960.73,
-      "pctFrom200": 8.37,
-      "sourceDate": "2026-07-09"
+      "ma50": 7432.34,
+      "pctFrom50": 1.4,
+      "ma200": 6964.94,
+      "pctFrom200": 8.21,
+      "sourceDate": "2026-07-10"
     },
     "nd": {
-      "value": 29727.1,
+      "value": 29595.62,
       "date": "2026-07-10",
-      "ma50": 29333.71,
-      "pctFrom50": 1.34,
-      "ma200": 26193.88,
-      "pctFrom200": 13.49,
-      "sourceDate": "2026-07-09"
+      "ma50": 29385.04,
+      "pctFrom50": 0.72,
+      "ma200": 26218.05,
+      "pctFrom200": 12.88,
+      "sourceDate": "2026-07-10"
     },
     "ks": {
       "value": 25.75,
@@ -26,10 +26,10 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4112.6,
+      "value": 4112.5,
       "date": "2026-07-10",
       "ma50": 4373.42,
-      "pctFrom50": -5.96,
+      "pctFrom50": -5.97,
       "ma200": 4467.22,
       "pctFrom200": -7.94,
       "sourceDate": "2026-07-10"
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 47.1714285714286,
+    "score": 47.6285714285714,
     "rating": "neutral",
-    "timestamp": "2026-07-10T09:34:46+00:00",
+    "timestamp": "2026-07-10T14:59:47+00:00",
     "date": "2026-07-10",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-07-10T09:34:46+00:00"
+    "sourceDate": "2026-07-10T14:59:47+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-10T09:53:18+00:00",
+      "updatedAt": "2026-07-10T15:01:58+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
