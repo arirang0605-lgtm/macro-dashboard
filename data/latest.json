@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-13T04:01:15+00:00",
+  "updatedAt": "2026-07-13T09:47:53+00:00",
   "market": {
     "sp": {
       "value": 7575.39,
@@ -26,13 +26,13 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4104.1,
+      "value": 4079.5,
       "date": "2026-07-13",
-      "ma50": 4373.25,
-      "pctFrom50": -6.15,
-      "ma200": 4467.17,
-      "pctFrom200": -8.13,
-      "sourceDate": "2026-07-10"
+      "ma50": 4363.93,
+      "pctFrom50": -6.52,
+      "ma200": 4468.67,
+      "pctFrom200": -8.71,
+      "sourceDate": "2026-07-13"
     },
     "dx": {
       "value": 120.69,
@@ -139,7 +139,7 @@
   "fearGreed": {
     "score": 49.4857142857143,
     "rating": "neutral",
-    "timestamp": "2026-07-10T23:59:47+00:00",
+    "timestamp": "2026-07-13T09:31:46+00:00",
     "date": "2026-07-13",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-07-10T23:59:47+00:00"
+    "sourceDate": "2026-07-13T09:31:46+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -205,10 +205,10 @@
       "excluded_series": [],
       "effective_final": 0.8025,
       "persistence": {
-        "status": "confirmed_apply",
-        "direction": "recover",
-        "required": 1,
-        "pending_count": 1
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
+        "pending_count": 0
       }
     },
     "employment": {
@@ -225,7 +225,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -250,7 +250,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.6633333333333332,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -265,7 +265,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-13T04:01:15+00:00",
+      "updatedAt": "2026-07-13T09:47:53+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
