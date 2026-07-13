@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-13T15:11:57+00:00",
+  "updatedAt": "2026-07-13T19:49:32+00:00",
   "market": {
     "sp": {
-      "value": 7549.36,
+      "value": 7514.35,
       "date": "2026-07-13",
-      "ma50": 7441.39,
-      "pctFrom50": 1.45,
-      "ma200": 6969.6,
-      "pctFrom200": 8.32,
+      "ma50": 7440.69,
+      "pctFrom50": 0.99,
+      "ma200": 6969.43,
+      "pctFrom200": 7.82,
       "sourceDate": "2026-07-13"
     },
     "nd": {
-      "value": 29497.21,
+      "value": 29253.25,
       "date": "2026-07-13",
-      "ma50": 29435.83,
-      "pctFrom50": 0.21,
-      "ma200": 26243.78,
-      "pctFrom200": 12.4,
+      "ma50": 29430.95,
+      "pctFrom50": -0.6,
+      "ma200": 26242.56,
+      "pctFrom200": 11.47,
       "sourceDate": "2026-07-13"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4020.7,
+      "value": 4001.0,
       "date": "2026-07-13",
-      "ma50": 4362.76,
-      "pctFrom50": -7.84,
-      "ma200": 4468.38,
-      "pctFrom200": -10.02,
+      "ma50": 4362.36,
+      "pctFrom50": -8.28,
+      "ma200": 4468.28,
+      "pctFrom200": -10.46,
       "sourceDate": "2026-07-13"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 44.7428571428571,
+    "score": 43.0285714285714,
     "rating": "fear",
-    "timestamp": "2026-07-13T15:00:50+00:00",
+    "timestamp": "2026-07-13T19:46:41+00:00",
     "date": "2026-07-13",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,19 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-07-13T15:00:50+00:00"
+    "sourceDate": "2026-07-13T19:46:41+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
     "season": "여름",
-    "score": 5,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
+      "나스닥100 50일선 이탈",
       "달러 강세"
     ]
   },
@@ -294,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-13T15:11:57+00:00",
+      "updatedAt": "2026-07-13T19:49:32+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
