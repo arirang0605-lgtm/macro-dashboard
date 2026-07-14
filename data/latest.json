@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-14T08:28:16+00:00",
+  "updatedAt": "2026-07-14T14:14:29+00:00",
   "market": {
     "sp": {
-      "value": 7515.34,
+      "value": 7525.99,
       "date": "2026-07-14",
-      "ma50": 7440.71,
-      "pctFrom50": 1.0,
-      "ma200": 6969.43,
-      "pctFrom200": 7.83,
-      "sourceDate": "2026-07-13"
+      "ma50": 7447.05,
+      "pctFrom50": 1.06,
+      "ma200": 6973.87,
+      "pctFrom200": 7.92,
+      "sourceDate": "2026-07-14"
     },
     "nd": {
-      "value": 29264.1,
+      "value": 29447.24,
       "date": "2026-07-14",
-      "ma50": 29431.17,
-      "pctFrom50": -0.57,
-      "ma200": 26242.62,
-      "pctFrom200": 11.51,
-      "sourceDate": "2026-07-13"
+      "ma50": 29471.07,
+      "pctFrom50": -0.08,
+      "ma200": 26267.34,
+      "pctFrom200": 12.11,
+      "sourceDate": "2026-07-14"
     },
     "ks": {
       "value": 25.75,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4027.0,
+      "value": 4082.6,
       "date": "2026-07-14",
-      "ma50": 4350.53,
-      "pctFrom50": -7.44,
-      "ma200": 4469.73,
-      "pctFrom200": -9.91,
+      "ma50": 4351.64,
+      "pctFrom50": -6.18,
+      "ma200": 4470.01,
+      "pctFrom200": -8.67,
       "sourceDate": "2026-07-14"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 43.7428571428571,
+    "score": 44.4571428571428,
     "rating": "fear",
-    "timestamp": "2026-07-14T08:08:31+00:00",
+    "timestamp": "2026-07-14T14:08:06+00:00",
     "date": "2026-07-14",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-07-14T08:08:31+00:00"
+    "sourceDate": "2026-07-14T14:08:06+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-14T08:28:16+00:00",
+      "updatedAt": "2026-07-14T14:14:29+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
