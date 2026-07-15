@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-15T14:10:28+00:00",
+  "updatedAt": "2026-07-15T19:36:57+00:00",
   "market": {
     "sp": {
-      "value": 7576.98,
+      "value": 7560.83,
       "date": "2026-07-15",
-      "ma50": 7448.07,
-      "pctFrom50": 1.73,
-      "ma200": 6974.13,
-      "pctFrom200": 8.64,
+      "ma50": 7454.02,
+      "pctFrom50": 1.43,
+      "ma200": 6978.74,
+      "pctFrom200": 8.34,
       "sourceDate": "2026-07-15"
     },
     "nd": {
-      "value": 29655.64,
+      "value": 29441.32,
       "date": "2026-07-15",
-      "ma50": 29475.24,
-      "pctFrom50": 0.61,
-      "ma200": 26268.38,
-      "pctFrom200": 12.89,
+      "ma50": 29508.47,
+      "pctFrom50": -0.23,
+      "ma200": 26293.25,
+      "pctFrom200": 11.97,
       "sourceDate": "2026-07-15"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4069.6,
+      "value": 4062.7,
       "date": "2026-07-15",
-      "ma50": 4340.01,
-      "pctFrom50": -6.23,
-      "ma200": 4471.57,
-      "pctFrom200": -8.99,
+      "ma50": 4339.87,
+      "pctFrom50": -6.39,
+      "ma200": 4471.53,
+      "pctFrom200": -9.14,
       "sourceDate": "2026-07-15"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 48.2,
+    "score": 45.2,
     "rating": "neutral",
-    "timestamp": "2026-07-15T14:05:34+00:00",
+    "timestamp": "2026-07-15T19:31:29+00:00",
     "date": "2026-07-15",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,19 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-07-15T14:05:34+00:00"
+    "sourceDate": "2026-07-15T19:31:29+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
     "season": "여름",
-    "score": 5,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
+      "나스닥100 50일선 이탈",
       "달러 강세"
     ]
   },
@@ -294,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-15T14:10:28+00:00",
+      "updatedAt": "2026-07-15T19:36:57+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
