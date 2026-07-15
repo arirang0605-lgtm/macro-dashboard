@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-15T03:35:52+00:00",
+  "updatedAt": "2026-07-15T08:36:06+00:00",
   "market": {
     "sp": {
-      "value": 7543.59,
+      "value": 7515.34,
       "date": "2026-07-15",
-      "ma50": 7447.4,
-      "pctFrom50": 1.29,
-      "ma200": 6973.96,
-      "pctFrom200": 8.17,
-      "sourceDate": "2026-07-14"
+      "ma50": 7440.71,
+      "pctFrom50": 1.0,
+      "ma200": 6969.43,
+      "pctFrom200": 7.83,
+      "sourceDate": "2026-07-13"
     },
     "nd": {
-      "value": 29586.29,
+      "value": 29264.1,
       "date": "2026-07-15",
-      "ma50": 29473.85,
-      "pctFrom50": 0.38,
-      "ma200": 26268.03,
-      "pctFrom200": 12.63,
-      "sourceDate": "2026-07-14"
+      "ma50": 29431.17,
+      "pctFrom50": -0.57,
+      "ma200": 26242.62,
+      "pctFrom200": 11.51,
+      "sourceDate": "2026-07-13"
     },
     "ks": {
       "value": 25.75,
@@ -26,13 +26,13 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 4038.7,
+      "value": 4030.7,
       "date": "2026-07-15",
-      "ma50": 4350.76,
-      "pctFrom50": -7.17,
-      "ma200": 4469.79,
-      "pctFrom200": -9.64,
-      "sourceDate": "2026-07-14"
+      "ma50": 4339.23,
+      "pctFrom50": -7.11,
+      "ma200": 4471.37,
+      "pctFrom200": -9.86,
+      "sourceDate": "2026-07-15"
     },
     "dx": {
       "value": 120.5,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 43.1428571428572,
+    "score": 43.7714285714286,
     "rating": "fear",
-    "timestamp": "2026-07-14T23:59:57+00:00",
+    "timestamp": "2026-07-15T08:15:31+00:00",
     "date": "2026-07-15",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,19 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-07-14T23:59:57+00:00"
+    "sourceDate": "2026-07-15T08:15:31+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
     "season": "여름",
-    "score": 5,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
+      "나스닥100 50일선 이탈",
       "달러 강세"
     ]
   },
@@ -205,7 +206,7 @@
       "excluded_series": [],
       "effective_final": 0.8025,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -225,7 +226,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -250,7 +251,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.6633333333333332,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -265,7 +266,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -294,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-15T03:35:52+00:00",
+      "updatedAt": "2026-07-15T08:36:06+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
