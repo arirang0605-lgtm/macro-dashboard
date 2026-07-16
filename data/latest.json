@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-16T14:24:08+00:00",
+  "updatedAt": "2026-07-16T19:34:32+00:00",
   "market": {
     "sp": {
-      "value": 7560.77,
+      "value": 7512.88,
       "date": "2026-07-16",
-      "ma50": 7461.45,
-      "pctFrom50": 1.33,
-      "ma200": 6983.38,
-      "pctFrom200": 8.27,
+      "ma50": 7460.49,
+      "pctFrom50": 0.7,
+      "ma200": 6983.14,
+      "pctFrom200": 7.59,
       "sourceDate": "2026-07-16"
     },
     "nd": {
-      "value": 29235.94,
+      "value": 28941.99,
       "date": "2026-07-16",
-      "ma50": 29541.38,
-      "pctFrom50": -1.03,
-      "ma200": 26317.22,
-      "pctFrom200": 11.09,
+      "ma50": 29535.5,
+      "pctFrom50": -2.01,
+      "ma200": 26315.75,
+      "pctFrom200": 9.98,
       "sourceDate": "2026-07-16"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-05-01"
     },
     "go": {
-      "value": 3994.0,
+      "value": 3985.1,
       "date": "2026-07-16",
-      "ma50": 4328.98,
-      "pctFrom50": -7.74,
-      "ma200": 4472.53,
-      "pctFrom200": -10.7,
+      "ma50": 4328.81,
+      "pctFrom50": -7.94,
+      "ma200": 4472.49,
+      "pctFrom200": -10.9,
       "sourceDate": "2026-07-16"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 47.1714285714286,
-    "rating": "neutral",
-    "timestamp": "2026-07-16T14:21:42+00:00",
+    "score": 40.4857142857143,
+    "rating": "fear",
+    "timestamp": "2026-07-16T19:31:55+00:00",
     "date": "2026-07-16",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-07-16T14:21:42+00:00"
+    "sourceDate": "2026-07-16T19:31:55+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-16T14:24:08+00:00",
+      "updatedAt": "2026-07-16T19:34:32+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
