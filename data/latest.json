@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-23T14:32:51+00:00",
+  "updatedAt": "2026-07-23T19:46:39+00:00",
   "market": {
     "sp": {
-      "value": 7416.61,
+      "value": 7384.25,
       "date": "2026-07-23",
-      "ma50": 7471.96,
-      "pctFrom50": -0.74,
-      "ma200": 7002.42,
-      "pctFrom200": 5.92,
+      "ma50": 7471.31,
+      "pctFrom50": -1.17,
+      "ma200": 7002.25,
+      "pctFrom200": 5.46,
       "sourceDate": "2026-07-23"
     },
     "nd": {
-      "value": 28534.85,
+      "value": 28329.49,
       "date": "2026-07-23",
-      "ma50": 29540.2,
-      "pctFrom50": -3.4,
-      "ma200": 26416.74,
-      "pctFrom200": 8.02,
+      "ma50": 29536.09,
+      "pctFrom50": -4.09,
+      "ma200": 26415.71,
+      "pctFrom200": 7.24,
       "sourceDate": "2026-07-23"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4052.4,
+      "value": 4049.1,
       "date": "2026-07-23",
-      "ma50": 4267.15,
-      "pctFrom50": -5.03,
-      "ma200": 4477.71,
-      "pctFrom200": -9.5,
+      "ma50": 4267.09,
+      "pctFrom50": -5.11,
+      "ma200": 4477.69,
+      "pctFrom200": -9.57,
       "sourceDate": "2026-07-23"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 42.0571428571429,
+    "score": 39.2,
     "rating": "fear",
-    "timestamp": "2026-07-23T14:28:28+00:00",
+    "timestamp": "2026-07-23T19:42:58+00:00",
     "date": "2026-07-23",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-07-23T14:28:28+00:00"
+    "sourceDate": "2026-07-23T19:42:58+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-23T14:32:51+00:00",
+      "updatedAt": "2026-07-23T19:46:39+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
