@@ -1,33 +1,33 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-25T19:35:04+00:00",
+  "updatedAt": "2026-07-26T03:56:06+00:00",
   "market": {
     "sp": {
-      "value": 7408.3,
-      "date": "2026-07-25",
-      "ma50": 7471.79,
-      "pctFrom50": -0.85,
-      "ma200": 7002.37,
+      "value": 7411.98,
+      "date": "2026-07-26",
+      "ma50": 7472.01,
+      "pctFrom50": -0.8,
+      "ma200": 7005.73,
       "pctFrom200": 5.8,
-      "sourceDate": "2026-07-23"
+      "sourceDate": "2026-07-24"
     },
     "nd": {
-      "value": 28454.81,
-      "date": "2026-07-25",
-      "ma50": 29538.6,
-      "pctFrom50": -3.67,
-      "ma200": 26416.34,
-      "pctFrom200": 7.72,
-      "sourceDate": "2026-07-23"
+      "value": 28128.34,
+      "date": "2026-07-26",
+      "ma50": 29519.87,
+      "pctFrom50": -4.71,
+      "ma200": 26432.09,
+      "pctFrom200": 6.42,
+      "sourceDate": "2026-07-24"
     },
     "ks": {
       "value": 11.3,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-06-01"
     },
     "go": {
       "value": 4067.6,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "ma50": 4254.84,
       "pctFrom50": -4.4,
       "ma200": 4478.27,
@@ -36,7 +36,7 @@
     },
     "dx": {
       "value": 120.53,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "ma50": 119.8,
       "pctFrom50": 0.61,
       "ma200": 119.77,
@@ -45,94 +45,94 @@
     },
     "vx": {
       "value": 18.58,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-07-24"
     }
   },
   "core": {
     "lei": {
       "value": -0.2,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-06-01"
     },
     "pmi": {
       "value": 52.4,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-02-01"
     },
     "servicesPmi": {
       "value": 56.1,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-02-01"
     },
     "buffett": {
       "value": 218.14,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-01-01"
     },
     "jolts": {
       "value": 7.59,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-05-01"
     },
     "marginDebt": {
       "value": 622.2,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-01-01"
     },
     "michigan": {
       "value": 44.8,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-05-01"
     },
     "dgs10": {
       "value": 4.71,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-07-23"
     },
     "dgs2": {
       "value": 4.37,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-07-23"
     },
     "t10y2y": {
       "value": 0.36,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-07-24"
     },
     "t10y3m": {
       "value": 0.73,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-07-24"
     },
     "fedfunds": {
       "value": 3.63,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-06-01"
     },
     "sahm": {
       "value": 0.07,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-06-01"
     },
     "icsa": {
       "value": 187000.0,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-07-18"
     },
     "continuingClaims": {
       "value": 1796000.0,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-07-11"
     },
     "hySpread": {
       "value": 2.77,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-07-23"
     },
     "bbbSpread": {
       "value": 0.98,
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "sourceDate": "2026-07-23"
     }
   },
@@ -140,7 +140,7 @@
     "score": 39.4285714285714,
     "rating": "fear",
     "timestamp": "2026-07-24T23:59:54+00:00",
-    "date": "2026-07-25",
+    "date": "2026-07-26",
     "previousWeek": null,
     "previousMonth": null,
     "marketMomentum": null,
@@ -201,12 +201,12 @@
       "bbb_trend": 0.5,
       "bbb_final": 0.78,
       "raw_final": 0.7575000000000001,
-      "stamp": "2026-07-25",
+      "stamp": "2026-07-26",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "effective_final": 0.7575000000000001,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -221,12 +221,12 @@
       "continuing_claims_final": 0.71,
       "sahm_level": 0.8,
       "raw_final": 0.74,
-      "stamp": "2026-07-25",
+      "stamp": "2026-07-26",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -245,13 +245,13 @@
       "lei_trend": 0.5,
       "lei_final": 0.42999999999999994,
       "raw_final": 0.6166666666666666,
-      "stamp": "2026-07-25",
+      "stamp": "2026-07-26",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "pmi_missing_or_stale": false,
       "effective_final": 0.6166666666666666,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -261,12 +261,12 @@
       "yc_level": 0.6,
       "fedfunds_level": 0.5,
       "raw_final": 0.55,
-      "stamp": "2026-07-25",
+      "stamp": "2026-07-26",
       "axis_freshness": "fresh",
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "same_stamp_hold",
+        "status": "flat_update",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -291,11 +291,11 @@
       "fragility": 0.5,
       "risk": 0.8,
       "hy_spread_36m_low": 2.63,
-      "vix_36m_avg": 17.1
+      "vix_36m_avg": 17.15
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-25T19:35:04+00:00",
+      "updatedAt": "2026-07-26T03:56:06+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
