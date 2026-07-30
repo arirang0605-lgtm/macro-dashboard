@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-30T14:32:34+00:00",
+  "updatedAt": "2026-07-30T19:53:08+00:00",
   "market": {
     "sp": {
-      "value": 7411.25,
+      "value": 7438.13,
       "date": "2026-07-30",
-      "ma50": 7468.26,
-      "pctFrom50": -0.76,
-      "ma200": 7019.8,
-      "pctFrom200": 5.58,
+      "ma50": 7468.8,
+      "pctFrom50": -0.41,
+      "ma200": 7019.93,
+      "pctFrom200": 5.96,
       "sourceDate": "2026-07-30"
     },
     "nd": {
-      "value": 28095.22,
+      "value": 28098.15,
       "date": "2026-07-30",
-      "ma50": 29400.33,
-      "pctFrom50": -4.44,
-      "ma200": 26491.05,
-      "pctFrom200": 6.06,
+      "ma50": 29400.39,
+      "pctFrom50": -4.43,
+      "ma200": 26491.07,
+      "pctFrom200": 6.07,
       "sourceDate": "2026-07-30"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4152.3,
+      "value": 4171.4,
       "date": "2026-07-30",
-      "ma50": 4211.11,
-      "pctFrom50": -1.4,
-      "ma200": 4480.05,
-      "pctFrom200": -7.32,
+      "ma50": 4211.49,
+      "pctFrom50": -0.95,
+      "ma200": 4480.15,
+      "pctFrom200": -6.89,
       "sourceDate": "2026-07-30"
     },
     "dx": {
@@ -66,9 +66,9 @@
       "sourceDate": "2026-02-01"
     },
     "buffett": {
-      "value": 218.14,
+      "value": 214.05,
       "date": "2026-07-30",
-      "sourceDate": "2026-01-01"
+      "sourceDate": "2026-04-01"
     },
     "jolts": {
       "value": 7.59,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 38.1142857142857,
+    "score": 39.2571428571429,
     "rating": "fear",
-    "timestamp": "2026-07-30T14:28:11+00:00",
+    "timestamp": "2026-07-30T19:47:16+00:00",
     "date": "2026-07-30",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-07-30T14:28:11+00:00"
+    "sourceDate": "2026-07-30T19:47:16+00:00"
   },
   "minsky": {
     "phase": "이익실현",
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-30T14:32:34+00:00",
+      "updatedAt": "2026-07-30T19:53:08+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
