@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-07-31T14:36:06+00:00",
+  "updatedAt": "2026-07-31T19:53:13+00:00",
   "market": {
     "sp": {
-      "value": 7434.35,
+      "value": 7507.34,
       "date": "2026-07-31",
-      "ma50": 7470.4,
-      "pctFrom50": -0.48,
-      "ma200": 7023.83,
-      "pctFrom200": 5.84,
+      "ma50": 7471.86,
+      "pctFrom50": 0.47,
+      "ma200": 7024.19,
+      "pctFrom200": 6.88,
       "sourceDate": "2026-07-31"
     },
     "nd": {
-      "value": 28153.0,
+      "value": 28378.58,
       "date": "2026-07-31",
-      "ma50": 29387.24,
-      "pctFrom50": -4.2,
-      "ma200": 26508.12,
-      "pctFrom200": 6.21,
+      "ma50": 29391.75,
+      "pctFrom50": -3.45,
+      "ma200": 26509.25,
+      "pctFrom200": 7.05,
       "sourceDate": "2026-07-31"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4094.4,
+      "value": 4107.1,
       "date": "2026-07-31",
-      "ma50": 4201.83,
-      "pctFrom50": -2.56,
-      "ma200": 4479.72,
-      "pctFrom200": -8.6,
+      "ma50": 4202.08,
+      "pctFrom50": -2.26,
+      "ma200": 4479.78,
+      "pctFrom200": -8.32,
       "sourceDate": "2026-07-31"
     },
     "dx": {
@@ -81,9 +81,9 @@
       "sourceDate": "2026-01-01"
     },
     "michigan": {
-      "value": 44.8,
+      "value": 49.5,
       "date": "2026-07-31",
-      "sourceDate": "2026-05-01"
+      "sourceDate": "2026-06-01"
     },
     "dgs10": {
       "value": 4.67,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 39.2571428571429,
+    "score": 44.1714285714286,
     "rating": "fear",
-    "timestamp": "2026-07-31T14:33:34+00:00",
+    "timestamp": "2026-07-31T19:50:27+00:00",
     "date": "2026-07-31",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,20 +150,20 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-07-31T14:33:34+00:00"
+    "sourceDate": "2026-07-31T19:50:27+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
     "season": "여름",
-    "score": 7,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
-      "S&P500 50일선 이탈",
-      "나스닥100 50일선 이탈"
+      "나스닥100 50일선 이탈",
+      "달러 강세"
     ]
   },
   "eggModel": {
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-07-31T14:36:06+00:00",
+      "updatedAt": "2026-07-31T19:53:13+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
