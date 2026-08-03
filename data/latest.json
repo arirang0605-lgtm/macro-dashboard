@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-03T15:17:07+00:00",
+  "updatedAt": "2026-08-03T19:58:59+00:00",
   "market": {
     "sp": {
-      "value": 7577.11,
+      "value": 7600.67,
       "date": "2026-08-03",
-      "ma50": 7474.39,
-      "pctFrom50": 1.37,
-      "ma200": 7028.77,
-      "pctFrom200": 7.8,
+      "ma50": 7474.86,
+      "pctFrom50": 1.68,
+      "ma200": 7028.89,
+      "pctFrom200": 8.13,
       "sourceDate": "2026-08-03"
     },
     "nd": {
-      "value": 28661.18,
+      "value": 28775.05,
       "date": "2026-08-03",
-      "ma50": 29376.93,
-      "pctFrom50": -2.44,
-      "ma200": 26529.14,
-      "pctFrom200": 8.04,
+      "ma50": 29379.21,
+      "pctFrom50": -2.06,
+      "ma200": 26529.71,
+      "pctFrom200": 8.46,
       "sourceDate": "2026-08-03"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4087.5,
+      "value": 4110.1,
       "date": "2026-08-03",
-      "ma50": 4192.05,
-      "pctFrom50": -2.49,
-      "ma200": 4479.24,
-      "pctFrom200": -8.75,
+      "ma50": 4192.5,
+      "pctFrom50": -1.97,
+      "ma200": 4479.35,
+      "pctFrom200": -8.24,
       "sourceDate": "2026-08-03"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 44.4857142857143,
-    "rating": "fear",
-    "timestamp": "2026-08-03T15:06:28+00:00",
+    "score": 45.6,
+    "rating": "neutral",
+    "timestamp": "2026-08-03T19:57:25+00:00",
     "date": "2026-08-03",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-08-03T15:06:28+00:00"
+    "sourceDate": "2026-08-03T19:57:25+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-03T15:17:07+00:00",
+      "updatedAt": "2026-08-03T19:58:59+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
