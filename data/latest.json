@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-04T09:08:39+00:00",
+  "updatedAt": "2026-08-04T14:39:56+00:00",
   "market": {
     "sp": {
-      "value": 7489.72,
+      "value": 7675.24,
       "date": "2026-08-04",
-      "ma50": 7471.51,
-      "pctFrom50": 0.24,
-      "ma200": 7024.11,
-      "pctFrom200": 6.63,
-      "sourceDate": "2026-07-31"
+      "ma50": 7479.45,
+      "pctFrom50": 2.62,
+      "ma200": 7033.91,
+      "pctFrom200": 9.12,
+      "sourceDate": "2026-08-04"
     },
     "nd": {
-      "value": 28274.2,
+      "value": 29400.44,
       "date": "2026-08-04",
-      "ma50": 29389.66,
-      "pctFrom50": -3.8,
-      "ma200": 26508.73,
-      "pctFrom200": 6.66,
-      "sourceDate": "2026-07-31"
+      "ma50": 29380.11,
+      "pctFrom50": 0.07,
+      "ma200": 26552.99,
+      "pctFrom200": 10.72,
+      "sourceDate": "2026-08-04"
     },
     "ks": {
       "value": 11.3,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4111.1,
+      "value": 4140.8,
       "date": "2026-08-04",
-      "ma50": 4192.52,
-      "pctFrom50": -1.94,
-      "ma200": 4479.36,
-      "pctFrom200": -8.22,
+      "ma50": 4182.99,
+      "pctFrom50": -1.01,
+      "ma200": 4478.79,
+      "pctFrom200": -7.55,
       "sourceDate": "2026-08-04"
     },
     "dx": {
@@ -71,9 +71,9 @@
       "sourceDate": "2026-04-01"
     },
     "jolts": {
-      "value": 7.59,
+      "value": 7.36,
       "date": "2026-08-04",
-      "sourceDate": "2026-05-01"
+      "sourceDate": "2026-06-01"
     },
     "marginDebt": {
       "value": 622.2,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-07-18"
     },
     "hySpread": {
-      "value": 2.84,
+      "value": 2.85,
       "date": "2026-08-04",
-      "sourceDate": "2026-07-30"
+      "sourceDate": "2026-07-31"
     },
     "bbbSpread": {
       "value": 0.99,
       "date": "2026-08-04",
-      "sourceDate": "2026-07-30"
+      "sourceDate": "2026-07-31"
     }
   },
   "fearGreed": {
-    "score": 50.5142857142857,
-    "rating": "neutral",
-    "timestamp": "2026-08-04T08:48:31+00:00",
+    "score": 55.7142857142857,
+    "rating": "greed",
+    "timestamp": "2026-08-04T14:38:40+00:00",
     "date": "2026-08-04",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,19 +150,18 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-08-04T08:48:31+00:00"
+    "sourceDate": "2026-08-04T14:38:40+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
-    "season": "여름",
-    "score": 5,
+    "season": "봄",
+    "score": 4,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
-      "레버리지 과열",
-      "나스닥100 50일선 이탈"
+      "레버리지 과열"
     ]
   },
   "eggModel": {
@@ -194,12 +193,12 @@
   "engine": {
     "credit": {
       "hy_level": 0.9,
-      "hy_trend": 0.5,
-      "hy_final": 0.78,
+      "hy_trend": 0.35,
+      "hy_final": 0.735,
       "bbb_level": 0.9,
       "bbb_trend": 0.5,
       "bbb_final": 0.78,
-      "raw_final": 0.78,
+      "raw_final": 0.7575000000000001,
       "stamp": "2026-08-04",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -271,7 +270,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.6926666666666667,
+    "raw_macro_score": 0.6859166666666667,
     "macro_score": 0.6926666666666667,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -283,7 +282,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": 0.0,
+    "stage_delta": -0.006749999999999923,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -294,7 +293,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-04T09:08:39+00:00",
+      "updatedAt": "2026-08-04T14:39:56+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
