@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-09T07:16:44+00:00",
+  "updatedAt": "2026-08-09T13:15:46+00:00",
   "market": {
     "sp": {
       "value": 7757.64,
@@ -293,7 +293,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-09T07:16:44+00:00",
+      "updatedAt": "2026-08-09T13:15:46+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
