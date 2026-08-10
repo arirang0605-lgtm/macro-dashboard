@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-10T13:44:54+00:00",
+  "updatedAt": "2026-08-10T19:17:32+00:00",
   "market": {
     "sp": {
-      "value": 7752.68,
+      "value": 7755.42,
       "date": "2026-08-10",
-      "ma50": 7498.02,
-      "pctFrom50": 3.4,
-      "ma200": 7055.12,
-      "pctFrom200": 9.89,
+      "ma50": 7498.08,
+      "pctFrom50": 3.43,
+      "ma200": 7055.13,
+      "pctFrom200": 9.93,
       "sourceDate": "2026-08-10"
     },
     "nd": {
-      "value": 29668.2,
+      "value": 29672.89,
       "date": "2026-08-10",
-      "ma50": 29358.19,
-      "pctFrom50": 1.06,
-      "ma200": 26647.2,
-      "pctFrom200": 11.34,
+      "ma50": 29358.28,
+      "pctFrom50": 1.07,
+      "ma200": 26647.22,
+      "pctFrom200": 11.35,
       "sourceDate": "2026-08-10"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4396.6,
+      "value": 4441.7,
       "date": "2026-08-10",
-      "ma50": 4167.22,
-      "pctFrom50": 5.5,
-      "ma200": 4480.22,
-      "pctFrom200": -1.87,
+      "ma50": 4168.12,
+      "pctFrom50": 6.56,
+      "ma200": 4480.44,
+      "pctFrom200": -0.86,
       "sourceDate": "2026-08-10"
     },
     "dx": {
@@ -126,20 +126,20 @@
       "sourceDate": "2026-07-25"
     },
     "hySpread": {
-      "value": 2.71,
+      "value": 2.7,
       "date": "2026-08-10",
-      "sourceDate": "2026-08-06"
+      "sourceDate": "2026-08-07"
     },
     "bbbSpread": {
       "value": 0.97,
       "date": "2026-08-10",
-      "sourceDate": "2026-08-06"
+      "sourceDate": "2026-08-07"
     }
   },
   "fearGreed": {
-    "score": 64.1714285714286,
+    "score": 64.2,
     "rating": "greed",
-    "timestamp": "2026-08-10T13:42:35+00:00",
+    "timestamp": "2026-08-10T19:09:38+00:00",
     "date": "2026-08-10",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-08-10T13:42:35+00:00"
+    "sourceDate": "2026-08-10T19:09:38+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -293,7 +293,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-10T13:44:54+00:00",
+      "updatedAt": "2026-08-10T19:17:32+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
