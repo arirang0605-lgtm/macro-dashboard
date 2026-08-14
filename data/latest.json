@@ -1,14 +1,14 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-14T02:46:42+00:00",
+  "updatedAt": "2026-08-14T07:51:04+00:00",
   "market": {
     "sp": {
       "value": 7798.99,
       "date": "2026-08-14",
-      "ma50": 7513.59,
-      "pctFrom50": 3.8,
-      "ma200": 7059.01,
-      "pctFrom200": 10.48,
+      "ma50": 7507.75,
+      "pctFrom50": 3.88,
+      "ma200": 7070.35,
+      "pctFrom200": 10.31,
       "sourceDate": "2026-08-13"
     },
     "nd": {
@@ -26,13 +26,13 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4377.0,
+      "value": 4393.3,
       "date": "2026-08-14",
-      "ma50": 4159.41,
-      "pctFrom50": 5.23,
-      "ma200": 4484.44,
-      "pctFrom200": -2.4,
-      "sourceDate": "2026-08-13"
+      "ma50": 4158.27,
+      "pctFrom50": 5.65,
+      "ma200": 4486.33,
+      "pctFrom200": -2.07,
+      "sourceDate": "2026-08-14"
     },
     "dx": {
       "value": 119.06,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 66.1428571428571,
+    "score": 66.7428571428571,
     "rating": "greed",
-    "timestamp": "2026-08-13T23:59:54+00:00",
+    "timestamp": "2026-08-14T07:32:01+00:00",
     "date": "2026-08-14",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-08-13T23:59:54+00:00"
+    "sourceDate": "2026-08-14T07:32:01+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -204,7 +204,7 @@
       "excluded_series": [],
       "effective_final": 0.78,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -224,7 +224,7 @@
       "excluded_series": [],
       "effective_final": 0.7399999999999999,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -249,7 +249,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.6166666666666666,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -264,7 +264,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -293,7 +293,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-14T02:46:42+00:00",
+      "updatedAt": "2026-08-14T07:51:04+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
