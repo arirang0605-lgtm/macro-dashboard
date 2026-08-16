@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-16T06:59:37+00:00",
+  "updatedAt": "2026-08-16T13:01:33+00:00",
   "market": {
     "sp": {
       "value": 7785.76,
@@ -14,10 +14,10 @@
     "nd": {
       "value": 30046.14,
       "date": "2026-08-16",
-      "ma50": 29303.66,
-      "pctFrom50": 2.53,
-      "ma200": 26738.18,
-      "pctFrom200": 12.37,
+      "ma50": 29410.02,
+      "pctFrom50": 2.16,
+      "ma200": 26687.43,
+      "pctFrom200": 12.59,
       "sourceDate": "2026-08-14"
     },
     "ks": {
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-16T06:59:37+00:00",
+      "updatedAt": "2026-08-16T13:01:33+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
