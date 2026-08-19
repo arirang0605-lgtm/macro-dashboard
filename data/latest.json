@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-19T07:05:58+00:00",
+  "updatedAt": "2026-08-19T13:10:02+00:00",
   "market": {
     "sp": {
-      "value": 7745.06,
+      "value": 7691.76,
       "date": "2026-08-19",
-      "ma50": 7520.6,
-      "pctFrom50": 2.98,
-      "ma200": 7069.47,
-      "pctFrom200": 9.56,
-      "sourceDate": "2026-08-17"
+      "ma50": 7521.76,
+      "pctFrom50": 2.26,
+      "ma200": 7083.18,
+      "pctFrom200": 8.59,
+      "sourceDate": "2026-08-18"
     },
     "nd": {
-      "value": 29995.38,
+      "value": 29490.96,
       "date": "2026-08-19",
-      "ma50": 29399.65,
-      "pctFrom50": 2.03,
-      "ma200": 26711.92,
-      "pctFrom200": 12.29,
-      "sourceDate": "2026-08-17"
+      "ma50": 29306.07,
+      "pctFrom50": 0.63,
+      "ma200": 26774.95,
+      "pctFrom200": 10.14,
+      "sourceDate": "2026-08-18"
     },
     "ks": {
       "value": 11.3,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4402.3,
+      "value": 4496.1,
       "date": "2026-08-19",
-      "ma50": 4158.76,
-      "pctFrom50": 5.86,
-      "ma200": 4492.44,
-      "pctFrom200": -2.01,
+      "ma50": 4160.63,
+      "pctFrom50": 8.06,
+      "ma200": 4492.91,
+      "pctFrom200": 0.07,
       "sourceDate": "2026-08-19"
     },
     "dx": {
@@ -139,7 +139,7 @@
   "fearGreed": {
     "score": 53.5714285714286,
     "rating": "neutral",
-    "timestamp": "2026-08-19T00:59:48+00:00",
+    "timestamp": "2026-08-19T12:53:01+00:00",
     "date": "2026-08-19",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,19 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-08-19T00:59:48+00:00"
+    "sourceDate": "2026-08-19T12:53:01+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
-    "season": "봄",
-    "score": 4,
+    "season": "여름",
+    "score": 5,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
-      "레버리지 과열"
+      "레버리지 과열",
+      "금 강세"
     ]
   },
   "eggModel": {
@@ -294,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-19T07:05:58+00:00",
+      "updatedAt": "2026-08-19T13:10:02+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
