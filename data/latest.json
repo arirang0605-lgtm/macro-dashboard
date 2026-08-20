@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-20T13:11:32+00:00",
+  "updatedAt": "2026-08-20T18:59:37+00:00",
   "market": {
     "sp": {
-      "value": 7707.98,
+      "value": 7652.81,
       "date": "2026-08-20",
-      "ma50": 7527.81,
-      "pctFrom50": 2.39,
-      "ma200": 7087.61,
-      "pctFrom200": 8.75,
-      "sourceDate": "2026-08-19"
+      "ma50": 7526.7,
+      "pctFrom50": 1.68,
+      "ma200": 7081.95,
+      "pctFrom200": 8.06,
+      "sourceDate": "2026-08-20"
     },
     "nd": {
-      "value": 29426.02,
+      "value": 29166.9,
       "date": "2026-08-20",
-      "ma50": 29353.35,
-      "pctFrom50": 0.25,
-      "ma200": 26750.6,
-      "pctFrom200": 10.0,
-      "sourceDate": "2026-08-19"
+      "ma50": 29328.53,
+      "pctFrom50": -0.55,
+      "ma200": 26766.38,
+      "pctFrom200": 8.97,
+      "sourceDate": "2026-08-20"
     },
     "ks": {
       "value": 11.3,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4536.8,
+      "value": 4577.2,
       "date": "2026-08-20",
-      "ma50": 4166.04,
-      "pctFrom50": 8.9,
-      "ma200": 4495.65,
-      "pctFrom200": 0.92,
+      "ma50": 4166.84,
+      "pctFrom50": 9.85,
+      "ma200": 4495.86,
+      "pctFrom200": 1.81,
       "sourceDate": "2026-08-20"
     },
     "dx": {
@@ -51,9 +51,9 @@
   },
   "core": {
     "lei": {
-      "value": -0.2,
+      "value": 0.2,
       "date": "2026-08-20",
-      "sourceDate": "2026-06-01"
+      "sourceDate": "2026-07-01"
     },
     "pmi": {
       "value": 52.4,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-08-08"
     },
     "hySpread": {
-      "value": 2.75,
+      "value": 2.73,
       "date": "2026-08-20",
-      "sourceDate": "2026-08-18"
+      "sourceDate": "2026-08-19"
     },
     "bbbSpread": {
       "value": 1.0,
       "date": "2026-08-20",
-      "sourceDate": "2026-08-18"
+      "sourceDate": "2026-08-19"
     }
   },
   "fearGreed": {
-    "score": 57,
-    "rating": "greed",
-    "timestamp": "2026-08-20T12:54:31+00:00",
+    "score": 53.4,
+    "rating": "neutral",
+    "timestamp": "2026-08-20T18:55:02+00:00",
     "date": "2026-08-20",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,26 +150,27 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-08-20T12:54:31+00:00"
+    "sourceDate": "2026-08-20T18:55:02+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
     "season": "여름",
-    "score": 5,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
+      "나스닥100 50일선 이탈",
       "금 강세"
     ]
   },
   "eggModel": {
-    "phase": "둔화 전환",
-    "season": "가을",
+    "phase": "확장/과열",
+    "season": "여름",
     "signals": [
-      "LEI 약화",
+      "LEI 개선",
       "PMI 확장",
       "고용 안정",
       "실업수당 안정",
@@ -240,10 +241,10 @@
       "services_pmi_final": 0.78,
       "services_pmi_missing": false,
       "leading_reliability": "full",
-      "lei_level": 0.4,
-      "lei_trend": 0.5,
-      "lei_final": 0.42999999999999994,
-      "raw_final": 0.6166666666666666,
+      "lei_level": 0.6,
+      "lei_trend": 0.65,
+      "lei_final": 0.615,
+      "raw_final": 0.6783333333333332,
       "stamp": "2026-08-20",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -271,7 +272,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.6881666666666666,
+    "raw_macro_score": 0.7035833333333332,
     "macro_score": 0.6926666666666667,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -283,7 +284,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": -0.0045000000000000595,
+    "stage_delta": 0.010916666666666575,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -294,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-20T13:11:32+00:00",
+      "updatedAt": "2026-08-20T18:59:37+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
