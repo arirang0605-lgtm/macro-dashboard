@@ -1,14 +1,14 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-20T07:06:49+00:00",
+  "updatedAt": "2026-08-20T13:11:32+00:00",
   "market": {
     "sp": {
       "value": 7707.98,
       "date": "2026-08-20",
-      "ma50": 7525.33,
-      "pctFrom50": 2.43,
-      "ma200": 7078.14,
-      "pctFrom200": 8.9,
+      "ma50": 7527.81,
+      "pctFrom50": 2.39,
+      "ma200": 7087.61,
+      "pctFrom200": 8.75,
       "sourceDate": "2026-08-19"
     },
     "nd": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4549.5,
+      "value": 4536.8,
       "date": "2026-08-20",
-      "ma50": 4166.29,
-      "pctFrom50": 9.2,
-      "ma200": 4495.72,
-      "pctFrom200": 1.2,
+      "ma50": 4166.04,
+      "pctFrom50": 8.9,
+      "ma200": 4495.65,
+      "pctFrom200": 0.92,
       "sourceDate": "2026-08-20"
     },
     "dx": {
@@ -116,14 +116,14 @@
       "sourceDate": "2026-07-01"
     },
     "icsa": {
-      "value": 209000.0,
+      "value": 206000.0,
       "date": "2026-08-20",
-      "sourceDate": "2026-08-08"
+      "sourceDate": "2026-08-15"
     },
     "continuingClaims": {
-      "value": 1777000.0,
+      "value": 1799000.0,
       "date": "2026-08-20",
-      "sourceDate": "2026-08-01"
+      "sourceDate": "2026-08-08"
     },
     "hySpread": {
       "value": 2.75,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 56.2,
+    "score": 57,
     "rating": "greed",
-    "timestamp": "2026-08-20T00:00:00+00:00",
+    "timestamp": "2026-08-20T12:54:31+00:00",
     "date": "2026-08-20",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-08-20T00:00:00+00:00"
+    "sourceDate": "2026-08-20T12:54:31+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -213,13 +213,13 @@
     },
     "employment": {
       "icsa_level": 0.8,
-      "icsa_trend": 0.5,
-      "icsa_final": 0.71,
+      "icsa_trend": 0.65,
+      "icsa_final": 0.7549999999999999,
       "continuing_claims_level": 0.8,
-      "continuing_claims_trend": 0.5,
-      "continuing_claims_final": 0.71,
+      "continuing_claims_trend": 0.2,
+      "continuing_claims_final": 0.6199999999999999,
       "sahm_level": 0.8,
-      "raw_final": 0.74,
+      "raw_final": 0.7249999999999999,
       "stamp": "2026-08-20",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -271,7 +271,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.6926666666666667,
+    "raw_macro_score": 0.6881666666666666,
     "macro_score": 0.6926666666666667,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -283,7 +283,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": 0.0,
+    "stage_delta": -0.0045000000000000595,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-20T07:06:49+00:00",
+      "updatedAt": "2026-08-20T13:11:32+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
