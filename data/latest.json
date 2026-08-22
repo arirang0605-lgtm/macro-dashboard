@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-22T01:50:35+00:00",
+  "updatedAt": "2026-08-22T06:59:39+00:00",
   "market": {
     "sp": {
       "value": 7674.37,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4661.6,
+      "value": 4624.1,
       "date": "2026-08-22",
-      "ma50": 4176.69,
-      "pctFrom50": 11.61,
-      "ma200": 4498.86,
-      "pctFrom200": 3.62,
+      "ma50": 4175.94,
+      "pctFrom50": 10.73,
+      "ma200": 4498.67,
+      "pctFrom200": 2.79,
       "sourceDate": "2026-08-21"
     },
     "dx": {
@@ -206,7 +206,7 @@
       "excluded_series": [],
       "effective_final": 0.78,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -226,7 +226,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -251,9 +251,9 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.6166666666666666,
       "persistence": {
-        "status": "hold_waiting_confirmation",
-        "direction": "recover",
-        "required": 5,
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
         "pending_count": 2
       }
     },
@@ -266,7 +266,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-22T01:50:35+00:00",
+      "updatedAt": "2026-08-22T06:59:39+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
