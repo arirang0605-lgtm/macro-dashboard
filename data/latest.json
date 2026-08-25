@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-25T07:08:48+00:00",
+  "updatedAt": "2026-08-25T13:11:44+00:00",
   "market": {
     "sp": {
       "value": 7652.86,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4695.9,
+      "value": 4689.5,
       "date": "2026-08-25",
-      "ma50": 4196.57,
-      "pctFrom50": 11.9,
-      "ma200": 4505.71,
-      "pctFrom200": 4.22,
+      "ma50": 4196.44,
+      "pctFrom50": 11.75,
+      "ma200": 4505.68,
+      "pctFrom200": 4.08,
       "sourceDate": "2026-08-25"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 54.5142857142857,
+    "score": 54.6285714285714,
     "rating": "neutral",
-    "timestamp": "2026-08-25T00:59:55+00:00",
+    "timestamp": "2026-08-25T12:55:31+00:00",
     "date": "2026-08-25",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-08-25T00:59:55+00:00"
+    "sourceDate": "2026-08-25T12:55:31+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -295,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-25T07:08:48+00:00",
+      "updatedAt": "2026-08-25T13:11:44+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
