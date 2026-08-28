@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-28T11:25:19+00:00",
+  "updatedAt": "2026-08-28T22:21:52+00:00",
   "market": {
     "sp": {
-      "value": 7730.99,
+      "value": 7711.76,
       "date": "2026-08-28",
-      "ma50": 7557.96,
-      "pctFrom50": 2.29,
-      "ma200": 7114.32,
-      "pctFrom200": 8.67,
-      "sourceDate": "2026-08-27"
+      "ma50": 7563.79,
+      "pctFrom50": 1.96,
+      "ma200": 7118.72,
+      "pctFrom200": 8.33,
+      "sourceDate": "2026-08-28"
     },
     "nd": {
-      "value": 29641.56,
+      "value": 29433.43,
       "date": "2026-08-28",
-      "ma50": 29274.99,
-      "pctFrom50": 1.25,
-      "ma200": 26906.12,
-      "pctFrom200": 10.17,
-      "sourceDate": "2026-08-27"
+      "ma50": 29270.23,
+      "pctFrom50": 0.56,
+      "ma200": 26925.23,
+      "pctFrom200": 9.32,
+      "sourceDate": "2026-08-28"
     },
     "ks": {
       "value": 11.3,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4651.6,
+      "value": 4504.1,
       "date": "2026-08-28",
-      "ma50": 4212.25,
-      "pctFrom50": 10.43,
-      "ma200": 4514.27,
-      "pctFrom200": 3.04,
+      "ma50": 4209.3,
+      "pctFrom50": 7.0,
+      "ma200": 4513.53,
+      "pctFrom200": -0.21,
       "sourceDate": "2026-08-28"
     },
     "dx": {
@@ -81,29 +81,29 @@
       "sourceDate": "2026-01-01"
     },
     "michigan": {
-      "value": 49.5,
+      "value": 55.2,
       "date": "2026-08-28",
-      "sourceDate": "2026-06-01"
+      "sourceDate": "2026-07-01"
     },
     "dgs10": {
-      "value": 4.66,
-      "date": "2026-08-28",
-      "sourceDate": "2026-08-26"
-    },
-    "dgs2": {
-      "value": 4.19,
-      "date": "2026-08-28",
-      "sourceDate": "2026-08-26"
-    },
-    "t10y2y": {
-      "value": 0.47,
+      "value": 4.67,
       "date": "2026-08-28",
       "sourceDate": "2026-08-27"
+    },
+    "dgs2": {
+      "value": 4.2,
+      "date": "2026-08-28",
+      "sourceDate": "2026-08-27"
+    },
+    "t10y2y": {
+      "value": 0.39,
+      "date": "2026-08-28",
+      "sourceDate": "2026-08-28"
     },
     "t10y3m": {
       "value": 0.83,
       "date": "2026-08-28",
-      "sourceDate": "2026-08-27"
+      "sourceDate": "2026-08-28"
     },
     "fedfunds": {
       "value": 3.63,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-08-15"
     },
     "hySpread": {
-      "value": 2.67,
+      "value": 2.63,
       "date": "2026-08-28",
-      "sourceDate": "2026-08-26"
+      "sourceDate": "2026-08-27"
     },
     "bbbSpread": {
-      "value": 0.99,
+      "value": 0.98,
       "date": "2026-08-28",
-      "sourceDate": "2026-08-26"
+      "sourceDate": "2026-08-27"
     }
   },
   "fearGreed": {
-    "score": 57.7428571428571,
-    "rating": "greed",
-    "timestamp": "2026-08-28T11:07:16+00:00",
+    "score": 54.4285714285714,
+    "rating": "neutral",
+    "timestamp": "2026-08-28T22:03:26+00:00",
     "date": "2026-08-28",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,19 +150,18 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-08-28T11:07:16+00:00"
+    "sourceDate": "2026-08-28T22:03:26+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
-    "season": "여름",
-    "score": 5,
+    "season": "봄",
+    "score": 4,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
-      "레버리지 과열",
-      "금 강세"
+      "레버리지 과열"
     ]
   },
   "eggModel": {
@@ -177,9 +176,9 @@
     ],
     "rates": {
       "fedfunds": 3.63,
-      "dgs10": 4.66,
-      "dgs2": 4.19,
-      "t10y2y": 0.47,
+      "dgs10": 4.67,
+      "dgs2": 4.2,
+      "t10y2y": 0.39,
       "t10y3m": 0.83
     }
   },
@@ -205,10 +204,10 @@
       "excluded_series": [],
       "effective_final": 0.8025,
       "persistence": {
-        "status": "confirmed_apply",
-        "direction": "recover",
-        "required": 1,
-        "pending_count": 1
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
+        "pending_count": 0
       }
     },
     "employment": {
@@ -225,9 +224,9 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "hold_waiting_confirmation",
-        "direction": "recover",
-        "required": 4,
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
         "pending_count": 1
       }
     },
@@ -250,7 +249,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.6633333333333332,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -265,7 +264,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -289,12 +288,12 @@
       "valuation": 1.0,
       "fragility": 0.5,
       "risk": 0.8,
-      "hy_spread_36m_low": 2.67,
+      "hy_spread_36m_low": 2.63,
       "vix_36m_avg": 16.0
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-28T11:25:19+00:00",
+      "updatedAt": "2026-08-28T22:21:52+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
