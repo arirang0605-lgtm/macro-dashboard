@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-29T07:06:00+00:00",
+  "updatedAt": "2026-08-29T16:44:19+00:00",
   "market": {
     "sp": {
-      "value": 7730.99,
+      "value": 7711.76,
       "date": "2026-08-29",
-      "ma50": 7557.96,
-      "pctFrom50": 2.29,
-      "ma200": 7114.32,
-      "pctFrom200": 8.67,
-      "sourceDate": "2026-08-27"
+      "ma50": 7563.79,
+      "pctFrom50": 1.96,
+      "ma200": 7118.72,
+      "pctFrom200": 8.33,
+      "sourceDate": "2026-08-28"
     },
     "nd": {
-      "value": 29641.56,
+      "value": 29433.43,
       "date": "2026-08-29",
-      "ma50": 29274.99,
-      "pctFrom50": 1.25,
-      "ma200": 26906.12,
-      "pctFrom200": 10.17,
-      "sourceDate": "2026-08-27"
+      "ma50": 29270.23,
+      "pctFrom50": 0.56,
+      "ma200": 26925.23,
+      "pctFrom200": 9.32,
+      "sourceDate": "2026-08-28"
     },
     "ks": {
       "value": 11.3,
@@ -205,7 +205,7 @@
       "excluded_series": [],
       "effective_final": 0.8025,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -225,7 +225,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -250,7 +250,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.6633333333333332,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -265,7 +265,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-08-29T07:06:00+00:00",
+      "updatedAt": "2026-08-29T16:44:19+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
