@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-09-01T16:41:07+00:00",
+  "updatedAt": "2026-09-01T21:03:04+00:00",
   "market": {
     "sp": {
-      "value": 7636.82,
+      "value": 7631.47,
       "date": "2026-09-01",
-      "ma50": 7566.0,
-      "pctFrom50": 0.94,
-      "ma200": 7122.54,
-      "pctFrom200": 7.22,
+      "ma50": 7570.67,
+      "pctFrom50": 0.8,
+      "ma200": 7126.82,
+      "pctFrom200": 7.08,
       "sourceDate": "2026-09-01"
     },
     "nd": {
-      "value": 29107.04,
+      "value": 29077.22,
       "date": "2026-09-01",
-      "ma50": 29244.72,
-      "pctFrom50": -0.47,
-      "ma200": 26943.22,
-      "pctFrom200": 8.03,
+      "ma50": 29225.85,
+      "pctFrom50": -0.51,
+      "ma200": 26962.65,
+      "pctFrom200": 7.84,
       "sourceDate": "2026-09-01"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4398.9,
+      "value": 4374.5,
       "date": "2026-09-01",
-      "ma50": 4217.26,
-      "pctFrom50": 4.31,
-      "ma200": 4515.99,
-      "pctFrom200": -2.59,
+      "ma50": 4216.77,
+      "pctFrom50": 3.74,
+      "ma200": 4515.87,
+      "pctFrom200": -3.13,
       "sourceDate": "2026-09-01"
     },
     "dx": {
@@ -86,14 +86,14 @@
       "sourceDate": "2026-07-01"
     },
     "dgs10": {
-      "value": 4.73,
+      "value": 4.75,
       "date": "2026-09-01",
-      "sourceDate": "2026-08-28"
+      "sourceDate": "2026-08-31"
     },
     "dgs2": {
       "value": 4.34,
       "date": "2026-09-01",
-      "sourceDate": "2026-08-28"
+      "sourceDate": "2026-08-31"
     },
     "t10y2y": {
       "value": 0.41,
@@ -108,7 +108,7 @@
     "fedfunds": {
       "value": 3.63,
       "date": "2026-09-01",
-      "sourceDate": "2026-07-01"
+      "sourceDate": "2026-08-01"
     },
     "sahm": {
       "value": -0.03,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 45.6285714285714,
-    "rating": "neutral",
-    "timestamp": "2026-09-01T16:36:54+00:00",
+    "score": 44.5714285714286,
+    "rating": "fear",
+    "timestamp": "2026-09-01T20:47:09+00:00",
     "date": "2026-09-01",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-09-01T16:36:54+00:00"
+    "sourceDate": "2026-09-01T20:47:09+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -177,7 +177,7 @@
     ],
     "rates": {
       "fedfunds": 3.63,
-      "dgs10": 4.73,
+      "dgs10": 4.75,
       "dgs2": 4.34,
       "t10y2y": 0.41,
       "t10y3m": 0.84
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-09-01T16:41:07+00:00",
+      "updatedAt": "2026-09-01T21:03:04+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
