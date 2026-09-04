@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-09-04T11:19:46+00:00",
+  "updatedAt": "2026-09-04T16:22:42+00:00",
   "market": {
     "sp": {
-      "value": 7747.71,
+      "value": 7725.5,
       "date": "2026-09-04",
-      "ma50": 7584.49,
-      "pctFrom50": 2.15,
-      "ma200": 7136.53,
-      "pctFrom200": 8.56,
-      "sourceDate": "2026-09-03"
+      "ma50": 7591.85,
+      "pctFrom50": 1.76,
+      "ma200": 7141.8,
+      "pctFrom200": 8.17,
+      "sourceDate": "2026-09-04"
     },
     "nd": {
-      "value": 29482.32,
+      "value": 29520.69,
       "date": "2026-09-04",
-      "ma50": 29227.02,
-      "pctFrom50": 0.87,
-      "ma200": 27005.77,
-      "pctFrom200": 9.17,
-      "sourceDate": "2026-09-03"
+      "ma50": 29228.63,
+      "pctFrom50": 1.0,
+      "ma200": 27029.37,
+      "pctFrom200": 9.22,
+      "sourceDate": "2026-09-04"
     },
     "ks": {
       "value": 11.3,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4517.0,
+      "value": 4479.9,
       "date": "2026-09-04",
-      "ma50": 4240.73,
-      "pctFrom50": 6.51,
-      "ma200": 4520.9,
-      "pctFrom200": -0.09,
+      "ma50": 4239.99,
+      "pctFrom50": 5.66,
+      "ma200": 4520.71,
+      "pctFrom200": -0.9,
       "sourceDate": "2026-09-04"
     },
     "dx": {
@@ -111,9 +111,9 @@
       "sourceDate": "2026-08-01"
     },
     "sahm": {
-      "value": -0.03,
+      "value": -0.07,
       "date": "2026-09-04",
-      "sourceDate": "2026-07-01"
+      "sourceDate": "2026-08-01"
     },
     "icsa": {
       "value": 206000.0,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-08-22"
     },
     "hySpread": {
-      "value": 2.66,
+      "value": 2.65,
       "date": "2026-09-04",
-      "sourceDate": "2026-09-02"
+      "sourceDate": "2026-09-03"
     },
     "bbbSpread": {
-      "value": 0.99,
+      "value": 1.0,
       "date": "2026-09-04",
-      "sourceDate": "2026-09-02"
+      "sourceDate": "2026-09-03"
     }
   },
   "fearGreed": {
-    "score": 44.7714285714286,
+    "score": 41.5714285714286,
     "rating": "fear",
-    "timestamp": "2026-09-04T11:02:31+00:00",
+    "timestamp": "2026-09-04T16:16:22+00:00",
     "date": "2026-09-04",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-09-04T11:02:31+00:00"
+    "sourceDate": "2026-09-04T16:16:22+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -293,7 +293,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-09-04T11:19:46+00:00",
+      "updatedAt": "2026-09-04T16:22:42+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
