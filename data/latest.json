@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-09-10T11:21:53+00:00",
+  "updatedAt": "2026-09-10T16:25:44+00:00",
   "market": {
     "sp": {
-      "value": 7636.36,
+      "value": 7592.93,
       "date": "2026-09-10",
-      "ma50": 7602.02,
-      "pctFrom50": 0.45,
-      "ma200": 7152.02,
-      "pctFrom200": 6.77,
-      "sourceDate": "2026-09-09"
+      "ma50": 7603.89,
+      "pctFrom50": -0.14,
+      "ma200": 7157.29,
+      "pctFrom200": 6.09,
+      "sourceDate": "2026-09-10"
     },
     "nd": {
-      "value": 29421.55,
+      "value": 29150.66,
       "date": "2026-09-10",
-      "ma50": 29229.82,
-      "pctFrom50": 0.66,
-      "ma200": 27078.42,
-      "pctFrom200": 8.65,
-      "sourceDate": "2026-09-09"
+      "ma50": 29207.31,
+      "pctFrom50": -0.19,
+      "ma200": 27103.9,
+      "pctFrom200": 7.55,
+      "sourceDate": "2026-09-10"
     },
     "ks": {
       "value": 11.3,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4420.1,
+      "value": 4401.8,
       "date": "2026-09-10",
-      "ma50": 4261.11,
-      "pctFrom50": 3.73,
-      "ma200": 4525.64,
-      "pctFrom200": -2.33,
+      "ma50": 4260.74,
+      "pctFrom50": 3.31,
+      "ma200": 4525.54,
+      "pctFrom200": -2.73,
       "sourceDate": "2026-09-10"
     },
     "dx": {
@@ -118,28 +118,28 @@
     "icsa": {
       "value": 206000.0,
       "date": "2026-09-10",
-      "sourceDate": "2026-08-29"
+      "sourceDate": "2026-09-05"
     },
     "continuingClaims": {
-      "value": 1779000.0,
+      "value": 1774000.0,
       "date": "2026-09-10",
-      "sourceDate": "2026-08-22"
+      "sourceDate": "2026-08-29"
     },
     "hySpread": {
-      "value": 2.67,
+      "value": 2.71,
       "date": "2026-09-10",
-      "sourceDate": "2026-09-08"
+      "sourceDate": "2026-09-09"
     },
     "bbbSpread": {
       "value": 0.99,
       "date": "2026-09-10",
-      "sourceDate": "2026-09-08"
+      "sourceDate": "2026-09-09"
     }
   },
   "fearGreed": {
-    "score": 36.2571428571429,
+    "score": 35.6285714285714,
     "rating": "fear",
-    "timestamp": "2026-09-10T11:04:16+00:00",
+    "timestamp": "2026-09-10T16:24:21+00:00",
     "date": "2026-09-10",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,20 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-09-10T11:04:16+00:00"
+    "sourceDate": "2026-09-10T16:24:21+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
-    "season": "봄",
-    "score": 4,
+    "season": "여름",
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
-      "레버리지 과열"
+      "레버리지 과열",
+      "S&P500 50일선 이탈",
+      "나스닥100 50일선 이탈"
     ]
   },
   "eggModel": {
@@ -193,12 +195,12 @@
   "engine": {
     "credit": {
       "hy_level": 0.9,
-      "hy_trend": 0.65,
-      "hy_final": 0.825,
+      "hy_trend": 0.5,
+      "hy_final": 0.78,
       "bbb_level": 0.9,
       "bbb_trend": 0.5,
       "bbb_final": 0.78,
-      "raw_final": 0.8025,
+      "raw_final": 0.78,
       "stamp": "2026-09-10",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -215,10 +217,10 @@
       "icsa_trend": 0.5,
       "icsa_final": 0.71,
       "continuing_claims_level": 0.8,
-      "continuing_claims_trend": 0.5,
-      "continuing_claims_final": 0.71,
+      "continuing_claims_trend": 0.65,
+      "continuing_claims_final": 0.7549999999999999,
       "sahm_level": 0.8,
-      "raw_final": 0.74,
+      "raw_final": 0.7549999999999999,
       "stamp": "2026-09-10",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -270,7 +272,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.7110833333333333,
+    "raw_macro_score": 0.7088333333333332,
     "macro_score": 0.7110833333333333,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -282,7 +284,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": 0.0,
+    "stage_delta": -0.0022500000000000853,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -293,7 +295,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-09-10T11:21:53+00:00",
+      "updatedAt": "2026-09-10T16:25:44+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
