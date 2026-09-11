@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "updatedAt": "2026-09-11T16:29:52+00:00",
+  "updatedAt": "2026-09-11T20:59:13+00:00",
   "market": {
     "sp": {
-      "value": 7663.94,
+      "value": 7656.98,
       "date": "2026-09-11",
-      "ma50": 7607.48,
-      "pctFrom50": 0.74,
-      "ma200": 7162.59,
-      "pctFrom200": 7.0,
+      "ma50": 7607.34,
+      "pctFrom50": 0.65,
+      "ma200": 7162.55,
+      "pctFrom200": 6.9,
       "sourceDate": "2026-09-11"
     },
     "nd": {
-      "value": 29388.42,
+      "value": 29368.44,
       "date": "2026-09-11",
-      "ma50": 29197.95,
-      "pctFrom50": 0.65,
-      "ma200": 27129.41,
-      "pctFrom200": 8.33,
+      "ma50": 29197.55,
+      "pctFrom50": 0.59,
+      "ma200": 27129.31,
+      "pctFrom200": 8.25,
       "sourceDate": "2026-09-11"
     },
     "ks": {
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4400.6,
+      "value": 4389.8,
       "date": "2026-09-11",
-      "ma50": 4266.64,
-      "pctFrom50": 3.14,
-      "ma200": 4526.98,
-      "pctFrom200": -2.79,
+      "ma50": 4266.42,
+      "pctFrom50": 2.89,
+      "ma200": 4526.92,
+      "pctFrom200": -3.03,
       "sourceDate": "2026-09-11"
     },
     "dx": {
@@ -66,7 +66,7 @@
       "sourceDate": "2026-02-01"
     },
     "buffett": {
-      "value": 213.97,
+      "value": 255.65,
       "date": "2026-09-11",
       "sourceDate": "2026-04-01"
     },
@@ -76,9 +76,9 @@
       "sourceDate": "2026-07-01"
     },
     "marginDebt": {
-      "value": 622.2,
+      "value": 742.32,
       "date": "2026-09-11",
-      "sourceDate": "2026-01-01"
+      "sourceDate": "2026-04-01"
     },
     "michigan": {
       "value": 55.2,
@@ -86,14 +86,14 @@
       "sourceDate": "2026-07-01"
     },
     "dgs10": {
-      "value": 4.83,
+      "value": 4.95,
       "date": "2026-09-11",
-      "sourceDate": "2026-09-09"
+      "sourceDate": "2026-09-10"
     },
     "dgs2": {
-      "value": 4.43,
+      "value": 4.56,
       "date": "2026-09-11",
-      "sourceDate": "2026-09-09"
+      "sourceDate": "2026-09-10"
     },
     "t10y2y": {
       "value": 0.39,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 34.2285714285714,
+    "score": 33.3428571428571,
     "rating": "fear",
-    "timestamp": "2026-09-11T16:27:50+00:00",
+    "timestamp": "2026-09-11T20:38:38+00:00",
     "date": "2026-09-11",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-09-11T16:27:50+00:00"
+    "sourceDate": "2026-09-11T20:38:38+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -176,8 +176,8 @@
     ],
     "rates": {
       "fedfunds": 3.63,
-      "dgs10": 4.83,
-      "dgs2": 4.43,
+      "dgs10": 4.95,
+      "dgs2": 4.56,
       "t10y2y": 0.39,
       "t10y3m": 0.95
     }
@@ -293,7 +293,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-09-11T16:29:52+00:00",
+      "updatedAt": "2026-09-11T20:59:13+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
