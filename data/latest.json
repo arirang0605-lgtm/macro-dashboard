@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-09-14T12:51:06+00:00",
+  "updatedAt": "2026-09-14T21:50:43+00:00",
   "market": {
     "sp": {
-      "value": 7656.98,
+      "value": 7619.98,
       "date": "2026-09-14",
-      "ma50": 7607.34,
-      "pctFrom50": 0.65,
-      "ma200": 7162.55,
-      "pctFrom200": 6.9,
-      "sourceDate": "2026-09-11"
+      "ma50": 7610.07,
+      "pctFrom50": 0.13,
+      "ma200": 7167.13,
+      "pctFrom200": 6.32,
+      "sourceDate": "2026-09-14"
     },
     "nd": {
-      "value": 29368.44,
+      "value": 29127.16,
       "date": "2026-09-14",
-      "ma50": 29197.55,
-      "pctFrom50": 0.59,
-      "ma200": 27129.31,
-      "pctFrom200": 8.25,
-      "sourceDate": "2026-09-11"
+      "ma50": 29193.51,
+      "pctFrom50": -0.23,
+      "ma200": 27150.58,
+      "pctFrom200": 7.28,
+      "sourceDate": "2026-09-14"
     },
     "ks": {
       "value": 11.3,
@@ -26,22 +26,22 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4318.1,
+      "value": 4340.0,
       "date": "2026-09-14",
-      "ma50": 4270.06,
-      "pctFrom50": 1.13,
-      "ma200": 4527.94,
-      "pctFrom200": -4.63,
+      "ma50": 4271.35,
+      "pctFrom50": 1.61,
+      "ma200": 4528.26,
+      "pctFrom200": -4.16,
       "sourceDate": "2026-09-14"
     },
     "dx": {
-      "value": 118.07,
+      "value": 118.21,
       "date": "2026-09-14",
-      "ma50": 119.7,
-      "pctFrom50": -1.36,
-      "ma200": 119.48,
-      "pctFrom200": -1.18,
-      "sourceDate": "2026-09-04"
+      "ma50": 119.47,
+      "pctFrom50": -1.05,
+      "ma200": 119.41,
+      "pctFrom200": -1.0,
+      "sourceDate": "2026-09-11"
     },
     "vx": {
       "value": 15.84,
@@ -86,24 +86,24 @@
       "sourceDate": "2026-07-01"
     },
     "dgs10": {
-      "value": 4.95,
+      "value": 4.96,
       "date": "2026-09-14",
-      "sourceDate": "2026-09-10"
+      "sourceDate": "2026-09-11"
     },
     "dgs2": {
-      "value": 4.56,
+      "value": 4.63,
       "date": "2026-09-14",
-      "sourceDate": "2026-09-10"
+      "sourceDate": "2026-09-11"
     },
     "t10y2y": {
-      "value": 0.33,
+      "value": 0.32,
       "date": "2026-09-14",
-      "sourceDate": "2026-09-11"
+      "sourceDate": "2026-09-14"
     },
     "t10y3m": {
-      "value": 0.89,
+      "value": 0.86,
       "date": "2026-09-14",
-      "sourceDate": "2026-09-11"
+      "sourceDate": "2026-09-14"
     },
     "fedfunds": {
       "value": 3.63,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-08-29"
     },
     "hySpread": {
-      "value": 2.7,
+      "value": 2.65,
       "date": "2026-09-14",
-      "sourceDate": "2026-09-10"
+      "sourceDate": "2026-09-11"
     },
     "bbbSpread": {
-      "value": 0.98,
+      "value": 0.97,
       "date": "2026-09-14",
-      "sourceDate": "2026-09-10"
+      "sourceDate": "2026-09-11"
     }
   },
   "fearGreed": {
-    "score": 33.3428571428571,
+    "score": 31.0571428571429,
     "rating": "fear",
-    "timestamp": "2026-09-14T12:35:01+00:00",
+    "timestamp": "2026-09-14T21:30:40+00:00",
     "date": "2026-09-14",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,19 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-09-14T12:35:01+00:00"
+    "sourceDate": "2026-09-14T21:30:40+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
-    "season": "봄",
-    "score": 4,
+    "season": "여름",
+    "score": 5,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
-      "레버리지 과열"
+      "레버리지 과열",
+      "나스닥100 50일선 이탈"
     ]
   },
   "eggModel": {
@@ -176,10 +177,10 @@
     ],
     "rates": {
       "fedfunds": 3.63,
-      "dgs10": 4.95,
-      "dgs2": 4.56,
-      "t10y2y": 0.33,
-      "t10y3m": 0.89
+      "dgs10": 4.96,
+      "dgs2": 4.63,
+      "t10y2y": 0.32,
+      "t10y3m": 0.86
     }
   },
   "meta": {
@@ -187,19 +188,18 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-      "core.jolts: JSON 파싱 실패: "
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
   "engine": {
     "credit": {
       "hy_level": 0.9,
-      "hy_trend": 0.5,
-      "hy_final": 0.78,
+      "hy_trend": 0.65,
+      "hy_final": 0.825,
       "bbb_level": 0.9,
       "bbb_trend": 0.5,
       "bbb_final": 0.78,
-      "raw_final": 0.78,
+      "raw_final": 0.8025,
       "stamp": "2026-09-14",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -271,7 +271,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.7043333333333333,
+    "raw_macro_score": 0.7110833333333333,
     "macro_score": 0.7043333333333333,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -283,7 +283,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": 0.0,
+    "stage_delta": 0.006750000000000034,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -294,12 +294,11 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-09-14T12:51:06+00:00",
+      "updatedAt": "2026-09-14T21:50:43+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-        "core.jolts: JSON 파싱 실패: "
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
     },
