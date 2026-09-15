@@ -1,37 +1,37 @@
 {
   "ok": true,
-  "updatedAt": "2026-09-15T17:02:22+00:00",
+  "updatedAt": "2026-09-15T21:22:31+00:00",
   "market": {
     "sp": {
-      "value": 7588.46,
+      "value": 7585.73,
       "date": "2026-09-15",
-      "ma50": 7611.09,
-      "pctFrom50": -0.3,
-      "ma200": 7171.24,
-      "pctFrom200": 5.82,
+      "ma50": 7611.04,
+      "pctFrom50": -0.33,
+      "ma200": 7171.23,
+      "pctFrom200": 5.78,
       "sourceDate": "2026-09-15"
     },
     "nd": {
-      "value": 28974.41,
+      "value": 28937.84,
       "date": "2026-09-15",
-      "ma50": 29179.04,
-      "pctFrom50": -0.7,
-      "ma200": 27170.36,
-      "pctFrom200": 6.64,
+      "ma50": 29178.31,
+      "pctFrom50": -0.82,
+      "ma200": 27170.17,
+      "pctFrom200": 6.51,
       "sourceDate": "2026-09-15"
     },
     "ks": {
-      "value": 11.3,
+      "value": -4.91,
       "date": "2026-09-15",
-      "sourceDate": "2026-06-01"
+      "sourceDate": "2026-08-01"
     },
     "go": {
-      "value": 4337.4,
+      "value": 4333.4,
       "date": "2026-09-15",
-      "ma50": 4308.71,
-      "pctFrom50": 0.67,
-      "ma200": 4550.79,
-      "pctFrom200": -4.69,
+      "ma50": 4308.63,
+      "pctFrom50": 0.57,
+      "ma200": 4550.77,
+      "pctFrom200": -4.78,
       "sourceDate": "2026-09-15"
     },
     "dx": {
@@ -86,24 +86,24 @@
       "sourceDate": "2026-07-01"
     },
     "dgs10": {
-      "value": 4.96,
+      "value": 4.97,
       "date": "2026-09-15",
-      "sourceDate": "2026-09-11"
+      "sourceDate": "2026-09-14"
     },
     "dgs2": {
-      "value": 4.63,
+      "value": 4.65,
       "date": "2026-09-15",
-      "sourceDate": "2026-09-11"
+      "sourceDate": "2026-09-14"
     },
     "t10y2y": {
-      "value": 0.32,
+      "value": 0.33,
       "date": "2026-09-15",
-      "sourceDate": "2026-09-14"
+      "sourceDate": "2026-09-15"
     },
     "t10y3m": {
-      "value": 0.86,
+      "value": 0.89,
       "date": "2026-09-15",
-      "sourceDate": "2026-09-14"
+      "sourceDate": "2026-09-15"
     },
     "fedfunds": {
       "value": 3.63,
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 29.3714285714286,
+    "score": 28.6571428571429,
     "rating": "fear",
-    "timestamp": "2026-09-15T16:54:11+00:00",
+    "timestamp": "2026-09-15T21:02:58+00:00",
     "date": "2026-09-15",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-09-15T16:54:11+00:00"
+    "sourceDate": "2026-09-15T21:02:58+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -178,10 +178,10 @@
     ],
     "rates": {
       "fedfunds": 3.63,
-      "dgs10": 4.96,
-      "dgs2": 4.63,
-      "t10y2y": 0.32,
-      "t10y3m": 0.86
+      "dgs10": 4.97,
+      "dgs2": 4.65,
+      "t10y2y": 0.33,
+      "t10y3m": 0.89
     }
   },
   "meta": {
@@ -189,8 +189,7 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-      "core.fedfunds: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
     ]
   },
   "engine": {
@@ -296,12 +295,11 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-09-15T17:02:22+00:00",
+      "updatedAt": "2026-09-15T21:22:31+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
-        "core.fedfunds: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
       ],
       "stale_policy": "exclude_and_reweight"
     },
