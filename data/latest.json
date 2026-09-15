@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-09-15T11:46:05+00:00",
+  "updatedAt": "2026-09-15T17:02:22+00:00",
   "market": {
     "sp": {
-      "value": 7619.98,
+      "value": 7588.46,
       "date": "2026-09-15",
-      "ma50": 7610.07,
-      "pctFrom50": 0.13,
-      "ma200": 7167.13,
-      "pctFrom200": 6.32,
-      "sourceDate": "2026-09-14"
+      "ma50": 7611.09,
+      "pctFrom50": -0.3,
+      "ma200": 7171.24,
+      "pctFrom200": 5.82,
+      "sourceDate": "2026-09-15"
     },
     "nd": {
-      "value": 29127.16,
+      "value": 28974.41,
       "date": "2026-09-15",
-      "ma50": 29193.51,
-      "pctFrom50": -0.23,
-      "ma200": 27150.58,
-      "pctFrom200": 7.28,
-      "sourceDate": "2026-09-14"
+      "ma50": 29179.04,
+      "pctFrom50": -0.7,
+      "ma200": 27170.36,
+      "pctFrom200": 6.64,
+      "sourceDate": "2026-09-15"
     },
     "ks": {
       "value": 11.3,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-06-01"
     },
     "go": {
-      "value": 4324.9,
+      "value": 4337.4,
       "date": "2026-09-15",
-      "ma50": 4274.99,
-      "pctFrom50": 1.17,
-      "ma200": 4529.25,
-      "pctFrom200": -4.51,
+      "ma50": 4308.71,
+      "pctFrom50": 0.67,
+      "ma200": 4550.79,
+      "pctFrom200": -4.69,
       "sourceDate": "2026-09-15"
     },
     "dx": {
@@ -126,20 +126,20 @@
       "sourceDate": "2026-08-29"
     },
     "hySpread": {
-      "value": 2.65,
+      "value": 2.71,
       "date": "2026-09-15",
-      "sourceDate": "2026-09-11"
+      "sourceDate": "2026-09-14"
     },
     "bbbSpread": {
-      "value": 0.97,
+      "value": 0.98,
       "date": "2026-09-15",
-      "sourceDate": "2026-09-11"
+      "sourceDate": "2026-09-14"
     }
   },
   "fearGreed": {
-    "score": 30.3428571428571,
+    "score": 29.3714285714286,
     "rating": "fear",
-    "timestamp": "2026-09-15T11:27:01+00:00",
+    "timestamp": "2026-09-15T16:54:11+00:00",
     "date": "2026-09-15",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,18 +150,19 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-09-15T11:27:01+00:00"
+    "sourceDate": "2026-09-15T16:54:11+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
     "season": "여름",
-    "score": 5,
+    "score": 6,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
       "레버리지 과열",
+      "S&P500 50일선 이탈",
       "나스닥100 50일선 이탈"
     ]
   },
@@ -188,18 +189,19 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.fedfunds: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di"
     ]
   },
   "engine": {
     "credit": {
       "hy_level": 0.9,
-      "hy_trend": 0.65,
-      "hy_final": 0.825,
+      "hy_trend": 0.5,
+      "hy_final": 0.78,
       "bbb_level": 0.9,
       "bbb_trend": 0.5,
       "bbb_final": 0.78,
-      "raw_final": 0.8025,
+      "raw_final": 0.78,
       "stamp": "2026-09-15",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -271,7 +273,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.7110833333333333,
+    "raw_macro_score": 0.7043333333333333,
     "macro_score": 0.7110833333333333,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -283,7 +285,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": 0.0,
+    "stage_delta": -0.006750000000000034,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -294,11 +296,12 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-09-15T11:46:05+00:00",
+      "updatedAt": "2026-09-15T17:02:22+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.fedfunds: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di"
       ],
       "stale_policy": "exclude_and_reweight"
     },
