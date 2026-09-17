@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-09-17T11:43:53+00:00",
+  "updatedAt": "2026-09-17T17:02:23+00:00",
   "market": {
     "sp": {
-      "value": 7551.81,
+      "value": 7636.26,
       "date": "2026-09-17",
-      "ma50": 7612.0,
-      "pctFrom50": -0.79,
-      "ma200": 7174.92,
-      "pctFrom200": 5.25,
-      "sourceDate": "2026-09-16"
+      "ma50": 7615.07,
+      "pctFrom50": 0.28,
+      "ma200": 7178.86,
+      "pctFrom200": 6.37,
+      "sourceDate": "2026-09-17"
     },
     "nd": {
-      "value": 28945.06,
+      "value": 29439.32,
       "date": "2026-09-17",
-      "ma50": 29173.75,
-      "pctFrom50": -0.78,
-      "ma200": 27188.71,
-      "pctFrom200": 6.46,
-      "sourceDate": "2026-09-16"
+      "ma50": 29177.49,
+      "pctFrom50": 0.9,
+      "ma200": 27208.74,
+      "pctFrom200": 8.2,
+      "sourceDate": "2026-09-17"
     },
     "ks": {
       "value": -4.91,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-08-01"
     },
     "go": {
-      "value": 4365.6,
+      "value": 4396.4,
       "date": "2026-09-17",
-      "ma50": 4318.89,
-      "pctFrom50": 1.08,
-      "ma200": 4552.43,
-      "pctFrom200": -4.1,
+      "ma50": 4319.5,
+      "pctFrom50": 1.78,
+      "ma200": 4552.58,
+      "pctFrom200": -3.43,
       "sourceDate": "2026-09-17"
     },
     "dx": {
@@ -116,30 +116,30 @@
       "sourceDate": "2026-08-01"
     },
     "icsa": {
-      "value": 206000.0,
+      "value": 196000.0,
+      "date": "2026-09-17",
+      "sourceDate": "2026-09-12"
+    },
+    "continuingClaims": {
+      "value": 1730000.0,
       "date": "2026-09-17",
       "sourceDate": "2026-09-05"
     },
-    "continuingClaims": {
-      "value": 1774000.0,
-      "date": "2026-09-17",
-      "sourceDate": "2026-08-29"
-    },
     "hySpread": {
-      "value": 2.76,
+      "value": 2.7,
       "date": "2026-09-17",
-      "sourceDate": "2026-09-15"
+      "sourceDate": "2026-09-16"
     },
     "bbbSpread": {
-      "value": 0.98,
+      "value": 0.96,
       "date": "2026-09-17",
-      "sourceDate": "2026-09-15"
+      "sourceDate": "2026-09-16"
     }
   },
   "fearGreed": {
-    "score": 26.1142857142857,
+    "score": 29.6,
     "rating": "fear",
-    "timestamp": "2026-09-17T11:26:31+00:00",
+    "timestamp": "2026-09-17T16:59:25+00:00",
     "date": "2026-09-17",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,20 +150,18 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-09-17T11:26:31+00:00"
+    "sourceDate": "2026-09-17T16:59:25+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
-    "season": "여름",
-    "score": 6,
+    "season": "봄",
+    "score": 4,
     "scoreMax": 18,
     "signals": [
       "밸류에이션 부담",
       "밸류에이션 과열",
       "레버리지 확대",
-      "레버리지 과열",
-      "S&P500 50일선 이탈",
-      "나스닥100 50일선 이탈"
+      "레버리지 과열"
     ]
   },
   "eggModel": {
@@ -214,13 +212,13 @@
     },
     "employment": {
       "icsa_level": 0.8,
-      "icsa_trend": 0.5,
-      "icsa_final": 0.71,
+      "icsa_trend": 0.65,
+      "icsa_final": 0.7549999999999999,
       "continuing_claims_level": 0.8,
-      "continuing_claims_trend": 0.5,
-      "continuing_claims_final": 0.71,
+      "continuing_claims_trend": 0.8,
+      "continuing_claims_final": 0.7999999999999999,
       "sahm_level": 0.8,
-      "raw_final": 0.74,
+      "raw_final": 0.7849999999999999,
       "stamp": "2026-09-17",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -272,7 +270,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.7043333333333333,
+    "raw_macro_score": 0.7178333333333332,
     "macro_score": 0.7043333333333333,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -284,7 +282,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": 0.0,
+    "stage_delta": 0.013499999999999956,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -295,7 +293,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-09-17T11:43:53+00:00",
+      "updatedAt": "2026-09-17T17:02:23+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
