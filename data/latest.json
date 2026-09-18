@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-09-18T04:45:38+00:00",
+  "updatedAt": "2026-09-18T11:17:27+00:00",
   "market": {
     "sp": {
       "value": 7637.76,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-08-01"
     },
     "go": {
-      "value": 4398.1,
+      "value": 4421.3,
       "date": "2026-09-18",
-      "ma50": 4324.71,
-      "pctFrom50": 1.7,
-      "ma200": 4553.22,
-      "pctFrom200": -3.41,
+      "ma50": 4325.18,
+      "pctFrom50": 2.22,
+      "ma200": 4553.33,
+      "pctFrom200": -2.9,
       "sourceDate": "2026-09-18"
     },
     "dx": {
@@ -137,9 +137,9 @@
     }
   },
   "fearGreed": {
-    "score": 28.5428571428571,
+    "score": 28.7142857142857,
     "rating": "fear",
-    "timestamp": "2026-09-18T00:00:00+00:00",
+    "timestamp": "2026-09-18T11:01:16+00:00",
     "date": "2026-09-18",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-09-18T00:00:00+00:00"
+    "sourceDate": "2026-09-18T11:01:16+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -204,7 +204,7 @@
       "excluded_series": [],
       "effective_final": 0.78,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -224,9 +224,9 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "hold_waiting_confirmation",
-        "direction": "recover",
-        "required": 4,
+        "status": "same_stamp_hold",
+        "direction": "flat",
+        "required": 0,
         "pending_count": 1
       }
     },
@@ -249,7 +249,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.6633333333333332,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -264,7 +264,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -293,7 +293,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-09-18T04:45:38+00:00",
+      "updatedAt": "2026-09-18T11:17:27+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
