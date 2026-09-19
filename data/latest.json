@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-09-19T04:39:20+00:00",
+  "updatedAt": "2026-09-19T11:02:08+00:00",
   "market": {
     "sp": {
       "value": 7650.5,
@@ -187,7 +187,8 @@
     "fredMode": "official_api",
     "trustedPrev": true,
     "errors": [
-      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+      "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+      "core.hySpread: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di"
     ]
   },
   "engine": {
@@ -204,7 +205,7 @@
       "excluded_series": [],
       "effective_final": 0.78,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -224,7 +225,7 @@
       "excluded_series": [],
       "effective_final": 0.74,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -249,7 +250,7 @@
       "pmi_missing_or_stale": false,
       "effective_final": 0.6633333333333332,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -264,7 +265,7 @@
       "excluded_series": [],
       "effective_final": 0.55,
       "persistence": {
-        "status": "flat_update",
+        "status": "same_stamp_hold",
         "direction": "flat",
         "required": 0,
         "pending_count": 0
@@ -293,11 +294,12 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-09-19T04:39:20+00:00",
+      "updatedAt": "2026-09-19T11:02:08+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
-        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음"
+        "core.servicesPmi: SERVICES_PMI_MANUAL_VALUE 없음",
+        "core.hySpread: HTTP 502 응답 파싱 실패: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to di"
       ],
       "stale_policy": "exclude_and_reweight"
     },
