@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-09-29T12:55:18+00:00",
+  "updatedAt": "2026-09-29T22:16:55+00:00",
   "market": {
     "sp": {
-      "value": 7683.69,
+      "value": 7670.84,
       "date": "2026-09-29",
-      "ma50": 7640.61,
-      "pctFrom50": 0.56,
-      "ma200": 7209.42,
-      "pctFrom200": 6.58,
-      "sourceDate": "2026-09-28"
+      "ma50": 7645.16,
+      "pctFrom50": 0.34,
+      "ma200": 7213.34,
+      "pctFrom200": 6.34,
+      "sourceDate": "2026-09-29"
     },
     "nd": {
-      "value": 30276.81,
+      "value": 30339.33,
       "date": "2026-09-29",
-      "ma50": 29321.03,
-      "pctFrom50": 3.26,
-      "ma200": 27376.86,
-      "pctFrom200": 10.59,
-      "sourceDate": "2026-09-28"
+      "ma50": 29355.73,
+      "pctFrom50": 3.35,
+      "ma200": 27399.68,
+      "pctFrom200": 10.73,
+      "sourceDate": "2026-09-29"
     },
     "ks": {
       "value": -4.91,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-08-01"
     },
     "go": {
-      "value": 4187.9,
+      "value": 4214.5,
       "date": "2026-09-29",
-      "ma50": 4357.93,
-      "pctFrom50": -3.9,
-      "ma200": 4555.81,
-      "pctFrom200": -8.08,
+      "ma50": 4361.51,
+      "pctFrom50": -3.37,
+      "ma200": 4555.67,
+      "pctFrom200": -7.49,
       "sourceDate": "2026-09-29"
     },
     "dx": {
@@ -71,9 +71,9 @@
       "sourceDate": "2026-04-01"
     },
     "jolts": {
-      "value": 7.27,
+      "value": 7.08,
       "date": "2026-09-29",
-      "sourceDate": "2026-07-01"
+      "sourceDate": "2026-08-01"
     },
     "marginDebt": {
       "value": 742.32,
@@ -86,24 +86,24 @@
       "sourceDate": "2026-08-01"
     },
     "dgs10": {
-      "value": 5.17,
+      "value": 5.24,
       "date": "2026-09-29",
-      "sourceDate": "2026-09-25"
+      "sourceDate": "2026-09-28"
     },
     "dgs2": {
-      "value": 4.81,
+      "value": 4.92,
       "date": "2026-09-29",
-      "sourceDate": "2026-09-25"
+      "sourceDate": "2026-09-28"
     },
     "t10y2y": {
-      "value": 0.32,
+      "value": 0.37,
       "date": "2026-09-29",
-      "sourceDate": "2026-09-28"
+      "sourceDate": "2026-09-29"
     },
     "t10y3m": {
-      "value": 0.96,
+      "value": 1.01,
       "date": "2026-09-29",
-      "sourceDate": "2026-09-28"
+      "sourceDate": "2026-09-29"
     },
     "fedfunds": {
       "value": 3.63,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-09-12"
     },
     "hySpread": {
-      "value": 2.93,
+      "value": 3.02,
       "date": "2026-09-29",
-      "sourceDate": "2026-09-25"
+      "sourceDate": "2026-09-28"
     },
     "bbbSpread": {
-      "value": 0.99,
+      "value": 1.02,
       "date": "2026-09-29",
-      "sourceDate": "2026-09-25"
+      "sourceDate": "2026-09-28"
     }
   },
   "fearGreed": {
-    "score": 33.8285714285714,
+    "score": 31.6285714285714,
     "rating": "fear",
-    "timestamp": "2026-09-29T12:38:16+00:00",
+    "timestamp": "2026-09-29T21:58:50+00:00",
     "date": "2026-09-29",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-09-29T12:38:16+00:00"
+    "sourceDate": "2026-09-29T21:58:50+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -177,10 +177,10 @@
     ],
     "rates": {
       "fedfunds": 3.63,
-      "dgs10": 5.17,
-      "dgs2": 4.81,
-      "t10y2y": 0.32,
-      "t10y3m": 0.96
+      "dgs10": 5.24,
+      "dgs2": 4.92,
+      "t10y2y": 0.37,
+      "t10y3m": 1.01
     }
   },
   "meta": {
@@ -193,13 +193,13 @@
   },
   "engine": {
     "credit": {
-      "hy_level": 0.9,
+      "hy_level": 0.7,
       "hy_trend": 0.2,
-      "hy_final": 0.69,
+      "hy_final": 0.5499999999999999,
       "bbb_level": 0.9,
-      "bbb_trend": 0.5,
-      "bbb_final": 0.78,
-      "raw_final": 0.735,
+      "bbb_trend": 0.35,
+      "bbb_final": 0.735,
+      "raw_final": 0.6425,
       "stamp": "2026-09-29",
       "axis_freshness": "fresh",
       "excluded_series": [],
@@ -271,7 +271,7 @@
         "pending_count": 0
       }
     },
-    "raw_macro_score": 0.6908333333333333,
+    "raw_macro_score": 0.6630833333333332,
     "macro_score": 0.6908333333333333,
     "raw_base_season": "여름 (Expansion)",
     "score_base_season": "여름 (Expansion)",
@@ -283,7 +283,7 @@
       "employment_confirm": false
     },
     "stage": "L4",
-    "stage_delta": 0.0,
+    "stage_delta": -0.027750000000000052,
     "stage_bias": "flat",
     "bubble": {
       "valuation": 1.0,
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-09-29T12:55:18+00:00",
+      "updatedAt": "2026-09-29T22:16:55+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
