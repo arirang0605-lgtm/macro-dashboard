@@ -1,24 +1,24 @@
 {
   "ok": true,
-  "updatedAt": "2026-10-02T12:37:45+00:00",
+  "updatedAt": "2026-10-02T22:15:32+00:00",
   "market": {
     "sp": {
-      "value": 7666.45,
+      "value": 7722.72,
       "date": "2026-10-02",
-      "ma50": 7651.35,
-      "pctFrom50": 0.2,
-      "ma200": 7221.29,
-      "pctFrom200": 6.16,
-      "sourceDate": "2026-10-01"
+      "ma50": 7657.64,
+      "pctFrom50": 0.85,
+      "ma200": 7225.82,
+      "pctFrom200": 6.88,
+      "sourceDate": "2026-10-02"
     },
     "nd": {
-      "value": 30501.56,
+      "value": 30807.93,
       "date": "2026-10-02",
-      "ma50": 29410.86,
-      "pctFrom50": 3.71,
-      "ma200": 27449.81,
-      "pctFrom200": 11.12,
-      "sourceDate": "2026-10-01"
+      "ma50": 29457.93,
+      "pctFrom50": 4.58,
+      "ma200": 27478.51,
+      "pctFrom200": 12.12,
+      "sourceDate": "2026-10-02"
     },
     "ks": {
       "value": -4.91,
@@ -26,12 +26,12 @@
       "sourceDate": "2026-08-01"
     },
     "go": {
-      "value": 4211.1,
+      "value": 4172.1,
       "date": "2026-10-02",
-      "ma50": 4367.25,
-      "pctFrom50": -3.58,
-      "ma200": 4553.61,
-      "pctFrom200": -7.52,
+      "ma50": 4366.47,
+      "pctFrom50": -4.45,
+      "ma200": 4553.41,
+      "pctFrom200": -8.37,
       "sourceDate": "2026-10-02"
     },
     "dx": {
@@ -86,24 +86,24 @@
       "sourceDate": "2026-08-01"
     },
     "dgs10": {
-      "value": 5.29,
+      "value": 5.24,
       "date": "2026-10-02",
-      "sourceDate": "2026-09-30"
+      "sourceDate": "2026-10-01"
     },
     "dgs2": {
-      "value": 4.88,
+      "value": 4.78,
       "date": "2026-10-02",
-      "sourceDate": "2026-09-30"
+      "sourceDate": "2026-10-01"
     },
     "t10y2y": {
-      "value": 0.46,
+      "value": 0.45,
       "date": "2026-10-02",
-      "sourceDate": "2026-10-01"
+      "sourceDate": "2026-10-02"
     },
     "t10y3m": {
-      "value": 1.07,
+      "value": 1.09,
       "date": "2026-10-02",
-      "sourceDate": "2026-10-01"
+      "sourceDate": "2026-10-02"
     },
     "fedfunds": {
       "value": 3.75,
@@ -111,9 +111,9 @@
       "sourceDate": "2026-09-01"
     },
     "sahm": {
-      "value": -0.07,
+      "value": 0.0,
       "date": "2026-10-02",
-      "sourceDate": "2026-08-01"
+      "sourceDate": "2026-09-01"
     },
     "icsa": {
       "value": 197000.0,
@@ -126,20 +126,20 @@
       "sourceDate": "2026-09-19"
     },
     "hySpread": {
-      "value": 3.12,
+      "value": 3.24,
       "date": "2026-10-02",
-      "sourceDate": "2026-09-30"
+      "sourceDate": "2026-10-01"
     },
     "bbbSpread": {
-      "value": 1.03,
+      "value": 1.06,
       "date": "2026-10-02",
-      "sourceDate": "2026-09-30"
+      "sourceDate": "2026-10-01"
     }
   },
   "fearGreed": {
-    "score": 27.1714285714286,
+    "score": 31.1714285714286,
     "rating": "fear",
-    "timestamp": "2026-10-02T12:19:46+00:00",
+    "timestamp": "2026-10-02T21:55:29+00:00",
     "date": "2026-10-02",
     "previousWeek": null,
     "previousMonth": null,
@@ -150,7 +150,7 @@
     "marketVolatility": null,
     "junkBondDemand": null,
     "safeHavenDemand": null,
-    "sourceDate": "2026-10-02T12:19:46+00:00"
+    "sourceDate": "2026-10-02T21:55:29+00:00"
   },
   "minsky": {
     "phase": "과열 준비",
@@ -177,10 +177,10 @@
     ],
     "rates": {
       "fedfunds": 3.75,
-      "dgs10": 5.29,
-      "dgs2": 4.88,
-      "t10y2y": 0.46,
-      "t10y3m": 1.07
+      "dgs10": 5.24,
+      "dgs2": 4.78,
+      "t10y2y": 0.45,
+      "t10y3m": 1.09
     }
   },
   "meta": {
@@ -294,7 +294,7 @@
     },
     "data_freshness": {
       "overall": "mixed",
-      "updatedAt": "2026-10-02T12:37:45+00:00",
+      "updatedAt": "2026-10-02T22:15:32+00:00",
       "updated_age_days": 0,
       "trusted_prev": true,
       "fetch_errors": [
